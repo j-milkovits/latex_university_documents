@@ -17,6 +17,8 @@
 
 \setitemize{itemsep = 0.04cm} %% Globales Setzen des Parameters itemsep für itemize Tabellen (Package enumitem)
 
+\graphicspath{{./files/}}
+
 \begin{comment}
 
 Copy-Paste-Area:
@@ -160,7 +162,7 @@ Bild mit Text daneben:
 		\vspace{0.3cm}
 			\begin{minipage}{0.3\textwidth}
 				\begin{figure}[H]
-				\includegraphics[height=5cm]{Bilder/vertical_horizontal}
+				\includegraphics[height=5cm]{vertical_horizontal}
 				\end{figure}
 			\end{minipage}
 			\begin{minipage}[t]{0.6\textwidth}
@@ -208,7 +210,7 @@ Bild mit Text daneben:
 \item Geschäftsprozesse als eine Anwendungsform
 	\begin{itemize}
 	\item Prozessabstraktion:
-	\item[] \includegraphics[width=0.8\textwidth]{Bilder/prozessabstraktion}	
+	\item[] \includegraphics[width=0.8\textwidth]{prozessabstraktion}	
 	\item Prozesslandkarte: Strukturierung von Prozessen / einzelne Prozesse in Wechselwirkungen
 	\item Geschäfts-/Kernprozesse: Prozess mit hoher Wertschöpfung für den Kunden
 	\item Unterstützungsprozess: Prozess mit geringer Wertschöpfgung für den Kunden 
@@ -271,7 +273,7 @@ Bild mit Text daneben:
 		\item ARIS-Sichten (House of Business Engineering
 		\item[] \begin{minipage}{0.35\textwidth}
 				\begin{figure}[H]
-				\includegraphics[height=6cm]{Bilder/arishaus}
+				\includegraphics[height=6cm]{arishaus}
 				
 				\end{figure}
 			\end{minipage}
@@ -308,12 +310,12 @@ Bild mit Text daneben:
 	\begin{itemize}
 	\item[] 
 	\begin{figure}[H]
-	\includegraphics[width=18cm]{Bilder/notationwkd} 
+	\includegraphics[width=18cm]{notationwkd} 
 	\caption{Notation WKD}
 	\end{figure}
 	\item[] 
 	\begin{figure}[H]
-	\includegraphics[height=8cm]{Bilder/beispielwkd}
+	\includegraphics[height=8cm]{beispielwkd}
 	\caption{Beispiel WKD}
 	\end{figure}
 	\end{itemize}
@@ -323,7 +325,7 @@ Bild mit Text daneben:
 	\item[]
 			\begin{minipage}{0.15\textwidth}
 				\begin{figure}[H]
-				\includegraphics[height=5cm]{Bilder/epkcomp}
+				\includegraphics[height=5cm]{epkcomp}
 				\end{figure}
 			\end{minipage}
 			\begin{minipage}[t]{0.75\textwidth}
@@ -341,7 +343,7 @@ Bild mit Text daneben:
 	
 	\item Verknüpfungen
 		\begin{itemize}
-			\item[] \includegraphics[width=16cm]{Bilder/connec}
+			\item[] \includegraphics[width=16cm]{connec}
 		\end{itemize}
 		
 	\item Modellierungsregeln
@@ -355,7 +357,7 @@ Bild mit Text daneben:
 	 	\item Nach einem einzelnen auslösenden Ereignis kein logischer Verknüpfungsoperator, der eine Entscheidung erforderlich macht (kein OR, 	
 	 		  kein XOR)
 	 	\item Entscheidungen werden immer in Funktionen getroffen
-	 	\item[] \includegraphics[height=5cm]{Bilder/rulesaris}
+	 	\item[] \includegraphics[height=5cm]{rulesaris}
 	 	\end{itemize}
 	 	
 	 \item Modellierungsmuster
@@ -393,7 +395,7 @@ Bild mit Text daneben:
 		\item Unterscheidung nach Prozess- und Struktursichten
 		\item Prozesssicht (Beteiligte Modellierungsobjekte aus ablauforientierter Sicht)
 		\item Struktursicht (Struktur der Modellierungsobjekte)
-		\item[] \includegraphics[width=15cm]{Bilder/sichten}
+		\item[] \includegraphics[width=15cm]{sichten}
 		\end{itemize}
 	
 	\item Zusätzliche Komponenten einer eEPK
@@ -403,7 +405,7 @@ Bild mit Text daneben:
 		\item \textbf{Daten} (Input und Output von Funktionen, Dokumente als Datenträger)
 		\item \textbf{Leistungen} (Ergebnis von Prozessketten, z.T. identisch mit Dokumenten)
 		\item \textbf{Kantentypen} (Verschiedene Bedeutung)
-		\item[] \includegraphics[width=15cm]{Bilder/ariseepk}
+		\item[] \includegraphics[width=15cm]{ariseepk}
 		\end{itemize}
 
 
@@ -413,16 +415,16 @@ Bild mit Text daneben:
 \begin{itemize}
 	\item Beispiel:
 		\begin{itemize}
-		\item[] \includegraphics[width=15cm]{Bilder/eepk1}
-		\item[] \includegraphics[width=15cm]{Bilder/eepk2}
-		\item[] \includegraphics[width=15cm]{Bilder/eepk3}
-		\item[] \includegraphics[width=15cm]{Bilder/eepk4}
-		\item[] \includegraphics[width=15cm]{Bilder/eepk5}
+		\item[] \includegraphics[width=15cm]{eepk1}
+		\item[] \includegraphics[width=15cm]{eepk2}
+		\item[] \includegraphics[width=15cm]{eepk3}
+		\item[] \includegraphics[width=15cm]{eepk4}
+		\item[] \includegraphics[width=15cm]{eepk5}
 		
 		\item[] 
 			\begin{figure}[H]
 			\centering
-			\includegraphics[width=15cm]{Bilder/eepk6}
+			\includegraphics[width=15cm]{eepk6}
 			\caption{Ereignis, Funktion, Daten und Organisationseinheiten als wesentliche Elemente}
 			\end{figure}
 		\end{itemize}
@@ -434,14 +436,14 @@ Bild mit Text daneben:
 		\item Funktion: Träger von Zeiten und Kosten | fachliche Aufgabe
 		\item Darstellung des hierarchischen Aufbaus von Funktionen
 		\item Zerlegung von Funktionen in Unterfunktionen
-		\item[] \includegraphics[width=15cm]{Bilder/funktionen}
+		\item[] \includegraphics[width=15cm]{funktionen}
 		\end{itemize}
 		
 	\item \textbf{Organigramm} (ARIS-Haus Organisationssicht)
 		\begin{itemize}
 		\item Darstellung der Aufbauorganisation eines Unternehmens
 		\item Organisationseinheit: Träger der durchzuführenden Aufgaben (Teile der Gesamtaufgabe)
-		\item[] \includegraphics[width=15cm]{Bilder/organi}
+		\item[] \includegraphics[width=15cm]{organi}
 		\end{itemize}
 	
 	\pagebreak
@@ -450,9 +452,9 @@ Bild mit Text daneben:
 		\begin{itemize}
 		\item Beschreibt die unternehmensweit einheitlichen Begriff im Unternehmen
 		\item Dient Kommunikation im Unternehmen
-		\item[] \includegraphics[width=15cm]{Bilder/fachbegriffsmodell}
+		\item[] \includegraphics[width=15cm]{fachbegriffsmodell}
 		\item ERM-Modell (Entity-Relationship-Modell)
-		\item[] \includegraphics[width=15cm]{Bilder/erm}
+		\item[] \includegraphics[width=15cm]{erm}
 		\end{itemize}
 \end{itemize}
 
@@ -464,7 +466,7 @@ Bild mit Text daneben:
 	\item[] 
 	\begin{figure}[H]
 	\centering
-	\includegraphics[width=9cm]{Bilder/gom}
+	\includegraphics[width=9cm]{gom}
 	\end{figure}	
 	
 	
@@ -624,7 +626,7 @@ Bild mit Text daneben:
 		\item Offene Verschwendung (nicht notwendige Schritte) $\rightarrow$ abschaffen
 		\item 7+1 Quellen der Verschwendung
 		\vspace{0.3cm}
-		\item[]	\includegraphics[width=15cm]{Bilder/verschwendung}				
+		\item[]	\includegraphics[width=15cm]{verschwendung}				
 		\end{itemize}
 	
 	\item Fokus auf \textbf{Variabilität}
@@ -710,7 +712,7 @@ Bild mit Text daneben:
 	\item IT als Instrument der Prozessverbesserung
 	\end{itemize}
 	
-\item[] \includegraphics[width=15cm]{Bilder/itprozess}
+\item[] \includegraphics[width=15cm]{itprozess}
 
 \item Zentrale Größen im House of IT-Functions
 	\begin{itemize}
@@ -722,10 +724,10 @@ Bild mit Text daneben:
 
 \item Methodischer Ansatz "House of IT-Functions"
 	\begin{itemize}
-	\item[] \includegraphics[width=15cm]{Bilder/methodhouseofit}
+	\item[] \includegraphics[width=15cm]{methodhouseofit}
 	\end{itemize}
 	\item Das erste "House of IT-Functions"
-	\item[] \includegraphics[width=17cm]{Bilder/houseofit1}
+	\item[] \includegraphics[width=17cm]{houseofit1}
 		\begin{itemize}
 		\item 1. Erfassung und Auswahl der Kundenanforderungen 
 		\item[] (induktiv = direkt beim Kunden | deduktiv = Annahmen aufgrund von Erfahrungen)
@@ -743,7 +745,7 @@ Bild mit Text daneben:
 		\item[] Multiplikation Rangwert Schritt 3 mit Beziehungsstärke Schritt 7
 		\item[] Anschließend Addition der Werte je Teilprozess
 		\item 9. Berechnen der Managementpriorität
-		\item[] \includegraphics[width=10cm]{Bilder/optiprio}
+		\item[] \includegraphics[width=10cm]{optiprio}
 		
 		\end{itemize}
 	
@@ -765,7 +767,7 @@ Bild mit Text daneben:
 	\item Optimale Ausgestaltung des Weges
 	\item Die Feldtheorie Kurt Lewins
 		\begin{itemize} \vspace{0.3cm}
-		\item[] \includegraphics[width=15cm]{Bilder/kurtlewins1}
+		\item[] \includegraphics[width=15cm]{kurtlewins1}
 		\item Drei Phasen von Veränderungsprozessen
 			\begin{itemize}
 			\item 1. Auftauen (Motivation für Veränderung wecken)
@@ -788,7 +790,7 @@ Bild mit Text daneben:
 \subsection{Analyse und Optimierung von Geschäftsprozessen}
 \begin{itemize}
 \item Projektablauf:
-\item[] \includegraphics[width=15cm]{Bilder/projektablauf}
+\item[] \includegraphics[width=15cm]{projektablauf}
 
 
 \item Strategische Planung
@@ -812,7 +814,7 @@ Bild mit Text daneben:
 	\item Ideen aus Lean Management und BPR für Schwachstellenanalyse
 	\item Ablaufoptimierung (Reduzierung Durchlaufzeit, Verringerung Komplexität, Erhöhung Auslastung)
 	\item Hebel zur Prozessneugestaltung
-	\item[] \includegraphics[width=15cm]{Bilder/hebel}
+	\item[] \includegraphics[width=15cm]{hebel}
 	\end{itemize}
 
 \item Organisation anpassen
@@ -864,9 +866,9 @@ Bild mit Text daneben:
 \subsection{Zusätzliche Aufgaben und Verteilungsannahmen in GP}
 \begin{itemize}
 \item  Beispiel Prozesssimulation mit eEPKs
-\item[] \includegraphics[width=15cm]{Bilder/simeepk} 
+\item[] \includegraphics[width=15cm]{simeepk} 
 \item Überblick simulationsrelevanter Aufgaben
-\item[] \includegraphics[width=15cm]{Bilder/simaufgaben} 
+\item[] \includegraphics[width=15cm]{simaufgaben} 
 \item Prozesssimulation: (Ergänzung des eEPKs)
 	\begin{itemize}
 	\item Rollen:
@@ -908,7 +910,7 @@ Bild mit Text daneben:
 	\item Basis dafür ist ein Prozessmodell mit allen zugehörigen Subprozessen
 	\item Ergebnis: prozess- und pfadbezogene Ergebnisse (durchschnittliche Zeiten und Kosten)
 	\item Bewertung der Pfade anhang ihrer Auftrittswahrscheinlichkeiten
-	\item[] \includegraphics[width=15cm]{Bilder/pfadstat}
+	\item[] \includegraphics[width=15cm]{pfadstat}
 	\end{itemize}
 
 \item Belastungsanalyse
@@ -945,12 +947,12 @@ Bild mit Text daneben:
 \subsection{IT-Unterstützung}
 \begin{itemize}
 \item Einsatzmöglichkeiten von IT zur Unterstützung des GPM
-\item[] \includegraphics[width=15cm]{Bilder/itsup}
+\item[] \includegraphics[width=15cm]{itsup}
 \item Workflow-Management-Systeme (WFMS)
 	\begin{itemize}
 	\item Software-System zur Steuerung des Arbeitsflusses zwischen beteiligten Stellen
 	\item geeignet für stark strukturierte, automatisierbare und regelmäßig stattfindende Prozesse 
-	\item[] \includegraphics[width=15cm]{Bilder/wfms}
+	\item[] \includegraphics[width=15cm]{wfms}
 	\end{itemize}
 \end{itemize}
 

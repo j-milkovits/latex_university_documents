@@ -18,6 +18,8 @@
 \usepackage{makecell} 
 \usepackage{longtable}
 
+\graphicspath{{./files/}}
+
 \lstset {
 	literate={~} {$\sim$}{1},
     language=Verilog,
@@ -124,7 +126,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 
 \item[]
 	\begin{center}
-	\includegraphics[width=14cm]{Bilder/abschlussgrammatiken}
+	\includegraphics[width=14cm]{abschlussgrammatiken}
 	\end{center}
 	
 \item \textbf{Sprachen im Niveau der Chomsky-Hierarchie}
@@ -258,7 +260,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 		\item Da $v$ nur aus $a$ besteht, enthält das Wort weniger a als b, wenn $v^0 = \epsilon$ nutzt
 		\item[]
 			\begin{center}
-			\includegraphics[width=8cm]{Bilder/pump1}
+			\includegraphics[width=8cm]{pump1}
 			\end{center}
 		\end{itemize}	
 
@@ -355,14 +357,14 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item[]
 		\begin{minipage}{0.4\textwidth}
 				\begin{figure}[H]
-				\includegraphics[height=3cm]{Bilder/durchschnitt1}
-				\includegraphics[height=3cm]{Bilder/durchschnitt3}
+				\includegraphics[height=3cm]{durchschnitt1}
+				\includegraphics[height=3cm]{durchschnitt3}
 				\end{figure}
 			\end{minipage}
 			\begin{minipage}[t]{0.4\textwidth}
 				\vspace{-3cm}
 				\begin{figure}[H]
-				\includegraphics[height=4.5cm]{Bilder/durchschnitt2}
+				\includegraphics[height=4.5cm]{durchschnitt2}
 				\end{figure}
 			\end{minipage}
 	\item 1. Beide Startzustände zu 1p zusammenfassen
@@ -382,12 +384,12 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	
 	\item[]
 		\begin{center}
-		\includegraphics[width=12cm]{Bilder/konkat1}
+		\includegraphics[width=12cm]{konkat1}
 		\end{center}			
 	
 	\item[]
 		\begin{center}
-		\includegraphics[width=12cm]{Bilder/konkat2}
+		\includegraphics[width=12cm]{konkat2}
 		\end{center}	
 	
 	\item Konkatenation durch Aneinanderhängen zweier Automaten
@@ -415,13 +417,13 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item[]
 		\begin{minipage}{0.45\textwidth}
 				\begin{figure}[H]
-				\includegraphics[height=2.5cm]{Bilder/stern1}
+				\includegraphics[height=2.5cm]{stern1}
 				\end{figure}
 			\end{minipage}
 			\begin{minipage}[t]{0.45\textwidth}
 				\vspace{-1.75cm}
 				\begin{figure}[H]
-				\includegraphics[height=4.5cm]{Bilder/stern2}
+				\includegraphics[height=4.5cm]{stern2}
 				\end{figure}
 			\end{minipage}
 	
@@ -450,13 +452,13 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item[]
 		\begin{minipage}{0.55\textwidth}
 				\begin{figure}[H]
-				\includegraphics[height=4.5cm]{Bilder/potenz1}
+				\includegraphics[height=4.5cm]{potenz1}
 				\end{figure}
 			\end{minipage}
 			\begin{minipage}[t]{0.35\textwidth}
 				\vspace{-2.25cm}
 				\begin{figure}[H]
-				\includegraphics[height=5cm]{Bilder/potenz2}
+				\includegraphics[height=5cm]{potenz2}
 				\end{figure}
 			\end{minipage}
 	\item \textbf{Hier:} Links: NFA    Rechts: Tabelle zu DFA
@@ -478,7 +480,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 		\item 1. Aufstellen von $a^0_{l,m}$ mithilfe der Formel:
 		\item[]
 			\begin{center}
-			\includegraphics[height=1.5cm]{Bilder/kleene1}
+			\includegraphics[height=1.5cm]{kleene1}
 			\end{center}
 		\item 2. Anwendung der Rekursionsformel zur Erstellung von $a^k_{l,m}$
 		\item 3. Durchführung bis $a^{k-1}_{l,m}$
@@ -508,7 +510,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item[]
 	\item[]
 		\begin{center}
-		\includegraphics[height=4cm]{Bilder/minautomatbsp}
+		\includegraphics[height=4cm]{minautomatbsp}
 		\end{center}
 	\end{itemize}			
 
@@ -528,13 +530,13 @@ $\bullet$ falls Variable, dann ganz rechts} &
 			\item[]
 				\begin{minipage}{0.4\textwidth}
 					\begin{figure}[H]
-					\includegraphics[height=1.5cm]{Bilder/epsi1}
+					\includegraphics[height=1.5cm]{epsi1}
 					\end{figure}
 				\end{minipage}
 				\begin{minipage}[t]{0.4\textwidth}
 					\vspace{-1cm}
 					\begin{figure}[H]
-					\includegraphics[height=1.5cm]{Bilder/epsi2}
+					\includegraphics[height=1.5cm]{epsi2}
 					\end{figure}
 				\end{minipage}
 			\end{itemize}
@@ -569,26 +571,26 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item[]
 				\begin{minipage}{0.4\textwidth}
 					\begin{figure}[H]
-					\includegraphics[height=2cm]{Bilder/reggra1}
+					\includegraphics[height=2cm]{reggra1}
 					\end{figure}
 				\end{minipage}
 				\begin{minipage}[t]{0.4\textwidth}
 					\vspace{-1cm}
 					\begin{figure}[H]
-					\includegraphics[height=2cm]{Bilder/reggra2}
+					\includegraphics[height=2cm]{reggra2}
 					\end{figure}
 				\end{minipage}
 	
 	\item[]
 				\begin{minipage}{0.4\textwidth}
 					\begin{figure}[H]
-					\includegraphics[height=2.5cm]{Bilder/reggra3}
+					\includegraphics[height=2.5cm]{reggra3}
 					\end{figure}
 				\end{minipage}
 				\begin{minipage}[t]{0.4\textwidth}
 					\vspace{-1.25cm}
 					\begin{figure}[H]
-					\includegraphics[height=2cm]{Bilder/reggra4}
+					\includegraphics[height=2cm]{reggra4}
 					\end{figure}
 				\end{minipage}
 	\end{itemize}
@@ -608,7 +610,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item $a = (0+1)^*100(0+1)^*$
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto1}
+		\includegraphics[width=8cm]{auto1}
 		\end{center}	
 	\end{itemize}
 
@@ -617,7 +619,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item $a=(0+10^*1)^*$
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto2}
+		\includegraphics[width=8cm]{auto2}
 		\end{center}	
 	\end{itemize}
 	
@@ -627,7 +629,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\item $a = \alpha0\alpha0\beta + \alpha0\beta0\alpha + \beta0\alpha0\alpha + \beta0\beta0\beta$
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto3}
+		\includegraphics[width=8cm]{auto3}
 		\end{center}	
 	\end{itemize}
 	
@@ -635,7 +637,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\begin{itemize}
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto4}
+		\includegraphics[width=8cm]{auto4}
 		\end{center}	
 	\end{itemize}
 	
@@ -643,7 +645,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\begin{itemize}
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto5}
+		\includegraphics[width=8cm]{auto5}
 		\end{center}	
 	\end{itemize}
 
@@ -651,7 +653,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\begin{itemize}
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto6}
+		\includegraphics[width=8cm]{auto6}
 		\end{center}	
 	\end{itemize}
 	
@@ -659,7 +661,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 	\begin{itemize}
 	\item[]
 		\begin{center}
-		\includegraphics[width=8cm]{Bilder/auto7}
+		\includegraphics[width=8cm]{auto7}
 		\end{center}	
 	\end{itemize}
 
@@ -672,17 +674,17 @@ $\bullet$ falls Variable, dann ganz rechts} &
 
 \item $L((bc + a)^*aba(ac+b)^*)$
 \begin{center}
-\includegraphics[width=12cm]{Bilder/gram1}
+\includegraphics[width=12cm]{gram1}
 \end{center}
 
 \item $L=\{ucw \in \{a,b,c\}^* | u,w \in {a,b,c}^*, |u_b| = |w_b|\}$
 \begin{center}
-\includegraphics[width=12cm]{Bilder/gram2}
+\includegraphics[width=12cm]{gram2}
 \end{center}
 
 \item[]
 \begin{center}
-\includegraphics[scale=1]{Bilder/gram3}
+\includegraphics[scale=1]{gram3}
 \end{center}
 
 \end{itemize}
@@ -692,7 +694,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 {\Large \textbf{Satz von Kleene - Beispiel}}
 
 \begin{center}
-\includegraphics[scale=1]{Bilder/kleenebsp}
+\includegraphics[scale=1]{kleenebsp}
 \end{center}
 
 \pagebreak
@@ -700,7 +702,7 @@ $\bullet$ falls Variable, dann ganz rechts} &
 {\Large \textbf{Chomsky-Normalform - Beispiel}
 
 \begin{center}
-\includegraphics[scale=1]{Bilder/chomskybsp}
+\includegraphics[scale=1]{chomskybsp}
 \end{center}
 
 \pagebreak
@@ -708,18 +710,18 @@ $\bullet$ falls Variable, dann ganz rechts} &
 {\Large \textbf{Quizfragen}}
 
 \begin{center}
-\includegraphics[width=12cm]{Bilder/quiz1}
+\includegraphics[width=12cm]{quiz1}
 \end{center}
 
 \begin{center}
-\includegraphics[width=15cm]{Bilder/quiz2}
+\includegraphics[width=15cm]{quiz2}
 \end{center}
 
 
 {\Large \textbf{Erstellung Kellerautomat aus Grammatik}}
 
 \begin{center}
-\includegraphics[scale=1]{Bilder/keller1}
+\includegraphics[scale=1]{keller1}
 \end{center}
 
 
