@@ -1,7 +1,21 @@
 \input{../reference_sheet_preamble}
 
 
-\renewcommand{\arraystretch}{1.25} 
+\renewcommand{\arraystretch}{1.75} 
+
+\lstset {
+	literate={~} {$\sim$}{1},
+    language=Java,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    inputencoding=utf8,
+    extendedchars=true   
+}
 
 \begin{titlepage}
   \title{FOP Reference Sheet} % document_name-type_of_document
@@ -18,29 +32,178 @@
 \clearpage
 \pagenumbering{arabic} % 1,2,3 on content pages
 
+\begin{comment}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
+\end{comment}
+
+
 \section{Computerspeicher}
-\begin{itemize}
-\item Unsere Vorstellung: großes Feld aus Maschinenwörtern mit eindeutiger Adresse
 
-\item[] \begin{center}
-		\includegraphics[scale=0.8]{computerspeicher}
-		\end{center}
 
-\end{itemize}
+
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Unsere Vorstellung} & 
+	\makecell[l]{$\rhd$ großes Feld aus Maschinenwörtern mit eindeutiger Adresse} \\ \hline
+	
+	\makecell[l]{Erzeugung eines \\ neuen Objekts} & 
+	\makecell[l]{$\rhd$ Reservierung von ungenutztem Speicher in ausreichender Größe} \\ \hline
+	
+	\makecell[l]{Referenz} & 
+	\makecell[l]{$\rhd$ Name der Variable, die die Anfangsadresse des Objekts speichert \\ 
+	$\rhd$ Kann auch an komplett anderer Stelle als das Objekt gespeichert sein } \\ \hline
+	
+	\makecell[l]{Speicherort primitiver \\ Datentypen} & 
+	\makecell[l]{$\rhd$ Name verweist tatsächlich auf Speicherstelle, an der Wert abgespeichet wird } \\ \hline
+	
+	\makecell[l]{Prozessablauf} & 
+	\makecell[l]{$\rhd$ Program Counter enthält Adresse der nächsten Anweisung \\
+	\hspace{0.35cm} $\Rightarrow$ Zählt nach jeder Anwendung hoch und verweist auf nächsten Speicher \\
+	$\rhd$ CPU verarbeitet parallel die momentane Anweisung aus Program Counter} \\ \hline
+	\end{tabular}
+	
+	\begin{center}
+	\includegraphics[scale=0.8]{computerspeicher}
+	\end{center}
+
+\section{Datentypen}
+
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Konstanten} & \makecell[l]{$\rhd$ Variable/Referenz wird dadurch unveränderbar \\
+	$\rhd$ z.B.: \texttt{final myClass ABC = new myClass();} \\
+	\hspace{0.4cm} $\Rightarrow$ Referenz zwar nicht veränderbar, Objekt aber schon \\ 
+	$\rhd$ \texttt{Integer.MAX\_VALUE / Integer.MIN\_VALUE} \\
+	$\rhd$ Unendlich: \texttt{Double.POSITIVE\_INFINITY / Double.NEGATIVE\_INFINITY} } \\ \hline
+	
+	\makecell[l]{Primitive Dateitypen} & 
+	\makecell[l]{$\rhd$ Ganze Zahlen: byte $\rightarrow$ short $\rightarrow$ int $\rightarrow$ long \\
+	$\rhd$ Gebrochene Zahlen: float $\rightarrow$ double \\
+	$\rhd$ Logik: boolean \\
+	$\rhd$ Zeichen: char } \\ \hline
+	
+	\makecell[l]{Literale} & \makecell[l]{$\rhd$ wörtlich hingeschriebene Werte eines Datentyps  \\
+	$\rhd$ Zahlen standardmäßig int, falls \texttt{long} gewünscht: \texttt{123L oder 123l} \\ 
+	$\rhd$ Bei gebrochenen double, falls \texttt{float} gewünscht: \texttt{12.3F oder 12.3f}} \\ \hline
+	
+	\makecell[l]{Boolean} & \makecell[l]{$\rhd$ nur \texttt{true} und \texttt{false} \\
+	$\rhd$ Negation \texttt{!a} \\
+	$\rhd$ Logisches Und: \texttt{a \&\& b} \\
+	$\rhd$ Logisches Oder: \texttt{a || b} (inklusiv) \\
+	$\rhd$ Gleichheit: \texttt{a == b} } \\ \hline
+	
+	\makecell[l]{Zeichentyp char} & \makecell[l]{$\rhd$ z.B.: \texttt{char c = ´a´;} \\
+	$\rhd$ Interne Kodierung als Unicode \\
+	$\rhd$ ´$\textbackslash$t´ Horizontaler Tab \\
+	$\rhd$ ´$\textbackslash$b´ Backspace \\
+	$\rhd$ ´$\textbackslash$n´ Neue Zeile \\
+	$\rhd$ Auch Darstellung im Hexacode (´$\textbackslash$u039A´)} \\ \hline
+	\end{tabular}
+
+
 
 \section{Klassen und Methoden}
 
-\begin{tabular}{ | p{4cm} p{11.5cm} p{1.5cm} | }
-\hline
-&&\\ \hline
+
+\section{Konversionen}
+
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Implizit} & 
+	\makecell[l]{$\rhd$ Immer möglich, wenn kein Informationsverlust entstehen kann \\
+	$\rhd$ z.B.: kleinerer Datentyp in größeren } \\ \hline
+	
+	\makecell[l]{Explizit} & \makecell[l]{$\rhd$ Meist Informationsverlust \\
+	$\rhd$ Durchführung durch Angabe des Datentyps in Klammern davor \\
+	$\rhd$ z.B.: \texttt{int i = (int)testDouble;} } \\ \hline
+	\end{tabular}
 
 
 
+\section{Programme und Prozesse}
 
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Quelltest} & \makecell[l]{$\rhd$ z.B. selbst geschriebener Java-Code } \\ \hline
+	
+	\makecell[l]{Java-Bytecode} & \makecell[l]{$\rhd$ Wird durch Übersetzung des Java-Quelltextes erzeugt } \\ \hline
+	
+	\makecell[l]{Programm} & \makecell[l]{$\rhd$ Sequenz von Informationen} \\ \hline
+		
+	\makecell[l]{Aufruf eines Programms} & \makecell[l]{$\rhd$ Starten eines Prozesses, 
+	der die Anweisungen des	Programmes abarbeitet } \\ \hline
+	
+	\makecell[l]{Prozesse} & \makecell[l]{$\rhd$ CPU besteht aus mehreren Prozessorkernen \\
+	$\rhd$ Mehrere Prozesse laufen dementsprechend parallel \\
+	$\rhd$ Allerdings bearbeitet jeder Kern nur einen Prozess gleichzeitig (sehr kurz) \\
+	\hspace{0.4cm}$\Rightarrow$ Illusion von Multitasking } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
+	
+\section{Schleifen und if}
 
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{while-Schleife} & \makecell[l]{$\rhd$ \texttt{while (Bedingung) \{Anweisung;\}} \\ 
+	$\rhd$ Schleife wird ausgeführt, solange die Bedingung wahr ist \\ 
+	$\rhd$ \{\} kann bei einzelner Anweisung auch weggelassen werden } \\ \hline
+	
+	\makecell[l]{do-while-Schleife} & 
+	\makecell[l]{$\rhd$ \texttt{do \{Anweisung;\} while (Bedingung);} \\ 
+	$\rhd$ Anweisungsblock wird immer mindestens einmal ausgeführt } \\ \hline
+	
+	\makecell[l]{for-Schleife} & 
+	\makecell[l]{$\rhd$ \texttt{for (Anweisung davor; Bedingung; Anweisung danach) \{Anweisung\}} \\
+	$\rhd$ z.B.: \texttt{for (int i = 0; i < 10; i++) \{...\}} \\
+	\hspace{0.4cm}$\Rightarrow$ Zehnmalige Ausführung der Anweisung } \\ \hline
+	
+	\makecell[l]{if-Anweisung} & \makecell[l]{$\rhd$ \texttt{if (Bedingung) \{...\}} \\
+	\hspace{0.4cm} $\rhd$ Führt den Code in der Anweisung nur aus, falls die Bedingung erfüllt ist \\
+	$\rhd$ \texttt{if (Bedingung) \{\} else \{\}} \\
+	\hspace{0.4cm} $\rhd$ Code, der ausgeführt wird, falls Bedingung nicht erfüllt ist} \\ \hline
+	\end{tabular}
+	
+	
+\section{Syntax}
 
-\end{tabular}
-
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Keywords} & \makecell[l]{$\rhd$ Können nur an bestimmten Stellen im Code stehen \\
+	$\rhd$ z.B. \texttt{class, import, public, while,..}} \\ \hline
+	
+	\makecell[l]{Identifier} & \makecell[l]{$\rhd$ Namen für Klassen, Variablen, Methoden,.. \\
+	$\rhd$ Erstes Zeichen darf keine Ziffer sein \\
+	$\rhd$ Keine Keywords als Identifier
+	$\rhd$ Identifier sind case-sensitive } \\ \hline
+	
+	\makecell[l]{Konventionen} & \makecell[l]{
+	$\rhd$ Variablen / Methoden beginnen mit Kleinbuchstaben (\texttt{testInt}) \\
+	$\rhd$ Klassen beginnen mit Großbuchstaben (\texttt{testClass}) \\
+	$\rhd$ Wortanfänge im Inneren mit Großbuchstaben \\
+	$\rhd$ Konstanten bestehen aus $\_$ und Großbuchstaben (\texttt{CENTS$\_$PER$\_$EURO})} \\ \hline
+	
+	\makecell[l]{Kommentare} & \makecell[l]{$\rhd$ \texttt{//} Einzelne Zeile \\
+	$\rhd$ \texttt{/*...*/} Mehrere Zeilen \\
+	$\rhd$ \texttt{/**...*/} Erzeugung von Javadoc }  \\ \hline
+	\end{tabular}
 
 
 \end{document}
