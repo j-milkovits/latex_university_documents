@@ -7,6 +7,21 @@
   \date{}
 \end{titlepage}
 
+\lstset {
+	literate={~} {$\sim$}{1},
+    language=Java,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    inputencoding=utf8,
+    extendedchars=true   
+}
+
+
 \begin{document}
 
 \pagenumbering{gobble}
@@ -23,11 +38,257 @@
 
 \section{Dokumentation - 6.3.1}
 
+Die graphische Oberfläche wurde um folgende Elemente erweitert:
+\begin{itemize}
+	\item  \textbf{Tabelle}
+		\begin{itemize}
+		\item \textbf{Ziel der Spaltengestaltung:}
+			\begin{enumerate}
+			\item Möglichst übersichtliche Gestaltung der Spalten
+			\item kurze, aussagekräftige Namen
+			\item Informationen so übersichtlich wie möglich $\rightarrow$ wenige Spalten
+			\end{enumerate}
+		\item Die Tabelle wurde mit folgendem Code erstellt:
+		\begin{lstlisting}
+			private JTable scoreTable;
+			List<ScoreEntry> list = resources.getScoreEntries();
+			Object[] column = { "Date", "Name", "Score" };
+			Object[][] data = new Object[list.size()][3];
+			scoreTable = new JTable(data, column);	
+		\end{lstlisting} 
+		
+		\item Das zweidimensionale Array \texttt{data} wurde mit folgendem Code befüllt:
+		\begin{lstlisting}
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i) != null) {
+				data[i][0] = list.get(i).getDate();
+				data[i][1] = list.get(i).getName();
+				data[i][2] = list.get(i).getScore();
+			}
+		}
+		\end{lstlisting}
+		
+		\item \textbf{Problem:} Beim Standardmodell editierbare Zellen
+			\begin{itemize}
+				\item[$\Rightarrow$] \textbf{Lösung:} Eigenes Table-Modell
+				\item[]
+						Das Überschreiben der Methode \texttt{isCellEditable(int row, int column}) erlaubt es 
+						uns das Editieren der Zellen zu verhindern. Das Überschreiben der zweiten Methode
+						benötigen wir später für das Sortieren der Spalten.
+			\end{itemize}
+	
+		\begin{lstlisting}
+		DefaultTableModel tableModel = new DefaultTableModel(data, column) {
+
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				// all cells false
+				return false;
+			}
+
+			public Class<?> getColumnClass(int columnIndex) {
+				return getValueAt(0, columnIndex).getClass();
+			}			
+
+		};
+		
+		scoreTable.setModel(tableModel);
+		\end{lstlisting}
+		
+		\item \textbf{Ergebnis:}		
+
+		\item[]
+		
+		Wir haben eine Tabelle mit drei Spalten (Datum, Name, Punkte) erstellt.
+		Das Datumsformat ist absichtlich kürzer gehalten, da unserer Meinung nach der Tag des Spiels ausreichend 		ist.
+		\end{itemize}
+		
+	\pagebreak	
+	
+	\item \textbf{Scrollbar}
+		\begin{itemize}
+		\item Eine Scrollbar wird benötigt, falls zuviele Daten vorhanden sind
+		\item Die Scrollbar wurde mit folgendem Code erstellt:
+		\begin{lstlisting}
+		private JScrollPane scrollPane;
+		scrollPane = new JScrollPane(scoreTable);
+		add(scrollPane);
+		\end{lstlisting}
+		\item Dies verknüpft die Tabelle mit der Scrollbar
+		\end{itemize}
+	
+	\item \textbf{Sortierbarkeit der Spalten}
+		\begin{itemize}
+		\item[]
+			 Die Sortierbarkeit der Spalten	wurde uns hier zwar nicht vorgegeben, war für uns aber ein wichtiges
+			 Feature bei einer Highscore-Tabelle. Diese dient auch der einfacheren Verwendbarkeit für den
+			 Endnutzer. Alle Spalten sind nach ihren jeweiligen Werten sortierbar.
+		\item Dies wurde mit folgendem Code erreicht:
+		\begin{lstlisting}
+		TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(scoreTable.getModel());
+		scoreTable.setRowSorter(sorter);
+		\end{lstlisting}
+		\item[]
+			Die Vorarbeit, die hierfür benötigt wurde, ist weiter oben in der Erstellung von 
+			\texttt{DefaultTableModel} zu finden. Dies erlaubt es uns, auch das Datum sowie die Punktzahl zu
+			sortieren. Ohne diese Vorarbeit könnte man das Ganze nur korrekt nach Namen sortieren, da der
+			Autosorter den Wert des Strings vergleicht, was bei dem Datum und der Punktzahl zu falschen
+			Sortierungen führt.
+		
+		
+		\end{itemize}
+	
+	
+\end{itemize}
+
+
 \section{Dokumentation - 6.3.2}
 
 \section{Dokumentation - 6.3.3}
 
+\pagebreak
+
 \section{Dokumentation - 6.3.4}
+Der Computergegner besteht aus zwei Methoden:
+\begin{itemize}
+
+\item \textbf{\texttt{draw(GamePlay gp, Tile tile)}}
+	\begin{itemize}
+	
+	\item[]
+		Als ersten Schritt suchen wir uns alle möglichen Platziermöglichkeiten. \\
+		Dies geschieht indem wir die Liste der platzierten Tiles des Boards durchlaufen und bei jedem Tile 
+		alle Positionen (nördlich, südlich, westlich, östlich) überprüfen und diese, falls das zu 
+		platzierende Tile anlegbar ist, abspeichern. \\
+		Dieses Abspeichern geschieht in einer Liste einer selbst erstellten Klasse namens PointRotation, die 
+		Koordinaten und die Rotation der Position abspeichern. Danach lassen wir uns eine zufällige Zahl 
+		(zwischen 0 und der Länge Liste - 1) ausgeben und verwenden diese zufällige Position dann um an 
+		dieser Stelle dann das zu platzierende Tile zu platzieren.
+	
+	\item Suche der möglichen Platzierungsmöglichkeiten:
+	\begin{lstlisting}
+	List<Tile> tiles = gc.getGameBoard().getTiles();
+		List<PointRotation> possibleLocations = new ArrayList<PointRotation>();
+
+		for (Tile t : tiles) {
+			// check top
+			for (int r = 0; r < 4; r++) {
+				if (gc.getGameBoard().isTileAllowed(topTile, t.x, t.y - 1) && !	
+				gc.getGameBoard().isTileAtPosition(t.x, t.y - 1)) {
+					possibleLocations.add(new PointRotation(t.x, t.y - 1, topTile.getRotation()));
+				}
+				topTile.rotateRight();
+			}
+
+			// check right
+			for (int r = 0; r < 4; r++) {
+				if (gc.getGameBoard().isTileAllowed(topTile, t.x + 1, t.y) && !
+				
+				gc.getGameBoard().isTileAtPosition(t.x + 1, t.y)) {
+					possibleLocations.add(new PointRotation(t.x + 1, t.y, topTile.getRotation()));
+				}
+				topTile.rotateRight();
+			}
+
+			// check left
+			for (int r = 0; r < 4; r++) {
+				if (gc.getGameBoard().isTileAllowed(topTile, t.x - 1, t.y) && !
+				gc.getGameBoard().isTileAtPosition(t.x - 1, t.y)) {
+					possibleLocations.add(new PointRotation(t.x - 1, t.y, topTile.getRotation()));
+				}
+				topTile.rotateRight();
+			}
+
+			// check bottom
+			for (int r = 0; r < 4; r++) {
+				if (gc.getGameBoard().isTileAllowed(topTile, t.x, t.y + 1) && !
+				gc.getGameBoard().isTileAtPosition(t.x, t.y + 1)) {
+					possibleLocations.add(new PointRotation(t.x, t.y + 1, topTile.getRotation()));
+				}
+				topTile.rotateRight();
+			}
+		}
+	\end{lstlisting}
+	
+	\item Suche nach zufälliger Zahl:
+	\begin{lstlisting}
+		Random randomGen = new Random();
+		int randomNum = randomGen.nextInt(possibleLocations.size());
+		PointRotation randomLocation = possibleLocations.get(randomNum);
+	\end{lstlisting}	
+	
+	\pagebreak	
+	
+	\item Rotation der zu platzierenden Tile und Platzieren dieser:
+	\begin{lstlisting}
+		// Rotate tile to be placed
+		while (topTile.getRotation() != randomLocation.getRotation()) {
+			topTile.rotateRight();
+		}
+		
+		// Add rotated tile to GameBoard
+		gc.getGameBoard().newTile(topTile, randomLocation.getX(), randomLocation.getY());
+	\end{lstlisting}
+	
+	\end{itemize}
+\item \textbf{\texttt{placeMeeple(GamePlay gp)}}
+	\begin{itemize}
+	
+	\item[]
+			Das Platzieren des Meeples läuft folgendermaßen ab. Wir speichern mithilfe der Methode 
+			\texttt{getMeepleSpots()} alle möglichen MeepleSpots des zuletzt platzierten Tiles ab und nutzen 
+			diese um uns eine ArrayList des Types Position zu erstellen. In dieser werden alle Positionen
+			gespeichert, an denen ein Meeple platzierbar ist. Wir lassen uns dann wieder eine zufällige Zahl
+			ausgeben (basierend auf der Länge der ArrayListe) und platzieren den Meeple an dieser Stelle,
+			falls die Anzahl der Meeple größer als 0 ist. \\
+			Falls es keinen verfügbaren MeepleSpot gibt, wird die Methode \texttt{nextRound()} aufgerufen,
+			die die momentane Runde beendet.
+			
+	\item Überprüfung, ob MeepleSpot vorhanden ist:
+	\begin{lstlisting}
+		if (meepleSpots == null) {
+			gp.nextRound();
+			return;
+		}
+	\end{lstlisting}
+	
+	\item Abspeichern aller möglichen MeepleSpots:
+	\begin{lstlisting}
+		// boolean array of length 9, true where meeple can be placed on current tile
+		boolean[] meepleSpots = gc.getGameBoard().getMeepleSpots();
+		
+		// array with all positions
+		Position[] positions = Position.getAllPosition();
+		
+		// Puts all positions with a valid meeple spot into an ArrayList
+		ArrayList<Position> possibleMeepleSpots = new ArrayList<Position>();
+		
+		for (int i = 0; i < positions.length; i++) {
+			if (meepleSpots[i] == true) {
+				possibleMeepleSpots.add(positions[i]);
+			}
+		}
+	\end{lstlisting}
+	
+	\item Zufälliger MeepleSpot und Platzieren des Meeples:
+	\begin{lstlisting}
+		// Getting random meeple spot
+		Random randomGen = new Random();
+		int randomNum = randomGen.nextInt(possibleMeepleSpots.size());
+		
+		Position randomMeepleSpot = possibleMeepleSpots.get(randomNum);
+		
+		if(meeples > 0) {
+			gp.placeMeeple(randomMeepleSpot);
+		}
+		else {
+			gp.nextRound();
+		}
+	\end{lstlisting}
+	
+	\end{itemize}
+
+\end{itemize}
 
 
 
