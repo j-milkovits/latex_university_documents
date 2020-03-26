@@ -77,11 +77,49 @@
 	\makecell[l]{$\rhd$ Program Counter enthält Adresse der nächsten Anweisung \\
 	\hspace{0.35cm} $\Rightarrow$ Zählt nach jeder Anwendung hoch und verweist auf nächsten Speicher \\
 	$\rhd$ CPU verarbeitet parallel die momentane Anweisung aus Program Counter} \\ \hline
+	
+	\makecell[l]{Methodenausführung} & 
+	\makecell[l]{$\rhd$ Einrichtung einer Variable \texttt{StackPointer} bei Programmstart \\
+	$\rhd$ StackPointer enthält die Adresse des \texttt{Call-Stacks} \\
+	$\rhd$ Bei Methodenaufruf wird im Speicher Platz reserviert, genannt \texttt{Frame} \\
+	$\rhd$ \texttt{Frame}  wird dann auf dem Call-Stack abgelegt\\
+	$\rhd$ Der \texttt{StackPointer}  wird dann mit der Adresse des neuen\texttt{Frames}  überschrieben \\
+	$\rhd$ Methodenaufruf vorbei: Frame wird wieder vom \texttt{Call-Stack} genommen \\
+	$\rhd$ \texttt{StackPointer} wird auf Adresse des vorherigen \texttt{Frames}  gesetzt} \\ \hline
 	\end{tabular}
 	
 	\begin{center}
 	\includegraphics[scale=0.8]{computerspeicher}
 	\end{center}
+
+\section{Datenstrukturen}
+
+\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Array} & 
+	\makecell[l]{$\rhd$ Verwendet zum Speichern von mehreren Variablen des selben Typs \\
+	$\rhd$ Erzeugung: \texttt{int[] test = new int[n];} \\
+	$\rhd$ \texttt{n} gibt in diesem Fall die feste Anzahl der speicherbaren Variablen an \\
+	$\rhd$ Natürlich auch Arrays von Objekten möglich \\
+	$\rhd$ Zugriff auf Variablen: \texttt{test[0]} für ersten Wert (Index) \\
+	$\rhd$ Zugriff auf Länge: \texttt{test.length} } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
+
+
 
 \section{Datentypen}
 
@@ -101,7 +139,8 @@
 	
 	\makecell[l]{Literale} & \makecell[l]{$\rhd$ wörtlich hingeschriebene Werte eines Datentyps  \\
 	$\rhd$ Zahlen standardmäßig int, falls \texttt{long} gewünscht: \texttt{123L oder 123l} \\ 
-	$\rhd$ Bei gebrochenen double, falls \texttt{float} gewünscht: \texttt{12.3F oder 12.3f}} \\ \hline
+	$\rhd$ Bei gebrochenen double, falls \texttt{float} gewünscht: \texttt{12.3F oder 12.3f} \\
+	$\rhd$ null: Nutzung für Referenzen $\rightarrow$ verweist auf nichts} \\ \hline
 	
 	\makecell[l]{Boolean} & \makecell[l]{$\rhd$ nur \texttt{true} und \texttt{false} \\
 	$\rhd$ Negation \texttt{!a} \\
@@ -115,12 +154,38 @@
 	$\rhd$ ´$\textbackslash$b´ Backspace \\
 	$\rhd$ ´$\textbackslash$n´ Neue Zeile \\
 	$\rhd$ Auch Darstellung im Hexacode (´$\textbackslash$u039A´)} \\ \hline
+	
+	\makecell[l]{Enumeration} & \makecell[l]{$\rhd$ Zusammenfassung mehrerer Konstanten (feste Anzahl)\\
+	$\rhd$ Erzeugung meist in eigener .java Datei \\
+	$\rhd$ \texttt{enum MyDirection \{DOWN, RIGHT\} } \\
+	$\rhd$ Keine Objekterzeugung von Enumeration möglich \\
+	$\rhd$ Abspeichern in Variable des Enum-Types ist jedoch möglich \\
+	$\rhd$ \texttt{MyDirection dir = MyDirection.DOWN;} } \\ \hline
 	\end{tabular}
 
 
 
-\section{Klassen und Methoden}
+\section{Klassen}
 
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ meist in seperater .java Datei  \\
+	$\rhd$ \texttt{public class MyClass \{\}} } \\ \hline
+	
+	\makecell[l]{Attribute} & \makecell[l]{$\rhd$ Eigenschaften der Objekte/Klassen \\
+	$\rhd$ z.B.: \texttt{private int x;} (Objekteigenschaft) \\
+	$\rhd$ z.B.: \texttt{private static int x;} (Klasseneigenschaft)  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
 
 \section{Konversionen}
 
@@ -135,6 +200,32 @@
 	$\rhd$ z.B.: \texttt{int i = (int)testDouble;} } \\ \hline
 	\end{tabular}
 
+
+\section{Methoden}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Methodenkopf} & 
+	\makecell[l]{$\rhd$  Modifier Rückgabewert Methodenname (Parameter) \{Anweisung\} \\
+	$\rhd$ z.B.: \texttt{public void setX (int x) \{this.x = x;\}} (Objektmethode) \\
+	$\rhd$ z.B.: \texttt{public static void setY (int y) \{this.y = y;\}} (Klassenmethode) \\
+	$\rhd$ \texttt{this.x} steht hier für das Objektattribut und nicht den Parameter} \\ \hline
+	
+	\makecell[l]{Ausführung} & \makecell[l]{$\rhd$ Objektmethoden: \texttt{myObject.setX(2);} \\
+	$\rhd$ Klassenmethoden: \texttt{MyClass.setY(2);}} \\ \hline
+	
+	\makecell[l]{return} & 
+	\makecell[l]{$\rhd$ Wird für Rückgabe bei Methoden mit Rückgabewert benötigt } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
 
 
 \section{Programme und Prozesse}
@@ -173,7 +264,8 @@
 	\makecell[l]{for-Schleife} & 
 	\makecell[l]{$\rhd$ \texttt{for (Anweisung davor; Bedingung; Anweisung danach) \{Anweisung\}} \\
 	$\rhd$ z.B.: \texttt{for (int i = 0; i < 10; i++) \{...\}} \\
-	\hspace{0.4cm}$\Rightarrow$ Zehnmalige Ausführung der Anweisung } \\ \hline
+	\hspace{0.4cm}$\Rightarrow$ Zehnmalige Ausführung der Anweisung \\
+	$\rhd$ Kurzform: \texttt{for (Position p : positions) \{\}}} \\ \hline
 	
 	\makecell[l]{if-Anweisung} & \makecell[l]{$\rhd$ \texttt{if (Bedingung) \{...\}} \\
 	\hspace{0.4cm} $\rhd$ Führt den Code in der Anweisung nur aus, falls die Bedingung erfüllt ist \\

@@ -33,8 +33,181 @@
 
 
 \section{Dokumentation - 6.1.4(b)}
+Die 6.1.4(b) befasst sich mit der Berechnung der Spielpunkte während und am Ende des Spieles.
 
+\begin{itemize}
+
+\item \textbf{Grundgerüst}
+	\begin{itemize}
+	\item[]
+	Als Grundlage für die Punkteberechnung haben wir eine allgemeine Funktion geschrieben, die alle nötigen Randwerte für die Punkteberechnung generiert und diese anschließend je nach übergebenem Parameter entsprechend der Regeln für Burgen, 	Straßen oder Feldern weiterverarbeitet. Die Punkte werden dem berechtigten Spieler anschließend angerechnet.
+	
+	
+	Zuerst wird eine Liste \texttt {nodeList} mit allen Kanten des Graphen erstellt. Anschließend wird das erste Element von \texttt {nodeList} der Funktion \texttt {goToAllConnectedNodes()} übergeben, die eine Liste mit allen mit diesem 		
+	Knoten verbundenen Knoten des selben Typen erstellt. Sie erzeugt also einen Subgraphen, speziell den Subgraphen der den an \texttt {goToAllConnectedNodes()} übergeben Knoten enthält. Anschließend werden alle diese Elemente aus \texttt 	
+	{nodeList} entfernt. Jeder Subgraph wird dann einzeln behandelt. Dieser Prozess wiederholt sich solange, bis 
+	\texttt {nodeList} leer ist, der Spielfeldgraph also in alle Teilgraphen eines Types zerlegt wurde.
+
+	Der momentan behandelte Subgraph aus  \texttt{Node<FeatureType>} Elementen wird in der ArrayDeque \texttt{queue} gespeichert. Jetzt erden noch zwei weitere Listen befüllt.
+	Einmal die ArrayList$<$ FeatureNode$>$ 	\\
+	\texttt{connectedFeatureNodes()}, dass alle FeatureNodes des Subgraphen enthält und die ArrayList$<$Tile$>$  
+	\texttt{connectedTiles}, die jede Kachel enthält, 
+	die mindestens einen Knoten aus \texttt{queue} enthält. Beide werden aufgefüllt 	indem durch alle Kacheln und ihre \texttt{FeatureNodes} iteriert wird und die entsprechenden Elemente herausgefiltert werden.
+	
+	\item[]
+		\begin{lstlisting}
+		ArrayList<Tile> connectedTiles = new ArrayList<>();   
+		ArrayList<FeatureNode> connectedFeatureNodes = new ArrayList<>(); 
+				
+		for (int width = 0; width < board.length; width++) {
+			for (int height = 0; height < board[1].length; height++) {
+				for (Node<FeatureType> node : queue) {
+					if (isTileAtPosition(width, height)) {
+						if (board[width][height].getNodes().contains(node)) {
+							for (Position pos : Position.getAllPosition()) { 
+								if (board[width][height].getNodeAtPosition(pos) != null) {
+								if (board[width][height].getNodeAtPosition(pos).equals(node)) {
+									connectedFeatureNodes.add(board[width][height].getNodeAtPosition(pos));
+									}
+								}
+							}
+							if (!connectedTiles.contains(board[width][height])) {
+							connectedTiles.add(board[width][height]);
+							}
+						}
+					}
+				}
+			}
+		}
+	\end{lstlisting}
+	\end{itemize}
+	
+\clearpage	
+	
+\item \textbf{Gewinner feststellen}
+	\begin{itemize}
+	
+	\item[]
+		Nun wird ein IntArray \texttt{spieler[]} erstellt, in dem jede Position für eine \texttt{MeepleColor} steht.
+		Jetzt werden die Meeple aller Knoten des Subgraphen gezählt und entsprechend ihrer Farbe im Array gezählt. Wir haben uns für diesen Weg entschieden, um die Anzahl der Meeple kompakt speichern zu können. Danach werden alle Meeple 		
+		ihren Spielern wieder gutgeschrieben.
+	
+	\item[]
+		\begin{lstlisting}
+		for (FeatureNode meepleNode : connectedFeatureNodes) {
+			if (meepleNode.hasMeeple()) {
+				FeatureNodesWithMeeples.add(meepleNode);
+					for (int i = 0; i < 6; i++) {
+						if (MeepleColor.YELLOW == meepleNode.getPlayer().getColor()) {
+							spieler[0]++;
+						}
+						if (MeepleColor.BLACK == meepleNode.getPlayer().getColor()) {
+							spieler[1]++;
+						}
+						if (MeepleColor.BLUE == meepleNode.getPlayer().getColor()) {
+							spieler[2]++;
+						}
+						if (MeepleColor.GREEN == meepleNode.getPlayer().getColor()) {
+							spieler[3]++;
+						}				
+						if (MeepleColor.GREY == meepleNode.getPlayer().getColor()) {
+							spieler[4]++;
+						}				
+						if (MeepleColor.RED == meepleNode.getPlayer().getColor()) {
+							spieler[5]++;
+						}
+					}
+			}
+		}
+					
+		for (FeatureNode node : FeatureNodesWithMeeples) {
+			for (Player play : Players.getPlayers()) {
+				if(node.getPlayer() != null){
+					if (node.getPlayer().equals(play)) {
+						node.setPlayer(null);
+						play.returnMeeple();
+				  	}
+				}
+			}
+		}
+		
+		\end{lstlisting}
+		
+	\item[]
+		Nun wird der Spieler ermittelt, der die meisten Meeple auf dem Subgraphen hatte und somit Anspruch auf die Punkte hat.
+		
+	\item[]
+		\begin{lstlisting}
+		ArrayList<Integer> highestColor = new ArrayList<>();
+		highestColor.add(0);						
+		int compare = spieler[0];  //Vergleichswert fuer evtl gleiche Punktzahlen
+		for (int i = 0;i<6;i++) {
+			if(spieler[i]>compare) {
+				highestColor.set(0, i);
+				compare=spieler[i];
+			}
+		}
+		for(int i = 0;i<6 && i != highestColor.get(0);i++){
+			if(spieler[i] == compare){
+				highestColor.add(i);
+			}
+		}
+		\end{lstlisting}	
+		
+	
+	\item[]
+		Im Anschluss wird die Position in \texttt{spieler[]} wieder in eine \texttt{MeepleColor} zurückübersetzt.
+	
+	\end{itemize}	
+	
+\clearpage	
+	
+\item \textbf{Punkte addieren}
+	\begin{itemize}
+	\item[]
+		Da jetzt feststeht wer die Punkte erhalten soll, können diese nun berechnet werden.
+		Dies geschieht abhängig von dem übergeben FeatureType \texttt{type}. Je nach seinem Wert, aktiviert sich eine der If-Verzweigungen und setzt den zu addierenden \texttt{score}. Dessen Berechnung ist dank der bereits erstellten 
+		Eckdaten, 	wie Menge an Kacheln des Subgraphen und Zahl der Kanten vergleichsweise simpel. Eine Hilfsmethode \texttt{structureCompleted()} stellt fest, ob ein Subgraph abgeschlossen ist, indem sie überprüft, ob alle relevanten 
+		Knoten mit einer weiteren Kachel verbunden sind. Der vorhin erstellte \texttt{score} kann jetzt aufaddiert werden.
+	
+	\end{itemize}		
+	
+\clearpage
+	
+\end{itemize}
 \section{Dokumentation - 6.1.5}
+
+\begin{enumerate}
+
+\item \textbf{Der Graph ist ein azyklischer Graph}
+	\begin{itemize}
+	\item[]
+		\textbf{Die Behauptung ist falsch.} Durch das Aneinanderlegen zweier Klosterkarten
+		mit Straße (siehe Abschnitt 3, Abb. 9a) an ihren Straßen, wird ein zyklischer
+		Wiesengraph erzeugt
+	\end{itemize}
+	
+\item \textbf{Gegeben seien $k$ gespielte Legekarten $\{l_1,. . . ,l_k\}$. Die Anzahl $n$ der
+		Zusammenhangskomponenten im dazugehörigen Graphen ist durch die
+		Ungleichung $n \leq k * 9$ beschränkt}
+		\begin{itemize}
+		
+		\item[]
+			\textbf{Die Behauptung ist wahr.} Da jede Spielkarte maximal 8 neue Zusammenhangskomponenten erzeugen kann, muss die Summe aller Zusammenhangskomponenten kleiner gleich sein als $k*8$ und somit auch als $k*9$.
+		\end{itemize}
+		
+\item \textbf{Sei der Graph $G = (V,E)$ mit der Menge der Knoten $V$ und der Menge der Kanten $E$ gegeben. Die Komplexität einer Suche nach einem Element in einer Liste legen wir der Einfachheit halber mit $O(1)$ fest. Die
+			Laufzeit der Methode \texttt{calculatePoints(FeatureType type, State state)} ist durch $O(|E||V |)$ beschränkt}
+			\begin{itemize}
+			\item[]
+				\textbf{Die Behauptung ist falsch.} Obwohl die Zerlegung des Graphen in Subgraphen durch $|E| · |V |$ beschränkt ist, berücksichtigt dies nicht die zusätzliche
+				Laufzeit, die zum Addieren der Punkte und Auswerten der Meeple benötigt
+				wird. Die Laufzeit fur die gesamte Funktion kann somit höher liegen.
+			\end{itemize}
+
+\end{enumerate}
+
+\clearpage
 
 \section{Dokumentation - 6.3.1}
 
@@ -103,7 +276,7 @@ Die graphische Oberfläche wurde um folgende Elemente erweitert:
 		Das Datumsformat ist absichtlich kürzer gehalten, da unserer Meinung nach der Tag des Spiels ausreichend 		ist.
 		\end{itemize}
 		
-	\pagebreak	
+	\clearpage	
 	
 	\item \textbf{Scrollbar}
 		\begin{itemize}
@@ -141,12 +314,47 @@ Die graphische Oberfläche wurde um folgende Elemente erweitert:
 	
 \end{itemize}
 
+\clearpage
 
 \section{Dokumentation - 6.3.2}
 
+\begin{itemize}
+\item[]
+	Eine Wiese soll 3 Bonuspunkte einbringe für jede enthaltene oder angrenzende abgeschlossene Burg.
+	Dazu iterieren wir durch alle Kacheln des Subgraphen durch, um festzustellen welche von ihnen Burgabschnitte enthalten und ob dieser Burgabschnitt bereits besucht wurde. Dies wird mittel einer 'Blacklist' entschieden, der jeder besuchte 
+	Knoten einer Burg und die ihrer Zusammenhangskomponente hinzugefügt werden. So wird die Doppelz\"ahlung von Burgen vermieden. Was der Subgraph einer Burg ist, wird durch die Hilfsmethode \texttt{returnAllConnectedFeatureNodes()} 
+	entschieden. Diese Methode ruft wiederum eine eigene Hilfsmethode auf, die sich analog zu \texttt{goToAllConnectedNodes()} verhält und konvertiert das Ergebnis anschließend in FeatureNodes analog zu dem Code in \textbf{1.}. Weiterhin 
+	gibt es die Funktion \texttt{allowedTile()}, die Randfälle für besondere Kacheln abdeckt.
+
+	Für jede neu besuchte Burg wird \texttt{score} um 3 erhöht.
+\end{itemize}
+
+\clearpage
+
 \section{Dokumentation - 6.3.3}
 
-\pagebreak
+\begin{itemize}
+
+\item \textbf{Mission 1:}
+	\begin{itemize}
+	\item[]
+		Endet eine Runde in der ein Spieler 3 Burgen mehr, oder mehr, als einer seiner Kontrahenten besetzt, gilt die Bedingung von Mission 1 als erfüllt und das Spiel wird sofort beendet mit diesem Spieler als Gewinner. In diesem Fall soll 	
+		ein zweites Fenster ge\"offnet werden, dass Die Namen, Anzahl an besetzten Burgen und Punkte aller Mitspieler enthält.
+
+		Dafür haben wir der Playerklasse einen Parameter \texttt{public int castles} hinzugefügt, der die Anzahl an besetzten Burgen eines Spielers enthält. Er wird jedes mal incrementiert, wenn ein Spieler eine neue Burg besetzt. Außerdem 
+		haben wir die GamePlay Klasse um die Flag \texttt{private boolean castleWin} erweitert, die mit \texttt{false} initialisiert wird.
+		Außerdem haben wir die Methode \texttt{winByCastle()} in der Gameboard Klasse geschrieben. Diese stellt fest, ob Mission 1 abgeschlossen wurde.
+		
+		Diese wird nun in der GamePlay Klasse in der Methode \texttt{nextRound()} in einem If-Zweig aufgerufen. Falls sie \texttt{true} zurückgibt, wird die \texttt{castleWin}-Flag gesetzt und der Spielzustand wir in\texttt{State.Game\_Over} 
+		geändert.
+
+		Unter diesen Bedingungen wird in der \texttt{game\_Over\_Mode()}-Methode eine alternative Schlussnachicht aufgerufen, die in der Klasse \texttt{MessagesConstants} unter \texttt {showCastleWinner()}beschrieben ist und ein Fenster mit 
+		allen in 6.3.3.1 geforderten Informationen \"offnet.
+	\end{itemize}
+
+\end{itemize}
+
+\clearpage
 
 \section{Dokumentation - 6.3.4}
 Der Computergegner besteht aus zwei Methoden:
@@ -217,7 +425,7 @@ Der Computergegner besteht aus zwei Methoden:
 		PointRotation randomLocation = possibleLocations.get(randomNum);
 	\end{lstlisting}	
 	
-	\pagebreak	
+	\clearpage	
 	
 	\item Rotation der zu platzierenden Tile und Platzieren dieser:
 	\begin{lstlisting}
