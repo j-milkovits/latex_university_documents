@@ -86,6 +86,10 @@
 	$\rhd$ Der \texttt{StackPointer}  wird dann mit der Adresse des neuen\texttt{Frames}  überschrieben \\
 	$\rhd$ Methodenaufruf vorbei: Frame wird wieder vom \texttt{Call-Stack} genommen \\
 	$\rhd$ \texttt{StackPointer} wird auf Adresse des vorherigen \texttt{Frames}  gesetzt} \\ \hline
+	
+	\makecell[l]{Methodentabelle} & \makecell[l]{$\rhd$ Enthält bei Objekt die Anfangsadressen der 
+	verfügbaren Methoden } \\ \hline
+	
 	\end{tabular}
 	
 	\begin{center}
@@ -103,20 +107,6 @@
 	$\rhd$ Natürlich auch Arrays von Objekten möglich \\
 	$\rhd$ Zugriff auf Variablen: \texttt{test[0]} für ersten Wert (Index) \\
 	$\rhd$ Zugriff auf Länge: \texttt{test.length} } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	\end{tabular}
 
 
@@ -163,6 +153,30 @@
 	$\rhd$ \texttt{MyDirection dir = MyDirection.DOWN;} } \\ \hline
 	\end{tabular}
 
+\section{Interfaces}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ Meist in eigener Datei \\
+	$\rhd$ \texttt{public interface MyInterface \{...\}} \\
+	$\rhd$ Alle Methodes und das Interface \textbf{müssen} \texttt{public} sein \\ } \\ \hline
+	
+	\makecell[l]{Methoden} & 
+	\makecell[l]{$\rhd$ Werden hier nicht implementiert, sondern nur definiert \\
+	$\rhd$ \texttt{public} kann weggelassen werden, da ohnehin notwending } \\ \hline
+	
+	\makecell[l]{Verwendung} & \makecell[l]{$\rhd$ \texttt{implements MyInterface} nach Klassenname } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
+
 
 
 \section{Klassen}
@@ -176,15 +190,13 @@
 	$\rhd$ z.B.: \texttt{private int x;} (Objekteigenschaft) \\
 	$\rhd$ z.B.: \texttt{private static int x;} (Klasseneigenschaft)  } \\ \hline
 	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\makecell[l]{Konstruktor} & 
+	\makecell[l]{$\rhd$ Wird zur Erzeugung von neuen Objekten einer Klasse verwendet \\
+	$\rhd$ Methode mit selben Namen wie Klasse und ohne Rückgabetyp \\
+	$\rhd$ z.B.: \texttt{public MyClass (int x, int y) \{this.x = x; this.y = y;\}} \\
+	$\rhd$ Erzeugung eines neuen Objekts: \texttt{MyClass test = new MyClass(2,4);} \\
+	$\rhd$ Falls kein Konstruktur angegeben wird $\rightarrow$ Standardkonstruktor } \\ \hline
+
 	\end{tabular}
 
 \section{Konversionen}
@@ -215,16 +227,22 @@
 	
 	\makecell[l]{return} & 
 	\makecell[l]{$\rhd$ Wird für Rückgabe bei Methoden mit Rückgabewert benötigt } \\ \hline
+	\end{tabular}
+
+\section{Packages und Zugriffsrechte}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Packages} & \makecell[l]{$\rhd$ Zusammenfassung von mehreren Dateien \\
+	$\rhd$ \texttt{import package.*;} \\
+	$\rhd$ \texttt{*} steht für alle Definitionen aus \texttt{package} \\
+	$\rhd$ Import-Anweisungen müssen immer am Anfang des Quelltextes stehen } \\ \hline
 	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\makecell[l]{Zugriffsrechte} & \makecell[l]{$\rhd$ Klassen/Enum: nur \texttt{public} oder nichts \\
+	\hspace{0.4cm} $\Rightarrow$ Nur eine Klasse darf \texttt{public} sein (Damit auch Dateiname) \\
+	$\rhd$ \texttt{private:} Zugriff innerhalb der Klasse \\
+	$\rhd$ \texttt{Keine Angabe:} \texttt{private} + im Package \\
+	$\rhd$ \texttt{protected:} \texttt{Keine Angabe} + in allen Subklassen \\
+	$\rhd$ \texttt{public:} \texttt{protected} + an jeder Import-Stelle } \\ \hline
 	\end{tabular}
 
 
@@ -295,6 +313,38 @@
 	\makecell[l]{Kommentare} & \makecell[l]{$\rhd$ \texttt{//} Einzelne Zeile \\
 	$\rhd$ \texttt{/*...*/} Mehrere Zeilen \\
 	$\rhd$ \texttt{/**...*/} Erzeugung von Javadoc }  \\ \hline
+	\end{tabular}
+	
+\section{Vererbung}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Zweck} & \makecell[l]{$\rhd$ Weitergabe von allen Methoden und Attributen } \\ \hline
+	
+	\makecell[l]{Verwendung} & 
+	\makecell[l]{$\rhd$ \texttt{public class MySubClass extends MyClass \{\}} } \\ \hline
+	
+	\makecell[l]{Konstruktor} & 
+	\makecell[l]{$\rhd$ Aufruf des Konstruktors der Superklasse mithilfe von \texttt{super(Parameter);} \\
+	$\rhd$ Dieser Aufruf erfolgt im Konstruktor der Subklasse \\
+	$\rhd$ z.B.: \texttt{public MySubClass (int x) \{ super(x);<v\}}} \\ \hline
+	
+	\makecell[l]{Overwrite} & \makecell[l]{$\rhd$ Methoden in Subklassen können auch neu geschrieben werden \\
+	\hspace{0.4cm} $\Rightarrow$ Die Implementation der Superklasse wird sozusagen überschrieben \\
+	$\rhd$ Selber Name und Parameterliste notwendig } \\ \hline
+	
+	\makecell[l]{Overload} & 
+	\makecell[l]{$\rhd$ Methoden mit selbem Bezeichner, aber unterschiedlicher Parameterliste \\
+	$\rhd$ Die Methode wird überladen \\ 
+	$\rhd$ Konstruktoren kann man auch überladen \\
+	\hspace{0.4cm} $\Rightarrow$ Für manche Werte werden dann Standardwerte gesetzt \\
+	\hspace{0.4cm} $\Rightarrow$ Anderer Konstruktor auch in Konstruktor aufrufbar 
+	(\texttt{this(1);}) } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	\end{tabular}
 
 

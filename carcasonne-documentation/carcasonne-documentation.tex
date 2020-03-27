@@ -166,9 +166,16 @@ Die 6.1.4(b) befasst sich mit der Berechnung der Spielpunkte während und am End
 	\begin{itemize}
 	\item[]
 		Da jetzt feststeht wer die Punkte erhalten soll, können diese nun berechnet werden.
-		Dies geschieht abhängig von dem übergeben FeatureType \texttt{type}. Je nach seinem Wert, aktiviert sich eine der If-Verzweigungen und setzt den zu addierenden \texttt{score}. Dessen Berechnung ist dank der bereits erstellten 
-		Eckdaten, 	wie Menge an Kacheln des Subgraphen und Zahl der Kanten vergleichsweise simpel. Eine Hilfsmethode \texttt{structureCompleted()} stellt fest, ob ein Subgraph abgeschlossen ist, indem sie überprüft, ob alle relevanten 
-		Knoten mit einer weiteren Kachel verbunden sind. Der vorhin erstellte \texttt{score} kann jetzt aufaddiert werden.
+		Dies geschieht abhängig von dem übergeben FeatureType \texttt{type}. Je nach seinem Wert, aktiviert sich 
+		eine der If-Verzweigungen und setzt den zu addierenden \texttt{score}. Dessen Berechnung ist dank der 
+		bereits 
+		erstellten 
+		Eckdaten, 	wie Menge an Kacheln des Subgraphen und Zahl der Kanten vergleichsweise simpel. Eine 
+		Hilfsmethode \texttt{structureCompleted()} stellt fest, ob ein Subgraph abgeschlossen ist, indem sie 
+		überprüft, 
+		ob alle relevanten 
+		Knoten mit einer weiteren Kachel verbunden sind. Der vorhin erstellte \texttt{score} kann jetzt 
+		aufaddiert werden.
 	
 	\end{itemize}		
 	
@@ -193,7 +200,20 @@ Die 6.1.4(b) befasst sich mit der Berechnung der Spielpunkte während und am End
 		\begin{itemize}
 		
 		\item[]
-			\textbf{Die Behauptung ist wahr.} Da jede Spielkarte maximal 8 neue Zusammenhangskomponenten erzeugen kann, muss die Summe aller Zusammenhangskomponenten kleiner gleich sein als $k*8$ und somit auch als $k*9$.
+			\textbf{Die Behauptung ist wahr.} Betrachten wir ein theoretisches Szenario, indem wir 
+			auch Karten betrachten, die so nicht im Spiel implementiert sind. Diese theoretischen Karten können 
+			beliebig viele verbundene oder nicht verbundene Nodes besitzen. Dies bedeutet, dass die maximale
+			Anzahl an Zusammenhangskomponenten der Anzahl der maximal möglichen unverbundenen Nodes entspricht.
+			Mit der Annahme, dass eine Karte nur maximal 9 Nodes besitzen kann, ist die maximale Anzahl an
+			Zusammenhangskomponenten einer Karte gleich 9. Die maximal mögliche Anzahl an 
+			Zusammenhangskomponenten, die durch das Anlegen einer neuen Karte hinzukommen, ist somit auch 9. 
+			Nämlich genau dann, wenn eine Karte angelegt wird und beim Anlegen keine der Nodes verbunden
+			werden. Somit ist bewiesen, dass $n > k*9$ nicht erfüllt sein kann. Gehen wir desweiteren davon
+			aus, dass es möglich ist, dass beim Anlegen Nodes verbunden werden. Durch das Verbinden beim 
+			Anlegen wird nicht mehr die volle Anzahl der Zusammenhangskomponenten der angelegten Karte zum
+			Graphen hinzugefügt. Desweiteren kann die Anzahl der Zusammenhangskomponenten einer Karte kleiner
+			gleich 9 sein. Somit ist die Anzahl der Zusammenhangskomponenten bei $k$ gelegten Karten durch
+			$n \leq k*9$ festgelegt.   
 		\end{itemize}
 		
 \item \textbf{Sei der Graph $G = (V,E)$ mit der Menge der Knoten $V$ und der Menge der Kanten $E$ gegeben. Die Komplexität einer Suche nach einem Element in einer Liste legen wir der Einfachheit halber mit $O(1)$ fest. Die
@@ -350,6 +370,31 @@ Die graphische Oberfläche wurde um folgende Elemente erweitert:
 
 		Unter diesen Bedingungen wird in der \texttt{game\_Over\_Mode()}-Methode eine alternative Schlussnachicht aufgerufen, die in der Klasse \texttt{MessagesConstants} unter \texttt {showCastleWinner()}beschrieben ist und ein Fenster mit 
 		allen in 6.3.3.1 geforderten Informationen \"offnet.
+	\end{itemize}
+
+
+\item \textbf{Mission 2:}
+	\begin{itemize}
+	\item[]
+		Die zweite Mission lautet "besitze 3 Kloster und stelle diese fertig". Zu diesem Zweck wurde der 	
+		\texttt{Player.java}  ein neues Attribut \texttt{public int finishedMonasteries} hinzugefügt, 
+		welches in 	\\
+		\texttt{calculateMonasteries} jedes mal wenn ein Kloster fertiggestellt wird,
+		für den jeweiligen Spieler inkerementiert wird. 
+		Nun wird in \texttt{Gameboard.java} in der Methode \texttt{winByMonasteries}
+		, die in der Methode \texttt{nextRound} aufgerufen 
+		wird, geprüft, ob ein Spieler aus
+		\texttt{getPlayers()} 3 oder mehr fertiggestellte Kloster besitzt.
+		(3 oder mehr da es theoretisch möglich ist 2 	
+		Kloster in einer Runde fertigzustellen) 
+		Sollte dies der Fall sein gibt die Methode true zurück und die vorher definierte Flagge 
+		\texttt{private boolean winByMonasteries} wird auf \texttt{true} gesetzt.
+		Desweiteren wird der Gamestate \texttt{GAME\_OVER} gesetzt.
+		In der Methode \texttt{game\_Over\_Mode()}  wurde eine extra Verzweigung eingerichtet, die prüft ob ein 
+		Sieg durch Klosterbesitz vorliegt.
+		Sollte dies der Fall sein wird eine in \texttt{showMonasteriesWinner} 
+		in \texttt{MessagesConstants.java} definierte 
+		Nachricht ausgegeben.
 	\end{itemize}
 
 \end{itemize}
