@@ -151,7 +151,65 @@
 	$\rhd$ Keine Objekterzeugung von Enumeration möglich \\
 	$\rhd$ Abspeichern in Variable des Enum-Types ist jedoch möglich \\
 	$\rhd$ \texttt{MyDirection dir = MyDirection.DOWN;} } \\ \hline
+	
+	\makecell[l]{Referenztypen} & \makecell[l]{$\rhd$ Alle Typen, die keine primitiven Datentypen sind \\
+	$\rhd$ Unterscheidung zwischen Referez und eigentlichem Objekt \\
+	$\rhd$ Gleichheitsoperator \texttt{==} vergleicht nur die Referenz (Objektidentität) \\
+	$\Rightarrow$ Verweis auf dasselbe Objekt \\
+	$\rhd$ Wertgleichheit bezieht sich auf das Objekt an sich \\
+	$\rhd$ Deep Copy $\Rightarrow$ An allen parallelen Stellen Wertgleichheit
+	$\rhd$ Shallow Copy $\Rightarrow$ Nur Kopie der Adressen} \\ \hline
 	\end{tabular}
+
+\section{Fehler}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Kompilierzeitfehler \\ (compile-time errors)} & 
+	\makecell[l]{$\rhd$ Falsche Klammersetzung, falsche Schlüsselwörter,..\\
+	$\rhd$ Programm wird nicht übersetzt $\Rightarrow$ Fehlermeldung vom Compiler } \\ \hline
+	
+	\makecell[l]{Laufzeitfehler \\ (run-time errors)} & 
+	\makecell[l]{$\rhd$ Tritt während der Ausführung auf \\
+	$\rhd$ Führt zum Abbruch des Programms $\Rightarrow$ Ausgabe der Fehlermeldung \\
+	$\rhd$ IndexOutOfBounds, NullPointerException,.. } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
+
+\section{Graphics (java.awt.Graphics;)}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Applet} & \makecell[l]{$\rhd$ leichtgewichtige Variante an Graphikprogrammen \\
+	$\rhd$ \texttt{import java.awt.Applet;} \\
+	$\rhd$ 1. Erstellen eigener Applet-Klasse (\texttt{extends Applet}) \\
+	$\rhd$ 2. Überschreiben der Methode \texttt{paint} \\
+	\hspace{0.8cm} \texttt{public void paint (Graphics graphics) \{...\}} \\
+	\hspace{0.8cm} Klasse \texttt{Graphics} verknüpft Programm mit Zeichenfläche \\
+	$\rhd$ 2.1 \texttt{GeomShape2D}-Array \\
+	\hspace{0.8cm} \texttt{GeomShape2D pic = new GeomShape2D[3];} \\
+	\hspace{0.8cm} Füllen des erstellten Arrays mit Formen (z.B.: \texttt{ new Circle(0,0,0);})\\
+	$\rhd$ 2.2 Erstellen jeder Form mithilfe Randfarbe, Füllfarbe und Zeichnen \\
+	\hspace{0.8cm} \texttt{pic[0].setBoundaryColor(Color.RED); // Randfarbe} \\
+	\hspace{0.8cm} \texttt{pic[0].setFillColor(Color.RED);	  // Füllfarbe} \\
+	\hspace{0.8cm} \texttt{pic[0].paint(graphics); // Eigentliches Zeichnen}} \\ \hline
+	
+	\makecell[l]{GeomShape2D} & \makecell[l]{$\rhd$ Abstrake Klasse (Methode \texttt{paint} ist abstrakt) \\
+	$\rhd$ Attribute: \\
+	\hspace{0.8cm} \texttt{int positionX; int positionY; int rotationAngle;} \\
+	\hspace{0.8cm} \texttt{int transparencyValue; Color boundaryColor; Color fillColor;} \\
+	$\rhd$ Subklassen: \texttt{Rectangle, Circle, StraightLine} } \\ \hline
+	\end{tabular}
+
 
 \section{Interfaces}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
@@ -162,19 +220,13 @@
 	
 	\makecell[l]{Methoden} & 
 	\makecell[l]{$\rhd$ Werden hier nicht implementiert, sondern nur definiert \\
-	$\rhd$ \texttt{public} kann weggelassen werden, da ohnehin notwending } \\ \hline
+	$\rhd$ \texttt{public} kann weggelassen werden, da ohnehin notwending \\
+	$\rhd$ Implementierte Methoden müssen dann auch \texttt{public} sein \\
+	$\rhd$ Falls eine der Methoden nicht implementiert wird $\Rightarrow$ Klasse abstrakt} \\ \hline
 	
-	\makecell[l]{Verwendung} & \makecell[l]{$\rhd$ \texttt{implements MyInterface} nach Klassenname } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\makecell[l]{Verwendung} & \makecell[l]{$\rhd$ \texttt{implements MyInterface} nach Klassenname  \\
+	$\rhd$ Beliebig viele Interfaces möglich (seperiert durch ,) \\
+	$\rhd$ Ein Interface kann mehrere andere Interfaces erweitern (\texttt{extends}} \\ \hline
 	\end{tabular}
 
 
@@ -184,7 +236,11 @@
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
 	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ meist in seperater .java Datei  \\
-	$\rhd$ \texttt{public class MyClass \{\}} } \\ \hline
+	$\rhd$ \texttt{public class MyClass \{\}} \\
+	$\rhd$ \texttt{new MyClass();}: \\
+	\hspace{0.8cm} Reserviert ausreichend Speicherplatz für das Objekt \\ 
+	$\rhd$ \texttt{MyClass x = new MyClass();}: \\
+	\hspace{0.8cm} Speichern der Adresse des neuen Objekts in der Referenz x } \\ \hline
 	
 	\makecell[l]{Attribute} & \makecell[l]{$\rhd$ Eigenschaften der Objekte/Klassen \\
 	$\rhd$ z.B.: \texttt{private int x;} (Objekteigenschaft) \\
@@ -197,6 +253,11 @@
 	$\rhd$ Erzeugung eines neuen Objekts: \texttt{MyClass test = new MyClass(2,4);} \\
 	$\rhd$ Falls kein Konstruktur angegeben wird $\rightarrow$ Standardkonstruktor } \\ \hline
 
+	\makecell[l]{Abstraktion} & \makecell[l]{$\rhd$ \texttt{abstract public class MyClass \{...\}} \\
+	$\rhd$ Notwendig, sobald Klasse eine abstrakte Methode beinhaltet \\
+	$\rhd$ Keine Objekterzeugung möglich \\
+	$\rhd$ Meist als Klasse mit Rahmenbedingungen für Subklassen verwendet }  \\ \hline
+	
 	\end{tabular}
 
 \section{Konversionen}
@@ -227,15 +288,30 @@
 	
 	\makecell[l]{return} & 
 	\makecell[l]{$\rhd$ Wird für Rückgabe bei Methoden mit Rückgabewert benötigt } \\ \hline
+	
+	\makecell[l]{Abstraktion} & \makecell[l]{$\rhd$ \texttt{abstract} vor Modifier (\texttt{z.B.: public)} \\
+	$\rhd$ Abstrakte Methoden haben keinen Methodenrumpf } \\ \hline
 	\end{tabular}
 
 \section{Packages und Zugriffsrechte}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Packages} & \makecell[l]{$\rhd$ Zusammenfassung von mehreren Dateien \\
+	
+	\makecell[l]{Package} & \makecell[l]{$\rhd$ Zusammenfassung von mehreren Dateien \\
+	$\rhd$ Wird zur Gruppierung von ähnlichen Funktionalitäten verwendet \\
+	$\rhd$ Ermöglicht selbe Dateinamen in unterschiedlichen Packages \\
+	$\rhd$ Bestehen nur aus Kleinbuchstaben
+	$\rhd$ Am Anfang der Quelldatei: \texttt{package mypackage;} \\
+	$\Rightarrow$ Datei gehört damit zum Package \texttt{mypackage} \\
+	$\Rightarrow$ \texttt{mypackage} wird automatisch importiert } \\ \hline
+	
+	\makecell[l]{Import} & \makecell[l]{
 	$\rhd$ \texttt{import package.*;} \\
 	$\rhd$ \texttt{*} steht für alle Definitionen aus \texttt{package} \\
-	$\rhd$ Import-Anweisungen müssen immer am Anfang des Quelltextes stehen } \\ \hline
+	$\rhd$ \texttt{*} importiert aber nicht die Inhalte von Subpackages \\
+	$\rhd$ Import-Anweisungen müssen immer am Anfang des Quelltextes stehen \\
+	$\rhd$ Durch Importanweisungen sind Teile danach nur noch mit Namen ansprechbar \\
+	$\rhd$ Wichtigstes Package: \texttt{java.lang.*} (automatisch importiert)} \\ \hline
 	
 	\makecell[l]{Zugriffsrechte} & \makecell[l]{$\rhd$ Klassen/Enum: nur \texttt{public} oder nichts \\
 	\hspace{0.4cm} $\Rightarrow$ Nur eine Klasse darf \texttt{public} sein (Damit auch Dateiname) \\
@@ -244,6 +320,7 @@
 	$\rhd$ \texttt{protected:} \texttt{Keine Angabe} + in allen Subklassen \\
 	$\rhd$ \texttt{public:} \texttt{protected} + an jeder Import-Stelle } \\ \hline
 	\end{tabular}
+
 
 
 \section{Programme und Prozesse}
@@ -291,6 +368,35 @@
 	\hspace{0.4cm} $\rhd$ Code, der ausgeführt wird, falls Bedingung nicht erfüllt ist} \\ \hline
 	\end{tabular}
 	
+\section{String (java.lang.String)}	
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Eigenschaften} & \makecell[l]{$\rhd$ Sonderrolle, da Klasse, aber trotzdem Literale in Java \\
+	$\rhd$ Zeichenketten, die aus allen möglichen chars bestehen} \\ \hline
+	
+	\makecell[l]{Methoden} & \makecell[l]{$\rhd$ \texttt{String str = "Hello World";} \\
+	\hspace{0.8cm} \texttt{str.length; // 11} \\
+	\hspace{0.8cm} \texttt{str.charAt(2); // e} \\
+	\hspace{0.8cm} \texttt{str.indexOf('e'); // 2} \\
+	\hspace{0.8cm} \texttt{str.matches("He.+rld"); // true} \\
+	\hspace{1.2cm} \texttt{.+} $\Rightarrow$ \texttt{.} als Platzhalter für beliebiges Zeichen, 
+	\texttt{+} erlaubt Wiederholung \\ 
+	\hspace{1.7cm} $\Rightarrow$ Regular Expression \\
+	\hspace{0.8cm} \texttt{String str 2 = str.concat("b"); // Anhängen } \\
+	\hspace{0.8cm} \texttt{String str 2 = str1 + "b"; // Kurzform}  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\end{tabular}
 	
 \section{Syntax}
 
@@ -308,7 +414,8 @@
 	$\rhd$ Variablen / Methoden beginnen mit Kleinbuchstaben (\texttt{testInt}) \\
 	$\rhd$ Klassen beginnen mit Großbuchstaben (\texttt{testClass}) \\
 	$\rhd$ Wortanfänge im Inneren mit Großbuchstaben \\
-	$\rhd$ Konstanten bestehen aus $\_$ und Großbuchstaben (\texttt{CENTS$\_$PER$\_$EURO})} \\ \hline
+	$\rhd$ Konstanten bestehen aus $\_$ und Großbuchstaben (\texttt{CENTS$\_$PER$\_$EURO}) \\
+	$\rhd$ Packagenamen nur aus Kleinbuchstaben und \_ bei unzulässigen Zeichen} \\ \hline
 	
 	\makecell[l]{Kommentare} & \makecell[l]{$\rhd$ \texttt{//} Einzelne Zeile \\
 	$\rhd$ \texttt{/*...*/} Mehrere Zeilen \\
@@ -339,12 +446,6 @@
 	\hspace{0.4cm} $\Rightarrow$ Für manche Werte werden dann Standardwerte gesetzt \\
 	\hspace{0.4cm} $\Rightarrow$ Anderer Konstruktor auch in Konstruktor aufrufbar 
 	(\texttt{this(1);}) } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	\end{tabular}
 
 
