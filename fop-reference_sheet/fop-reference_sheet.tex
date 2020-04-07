@@ -48,11 +48,35 @@
 	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	
 	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
+
 	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
 	\end{tabular}
 \end{comment}
 
+
+\section{Stuff that I skipped cuz of chapter 4}
+
+\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Exceptions aus \\ Lambda-Ausdrücken} &
+	\makecell[l]{$\rhd$ Kapitel 5: 47 - 50  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+
+	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	
+	\end{tabular}
 
 \section{Computerspeicher}
 
@@ -119,13 +143,16 @@
 	$\rhd$ z.B.: \texttt{final myClass ABC = new myClass();} \\
 	\hspace{0.4cm} $\diamond$ Referenz zwar nicht veränderbar, Objekt aber schon \\ 
 	$\rhd$ \texttt{Integer.MAX\_VALUE / Integer.MIN\_VALUE} \\
-	$\rhd$ Unendlich: \texttt{Double.POSITIVE\_INFINITY / Double.NEGATIVE\_INFINITY} } \\ \hline
+	$\rhd$ Unendlich: \texttt{Double.POSITIVE\_INFINITY / Double.NEGATIVE\_INFINITY} \\
+	$\rhd$ Müssen initalisiert werden } \\ \hline
 	
 	\makecell[l]{Primitive Dateitypen} & 
 	\makecell[l]{$\rhd$ Ganze Zahlen: byte $\rightarrow$ short $\rightarrow$ int $\rightarrow$ long \\
 	$\rhd$ Gebrochene Zahlen: float $\rightarrow$ double \\
 	$\rhd$ Logik: boolean \\
-	$\rhd$ Zeichen: char } \\ \hline
+	$\rhd$ Zeichen: char \\
+	$\rhd$ Mehrere Definitonen: \texttt{int m = 1, n, k = 2;} \\ 
+	$\rhd$ Ohne Initialisierung: undefinierter Wert} \\ \hline
 	
 	\makecell[l]{Literale} & \makecell[l]{$\rhd$ wörtlich hingeschriebene Werte eines Datentyps  \\
 	$\rhd$ Zahlen standardmäßig int, falls \texttt{long} gewünscht: \texttt{123L oder 123l} \\ 
@@ -140,9 +167,9 @@
 	
 	\makecell[l]{Zeichentyp char} & \makecell[l]{$\rhd$ z.B.: \texttt{char c = ´a´;} \\
 	$\rhd$ Interne Kodierung als Unicode \\
-	$\rhd$ ´$\textbackslash$t´ Horizontaler Tab \\
-	$\rhd$ ´$\textbackslash$b´ Backspace \\
-	$\rhd$ ´$\textbackslash$n´ Neue Zeile \\
+	$\rhd$ \textbackslash t Horizontaler Tab \\
+	$\rhd$ \textbackslash b Backspace \\
+	$\rhd$ \textbackslash n Neue Zeile \\
 	$\rhd$ Auch Darstellung im Hexacode (\textbackslash u039A)} \\ \hline
 	
 	\makecell[l]{Enumeration} & \makecell[l]{$\rhd$ Zusammenfassung mehrerer Konstanten (feste Anzahl)\\
@@ -150,15 +177,56 @@
 	$\rhd$ \texttt{enum MyDirection \{DOWN, RIGHT\} } \\
 	$\rhd$ Keine Objekterzeugung von Enumeration möglich \\
 	$\rhd$ Abspeichern in Variable des Enum-Types ist jedoch möglich \\
-	$\rhd$ \texttt{MyDirection dir = MyDirection.DOWN;} } \\ \hline
+	$\rhd$ \texttt{MyDirection dir = MyDirection.DOWN;} \\
+	$\rhd$ Klassenmethoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{values() // Returns array with all enum components} \\
+	\hspace{0.4cm} $\diamond$ \texttt{name() // Returns the name of the calling object as string} \\
+	 } \\ \hline
 	
 	\makecell[l]{Referenztypen} & \makecell[l]{$\rhd$ Alle Typen, die keine primitiven Datentypen sind \\
 	$\rhd$ Unterscheidung zwischen Referez und eigentlichem Objekt \\
 	$\rhd$ Gleichheitsoperator \texttt{==} vergleicht nur die Referenz (Objektidentität) \\
 	\hspace{0.4cm} $\diamond$ Verweis auf dasselbe Objekt \\
 	$\rhd$ Wertgleichheit bezieht sich auf das Objekt an sich \\
-	$\rhd$ Deep Copy $\Rightarrow$ An allen parallelen Stellen Wertgleichheit \\
-	$\rhd$ Shallow Copy $\Rightarrow$ Nur Kopie der Adressen} \\ \hline
+	\hspace{0.4cm} $\diamond$ Deep Copy $\Rightarrow$ An allen parallelen Stellen Wertgleichheit \\
+	\hspace{0.4cm} $\diamond$ Shallow Copy $\Rightarrow$ Nur Kopie der Adressen \\
+	$\rhd$ Ohne Initialisierung: Null} \\ \hline
+	\end{tabular}
+
+
+\section{Exceptions (java.lang.Exception;)}
+
+\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Exception-Klassen} & \makecell[l]{$\rhd$ Alle Klassen, die direkt oder indirekt von java.lang.Exception abgeleitet sind \\
+	$\rhd$  } \\ \hline
+
+	\makecell[l]{Exception werfen} & \makecell[l]{$\rhd$ \texttt{throws Exception \{...\}} nach Parameterliste im Methodenkopf \\
+	$\rhd$ Dies signalisiert, dass die Methode mindestens einen Fehler wirft \\
+	$\rhd$ Die geworfene Exception muss vom \texttt{throws}-Typ oder Subtyp sein \\
+	$\rhd$ Auch mehrere Exceptions möglich, mit einem Komma getrennt \\
+	$\rhd$ Werfen der Exception: \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{throw new Exception ("No lower case letter!");} \\
+	\hspace{0.4cm} $\diamond$ Hier wird als Parameter für die Objekterstellung ein String übergeben \\
+	$\rhd$ \texttt{throws}: \\
+	\hspace{0.4cm} $\diamond$ Führt zur Beendung der Methode \\
+	\hspace{0.4cm} $\diamond$ Liefert das geworfene Exception-Objekt zurück } \\ \hline
+
+	\makecell[l]{Exception fangen} & \makecell[l]{$\rhd$ Bei Methoden, die Exceptions werfen, wird ein \texttt{try-catch}-Block benötigt \\
+	$\rhd$ Aufbau: \\
+	\hspace{0.4cm} $\diamond$ Methoden, die Exceptions werfen in \texttt{try \{...\}} aufrufen \\
+	\hspace{0.4cm} $\diamond$ Falls Exception auftritt wird \texttt{catch (Exception exc) \{...\}} aufgerufen \\
+	\hspace{0.4cm} $\diamond$ \texttt{catch} muss direkt im Anschluss nach \texttt{try} stehen \\
+	\hspace{0.4cm} $\diamond$ Falls kein Fehler auftritt, wird \texttt{catch} übersprungen \\
+	\hspace{0.4cm} $\diamond$ Das Programm wird dann normal weiter ausgeführt \\
+	$\rhd$ Es sind auch mehrere \texttt{catch}-Blöcke mit versch. Parametern möglich \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getMessage(); // Returns the error message as a string} \\
+	\hspace{0.4cm} $\diamond$ \texttt{printStackTrace(); // Ausgabe des Call-Stacks} \\
+	$\rhd$ Alle möglichen Exceptions müssen durch den \texttt{catch}-Block abgedeckt sein \\
+	$\rhd$ Falls Exception zu mehreren \texttt{catch}-Blöcken 'passt', wird der Erste ausgeführt \\
+	\hspace{0.4cm} $\diamond$ Deswegen Reihung der \texttt{catch}-Blöcke von Subtyp nach Supertyp} \\ \hline
+	
 	\end{tabular}
 
 \section{Fehler}
@@ -171,6 +239,7 @@
 	\makecell[l]{Laufzeitfehler \\ (run-time errors)} & 
 	\makecell[l]{$\rhd$ Tritt während der Ausführung auf \\
 	$\rhd$ Führt zum Abbruch des Programms $\Rightarrow$ Ausgabe der Fehlermeldung \\
+	$\rhd$ Kann nicht vom Compiler entdeckt werden \\
 	$\rhd$ IndexOutOfBounds, NullPointerException,.. } \\ \hline
 	\end{tabular}
 
@@ -239,7 +308,13 @@
 	$\rhd$ Methode mit selben Namen wie Klasse und ohne Rückgabetyp \\
 	$\rhd$ z.B.: \texttt{public MyClass (int x, int y) \{this.x = x; this.y = y;\}} \\
 	$\rhd$ Erzeugung eines neuen Objekts: \texttt{MyClass test = new MyClass(2,4);} \\
-	$\rhd$ Falls kein Konstruktur angegeben wird $\rightarrow$ Standardkonstruktor } \\ \hline
+	$\rhd$ Falls kein Konstruktur angegeben wird $\rightarrow$ Default Constructor \\
+	\hspace{0.4cm} $\diamond$ Basisklasse muss auch Konstruktor mit leerer Parameterliste haben \\
+	$\rhd$ Konstruktoren werden \texttt{nicht} vererbt \\
+	$\rhd$ \texttt{Static Initializer} \\
+	\hspace{0.4cm} $\diamond$ Methodenkopf besteht nur aus \texttt{static \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Wird genutzt um auf jeden Fall Klassenkonstanten zu initialisieren \\
+	$\rhd$ Aufruf anderen Konstruktors in Konstruktor mit \texttt{this(Parameter);}} \\ \hline
 
 	\makecell[l]{Abstraktion} & \makecell[l]{$\rhd$ \texttt{abstract public class MyClass \{...\}} \\
 	$\rhd$ Notwendig, sobald Klasse eine abstrakte Methode beinhaltet \\
@@ -253,7 +328,14 @@
 	\hspace{0.4cm} $\diamond$ \texttt{String toString() \{...\} // Zustand des Objekts als String } \\
 	\hspace{0.4cm} $\diamond$ Werden oft an jeweilige Klasse angepasst } \\ \hline
 	
-	\makecell[l]{Verborgene Informationen} & \makecell[l]{$\rhd$  } \\ \hline
+	\makecell[l]{Verborgene Informationen} & 
+	\makecell[l]{$\rhd$ Jedes Objekt einer Klasse erhält einen Verweis auf ein anonymes Objekt \\
+	$\rhd$ Dieses anonyme Objket wird für jede Klasse nur einmal eingerichtet \\
+	$\rhd$ Enthät Informatiuonen zur Klasse, Attribute und Methoden der Klasse \\
+	$\rhd$ Methodentabelle: \\
+	\hspace{0.4cm} $\diamond$ Gibt an, welche Implementationen aller Methoden verwendet wird \\
+	\hspace{0.4cm} $\diamond$ Ermöglicht, die Feststellung der Klasse zur Laufzeit \\
+	\hspace{0.4cm} $\diamond$ Methode in Supertyp und Substyp haben den selben Index (Position) } \\ \hline
 	
 	\end{tabular}
 
@@ -274,8 +356,10 @@
 \section{Methoden}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Methodenkopf} & 
-	\makecell[l]{$\rhd$  Modifier Rückgabewert Methodenname (Parameter) \{Anweisung\} \\
+	\makecell[l]{Methodenaufbau} & 
+	\makecell[l]{$\rhd$  Modifier Rückgabewert Identifier (Parameterliste) \{Anweisung\} \\
+	$\rhd$ Alles vor den Anweisung: Methodenkopf (Head) \\
+	$\rhd$ Alles in den geschweiften Klammern: Methodenrumpf (Body) \\
 	$\rhd$ z.B.: \texttt{public void setX (int x) \{this.x = x;\}} (Objektmethode) \\
 	$\rhd$ z.B.: \texttt{public static void setY (int y) \{this.y = y;\}} (Klassenmethode) \\
 	$\rhd$ \texttt{this.x} steht hier für das Objektattribut und nicht den Parameter} \\ \hline
@@ -294,8 +378,28 @@
 	\hspace{0.4cm} $\diamond$ Kommt von actual $\Rightarrow$ tatsächlich, vorliegend \\
 	$\rhd$ Verhalten bei Referenzen: \\
 	\hspace{0.4cm} $\diamond$ Kopie der Adresse des Objekts bei Initialisierung des formalen durch \\
-	\hspace{0.8cm} aktualen Parameter} \\ \hline
+	\hspace{0.8cm} aktualen Parameter \\
+	$\rhd$ Variable Parameterzahl: \\
+	\hspace{0.4cm} $\diamond$ \texttt{void m (double... args) \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Drei Punkte deuten variable Parameteranzahl an \\
+	\hspace{0.4cm} $\diamond$ Compiler macht aus den übergebenen Werten selbstständig ein Array \\
+	\hspace{0.4cm} $\diamond$ Ermöglicht variable Anzahl von Werten \texttt{(1.42,2.7)} \\
+	\hspace{0.4cm} $\diamond$ z.B.: Funktion, die das Maximum von übergebenen Variablen bestimmt} \\ \hline
+
+	\makecell[l]{Signatur} & \makecell[l]{$\rhd$ Besteht aus Identifier und Parameterliste \\
+	$\rhd$ Eine Klasse kann keine zwei Methoden mit derselben Signatur haben  } \\ \hline
 	
+
+	\makecell[l]{Klassenmethoden} & 
+	\makecell[l]{$\rhd$ Wird mithilfe von \texttt{static} zwischen Modifier und Rückgabewert definiert \\
+	$\rhd$ Klassenmethoden werden über den Klassennamen aufgerufen \\
+	$\rhd$ \textbf{Nicht erlaubt:} Lesen und Schreiben von Objektmethoden und -Attributen \\
+	$\rhd$ \textbf{Nicht erlaubt:} Objektmethoden aufrufen \\
+	$\rhd$ \textbf{Erlaubt:} Klassenattribute lesen und schreiben \\
+	$\rhd$ \textbf{Erlaubt:} Klassenmethoden aufrufen \\
+	$\rhd$ Workaround: Objekt als Parameter übergeben \\
+	$\rhd$ \texttt{static}-Import funktioniert auch bei Klassenmethoden \\
+	$\rhd$ Die Implementation wird hier durch den statischen Typ bestimmt } \\ \hline
 	
 	\end{tabular}
 
@@ -351,7 +455,7 @@
 	\hspace{0.4cm}$\diamond$ Illusion von Multitasking } \\ \hline
 	\end{tabular}
 	
-\section{Schleifen und if}
+\section{Schleifen, if, switch}
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
@@ -374,7 +478,18 @@
 	\hspace{0.4cm} $\diamond$ Führt den Code in der Anweisung nur aus, falls die Bedingung erfüllt ist \\
 	$\rhd$ \texttt{if (Bedingung) \{\} else \{\}} \\
 	\hspace{0.4cm} $\diamond$ Code, der ausgeführt wird, falls Bedingung nicht erfüllt ist} \\ \hline
+
+	\makecell[l]{switch-Anweisung} & \makecell[l]{$\rhd$ Abfrage von mehreren Fällen \\
+	$\rhd$ \texttt{switch (i) \{ case 2: ... break; case 3: ... break; default: ... \}} \\
+	$\rhd$\texttt{break;} Ohne break, geht es mit der Anweisung für den nächsten Fall weiter \\
+	$\rhd$ Keine Variablen als Abfragen für Fälle / kein Ausdruck, nur EIN Wert \\
+	$\rhd$ \texttt{default} wird dann ausgeführt, wenn kein anderer Fall eintritt}  \\ \hline
+
 	\end{tabular}
+
+	
+
+	
 	
 \section{String (java.lang.String)}	
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
@@ -416,6 +531,22 @@
 	\makecell[l]{Kommentare} & \makecell[l]{$\rhd$ \texttt{//} Einzelne Zeile \\
 	$\rhd$ \texttt{/*...*/} Mehrere Zeilen \\
 	$\rhd$ \texttt{/**...*/} Erzeugung von Javadoc }  \\ \hline
+
+	\makecell[l]{Javadoc} & \makecell[l]{$\rhd$ Erzeugung mithilfe von \texttt{/**} und Enter \\
+	$\rhd$ Bei Methodenköpfen: \\
+	\hspace{0.4cm} $\diamond$ \texttt{@param x the dividend} \\
+	\hspace{0.4cm} $\diamond$ \texttt{@return x divided by x}  \\
+	\hspace{0.4cm} $\diamond$ \texttt{@throws class IndexOutOfBoundsException if c is not an int} \\
+	$\rhd$ Bei Quelldateien: \\
+	\hspace{0.4cm} $\diamond$ \texttt{@author} \\
+	\hspace{0.4cm} $\diamond$ \texttt{@version}} \\ \hline
+
+	\makecell[l]{Rechtsausdrücke} & \makecell[l]{$\rhd$ Haben Typ und Wert \\
+	$\rhd$ z.B.: \texttt{2*3+1}  } \\ \hline
+
+	\makecell[l]{Linksausdrücke} & \makecell[l]{$\rhd$ Verweisen auf Speicherstellen \\
+	$\rhd$ z.B.: \texttt{int n}   } \\ \hline
+
 	\end{tabular}
 	
 \section{Vererbung}
@@ -433,15 +564,24 @@
 	
 	\makecell[l]{Overwrite} & \makecell[l]{$\rhd$ Methoden in Subklassen können auch neu geschrieben werden \\
 	\hspace{0.4cm} $\diamond$ Die Implementation der Superklasse wird sozusagen überschrieben \\
-	$\rhd$ Selber Name und Parameterliste notwendig } \\ \hline
+	$\rhd$ Selber Name und Parameterliste notwendig \\
+	$\rhd$ Signatur der Methoden muss identisch sein \\
+	\hspace{0.4cm} $\diamond$ Die anderen Bestandteile können variieren: \\
+	\hspace{0.4cm} $\diamond$ Zugriffsrechte dürfen in abgeleiteter Klasse erweitert sein \\
+	\hspace{0.4cm} $\diamond$ private $\rightarrow$ $\epsilon$ $\rightarrow$ protected $\rightarrow$ public \\
+	\hspace{0.4cm} $\diamond$ Bei Referenztypen Rückgabetyp durch Subtyp ersetzbar \\
+	\hspace{0.4cm} $\diamond$ Exceptionklassen durch Subtypen ersetzbar \\
+	$\rhd$ Aufruf der überschriebenen Methode mit \texttt{super.m();} \\
+	$\rhd$ Exceptions: \\
+	\hspace{0.4cm} $\diamond$ Exception Klasse darf durch Subtyp ersetzt werden} \\ \hline
 	
 	\makecell[l]{Overload} & 
 	\makecell[l]{$\rhd$ Methoden mit selbem Bezeichner, aber unterschiedlicher Parameterliste \\
 	$\rhd$ Die Methode wird überladen \\ 
 	$\rhd$ Konstruktoren kann man auch überladen \\
 	\hspace{0.4cm} $\diamond$ Für manche Werte werden dann Standardwerte gesetzt \\
-	\hspace{0.4cm} $\diamond$ Anderer Konstruktor auch in Konstruktor aufrufbar 
-	(\texttt{this(1);}) } \\ \hline
+	\hspace{0.4cm} $\diamond$ Anderer Konstruktor auch in Konstruktor aufrufbar (\texttt{this(1);}) \\
+	$\rhd$ Alle Methoden einer Klasse müssen unterschiedliche Signatur haben } \\ \hline
 		
 	\makecell[l]{Subtypen} & \makecell[l]{$\rhd$ Abgeleitete Klassen / Interfaces (\texttt{extends}) \\
 	$\rhd$ Überall wo ein Referenztyp (Supertyp) erwartet wird: \\
