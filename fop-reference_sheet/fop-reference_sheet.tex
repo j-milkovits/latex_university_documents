@@ -225,8 +225,36 @@
 	\hspace{0.4cm} $\diamond$ \texttt{printStackTrace(); // Ausgabe des Call-Stacks} \\
 	$\rhd$ Alle möglichen Exceptions müssen durch den \texttt{catch}-Block abgedeckt sein \\
 	$\rhd$ Falls Exception zu mehreren \texttt{catch}-Blöcken 'passt', wird der Erste ausgeführt \\
-	\hspace{0.4cm} $\diamond$ Deswegen Reihung der \texttt{catch}-Blöcke von Subtyp nach Supertyp} \\ \hline
+	\hspace{0.4cm} $\diamond$ Deswegen Reihung der \texttt{catch}-Blöcke von Subtyp nach Supertyp \\
+	$\rhd$ Auch mehrere Exceptions in einem \texttt{catch}-Block möglich mit \texttt{||}} \\ \hline
+
+	\makecell[l]{Weiterreichen} & \makecell[l]{$\rhd$ Weiterreichen der Fehlermeldung durch \texttt{throws} im Methodenkopf möglich \\
+	$\rhd$ Kein \texttt{try-catch}-Block notwendig \\
+	$\rhd$ Main-Methode kann z.B. keine Exceptions weiterreichen} \\ \hline
+
+	\makecell[l]{ \texttt{try-with-ressources} } & \makecell[l]{$\rhd$ Für Ressourcen, die unbedingt wieder geschlossen werden müssen \\
+	$\rhd$ Öffnung der Ressource in runden Klammern: \texttt{try (Printer p =... ) \{...\}} \\
+	$\rhd$ Mehrere Ressourcen möglich, getrennt durch Semikolon } \\ \hline
+
+	\makecell[l]{Runtime Exceptions} & \makecell[l]{$\rhd$ Ausnahme zu \texttt{try}-Blöcken \\
+	$\rhd$ Exceptions von java.lang.RuntimeException und Subtypen \\
+	$\rhd$ z.B.: IndexOutOfBoundsException, NullPointerException \\ 
+	$\rhd$ Grund: Vermeidung von dauerenden \texttt{try}-Blöcken} \\ \hline
 	
+	\makecell[l]{Throwable und Error} & \makecell[l]{$\rhd$ Exception und Error sind beide von Throwable abgeleitet \\
+	$\rhd$ Alle drei befinden sich im Paket java.lang \\
+	$\rhd$ Error: \\
+	\hspace{0.4cm} $\diamond$ Werden geworfen, falls Fehlerbehandlung keinen Sinn macht \\
+	\hspace{0.4cm} $\diamond$ Programmabbruch als Ausweg \\
+	$\rhd$ AssertionError: \\
+	\hspace{0.4cm} $\diamond$ \texttt{throw new AssertionError("Bad!");} \\
+	\hspace{0.4cm} $\diamond$ Kurzform: \texttt{assert x == 2: "Bad!";} \\
+	\hspace{0.4cm} $\diamond$ \textbf{Wichtig:} Bedingung muss negiert werden!
+	\hspace{0.4cm} $\diamond$ Assertanweisungen sinnvoll, da kurz und übersichtlich \\
+	\hspace{0.4cm} $\diamond$ Können zusätzlich vom Compiler an- und abgeschaltet werden \\
+	\hspace{0.4cm} $\diamond$ z.B.: Verwendung für Tests für Methoden und späteres Abschalten \\
+	$\rhd$ Solche Tests werden White-Box-Tests genannt } \\ \hline
+
 	\end{tabular}
 
 \section{Fehler}
@@ -286,7 +314,42 @@
 	$\rhd$ Ein Interface kann mehrere andere Interfaces erweitern (\texttt{extends}} \\ \hline
 	\end{tabular}
 
+\section{JUnit-Tests}
 
+
+\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+
+	\makecell[l]{Allgemein} & \makecell[l]{$\rhd$ Tests als Ganzes - Black-Box-Tests \\
+	$\rhd$ JUnit-Tests werden in eine seperate Quelldatei geschrieben \\
+	$\rhd$ Die zu testende Einheit/Klasse wird dann importiert } \\ \hline
+
+	\makecell[l]{Imports} & \makecell[l]{
+	$\rhd$ \texttt{import static org.junit.Assert.assertEquals;} \\
+	$\rhd$ \texttt{import static org.junit.Assert.asserTrue;} \\
+	$\rhd$ \texttt{import org.junit.jupiter.api.Test;} \\
+	$\rhd$ \texttt{import org.junit.jupiter.api.BeforeEach;} \\
+	$\rhd$ \texttt{import static org.junit.jupiter.api.Assertions.assertThrows;}} \\ \hline
+
+	\makecell[l]{Methoden:} & 
+	\makecell[l]{$\rhd$ \texttt{assertEquals(...,...); // \texttt{true}, falls beide Parameter identisch} \\
+	\hspace{0.4cm} $\diamond$ Existiert auch mit 3 Parametern, 3. Wert entspricht maximalen Unterschied \\ 
+	$\rhd$ \texttt{assertTrue(...); // \texttt{true}, falls der Parameter \texttt{true} ist} \\
+	$\rhd$ \texttt{assertThrows(...,...); // Wirft Exception abhängig von Executable} \\
+	\hspace{0.4cm} $\diamond$ Erster Parameter zu werfende Exception.class \\
+	\hspace{0.4cm} $\diamond$ Zweiter Paramter Functional Interface aus dem Package java.lang.reflect } \\ \hline
+	
+	\makecell[l]{Test} & 
+	\makecell[l]{$\rhd$ \texttt{@Test} vor der Methode \\
+	$\rhd$ \texttt{void} als Rückgabewert \\
+	$\rhd$ Nutzung einer \texttt{assert}-Methode (siehe Methoden)} \\ \hline
+
+	\makecell[l]{BeforeEach} & \makecell[l]{$\rhd$ \texttt{@BeforeEach} vor der Methode \\
+	$\rhd$ Wird vor jeder einzelnen Testmethode einmal ausgeführt  } \\ \hline
+	
+	
+	
+	\end{tabular}
 
 \section{Klassen}
 
