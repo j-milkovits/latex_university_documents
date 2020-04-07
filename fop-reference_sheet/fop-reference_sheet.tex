@@ -75,7 +75,7 @@
 	
 	\makecell[l]{Prozessablauf} & 
 	\makecell[l]{$\rhd$ Program Counter enthält Adresse der nächsten Anweisung \\
-	\hspace{0.35cm} $\Rightarrow$ Zählt nach jeder Anwendung hoch und verweist auf nächsten Speicher \\
+	\hspace{0.4cm} $\diamond$ Zählt nach jeder Anwendung hoch und verweist auf nächsten Speicher \\
 	$\rhd$ CPU verarbeitet parallel die momentane Anweisung aus Program Counter} \\ \hline
 	
 	\makecell[l]{Methodenausführung} & 
@@ -117,7 +117,7 @@
 	\hline
 	\makecell[l]{Konstanten} & \makecell[l]{$\rhd$ Variable/Referenz wird dadurch unveränderbar \\
 	$\rhd$ z.B.: \texttt{final myClass ABC = new myClass();} \\
-	\hspace{0.4cm} $\Rightarrow$ Referenz zwar nicht veränderbar, Objekt aber schon \\ 
+	\hspace{0.4cm} $\diamond$ Referenz zwar nicht veränderbar, Objekt aber schon \\ 
 	$\rhd$ \texttt{Integer.MAX\_VALUE / Integer.MIN\_VALUE} \\
 	$\rhd$ Unendlich: \texttt{Double.POSITIVE\_INFINITY / Double.NEGATIVE\_INFINITY} } \\ \hline
 	
@@ -143,7 +143,7 @@
 	$\rhd$ ´$\textbackslash$t´ Horizontaler Tab \\
 	$\rhd$ ´$\textbackslash$b´ Backspace \\
 	$\rhd$ ´$\textbackslash$n´ Neue Zeile \\
-	$\rhd$ Auch Darstellung im Hexacode (´$\textbackslash$u039A´)} \\ \hline
+	$\rhd$ Auch Darstellung im Hexacode (\textbackslash u039A)} \\ \hline
 	
 	\makecell[l]{Enumeration} & \makecell[l]{$\rhd$ Zusammenfassung mehrerer Konstanten (feste Anzahl)\\
 	$\rhd$ Erzeugung meist in eigener .java Datei \\
@@ -155,9 +155,9 @@
 	\makecell[l]{Referenztypen} & \makecell[l]{$\rhd$ Alle Typen, die keine primitiven Datentypen sind \\
 	$\rhd$ Unterscheidung zwischen Referez und eigentlichem Objekt \\
 	$\rhd$ Gleichheitsoperator \texttt{==} vergleicht nur die Referenz (Objektidentität) \\
-	$\Rightarrow$ Verweis auf dasselbe Objekt \\
+	\hspace{0.4cm} $\diamond$ Verweis auf dasselbe Objekt \\
 	$\rhd$ Wertgleichheit bezieht sich auf das Objekt an sich \\
-	$\rhd$ Deep Copy $\Rightarrow$ An allen parallelen Stellen Wertgleichheit
+	$\rhd$ Deep Copy $\Rightarrow$ An allen parallelen Stellen Wertgleichheit \\
 	$\rhd$ Shallow Copy $\Rightarrow$ Nur Kopie der Adressen} \\ \hline
 	\end{tabular}
 
@@ -172,18 +172,6 @@
 	\makecell[l]{$\rhd$ Tritt während der Ausführung auf \\
 	$\rhd$ Führt zum Abbruch des Programms $\Rightarrow$ Ausgabe der Fehlermeldung \\
 	$\rhd$ IndexOutOfBounds, NullPointerException,.. } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	\end{tabular}
 
 \section{Graphics (java.awt.Graphics;)}
@@ -205,8 +193,8 @@
 	
 	\makecell[l]{GeomShape2D} & \makecell[l]{$\rhd$ Abstrake Klasse (Methode \texttt{paint} ist abstrakt) \\
 	$\rhd$ Attribute: \\
-	\hspace{0.8cm} \texttt{int positionX; int positionY; int rotationAngle;} \\
-	\hspace{0.8cm} \texttt{int transparencyValue; Color boundaryColor; Color fillColor;} \\
+	\hspace{0.4cm} \texttt{int positionX; int positionY; int rotationAngle;} \\
+	\hspace{0.4cm} \texttt{int transparencyValue; Color boundaryColor; Color fillColor;} \\
 	$\rhd$ Subklassen: \texttt{Rectangle, Circle, StraightLine} } \\ \hline
 	\end{tabular}
 
@@ -238,13 +226,13 @@
 	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ meist in seperater .java Datei  \\
 	$\rhd$ \texttt{public class MyClass \{\}} \\
 	$\rhd$ \texttt{new MyClass();}: \\
-	\hspace{0.8cm} Reserviert ausreichend Speicherplatz für das Objekt \\ 
+	\hspace{0.4cm} $\diamond$ Reserviert ausreichend Speicherplatz für das Objekt \\ 
 	$\rhd$ \texttt{MyClass x = new MyClass();}: \\
-	\hspace{0.8cm} Speichern der Adresse des neuen Objekts in der Referenz x } \\ \hline
+	\hspace{0.4cm} $\diamond$ Speichern der Adresse des neuen Objekts in der Referenz x } \\ \hline
 	
 	\makecell[l]{Attribute} & \makecell[l]{$\rhd$ Eigenschaften der Objekte/Klassen \\
-	$\rhd$ z.B.: \texttt{private int x;} (Objekteigenschaft) \\
-	$\rhd$ z.B.: \texttt{private static int x;} (Klasseneigenschaft)  } \\ \hline
+	$\rhd$ z.B.: \texttt{private int x;} (Objektattribut) \\
+	$\rhd$ z.B.: \texttt{private static int x;} (Klassenattribut)  } \\ \hline
 	
 	\makecell[l]{Konstruktor} & 
 	\makecell[l]{$\rhd$ Wird zur Erzeugung von neuen Objekten einer Klasse verwendet \\
@@ -257,6 +245,15 @@
 	$\rhd$ Notwendig, sobald Klasse eine abstrakte Methode beinhaltet \\
 	$\rhd$ Keine Objekterzeugung möglich \\
 	$\rhd$ Meist als Klasse mit Rahmenbedingungen für Subklassen verwendet }  \\ \hline
+	
+	\makecell[l]{Klasse aller Klassen} & \makecell[l]{$\rhd$ \texttt{java.lang.Object} \\
+	$\rhd$ Jede Klasse ist direkt oder indirekt von \texttt{Object} abgeleitet \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{boolean equals (Object obj) \{...\} // Test auf Wertgleichheit} \\
+	\hspace{0.4cm} $\diamond$ \texttt{String toString() \{...\} // Zustand des Objekts als String } \\
+	\hspace{0.4cm} $\diamond$ Werden oft an jeweilige Klasse angepasst } \\ \hline
+	
+	\makecell[l]{Verborgene Informationen} & \makecell[l]{$\rhd$  } \\ \hline
 	
 	\end{tabular}
 
@@ -291,6 +288,15 @@
 	
 	\makecell[l]{Abstraktion} & \makecell[l]{$\rhd$ \texttt{abstract} vor Modifier (\texttt{z.B.: public)} \\
 	$\rhd$ Abstrakte Methoden haben keinen Methodenrumpf } \\ \hline
+	
+	\makecell[l]{Parameter} & \makecell[l]{$\rhd$ Parameterliste in Definition: Formale Parameter \\
+	$\rhd$ Parameterliste bei Methodenaufruf: Aktuale Parameter \\
+	\hspace{0.4cm} $\diamond$ Kommt von actual $\Rightarrow$ tatsächlich, vorliegend \\
+	$\rhd$ Verhalten bei Referenzen: \\
+	\hspace{0.4cm} $\diamond$ Kopie der Adresse des Objekts bei Initialisierung des formalen durch \\
+	\hspace{0.8cm} aktualen Parameter} \\ \hline
+	
+	
 	\end{tabular}
 
 \section{Packages und Zugriffsrechte}
@@ -300,10 +306,10 @@
 	\makecell[l]{Package} & \makecell[l]{$\rhd$ Zusammenfassung von mehreren Dateien \\
 	$\rhd$ Wird zur Gruppierung von ähnlichen Funktionalitäten verwendet \\
 	$\rhd$ Ermöglicht selbe Dateinamen in unterschiedlichen Packages \\
-	$\rhd$ Bestehen nur aus Kleinbuchstaben
+	$\rhd$ Bestehen nur aus Kleinbuchstaben \\
 	$\rhd$ Am Anfang der Quelldatei: \texttt{package mypackage;} \\
-	$\Rightarrow$ Datei gehört damit zum Package \texttt{mypackage} \\
-	$\Rightarrow$ \texttt{mypackage} wird automatisch importiert } \\ \hline
+	\hspace{0.4cm} $\diamond$ Datei gehört damit zum Package \texttt{mypackage} \\
+	\hspace{0.4cm} $\diamond$ \texttt{mypackage} wird automatisch importiert } \\ \hline
 	
 	\makecell[l]{Import} & \makecell[l]{
 	$\rhd$ \texttt{import package.*;} \\
@@ -311,10 +317,12 @@
 	$\rhd$ \texttt{*} importiert aber nicht die Inhalte von Subpackages \\
 	$\rhd$ Import-Anweisungen müssen immer am Anfang des Quelltextes stehen \\
 	$\rhd$ Durch Importanweisungen sind Teile danach nur noch mit Namen ansprechbar \\
-	$\rhd$ Wichtigstes Package: \texttt{java.lang.*} (automatisch importiert)} \\ \hline
+	$\rhd$ Wichtigstes Package: \texttt{java.lang.*} (automatisch importiert) \\
+	$\rhd$ Konstanten: \texttt{import static java.lang.Math.PI;} \\
+	\hspace{0.4cm} $\diamond$ Ermöglicht Schreiben von \texttt{PI} statt \texttt{Math.PI}} \\ \hline
 	
 	\makecell[l]{Zugriffsrechte} & \makecell[l]{$\rhd$ Klassen/Enum: nur \texttt{public} oder nichts \\
-	\hspace{0.4cm} $\Rightarrow$ Nur eine Klasse darf \texttt{public} sein (Damit auch Dateiname) \\
+	\hspace{0.4cm} $\diamond$ Nur eine Klasse darf \texttt{public} sein (Damit auch Dateiname) \\
 	$\rhd$ \texttt{private:} Zugriff innerhalb der Klasse \\
 	$\rhd$ \texttt{Keine Angabe:} \texttt{private} + im Package \\
 	$\rhd$ \texttt{protected:} \texttt{Keine Angabe} + in allen Subklassen \\
@@ -329,7 +337,8 @@
 	\hline
 	\makecell[l]{Quelltest} & \makecell[l]{$\rhd$ z.B. selbst geschriebener Java-Code } \\ \hline
 	
-	\makecell[l]{Java-Bytecode} & \makecell[l]{$\rhd$ Wird durch Übersetzung des Java-Quelltextes erzeugt } \\ \hline
+	\makecell[l]{Java-Bytecode} & \makecell[l]{$\rhd$ Wird durch Übersetzung des Java-Quelltextes erzeugt 
+	} \\ \hline
 	
 	\makecell[l]{Programm} & \makecell[l]{$\rhd$ Sequenz von Informationen} \\ \hline
 		
@@ -339,9 +348,7 @@
 	\makecell[l]{Prozesse} & \makecell[l]{$\rhd$ CPU besteht aus mehreren Prozessorkernen \\
 	$\rhd$ Mehrere Prozesse laufen dementsprechend parallel \\
 	$\rhd$ Allerdings bearbeitet jeder Kern nur einen Prozess gleichzeitig (sehr kurz) \\
-	\hspace{0.4cm}$\Rightarrow$ Illusion von Multitasking } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\hspace{0.4cm}$\diamond$ Illusion von Multitasking } \\ \hline
 	\end{tabular}
 	
 \section{Schleifen und if}
@@ -359,13 +366,14 @@
 	\makecell[l]{for-Schleife} & 
 	\makecell[l]{$\rhd$ \texttt{for (Anweisung davor; Bedingung; Anweisung danach) \{Anweisung\}} \\
 	$\rhd$ z.B.: \texttt{for (int i = 0; i < 10; i++) \{...\}} \\
-	\hspace{0.4cm}$\Rightarrow$ Zehnmalige Ausführung der Anweisung \\
-	$\rhd$ Kurzform: \texttt{for (Position p : positions) \{\}}} \\ \hline
+	\hspace{0.4cm}$\diamond$ Zehnmalige Ausführung der Anweisung \\
+	$\rhd$ Kurzform: \texttt{for (Position p : positions) \{\}} \\
+	\hspace{0.4cm} $\diamond$ (Komponententyp Identifier : ArrayName)  } \\ \hline
 	
 	\makecell[l]{if-Anweisung} & \makecell[l]{$\rhd$ \texttt{if (Bedingung) \{...\}} \\
-	\hspace{0.4cm} $\rhd$ Führt den Code in der Anweisung nur aus, falls die Bedingung erfüllt ist \\
+	\hspace{0.4cm} $\diamond$ Führt den Code in der Anweisung nur aus, falls die Bedingung erfüllt ist \\
 	$\rhd$ \texttt{if (Bedingung) \{\} else \{\}} \\
-	\hspace{0.4cm} $\rhd$ Code, der ausgeführt wird, falls Bedingung nicht erfüllt ist} \\ \hline
+	\hspace{0.4cm} $\diamond$ Code, der ausgeführt wird, falls Bedingung nicht erfüllt ist} \\ \hline
 	\end{tabular}
 	
 \section{String (java.lang.String)}	
@@ -374,28 +382,16 @@
 	\makecell[l]{Eigenschaften} & \makecell[l]{$\rhd$ Sonderrolle, da Klasse, aber trotzdem Literale in Java \\
 	$\rhd$ Zeichenketten, die aus allen möglichen chars bestehen} \\ \hline
 	
-	\makecell[l]{Methoden} & \makecell[l]{$\rhd$ \texttt{String str = "Hello World";} \\
-	\hspace{0.8cm} \texttt{str.length; // 11} \\
-	\hspace{0.8cm} \texttt{str.charAt(2); // e} \\
-	\hspace{0.8cm} \texttt{str.indexOf('e'); // 2} \\
-	\hspace{0.8cm} \texttt{str.matches("He.+rld"); // true} \\
-	\hspace{1.2cm} \texttt{.+} $\Rightarrow$ \texttt{.} als Platzhalter für beliebiges Zeichen, 
+	\makecell[l]{Methoden:} & \makecell[l]{$\rhd$ \texttt{String str = "Hello World";} \\
+	\hspace{0.8cm} $\diamond$ \texttt{str.length; // 11} \\
+	\hspace{0.8cm} $\diamond$ \texttt{str.charAt(2); // e} \\
+	\hspace{0.8cm} $\diamond$ \texttt{str.indexOf('e'); // 2} \\
+	\hspace{0.8cm} $\diamond$ \texttt{str.matches("He.+rld"); // true} \\
+	\hspace{1.5cm} \texttt{.+} $\Rightarrow$ \texttt{.} als Platzhalter für beliebiges Zeichen, 
 	\texttt{+} erlaubt Wiederholung \\ 
-	\hspace{1.7cm} $\Rightarrow$ Regular Expression \\
-	\hspace{0.8cm} \texttt{String str 2 = str.concat("b"); // Anhängen } \\
-	\hspace{0.8cm} \texttt{String str 2 = str1 + "b"; // Kurzform}  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\hspace{2.03cm} $\Rightarrow$ Regular Expression \\
+	\hspace{0.8cm} $\diamond$ \texttt{String str 2 = str.concat("b"); // Anhängen } \\
+	\hspace{0.8cm} $\diamond$ \texttt{String str 2 = str1 + "b"; // Kurzform}  } \\ \hline
 	\end{tabular}
 	
 \section{Syntax}
@@ -436,16 +432,54 @@
 	$\rhd$ z.B.: \texttt{public MySubClass (int x) \{ super(x);<v\}}} \\ \hline
 	
 	\makecell[l]{Overwrite} & \makecell[l]{$\rhd$ Methoden in Subklassen können auch neu geschrieben werden \\
-	\hspace{0.4cm} $\Rightarrow$ Die Implementation der Superklasse wird sozusagen überschrieben \\
+	\hspace{0.4cm} $\diamond$ Die Implementation der Superklasse wird sozusagen überschrieben \\
 	$\rhd$ Selber Name und Parameterliste notwendig } \\ \hline
 	
 	\makecell[l]{Overload} & 
 	\makecell[l]{$\rhd$ Methoden mit selbem Bezeichner, aber unterschiedlicher Parameterliste \\
 	$\rhd$ Die Methode wird überladen \\ 
 	$\rhd$ Konstruktoren kann man auch überladen \\
-	\hspace{0.4cm} $\Rightarrow$ Für manche Werte werden dann Standardwerte gesetzt \\
-	\hspace{0.4cm} $\Rightarrow$ Anderer Konstruktor auch in Konstruktor aufrufbar 
+	\hspace{0.4cm} $\diamond$ Für manche Werte werden dann Standardwerte gesetzt \\
+	\hspace{0.4cm} $\diamond$ Anderer Konstruktor auch in Konstruktor aufrufbar 
 	(\texttt{this(1);}) } \\ \hline
+		
+	\makecell[l]{Subtypen} & \makecell[l]{$\rhd$ Abgeleitete Klassen / Interfaces (\texttt{extends}) \\
+	$\rhd$ Überall wo ein Referenztyp (Supertyp) erwartet wird: \\
+	\hspace{0.4cm} $\diamond$ Verwendung eines Objekts eines Subtyps möglich \\
+	\hspace{1.2cm} in Zuweisung an Variable \\
+	\hspace{1.2cm} als Parameterwert \\
+	\hspace{1.2cm} als Rückgabewert	} \\ \hline
+	
+	
+	\makecell[l]{Statischer Typ} & \makecell[l]{$\rhd$ Der Typ, mit dem Referenz definiert wird \\
+	$\rhd$ Statischer Typ unveränderlich mit Referenz verknüpft $\Rightarrow$ statisch \\
+	$\rhd$ z.B.: \texttt{X a = new Y();} $\Rightarrow$ \texttt{X} hier statischer Typ \\
+	$\rhd$ \textbf{Entscheidet}, auf welche Attribute/Methoden zugegriffen werden darf \\
+	\hspace{0.4cm} $\diamond$ Müssen im statischen Typ vorhanden sein (definiert oder ererbt)\\
+	 } \\ \hline
+	
+	\makecell[l]{Dynamischer Typ} & 
+	\makecell[l]{$\rhd$ Der Typ des Objekts einer Referenz, auf das diese Referenz \\
+	$\rhd$ Muss gleich dem statischen Typ oder ein Subtyp des statischen Typs sein \\
+	$\rhd$ Kann sich beliebig häufig ändern $\Rightarrow$ dynamisch \\
+	$\rhd$ z.B.: \texttt{X a = new Y();} $\Rightarrow$ \texttt{Y} hier dynamischer Typ \\
+	$\rhd$ \textbf{Entscheidet}, welche Implementation der Methode aufgerufen wird} \\ \hline
+	
+	\makecell[l]{Downcast} & \makecell[l]{$\rhd$ \texttt{if (y instanceof X) \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Gibt \texttt{true} zurück, falls \texttt{y} (Variable von Referenztyp) gleich 
+	dem Typen \\
+	\hspace{0.7cm}  von \texttt{X} oder ein Subtyp von \texttt{X} ist \\
+	$\rhd$ Downcast \\
+	\hspace{0.4cm} $\diamond$ Vorherige Überprüfung mit \texttt{isinstanceof} \\
+	\hspace{0.4cm} $\diamond$ Ermöglicht z.B.: \texttt{X z;} \\
+	\hspace{3.6cm} \texttt{z = (X) y;} \\
+	\hspace{0.4cm} $\diamond$ 
+	\textbf{Warum?} Zugriff auf Funktionen, die nicht im statischen Typ existieren } \\ \hline	
+	
+	\makecell[l]{Garbage Collector} & \makecell[l]{$\rhd$ Teil des Laufzeitsystems \\
+	$\rhd$ Wird selbstständig aufgerufen, um Objekte ohne Referenz zu löschen \\
+	$\rhd$ Kann zwecks Laufzeitoptimierung konfiguriert werden} \\ \hline
+	
 	\end{tabular}
 
 
