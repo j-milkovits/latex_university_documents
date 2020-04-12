@@ -271,6 +271,111 @@
 	$\rhd$ IndexOutOfBounds, NullPointerException,.. } \\ \hline
 	\end{tabular}
 
+\section{Generics}
+	\begin{longtable}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Wrapper-Klassen} & \makecell[l]{$\rhd$ primitive Datentypen nicht mit Generizität vereinbar \\
+	$\rhd$ Deswegen benötigen wir eine stellvertretende Klasse $\rightarrow$ Wrapper-Klassen \\
+	$\rhd$ selber Name, nur mit gro"sem Anfangsbuchstaben (Integer, Long, Character,..) \\
+	$\rhd$ Konstruktor mit Parameter des zugehörigen Datentyps \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{intValue(); // Returns specific value of class} \\
+	\hspace{0.4cm} $\diamond$ \texttt{MAX\_VALUE; // Returns max value} \\
+	$\rhd$ Boxing/Unboxing: \\
+	\hspace{0.4cm} $\diamond$ Primitiver Datentyp und Wrapper-Klasse sind austauschbar \\
+	\hspace{0.4cm} $\diamond$ Automatische Umwandlung ineinander \\
+	\hspace{0.4cm} $\diamond$ Boxing: \texttt{Integer i = 123;} \\
+	\hspace{0.4cm} $\diamond$ Unboxing: \texttt{System.out.print(i); // 123} } \\ \hline
+	
+	\makecell[l]{Generische Klassen} & \makecell[l]{$\rhd$ \texttt{public class Pair <T1, T2> \{...\}} \\
+	$\rhd$ Klasse \texttt{Pair} ist \textbf{generisch} / Klasse \texttt{Pair} ist mit T1 und T2 \textbf{parametrisiert} \\
+	$\rhd$ \texttt{T1} und \texttt{T2} sind die \textbf{Typparameter} von Klasse \texttt{Pair} \\
+	$\rhd$ \texttt{T1} und \texttt{T2} können als Datentypen/Rückgabewerte verwendet werden \\
+	$\rhd$ Können \textbf{nicht} in Klassenmethoden verwendet werden  \\
+	$\rhd$ Bei Einrichtung von Objekten von \texttt{Pair} werden die Typparamter festgelegt \\
+	\hspace{0.4cm} $\diamond$ \texttt{Pair<Integer,Double> pair = new Pair<Integer,Double>(2,3.5);} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Pair} ist mit \texttt{Integer} und \texttt{Double} \textbf{instanziiert}\\
+	\hspace{0.4cm} $\diamond$ Typparameter können natürlich auch vom selben Typ sein} \\ \hline
+
+	\makecell[l]{Generische Methoden} & \makecell[l]{$\rhd$ Auch in \textbf{nicht-generischen Klassen} generische Methoden möglich \\
+	$\rhd$ \texttt{public class X \{...\}} \\
+	$\rhd$ Einzelne Methode parametrisiert: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public <T1,T2> Pair<T1,T2> makePair(T1 t1, T2 t2) \{...\}} \\
+	\hspace{0.4cm} $\diamond$ \textbf{Parametrisierung} der Methode (\texttt{<T1,T2>}) steht vor dem Rückgabetyp \\
+	$\rhd$ Aufurf: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Pair<A,B> pair1 = x.makePair(new A(), new B());} \\
+	\hspace{0.4cm} $\diamond$ Compiler erkennt selbst die Typen für die Methode \\
+	$\rhd$ Falls \texttt{T1} z.B. schon die Klasse \texttt{X} parametrisiert: \\
+	\hspace{0.8cm} \texttt{public class X <T1>} \{ \\
+	\hspace{1.2cm} \texttt{public <T2> Pair<T1,T2> makePair(T1 t1, T2 t2) \{...\} } \\
+	\hspace{0.8cm} \} } \\ \hline 
+
+	\makecell[l]{Typparameter} & \makecell[l]{$\rhd$ Alle Arten von Klassen und Arrays möglich \\
+	$\rhd$ Auch parametrisierte Klassen sind als Typparamter möglich \\
+	$\rhd$ Typparameter dürfen jedoch nicht vom primitiven Datentyp sein \\
+	$\rhd$ Vererbung von Typparametern ist jedoch nicht übertragbar \\ 
+	\hspace{0.4cm} $\diamond$ Bei bereits instanziierten Parametern sind keine Subklassen möglich \\
+	$\rhd$ Kurzform: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Pair<String,Integer> pair;} \\
+	\hspace{0.4cm} $\diamond$ \texttt{pair = new Pair<> ("Hello", 123);} \\
+	\hspace{0.4cm} $\diamond$ \texttt{"Diamond-Operator"}: Compiler erkennt selbstständig die Instanziierung } \\ \hline
+
+	\makecell[l]{Eingeschränkte \\ Typparameter} & \makecell[l]{$\rhd$ Werden bei der Definition von generischen Klassen/Methoden verwendet \\
+	$\rhd$ \texttt{<T extends X> // T gleich X, oder direkt/indirekt Subtyp von X} \\
+	\hspace{0.4cm} $\diamond$ Notwendig um sicherzustellen, dass aufgerufene Methoden definiert sind \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{<T extends Number> // Methoden wie doubleValue() immer vorhanden} \\
+	$\rhd$ Mehrfache Einschränkung:  \\
+	\hspace{0.4cm} $\diamond$ \texttt{<T extends X \& Interface1 \& Interface2} \\
+	\hspace{0.4cm} $\diamond$ Klasse muss, falls vorhanden, an erster Stelle stehen} \\ \hline
+
+	\makecell[l]{Wildcards} & \makecell[l]{$\rhd$ Werden bei der Instanziierung von Typparametern verwendet \\
+	$\rhd$ \texttt{public double m (X<? extends Number> n) \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Ermöglicht nun die Verwendung von Subklassen bei aktualen Parametern \\
+	\hspace{0.4cm} $\diamond$ (Siehe Einschränkung \texttt{Typparameter / 4. Stichpunkt}) \\
+	$\rhd$ \textbf{Unterschied:} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public <T extends Number> double m (X<T> n) \{...\}} \\
+	\hspace{0.6cm} $\diamond$ Generische Methode mit eingeschränkt wählbarem Typparameter \\
+	\hspace{0.4cm} $\diamond$ \texttt{public double m (X<? extends Number> n) \{...\}} \\
+	\hspace{0.6cm} $\diamond$ Nichtgenerische Methode mit generischem Parameter mit eingeschränkt \\
+	\hspace{1cm} wählbarem Typparameter \\
+	$\rhd$ Weitere Wildcard: \texttt{X<?>} \\
+	\hspace{0.4cm} $\diamond$ Allgemeinst möglichste, \texttt{extends Object} \\
+	$\rhd$ \texttt{X<? super Double>} \\
+	\hspace{0.4cm} $\diamond$ Mit allen Supertypen (direkt/indirekt) und alle implementieren Interfaces} \\ \hline
+
+	\makecell[l]{Empfehlungen} & \makecell[l]{$\rhd$ Oracle-Empfehlungen im Bezug auf Wildcards \\
+	$\rhd$ In-Parameter (Werte einer Methode, die nur gelesen werden): \\ 
+	\hspace{0.4cm} $\diamond$ Verwendung von \texttt{extends} \\
+	$\rhd$ Out-Paramter (Werte einer Methode, die nur geschrieben werden): \\
+	\hspace{0.4cm} $\diamond$ Verwendung von \texttt{super} \\
+	$\rhd$ In/Out-Parameter: \\
+	\hspace{0.4cm} $\diamond$ Keine Verwendung von Wildcards \\
+	$\rhd$ Rückgaben: \\
+	\hspace{0.4cm} $\diamond$ Keine Verwendung von Wildcards} \\ \hline
+
+	\makecell[l]{Interface Comparator} & \makecell[l]{$\rhd$  \texttt{Functional Interface} im Package \texttt{java.util} \\
+	$\rhd$ Verwendung: \\
+	\hspace{0.4cm} $\diamond$ Erstellen einer Vergleichsklasse, die \texttt{Comparator<T>} implementiert \\
+	\hspace{0.4cm} $\diamond$ \texttt{..class MyComp<T extends Number> implements Comparator<T> \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Generisch mit einem Typparameter \\
+	$\rhd$ Methode: \texttt{public int compare (T t1, T2) \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Methode, muss abhängig vom Fall, selbst implementiert werden \\
+	\hspace{0.4cm} $\diamond$ 0, falls beide Objekte äquivalent \\
+	\hspace{0.4cm} $\diamond$ Negative Zahl, falls 1.Objekt-Wert dem 2.Objekt-Wert vorangehend ist \\
+	\hspace{0.4cm} $\diamond$ Positive Zahl, falls 1.Objekt-Wert dem 2.Objekt-Wert nachfolgend ist \\
+	$\rhd$ \texttt{String} hat bereits eine Methode \texttt{compareTo}: sortiert lexikographisch }  \\ \hline
+
+	\makecell[l]{Einschränkungen} & \makecell[l]{$\rhd$ Keine primitiven Datentypen als Instanziierung von Typparametern \\
+	$\rhd$ Keine Erzeugung von Objekten/Arrays von Typparametern mit \texttt{new} \\
+	$\rhd$ Keine Klassenattribute von Typparametern \\
+	$\rhd$ Kein Downcast oder \texttt{instanceof} von Typparametern \\
+	$\rhd$ Kein \texttt{throw-catch} mit Typparametern \\
+	$\rhd$ Keine Methodenüberladung mit Typparametern  } \\ \hline
+
+	\end{longtable}
+
+
+
 \section{Graphics (java.awt.Graphics;)}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
