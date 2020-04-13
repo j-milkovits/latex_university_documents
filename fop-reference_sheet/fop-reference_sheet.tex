@@ -35,21 +35,7 @@
 \begin{comment}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
 	
 	\end{tabular}
 \end{comment}
@@ -62,21 +48,138 @@
 	\makecell[l]{Exceptions aus \\ Lambda-Ausdrücken} &
 	\makecell[l]{$\rhd$ Kapitel 5: 47 - 50  } \\ \hline
 	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\makecell[l]{Listen von \\ Lambda-Ausdrücken} & \makecell[l]{$\rhd$ Kapitel 7: 60 - 65 } \\ \hline
 	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
+	\makecell[l]{Methodennamen als \\ Lambda-Ausdrücke} & \makecell[l]{$\rhd$ Kapitel 8: 55 - 84  } \\ \hline
 
-	\makecell[l]{} & \makecell[l]{$\rhd$  } \\ \hline
-	
+	\makecell[l]{Streams in Racket} & \makecell[l]{$\rhd$ Kapitel 8: 122 - 133  } \\ \hline
+
 	\end{tabular}
+
+
+\section{Collections}
+	\begin{longtable}{ | p{4cm} p{13.5cm} | }
+	\hline
+	
+	\makecell[l]{Informationen } & \makecell[l]{$\rhd$ Sammlungen von Elementen (Objekte eines generischen Typs) \\
+	$\rhd$ Struktur: \\
+	\hspace{0.4cm} $\diamond$ Alle Klassen und Interfaces in \texttt{java.util} \\
+	\hspace{0.4cm} $\diamond$ Interface \texttt{Collection}: Alle Klassen implementieren dieses Interface \\
+	\hspace{0.4cm} $\diamond$ Klasse \texttt{Collections}: Basisalgorithmen, Sortieren \\
+	\hspace{0.4cm} $\diamond$ Interface \texttt{List}: Erweitert \texttt{Collection}, mehr Funktionalitäten \\
+	\hspace{0.4cm} $\diamond$ Klasse \texttt{Iterator}: Iteration über die Elemente einer \texttt{Collection} \\
+	$\rhd$ Beispiele für Klasse, die das Interface \texttt{Collection} implementieren: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Vector, LinkedList, ArrayList, TreeSet, HashSet} } \\ \hline
+	
+	\makecell[l]{Interface \texttt{Collection}} & \makecell[l]{$\rhd$ z.B.: \texttt{Collection<Number> c1 = new ArrayList<Number>();} \\
+	\hspace{0.4cm} $\diamond$ Speichert leere \texttt{ArrayList} in einer Referenz des Interface \texttt{Collection} \\
+	\hspace{0.4cm} $\diamond$ Dies ist möglich, da \texttt{ArrayList} das Interface \texttt{Collection} implementiert \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{add}  \\
+	\hspace{0.6cm} - Fügt zur ArrayList ein neues Element hinzu \\
+	\hspace{0.6cm} - Gibt \texttt{true} zurück, falls Hinzufügen erfolgreich \\
+	\hspace{0.4cm} $\diamond$ \texttt{addAll} \\
+	\hspace{0.6cm} - Hat eine \texttt{Collection} als Parameter und fügt diese hinzu \\
+	\hspace{0.4cm} $\diamond$ \texttt{size} \\
+	\hspace{0.6cm} - Anzahl der Elemente als int \\
+	\hspace{0.4cm} $\diamond$ \texttt{isEmpty} \\
+	\hspace{0.6cm} - \texttt{true}, falls \texttt{Collection} keine Elemente enthält (\texttt{size == 0}) \\ 
+	\hspace{0.4cm} $\diamond$ \texttt{contains} \\
+	\hspace{0.6cm} - Parameter vom Typ \texttt{Object} \\
+	\hspace{0.6cm} - Überprüft, ob aktualer Parameter in \texttt{Collection} vorhanden ist \\
+	\hspace{0.6cm} - Nutzt \texttt{equals} von \texttt{Object} $\rightarrow$ Wertgleichheit \\
+	\hspace{0.4cm} $\diamond$ \texttt{containsAll} \\
+	\hspace{0.6cm} - \texttt{true}, falls ganze übergebene \texttt{Collection} enthalten ist \\
+	\hspace{0.4cm} $\diamond$ \texttt{clear} \\
+	\hspace{0.6cm} - Entfernt alle Elemente aus der \texttt{Collection} \\
+	\hspace{0.4cm} $\diamond$ \texttt{remove} \\
+	\hspace{0.6cm} - Entfernt übergebenes \texttt{Object} \\
+	\hspace{0.6cm} - \texttt{true}, falls \texttt{Object} mindestens einmal vorhanden \\
+	\hspace{0.6cm} - Bei mehreren, entscheidet die \texttt{Collection}-Klasse welches entfernt wird } \\ \hline
+
+	\makecell[l]{Interface \texttt{List}} & \makecell[l]{$\rhd$ Erweitert das Interface \texttt{Collection} \\
+	$\rhd$ Unterschied: Definition einer Reihenfolge auf den Elementen \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{indexOf} \\
+	\hspace{0.6cm} - Liefert ersten Index zurück, an dem \texttt{Object} zu finden ist \\
+	\hspace{0.6cm} - Liefert -1 zurück, falls Parameter nicht in Liste gefunden wird \\
+	\hspace{0.4cm} $\diamond$ \texttt{set} \\
+	\hspace{0.6cm} - \texttt{T set(int index, T element) ...} \\
+	\hspace{0.6cm} - Ersetzt Element an Stelle \texttt{index} durch \texttt{element} \\
+	\hspace{0.6cm} - Gibt ersetztes Element zurück \\
+	\hspace{0.4cm} $\diamond$ \texttt{add} \\
+	\hspace{0.6cm} - Identisch zu Methode \texttt{set}, jedoch ein Unterschied: \\
+	\hspace{0.6cm} - Überschreibt das Element \textbf{nicht}, sondern fügt es vor dem Element ein } \\ \hline
+
+	\makecell[l]{Sortieren mit Comparator} & \makecell[l]{$\rhd$ Klasse \texttt{Collections} hat Klassenmethode \texttt{sort} \\
+	$\rhd$ \texttt{Collections.sort(list, new MyComparator());} \\
+	\hspace{0.4cm} $\diamond$ Erster Parameter: Zu sortierende Liste (z.B.: \texttt{List<Student> list = ...}) \\
+	\hspace{0.4cm} $\diamond$ Zweiter Parameter: Selbst erstellte Sortierlogik \\
+	\hspace{0.4cm} $\diamond$ Typparameter von \texttt{Comparator} und \texttt{List} müssen gleich sein } \\ \hline
+
+	\makecell[l]{Interface \texttt{Iterator}} & \makecell[l]{$\rhd$ \texttt{Collection} und \texttt{List} erben von Interface \texttt{Iterable} \\
+	$\rhd$ Jede Klasse, die \texttt{Collection} implementiert hat eine eigene \texttt{Iterator}-Klasse \\
+	$\rhd$ Diese eigene \texttt{Iterator}-Klasse implementiert das Interface \texttt{Iterator} \\
+	$\rhd$ \texttt{Collection<Number> c1 = new ArrayList<Number>();} \\
+	$\rhd$ \texttt{Iterator<Number> it1 = c1.iterator();} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Collection} besitzt die Methode \texttt{iterator()} \\
+	\hspace{0.4cm} $\diamond$ Liefert ein Objekt ihrer eigenen \texttt{Iterator}-Klasse zurück \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{next()} \\
+	\hspace{0.6cm} - Liefert ein noch nicht geliefertes Element der \texttt{Collection} \\
+	\hspace{0.6cm} - Reihenfolge von Interface abhängig (\texttt{Collection} oder \texttt{List}) \\
+	\hspace{0.4cm} $\diamond$ \texttt{hasNext()} \\
+	\hspace{0.6cm} - \texttt{true}, falls mindestens ein Element noch nicht durch \\
+	\hspace{0.9cm} diesen \texttt{Iterator} zurückgeliefert wurde } \\ \hline
+
+	\makecell[l]{Interface \texttt{Map}} & \makecell[l]{$\rhd$ z.B.: \texttt{Map<String,Integer> map = new HashMap<String,Integer>();} \\
+	\hspace{0.4cm} $\diamond$  Erster Typparameter: \texttt{Key} (hier: \texttt{String}) \\
+	\hspace{0.4cm} $\diamond$  Typparameter: \texttt{Value} (hier: \texttt{Integer}) \\
+	$\rhd$ Eine \texttt{Map} realisiert eine Abbildung von den \texttt{Keys} in die \texttt{Values} \\
+	\hspace{0.4cm} $\diamond$  \texttt{Keys} müssen alle unterschiedlich sein \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{put(key, value) // Fügt Paar in Map ein} \\
+	\hspace{0.4cm} $\diamond$ \texttt{get(key) // Gibt value zu bestimmtem key zurück} } \\ \hline
+
+	\makecell[l]{\texttt{LinkedList}} & \makecell[l]{$\rhd$ Aufbau: \\
+	\hspace{0.4cm} $\diamond$ Elemente der Liste enthalten: \\
+	\hspace{0.6cm} - \texttt{Key} vom Typ T \\
+	\hspace{0.6cm} - Attribut vom selben Elementtyp mit Namen \texttt{next} \\
+	\hspace{0.4cm} $\diamond$ Abspeichern des sogenannten \texttt{head}, dieser speichert die Liste \\
+	\hspace{0.4cm} $\diamond$ Die Liste wird durch die Verkettung untereinander mit \texttt{next} erstellt \\
+	$\rhd$ Die folgenden Beispiele sollen nur die Logik hinter der Klasse erläutern
+	$\rhd$ Durchlauf durch alle Elemente: (\textbf{LOGIK})\\
+	\hspace{0.4cm} $\diamond$ (Die eigentliche Implementation in Java sieht anders aus) \\
+	\hspace{0.4cm} $\diamond$ \texttt{for (ListItem<T> p = head; p != null; p = p.next) \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Setzen von \texttt{p} zu \texttt{p.next} bis \texttt{p == null} \\
+	$\rhd$ Einfügen Element am Anfang: (\textbf{LOGIK}) \\
+	\hspace{0.4cm} $\diamond$ Erstellen eines neuen Listitems und Kopieren der Werte \\
+	\hspace{0.4cm} $\diamond$ Achtung: Erst \texttt{head} als \texttt{next} abspeichern \\
+	\hspace{0.4cm} $\diamond$ Danach neues Listitem als \texttt{head} setzen \\
+	\hspace{0.4cm} $\diamond$ (sonst geht die komplette Liste verloren) \\
+	$\rhd$ Einfügen Element an Stelle n: (\textbf{LOGIK}) \\
+	\hspace{0.4cm} $\diamond$ Fortschreiten des Durchlaufs bis zu n-1 \\
+	\hspace{0.4cm} $\diamond$ \texttt{ListItem<T> tmp = new ListItem<T>();} \\
+	\hspace{0.4cm} $\diamond$ \texttt{tmp.key = key; // Setzen des Keys} \\
+	\hspace{0.4cm} $\diamond$ \texttt{tmp.next = p.next; // Knüpfen des neuen Elements an n+1.Element} \\
+	\hspace{0.4cm} $\diamond$ \texttt{p.next = tmp; // Knüpfen des n-1.Elements an neues Element} \\
+	$\rhd$ Entfernen Element: (\textbf{LOGIK}) \\ 
+	\hspace{0.4cm} $\diamond$ Überspringen des zu löschenden Elements \\
+	\hspace{0.4cm} $\diamond$ \texttt{head}: \texttt{head = head.next;} \\
+	\hspace{0.4cm} $\diamond$ Sonst: \texttt{p.next = p.next.next;} \\
+	\hspace{0.6cm} - Laufpointer muss in diesem Fall eine Stelle davor stehenbleiben \\
+	$\rhd$ Allgemein: \\
+	\hspace{0.4cm} $\diamond$ Auf korrektes Zwischenspeichern achten! \\
+	$\rhd$ Doppelte Verkettung: \\
+	\hspace{0.4cm} $\diamond$ Ermöglicht rückwarts und vorwärts Durchlaufen \\
+	\hspace{0.4cm} $\diamond$ Kostet Laufzeit und Speicher \\
+	\hspace{0.4cm} $\diamond$ Verweisnamen meist \texttt{next} und \texttt{backward} \\
+	\hspace{0.4cm} $\diamond$ Erhöhter Aufwand, da doppelte Verweiskopien \\
+	$\rhd$ Zyklische Listen: \\
+	\hspace{0.4cm} $\diamond$ Letzter Verweis nicht \texttt{null} sondern auf \texttt{head} \\
+	} \\ \hline
+
+	\end{longtable}
 
 \section{Computerspeicher}
 
@@ -85,10 +188,10 @@
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
 	\makecell[l]{Unsere Vorstellung} & 
-	\makecell[l]{$\rhd$ großes Feld aus Maschinenwörtern mit eindeutiger Adresse} \\ \hline
+	\makecell[l]{$\rhd$ gro\ss es Feld aus Maschinenwörtern mit eindeutiger Adresse} \\ \hline
 	
 	\makecell[l]{Erzeugung eines \\ neuen Objekts} & 
-	\makecell[l]{$\rhd$ Reservierung von ungenutztem Speicher in ausreichender Größe} \\ \hline
+	\makecell[l]{$\rhd$ Reservierung von ungenutztem Speicher in ausreichender Grö\ss e} \\ \hline
 	
 	\makecell[l]{Referenz} & 
 	\makecell[l]{$\rhd$ Name der Variable, die die Anfangsadresse des Objekts speichert \\ 
@@ -155,7 +258,7 @@
 	$\rhd$ Ohne Initialisierung: undefinierter Wert} \\ \hline
 	
 	\makecell[l]{Literale} & \makecell[l]{$\rhd$ wörtlich hingeschriebene Werte eines Datentyps  \\
-	$\rhd$ Zahlen standardmäßig int, falls \texttt{long} gewünscht: \texttt{123L oder 123l} \\ 
+	$\rhd$ Zahlen standardmä\ss ig int, falls \texttt{long} gewünscht: \texttt{123L oder 123l} \\ 
 	$\rhd$ Bei gebrochenen double, falls \texttt{float} gewünscht: \texttt{12.3F oder 12.3f} \\
 	$\rhd$ null: Nutzung für Referenzen $\rightarrow$ verweist auf nichts} \\ \hline
 	
@@ -249,7 +352,7 @@
 	$\rhd$ AssertionError: \\
 	\hspace{0.4cm} $\diamond$ \texttt{throw new AssertionError("Bad!");} \\
 	\hspace{0.4cm} $\diamond$ Kurzform: \texttt{assert x == 2: "Bad!";} \\
-	\hspace{0.4cm} $\diamond$ \textbf{Wichtig:} Bedingung muss negiert werden!
+	\hspace{0.4cm} $\diamond$ \textbf{Wichtig:} Bedingung muss negiert werden! \\
 	\hspace{0.4cm} $\diamond$ Assertanweisungen sinnvoll, da kurz und übersichtlich \\
 	\hspace{0.4cm} $\diamond$ Können zusätzlich vom Compiler an- und abgeschaltet werden \\
 	\hspace{0.4cm} $\diamond$ z.B.: Verwendung für Tests für Methoden und späteres Abschalten \\
@@ -270,6 +373,201 @@
 	$\rhd$ Kann nicht vom Compiler entdeckt werden \\
 	$\rhd$ IndexOutOfBounds, NullPointerException,.. } \\ \hline
 	\end{tabular}
+
+\section{Files}
+	\begin{longtable}{ | p{4cm} p{13.5cm} | }
+	\hline
+	
+	\makecell[l]{System Properties \\ (java.lang.System)} & \makecell[l]{$\rhd$ Attribute der Umgebung, in denen das Java Programm abläuft \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getProperty} \\
+	\hspace{0.6cm} - Erhält \texttt{String} und gibt \texttt{String} zurück \\ 
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{String homeDir = System.getProperty(\string"user.home\string");} \\
+	\hspace{0.4cm} $\diamond$ Mögliche Strings: \\
+	\hspace{0.6cm} - \texttt{\string"user.home\string" // Home directory} \\
+	\hspace{0.6cm} - \texttt{\string"user.dir\string" // Working directory} \\
+	\hspace{0.6cm} - \texttt{\string"user.name\string" // Account name} \\
+	\hspace{0.6cm} - \texttt{\string"file.separator\string" // Zeichen zur Dateitrennung} \\
+	\hspace{0.6cm} - \texttt{\string"line.separator\string" // Zeichen zur Zeilentrennung} \\
+	$\rhd$ \texttt{System.out}: \\
+	\hspace{0.4cm} $\diamond$ Klassenattribut \texttt{out} von System ist von Klasse \texttt{PrintStream} \\
+	\hspace{0.4cm} $\diamond$ \texttt{PrintStream} hat also auch Methoden wie \texttt{println} \\
+	$\rhd$ \texttt{System.err}: \\
+	\hspace{0.4cm} $\diamond$ Auch \texttt{err} ist von Klasse \texttt{PrintStream} \\
+	\hspace{0.4cm} $\diamond$ Hierhin werden die Fehlerausgaben geschrieben \\
+	\hspace{0.4cm} $\diamond$ z.B. sinnvoll um Fehler in seperate Log-Datei umzuleiten \\
+	$\rhd$ \texttt{System.in}: \\
+	\hspace{0.4cm} $\diamond$ Auch \texttt{in} ist von Klasse \texttt{PrintStream} \\
+	\hspace{0.4cm} $\diamond$ Liest Tastatureingaben \\
+	$\rhd$ Diese drei Attribute können auch auf andere Streams gesetzt werden \\
+	\hspace{0.4cm} $\diamond$ z.B.: andere \texttt{FileInputStreams/FileOutputStreams} \\
+	\hspace{0.4cm} $\diamond$ \texttt{System.setIn(in); System.setOut(out); System.setErr(err);}
+	} \\ \hline
+
+	\makecell[l]{Klasse Path / Paths} & \makecell[l]{$\rhd$ Beide in \texttt{java.nio.file} \\
+	$\rhd$ Objekt der Klasse \texttt{Path} verwaltet einen Pfadnamen \\
+	\hspace{0.4cm} $\diamond$ Dort muss nicht unbedingt etwas existieren \\
+	$\rhd$ \texttt{Paths} wird nur dazu genutzt um Objekt von \texttt{Path} zu erzeugen \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{Path path = Paths.get(homeDir, \string"fop.txt\string");}   } \\ \hline
+
+	\makecell[l]{Klasse Files} & \makecell[l]{$\rhd$ Aus Package \texttt{java.nio.file} \\
+	$\rhd$ Nützliche Sammlung von Klassenmethoden rund um Dateien \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{lines // Files.lines(path);} \\
+	\hspace{0.6cm} - Öffnet Datei an übergebenem Pfad \\
+	\hspace{0.6cm} - Liefert einen Stream von Strings, ein String pro Zeile \\
+	\hspace{0.6cm} - Zeilenende durch \texttt{\string"file.separator\string"} gekennzeichnet \\
+	\hspace{0.6cm} - \texttt{IOException}, falls Problem beim Öffnen der Datei (\texttt{java.io}) \\
+	\hspace{0.4cm} $\diamond$ \texttt{exists // Files.exists(path);} \\
+	\hspace{0.6cm} - \texttt{true}, wenn es dort Datei/Verzeichnis gibt \\
+	\hspace{0.4cm} $\diamond$ \texttt{isReadable(path)} \\
+	\hspace{0.6cm} - Fragt lesende Zugriffsrechte ab \\
+	\hspace{0.4cm} $\diamond$ \texttt{isWritable(path)} \\
+	\hspace{0.6cm} - Fragt schreibende Zugriffsrechte ab \\
+	\hspace{0.4cm} $\diamond$ \texttt{isRegularFile(path)} \\
+	\hspace{0.6cm} - \texttt{true}, falls es eine reguläre Datei ist (kein Verzeichnis) \\
+	\hspace{0.4cm} $\diamond$ \texttt{isDirectory(path)} \\
+	\hspace{0.6cm} - \texttt{true}, falls es ein Verzeichnis ist \\
+	\hspace{0.4cm} $\diamond$ \texttt{size(path) // long size = Files.size(path);} \\
+	\hspace{0.6cm} - Fragt die Grö\ss e der Datei ab \\
+	\hspace{0.6cm} - \texttt{long}, da die Dateigröe oft nicht in \texttt{int} passt \\
+	\hspace{0.4cm} $\diamond$ \texttt{createFile(path)} \\
+	\hspace{0.6cm} - Richtet Datei an der übergebenen Stelle ein \\
+	\hspace{0.4cm} $\diamond$ \texttt{copy(path1, path2)} \\
+	\hspace{0.6cm} - Kopieren von Pfad 1 nach Pfad 2 \\
+	\hspace{0.4cm} $\diamond$ \texttt{move(path1, path2)} \\
+	\hspace{0.6cm} - Umbenennen einer Datei, oft auch Bewegen genannt \\
+	\hspace{0.4cm} $\diamond$ \texttt{delete(path)} \\
+	\hspace{0.6cm} - Entfernen einer Datei \\
+	\hspace{0.6cm} - \texttt{NoSuchElementException}, falls nicht vorhanden \\
+	\hspace{0.4cm} $\diamond$ \texttt{deleteIfExists(path)} \\
+	\hspace{0.6cm} - Falls das Objekt nicht existiert, passiert garnichts} \\ \hline
+	
+	\makecell[l]{Beispiel: \\ Einlesen einer Datei \\  in einen String} & \makecell[l]{
+	1 \hspace{0.1cm} \texttt{String homeDir = System.getProperty(\string"user.home\string");} \\
+	2 \hspace{0.1cm} \texttt{Path path = Paths.get(homeDir, \string"fop\string", \string"streams.txt\string");} \\
+	3 \hspace{0.1cm} \texttt{try (Stream<String> stream = Files.lines(path)) \{ }  \\
+	4 \hspace{0.5cm} \texttt{String fileContentAsString = stream.reduce(String::concat);} \\
+	5 \hspace{0.1cm} \texttt{\} catch (IOException exc) \{ } \\
+	6 \hspace{0.5cm} \texttt{System.out.print(\string"Could not open file\string")} \\
+	7 \hspace{0.1cm} \texttt{\}} \\
+	$\rhd$ \texttt{try-with-resources} wird für Interface \texttt{AutoCloseable} verwendet } \\ \hline
+
+	\makecell[l]{Bytedaten} & \makecell[l]{$\rhd$ Direkt, ohne Bezug zu Streams \\
+	$\rhd$ Klassen und Interfaces finden sich in \texttt{java.io} \\
+	$\rhd$ Byteweise Verarbeitung sinnvoll für Audio oder Bilddateien, nicht für Text \\
+	$\rhd$ Wird aber meist durch Bibliotheken oder Ähnliches gehandhabt} \\ \hline
+
+	\makecell[l]{Bytedaten lesen} & \makecell[l]{$\rhd$ Verwendung eines \texttt{InputStream}-Objekts \\
+	$\rhd$ \texttt{InputStream} abstrakt, deswegen nur Subtypen z.B.: \texttt{FileInputStream} \\
+	\hspace{0.4cm} $\diamond$ \texttt{FileInputStream} nutzt den Namen der Datei als String im Konstruktor \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{read()} \\
+	\hspace{0.6cm} - Liest nächstes Byte in ein \texttt{int} \\
+	\hspace{0.6cm} - Überprüfung, ob -1 um zu prüfen, ob Dateiende erreicht ist \\
+	$\rhd$ Beispiel: \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{FileInputStream in = new FileInputStream (fileName);} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{int n = in.read();} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{if (n == 1) return;} } \\ \hline
+
+	\makecell[l]{Bytedaten schreiben} & \makecell[l]{$\rhd$ Verwendung eines \texttt{OutputStream}-Objekts \\
+	$\rhd$ \texttt{OutputStream} abstrakt, deswegen nur Subtypen z.B.: \texttt{FileOutputStream} \\
+	\hspace{0.4cm} $\diamond$ \texttt{FileOutputStream} nutzt den Namen der Datei als String im Konstruktor \\
+	\hspace{0.4cm} $\diamond$ Existiert die Datei schon, geht der Inhalt verloren \\
+	\hspace{0.4cm} $\diamond$ Existiert die Datei nicht, wird sie erstellt \\
+	\hspace{0.4cm} $\diamond$ Zweiter Konstruktor mit \texttt{boolean} als zweiten Paramter: \\
+	\hspace{0.6cm} - Falls \texttt{false}: Verhält sich wie normaler Konstruktor \\
+	\hspace{0.6cm} - Falls \texttt{true}: Inhalt geht nicht verloren, wird hinten angehangen  \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{write()} \\
+	\hspace{0.4cm} $\diamond$ Hat \texttt{int} als formalen Parametertyp \\
+	\hspace{0.4cm} $\diamond$ Schreibt nur unterestes Byte dieses \texttt{int} \\
+	$\rhd$ Beispiel: \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{FileOutputStream out = new FileOutputStream(fileName);} \\  
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{int i = 5;} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{out.write(i);}} \\ \hline
+
+	\makecell[l]{Relevante Subtypen  von \\Input-/OutputStream} & \makecell[l]{
+	$\rhd$ Geschwindigkeit beim Lesen/Schreiben ist relevant \\
+	$\rhd$ \texttt{BufferedInputStream}: \\
+	\hspace{0.4cm} $\diamond$ liest mehrere Bytes auf einmal ein \\
+	\hspace{0.4cm} $\diamond$ Konstruktor: \texttt{BufferedInputStream(InputStream in)} \\
+	\hspace{0.4cm} $\diamond$ Verwendet im Konstruktor z.B. einen \texttt{FileInputStream} \\
+	$\rhd$ \texttt{BufferedOutputStream}: \\
+	\hspace{0.4cm} $\diamond$ Schreibt zuerst in internen Puffer \\
+	\hspace{0.4cm} $\diamond$ Falls dieser voll ist, wird in die Datei geschrieben \\
+	\hspace{0.4cm} $\diamond$ Konstruktor: \texttt{BufferedOutputStream(OutputStream out)} \\
+	\hspace{0.4cm} $\diamond$ Schreibt die Daten auf den OutputStream im Parameter \\
+	$\rhd$ \texttt{PrintStream}: \\
+	\hspace{0.4cm} $\diamond$ Ersatz für OutputStream im Package \texttt{java.io} \\
+	\hspace{0.4cm} $\diamond$ Konstruktor: \texttt{PrintStream(OutputStream out)} \\
+	\hspace{0.4cm} $\diamond$ Dient als Konvertierer von primitiven Datentypen und String \\
+	\hspace{0.8cm} in die byteweise Darstellung \\
+	\hspace{0.4cm} $\diamond$ Das eigentliche Schreiben übernimmt der übergebene \texttt{OutputStream} \\
+	\hspace{0.4cm} $\diamond$ Methode \texttt{print} \\ 
+	\hspace{0.6cm} - z.B.: \texttt{out1.print("pi = "); out1.print(3.14);} \\
+	\hspace{0.6cm} - Byteweise Ausgabe von übergebenen Werten \\
+	\hspace{0.4cm} $\diamond$ \texttt{System.out.print()}: \texttt{out} ist von Klasse \texttt{PrintStream} \\
+	\hspace{0.4cm} $\diamond$ Methode \texttt{println} \\
+	\hspace{0.6cm} - Ausgabe von Werten mit Zeilenumbruch} \\ \hline
+
+	\makecell[l]{Mehr Subtypen von \\Input-/OutputStream} & \makecell[l]{
+	$\rhd$ \texttt{java.util.zip.ZipInputStream} \\
+	\hspace{0.4cm} $\diamond$ Zum Einlesen von komprimierten Zip-Dateien \\
+	$\rhd$ \texttt{java.util.jar.JarInputStream} \\
+	\hspace{0.4cm} $\diamond$ Zum Einlesen von Jar-Dateien \\
+	\hspace{0.4cm} $\diamond$ Jar-Dateien enthalten kompilierte Java-Dateien, mit zip komprimiert \\
+	$\rhd$ \texttt{javax.sound.sampled.AudioInputStream} \\
+	\hspace{0.4cm} $\diamond$ für Audio-Dateien \\
+	$\rhd$ \texttt{java.io.PipedInputStream / java.io.PipedOutputStream} \\
+	\hspace{0.4cm} $\diamond$ Zwei aneinander gekoppelte Lese/Schreib-Klassen
+	} \\ \hline
+
+	\makecell[l]{Textdaten direkt} & \makecell[l]{$\rhd$ Bequemere Zugriffsmöglichkeiten für Textdaten vorhanden \\
+	$\rhd$ \texttt{Reader} und \texttt{Writer} aus Package \texttt{java.io} \\
+	$\rhd$ Textdatei besteht aus einzelnen Zeichen aka \texttt{char} \\
+	\hspace{0.4cm} $\diamond$ Jedes \texttt{char} ist zwei Byte gro\ss} \\ \hline
+
+	\makecell[l]{Textdaten lesen} & \makecell[l]{$\rhd$ Komplett analog zu \texttt{InputStream} und \texttt{FileInputStream} \\
+	$\rhd$ \texttt{Reader} abstrakt, deswegen nur Subtypen z.B. \texttt{FileReader} \\
+	\hspace{0.4cm} $\diamond$ \texttt{FileReader} nutzt den Namen der Datei als String im Konstruktor \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{read} \\
+	\hspace{0.6cm} - Liest \texttt{char}-Werte ein \\
+	\hspace{0.6cm} - Verschiedene Implementationen z.B.: kein Parameter $\rightarrow$ einzelner \texttt{char} \\
+	\hspace{0.6cm} - Mit \texttt{char-Array}: Liest soviele ein, bis \texttt{Array} voll ist \\
+	$\rhd$ Beispiel: \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{FileReader reader1 = new FileReader(fileName);} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{char[] buffer = new char[256];} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{int n = reader1.read(buffer);} \\
+	\hspace{0.4cm} 4 \hspace{0.1cm} \texttt{// n ist in diesem Fall die Anzahl der gelesenen chars} \\
+	$\rhd$ \texttt{BufferedReader} \\
+	\hspace{0.4cm} $\diamond$ Konstruktor: \texttt{BufferedReader(Reader in)} \\
+	\hspace{0.4cm} $\diamond$ Methode \texttt{readLine();} \\
+	\hspace{0.6cm} - Liest alles vom letzten gelesenen Zeichen bis zum Zeilenende \\
+	\hspace{0.6cm} - Also meist eine ganze Zeile \\
+	$\rhd$ Verknüpfung mit byteweisem Einlesen: \\
+	\hspace{0.4cm} $\diamond$ evtl. sinnvoll, falls offener \texttt{InputStream} auf Text-Datenquelle \\
+	\hspace{0.4cm} $\diamond$ Die Brücke bildet hier der Subtyp \texttt{InputStreamReader} \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{InputStream in = ...;} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{Reader reader = new InputStreamReader(in);}} \\ \hline
+
+	\makecell[l]{Textdaten schreiben} & \makecell[l]{
+	$\rhd$ \texttt{Writer} abstrakt, deswegen nur Subtypen z.B. \texttt{FileWriter} \\
+	\hspace{0.4cm} $\diamond$ \texttt{FileWriter} benutzt den Namen der Datei als String im Konstruktor \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{write} \\
+	\hspace{0.6cm} - Schreibt einzelnen \texttt{char} oder ganzen \texttt{String} \\
+	$\rhd$ Beispiel: \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{FileWriter writer1 = new FileWriter(fileName);} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{writer1.write('H');} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{writer1.write(\string"ello World\string");} \\ 
+	$\rhd$ Verknüpfung mit byteweisem Schreiben: \\
+	\hspace{0.4cm} $\diamond$ Die Brücke bildet hier der Subtyp \texttt{OutputStreamWriter} \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{OutputStream out = ...;} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{Writer writer = new OutputStreamWriter(out);} } \\ \hline
+
+	\end{longtable}
 
 \section{Generics}
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
@@ -323,7 +621,7 @@
 	\makecell[l]{Eingeschränkte \\ Typparameter} & \makecell[l]{$\rhd$ Werden bei der Definition von generischen Klassen/Methoden verwendet \\
 	$\rhd$ \texttt{<T extends X> // T gleich X, oder direkt/indirekt Subtyp von X} \\
 	\hspace{0.4cm} $\diamond$ Notwendig um sicherzustellen, dass aufgerufene Methoden definiert sind \\
-	\hspace{0.4cm} $\diamond$ z.B.: \texttt{<T extends Number> // Methoden wie doubleValue() immer vorhanden} \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{<T extends Number> // z.B.: doubleValue() immer vorhanden} \\
 	$\rhd$ Mehrfache Einschränkung:  \\
 	\hspace{0.4cm} $\diamond$ \texttt{<T extends X \& Interface1 \& Interface2} \\
 	\hspace{0.4cm} $\diamond$ Klasse muss, falls vorhanden, an erster Stelle stehen} \\ \hline
@@ -370,7 +668,7 @@
 	$\rhd$ Keine Klassenattribute von Typparametern \\
 	$\rhd$ Kein Downcast oder \texttt{instanceof} von Typparametern \\
 	$\rhd$ Kein \texttt{throw-catch} mit Typparametern \\
-	$\rhd$ Keine Methodenüberladung mit Typparametern  } \\ \hline
+	$\rhd$ Keine Methodenüberladung mit Typparametern } \\ \hline
 
 	\end{longtable}
 
@@ -513,7 +811,7 @@
 	\hline
 	\makecell[l]{Implizit} & 
 	\makecell[l]{$\rhd$ Immer möglich, wenn kein Informationsverlust entstehen kann \\
-	$\rhd$ z.B.: kleinerer Datentyp in größeren } \\ \hline
+	$\rhd$ z.B.: kleinerer Datentyp in grö\ss eren } \\ \hline
 	
 	\makecell[l]{Explizit} & \makecell[l]{$\rhd$ Meist Informationsverlust \\
 	$\rhd$ Durchführung durch Angabe des Datentyps in Klammern davor \\
@@ -571,6 +869,46 @@
 	
 	\end{tabular}
 
+\section{Optional (java.lang.Optional;)}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	
+	\makecell[l]{Informationen} & \makecell[l]{$\rhd$ Objekt der Klasse \texttt{Optional} kapselt ein Objekt seines Typparameters ein \\
+	$\rhd$ Bietet bequemem Umgang mit der Möglichkeit, dass eine Referenz \texttt{null} ist } \\ \hline
+
+	\makecell[l]{Methoden} & \makecell[l]{
+	\hspace{0.4cm} $\diamond$ \texttt{ofNullable} \\
+	\hspace{0.6cm} - Bekommt ein Objekt oder \texttt{null} übergeben und kapselt dieses ein \\
+	\hspace{0.6cm} - Gibt ein Objekt der Klasse \texttt{Optional} zurück \\
+	\hspace{0.4cm} $\diamond$ \texttt{get} \\
+	\hspace{0.6cm} - Liefert das eingekapselte Objekt zurück \\
+	\hspace{0.6cm} - Falls \texttt{null}: \texttt{NoSuchElementException} \\
+	\hspace{0.4cm} $\diamond$ \texttt{orElseGet} \\
+	\hspace{0.6cm} - Zurücklieferung eines anderen Wertes vom Typparameter, falls \texttt{null} \\
+	\hspace{0.6cm} - Formaler Parameter: \texttt{java.util.function.Supplier;} \\
+	\hspace{0.4cm} $\diamond$ \texttt{ifPresent} \\
+	\hspace{0.6cm} - Ausführung des Parameters, falls Objekt vorhanden (nicht \texttt{null}) \\
+	\hspace{0.6cm} - Formaler Parameter: \texttt{java.util.function.Consumer;} \\
+	\hspace{0.6cm} - z.B.: \texttt{opt1.ifPresent(x -> \{System.out.print(x);\});} \\
+	\hspace{0.6cm} - z.B.: Falls \texttt{opt1} ein Objekt einkapselt, wird es ausgegeben \\
+	\hspace{0.4cm} $\diamond$ \texttt{map} \\
+	\hspace{0.6cm} - Abbildung basierend auf Paramter \\
+	\hspace{0.6cm} - z.B.: \texttt{Optional<Number> opt2 = opt1.map(x -> x * x);} \\
+	\hspace{0.6cm} - z.B.: Hier \texttt{opt2} auch \texttt{null}, da \texttt{opt1 == null} \\
+	\hspace{0.4cm} $\diamond$ \texttt{filter} \\
+	\hspace{0.6cm} - Liefert \texttt{Optional} vom selben generischen Typ zurück \\
+	\hspace{0.6cm} - Formaler Parameter: \texttt{java.util.function.Predicate;} \\
+	\hspace{0.6cm} - Filter \texttt{true}: Neues \texttt{Optional}-Objekt mit selbem Kapselinhalt \\ 
+	\hspace{0.6cm} - Filter \texttt{false}: Leeres \texttt{Optional}-Objekt wird zurückgegeben \\
+	\hspace{0.6cm} - z.B.: \texttt{Optional<Number> opt3 = opt1.filter(x -> x + 2 == 1);} \\
+	\hspace{0.6cm} - Gibt selbes Objekt zurück, falls Gleichung erfüllt } \\ \hline
+
+	\makecell[l]{Beispiel} & \makecell[l]{$\rhd$ \texttt{Optional<Number> opt1 = Optional.ofNullable(null);} \\
+	$\rhd$ \texttt{Number n1 = opt1.get(); // NoSuchElementException} \\
+	$\rhd$ \texttt{Number n2 = opt1.orElseGet(() -> 0); // Falls null -> 0}  } \\ \hline
+	
+	\end{tabular}
+
 \section{Packages und Zugriffsrechte}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
@@ -622,6 +960,29 @@
 	$\rhd$ Allerdings bearbeitet jeder Kern nur einen Prozess gleichzeitig (sehr kurz) \\
 	\hspace{0.4cm}$\diamond$ Illusion von Multitasking } \\ \hline
 	\end{tabular}
+
+\section{Random (java.util.Random;)}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	\makecell[l]{Verwendung} & \makecell[l]{$\rhd$ Erzeugung eines neuen Objekts \\
+	\hspace{0.4cm} $\diamond$ \texttt{Random random = new Random();} \\
+	$\rhd$ Zahlenerzeugung mithilfe von: \\
+	\hspace{0.4cm} $\diamond$ \texttt{random.nextInt();} \\
+	\hspace{0.4cm} $\diamond$ \texttt{random.nextLong();} \\
+	\hspace{0.4cm} $\diamond$ \texttt{random.nextFloat();} \\
+	\hspace{0.4cm} $\diamond$ \texttt{random.nextDouble();} \\
+	$\rhd$ Bei \texttt{float} und \texttt{double}: Zwischen 0 und 0.1 \\
+	$\rhd$ Bei \texttt{int} und \texttt{long}: Zahl aus Wertebereich } \\ \hline
+
+	\makecell[l]{Methoden} & \makecell[l]{
+	$\rhd$ \texttt{nextInt(), nextDouble(),..} \\
+	\hspace{0.4cm} $\diamond$ Generierung von Zufallszahlen \\
+	$\rhd$ \texttt{ints(), longs(), doubles()} \\
+	\hspace{0.4cm} $\diamond$ Liefern jeweils Stream mit zufälligen Zahlen zurück \\
+	\hspace{0.4cm} $\diamond$ In diesem Fall unendliche Länge \\
+	\hspace{0.4cm} $\diamond$ Werden in Verbindung mit IntStreams (etc..) verwendet } \\ \hline
+	
+	\end{tabular}
 	
 \section{Schleifen, if, switch}
 
@@ -656,8 +1017,74 @@
 	\end{tabular}
 
 	
+\section{Streams (java.util.stream.Stream;)}
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\hline
+	
+	\makecell[l]{Information} & \makecell[l]{$\rhd$ Generisches Interface \texttt{Stream} \\
+	$\rhd$ Einheitliche Schnittstelle für Listen, Arrays, Dateien \\
+	$\rhd$ Relevante Kapitel: \texttt{Optional} \\
+	} \\ \hline
+
+	\makecell[l]{Methodenzusammenfassung} & \makecell[l]{$\rhd$ filter, map, max, of \\
+	$\rhd$ \texttt{filter} \\
+	\hspace{0.4cm} $\diamond$ Liefert Stream vom selben generischen Typ zurück \\
+	\hspace{0.4cm} $\diamond$ Formaler Parameter: \texttt{java.util.function.Predicate;} \\
+	$\rhd$ \texttt{map} \\
+	\hspace{0.4cm} $\diamond$ Liefert Stream von evtl. anderem Typparameter zurück \\
+	\hspace{0.4cm} $\diamond$ Dieser Typ ist abhängig vom aktualen Parameter \\
+	\hspace{0.4cm} $\diamond$ Formaler Parameter: \texttt{java.util.function.Function;} \\
+	$\rhd$ \texttt{max} \\
+	\hspace{0.4cm} $\diamond$ Liefert nur einzelnes Element zurück abhängig vom \texttt{Comparator} \\
+	$\rhd$ \texttt{of} \\
+	\hspace{0.4cm} $\diamond$ Dient der direkten Erzeugung von Streams \\
+	\hspace{0.4cm} $\diamond$ Beliebige Anzahl an Parametern des Typarameters \\
+	\hspace{0.4cm} $\diamond$ Rückgabe eines Streams mit diesen Elementen \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{Stream<Number>.of(new Integer(2), new Integer(3));} \\
+	$\rhd$ \texttt{reduce} \\
+	\hspace{0.4cm} $\diamond$ Erstellt aus allen Elementen des Streams ein einzelnes Ergebnis \\
+	\hspace{0.4cm} $\diamond$ Durch sukzessiven Aufruf der Funktion im aktualen Parameter \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{String fileContent = stream.reduce(String::concat);} } \\ \hline
+
+	\makecell[l]{Stream aus Liste} & \makecell[l]{
+	$\rhd$ \texttt{List<Number> list = new LinkedList<Number>(); // Erstellt Liste}	\\
+	$\rhd$ \texttt{Stream<Number> stream1 = list.stream();} \\
+	\hspace{0.4cm} $\diamond$ Liefert Stream vom selben generischen Typ \\
+	\hspace{0.4cm} $\diamond$ Methode der Klasse \texttt{List} \\
+	$\rhd$ \texttt{... stream1.filter(myPred); // Anwenden eines Filter} \\
+	$\rhd$ \texttt{... stream1.map(myFct); // Anwenden einer Abbildung} \\
+	$\rhd$ \texttt{Optional<Number> opt = stream.max(new MyComp());} \\
+	\hspace{0.4cm} $\diamond$ Hier \texttt{Optional}, da der Stream auch leer sein kann \\
+	$\rhd$ Methoden wie \texttt{filter} und \texttt{map} werden \textbf{intermediate operations} genannt \\
+	$\rhd$ Methoden wie \texttt{max} werden \textbf{terminal operations} genannt \\
+	$\rhd$ Zusammenfassung dieser Operationen möglich: \\
+	$\rhd$ \texttt{... =  list.stream().filter(myPred).map(myFct).max(new MyComp());} } \\ \hline
+
+	\makecell[l]{Stream aus Array} & \makecell[l]{$\rhd$ \texttt{Number[] a = new Number[100]; // Erstellt Array} \\
+	$\rhd$ \texttt{Stream<Number> stream1 = Arrays.stream(a); // Erzeugt Stream} \\
+	\hspace{0.4cm} $\diamond$ Aufruf der \texttt{Arrays}-Klassenmethoden \texttt{stream(Array a)} } \\ \hline
+
+	\makecell[l]{Iterator} & \makecell[l]{$\rhd$ \texttt{Iterator iter = stream.iterator(); // Erzeugt Iterator Objekt} \\
+	$\rhd$ \texttt{iter.hasNext() // Verwendung als Abbruchbedingung} \\
+	$\rhd$ \texttt{iter.next() // Zum Fortschreiten im Iterator}  } \\ \hline
+
+	\makecell[l]{Liste aus Stream} & \makecell[l]{$\rhd$ \texttt{List<String> list = stream.collect(Collectors.toList());} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Collectors} besitzt viele Klassenmethoden zur Verarbeitung von Streams \\
+	\hspace{0.4cm} $\diamond$ \texttt{toList()} liefert das generische Interface \texttt{Collector} } \\ \hline
+
+	\makecell[l]{Array aus Stream} & \makecell[l]{$\rhd$ \texttt{Number[] a = stream.toArray(Number[]::new);} \\
+	$\rhd$ Art der Erzeugung abhängig vom Parameter \\
+	$\rhd$ Parameter: Siehe Methodennamen als Lambda-Ausdrücke } \\ \hline %% TOOOOOODOOOOOOOOOO!!!!
+
+	\makecell[l]{Int-/Long-/\\ DoubleStreams} & \makecell[l]{$\rhd$ Methoden sind genau diesselben wie bei normalen Streams \\
+	$\rhd$ z.B.: \texttt{IntStream stream1 = IntStream.of(1,2,3);} \\
+	$\rhd$ Nutzen der Klasse \texttt{Random} für unendlichen Stream mit Zufallszahlen \\
+	\hspace{0.4cm} $\diamond$ \texttt{IntStream stream1 = new Random().ints();}} \\ \hline
 
 	
+	
+	
+	\end{tabular}
 	
 \section{String (java.lang.String)}	
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
@@ -691,9 +1118,9 @@
 	
 	\makecell[l]{Konventionen} & \makecell[l]{
 	$\rhd$ Variablen / Methoden beginnen mit Kleinbuchstaben (\texttt{testInt}) \\
-	$\rhd$ Klassen beginnen mit Großbuchstaben (\texttt{testClass}) \\
-	$\rhd$ Wortanfänge im Inneren mit Großbuchstaben \\
-	$\rhd$ Konstanten bestehen aus $\_$ und Großbuchstaben (\texttt{CENTS$\_$PER$\_$EURO}) \\
+	$\rhd$ Klassen beginnen mit Gro\ss buchstaben (\texttt{testClass}) \\
+	$\rhd$ Wortanfänge im Inneren mit Gro\ss buchstaben \\
+	$\rhd$ Konstanten bestehen aus $\_$ und Gro\ss buchstaben (\texttt{CENTS$\_$PER$\_$EURO}) \\
 	$\rhd$ Packagenamen nur aus Kleinbuchstaben und \_ bei unzulässigen Zeichen} \\ \hline
 	
 	\makecell[l]{Kommentare} & \makecell[l]{$\rhd$ \texttt{//} Einzelne Zeile \\
