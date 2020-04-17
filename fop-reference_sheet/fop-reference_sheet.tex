@@ -54,6 +54,8 @@
 
 	\makecell[l]{Streams in Racket} & \makecell[l]{$\rhd$ Kapitel 8: 122 - 133  } \\ \hline
 
+	\makecell[l]{ActionListener Lambda} & \makecell[l]{$\rhd$ Kapitel 10: 68-69  } \\ \hline
+
 	\end{tabular}
 
 
@@ -569,6 +571,267 @@
 
 	\end{longtable}
 
+
+\section{Graphical User Interface}
+	\begin{longtable}{ | p{4cm} p{13.5cm} | }
+	\hline
+	
+	\makecell[l]{Window Manager} & \makecell[l]{$\rhd$ Systemprozess, der permanent im Hintergrund als \texttt{Service} läuft \\
+	$\rhd$ Stellt generelle, anwendungsunspezifische Funktionalitäten zur Verfügung \\
+	\hspace{0.4cm} $\diamond$ Öffnen, Schlie\ss en, Ikonifizieren, Grö\ss e ändern \\
+	\hspace{0.4cm} $\diamond$ Rahmen um Fenster, Bildschirmhintergrund } \\ \hline
+
+	\makecell[l]{Klasse Frame} & \makecell[l]{$\rhd$ Abgeleitet von \texttt{java.awt.Window;} (awt = abstract window toolkit) \\
+	$\rhd$ Im Gegensatz zu \texttt{Window} aber mit Rahmen (vom \texttt{Window Manager} verwaltet) \\
+	$\rhd$ Beispielkonstruktor: \texttt{Frame frame = new Frame(string); // Fenstertitel} \\
+	$\rhd$ Vorhergehensweise: \\
+	\hspace{0.4cm} $\diamond$ Erstellung einer Klasse, die \texttt{Frame} erweitert \\
+	\hspace{0.4cm} $\diamond$ Hinzufügen von Funktionalitäten \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{setVisible(boolean b)} \\ 
+	\hspace{0.6cm} - \texttt{Frame} ist entweder sichtbar oder unsichtbar \\ 
+	\hspace{0.6cm} - Standardmä\ss ig unsichtbar \\
+	\hspace{0.6cm} - Erst Fenster aufbauen, dann sichtbar machen \\
+	\hspace{0.4cm} $\diamond$ \texttt{setBackground(Color bgColor)} \\
+	\hspace{0.6cm} - Setzt die Hintergrundfarbe des Fensters \\
+	\hspace{0.4cm} $\diamond$ \texttt{dispose()} \\
+	\hspace{0.6cm} - Alle Ressourcen des Fensters und der Bestandteile werden freigegeben \\
+	\hspace{0.4cm} $\diamond$ \texttt{setExtendedState(int state)} \\
+	\hspace{0.6cm} - Setzt den Status des Fensters \\
+	\hspace{0.6cm} - \texttt{ICONIFIED}: Ikonifiziert das Fenster \\
+	\hspace{0.6cm} - \texttt{NORMAL}: Deikonifiziert das Fenster \\
+	\hspace{0.6cm} - \texttt{MAXIMIZED\_HORIZ}: Ausbreitung auf gesamte Horizontale \\
+	\hspace{0.4cm} $\diamond$ \texttt{add(Component comp)} \\
+	\hspace{0.6cm} - Fügt den übergebenen Komponenten zum \texttt{Frame} hinzu \\
+	} \\ \hline
+
+	\makecell[l]{Komponenten} & \makecell[l]{$\rhd$ Eigene Klasse für jede Komponente \\
+	$\rhd$ Alle Klassen oder Interfaces aus \texttt{java.awt}, falls nicht anders gesagt \\
+	$\rhd$ Werden mithilfe von \texttt{add(Component comp)} zum Fenster hinzugefügt } \\ \hline
+
+	\makecell[l]{Button} & \makecell[l]{$\rhd$ Konstruktor: \texttt{Button(String label) // Text auf dem Button} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{setFont(Font f)} \\
+	\hspace{0.6cm} - Zum Setzen der Schriftart \\
+	\hspace{0.6cm} - Konstruktor \texttt{Font: Font(String name, int style, int size)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{addActionListener(ActionListener l)} \\
+	\hspace{0.6cm} - Fügt den übergebenen \texttt{ActionListener} hinzu \\ 
+	\hspace{0.6cm} - Bei jedem Klick wird \texttt{actionPerformed} des \texttt{Listeners} aufgerufen \\
+	\hspace{0.6cm} - Auch mehrere möglich \\
+	\hspace{0.6cm} - Automatische Einrichtung des \texttt{Event Dispatch Thread} \\
+	\hspace{0.4cm} $\diamond$ \texttt{setLabel(String label)} \\
+	\hspace{0.6cm} - Setzt den Titel des \texttt{Button}
+	} \\ \hline
+
+	\makecell[l]{Interface ActionListener} & \makecell[l]{$\rhd$ Zugehörig zu \texttt{Button} \\
+	$\rhd$ Aus Package \texttt{java.awt.event} \\
+	$\rhd$ Funktionales Interface \\
+	$\rhd$ Funktionale Methode \texttt{actionPerformed (ActionEvent event)} \\
+	$\rhd$ Vorhergehensweise: \\
+	\hspace{0.4cm} $\diamond$ Erstellen einer eigenen Klasse, die \texttt{ActionListener} implementiert \\
+	\hspace{0.4cm} $\diamond$ Erstellen relevanter Attribute und Konstruktor für gegebenen Fall \\
+	\hspace{0.4cm} $\diamond$ Implemetieren der Methode \texttt{actionPerformed (ActionEvent event)} \\
+	\hspace{0.4cm} $\diamond$ Erstellen eines Objekts unserer Klasse \\ 
+	\hspace{0.6cm} - \texttt{ActionListener listener = new MyListener(frame);} \\
+	\hspace{0.4cm} $\diamond$ Hinzufügen des \texttt{Listener} zum \texttt{Button} \\
+	\hspace{0.6cm} - \texttt{button.addActionListener(listener);} \\
+	$\rhd$ Alternativ: \\
+	\hspace{0.4cm} $\diamond$ Erstellung des \texttt{Listener} in der Subklasse des \texttt{Frame} \\ 
+	\hspace{0.6cm} - Keine \texttt{Frame}-Übergabe notwendig \\
+	\hspace{0.6cm} - z.B.: als \texttt{private}-Klasse (Stichwort: \texttt{nested classes}) \\
+	 } \\ \hline
+
+	\makecell[l]{Klasse ActionEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei \texttt{actionPerformed} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getWhen()} \\
+	\hspace{0.6cm} - Gibt die Uhrzeit des Geschehnisses als \texttt{long} zurück \\
+	\hspace{0.6cm} - Nützlich: \texttt{java.sql.Timestamp} \\
+	\hspace{0.6cm} - \texttt{Timestamp stamp = new Timestamp (event.getWhen());} \\ 
+	\hspace{0.6cm} - Methoden: \texttt{stamp.getHour(); stamp.getMinute();}} \\ \hline
+
+	\makecell[l]{Übersicht Listener und \\ Events} & \makecell[l]{
+	$\rhd$ \texttt{Listener}-Interface $\leftrightarrow$ \texttt{Event}-Klasse \\
+	$\rhd$ \texttt{KeyListener} $\leftrightarrow$ \texttt{KeyEvent} \\
+	$\rhd$ \texttt{MouseListener} $\leftrightarrow$ \texttt{MouseEvent} \\
+	$\rhd$ \texttt{MouseMotionListener} $\leftrightarrow$ \texttt{MouseEvent} \\
+	$\rhd$ \texttt{MouseWheelListener} $\leftrightarrow$ \texttt{MouseWheelEvent} \\ 
+	$\rhd$ \texttt{WindowFocusListener} $\leftrightarrow$ \texttt{WindowEvent} \\
+	$\rhd$ \texttt{WindowListener} $\leftrightarrow$ \texttt{WindowEvent} \\ 
+	$\rhd$ \texttt{WindowStateListener} $\leftrightarrow$ \texttt{WindowEvent} \\
+	$\rhd$ Hinzufügen: \\
+	\hspace{0.4cm} $\diamond$ \texttt{addKeyListener(...)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{addMouseListener(...)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{addWindowListener(...)} } \\ \hline
+
+	\makecell[l]{Adapter} & \makecell[l]{$\rhd$ Verwendung von Adaptern, wenn passendes Interface nicht \texttt{functional} ist \\
+	\hspace{0.4cm} $\diamond$ z.B. Interface \texttt{KeyListener, MouseListener,..} \\
+	\hspace{0.4cm} $\diamond$ Diese Interfaces besitzen mehrere Methoden \\
+	$\rhd$ Adapter sind Klassen und bestehen zu jedem \texttt{Listener}-Interface \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyAdapter, MouseAdapter} \\
+	\hspace{0.4cm} $\diamond$ Diese Adapter implementieren das dazugehörige Interface \\
+	\hspace{0.4cm} $\diamond$ Die Methoden werden jedoch leer gelassen \\
+	$\rhd$ Vorteil vom Adapter: \\
+	\hspace{0.4cm} $\diamond$ Nicht alle Methoden müssen implementiert werden \\
+	\hspace{0.4cm} $\diamond$ Nur die genutzten Methoden (z.B.: \texttt{keyPressed()}) werden implementiert \\
+	$\rhd$ Verwendung: \\
+	\hspace{0.4cm} $\diamond$ Erweitern der eigenen \texttt{Listener}-Klasse mit Adapter \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{public class MyKeyListener extends KeyAdapter \{...\}}} \\ \hline
+
+	\makecell[l]{Interface KeyListener} & \makecell[l]{$\rhd$ Abhorchen der Tastatur \\
+	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{KeyAdapter} (siehe Adapter) erweitert \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void keyPressed ( KeyEvent event )} \\
+	\hspace{0.6cm} - Wird beim Herunterdrücken einer Taste ausgeführt \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void keyReleased ( KeyEvent event )} \\
+	\hspace{0.6cm} - Wird beim Loslassen einer Taste ausgeführt \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void keyTyped ( KeyEvent event )} \\
+	\hspace{0.6cm} - Wird beim Antippen einer Taste ausgeführt} \\ \hline
+
+	\makecell[l]{Klasse KeyEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei z.B.: \texttt{keyPressed} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getKeyCode()} \\
+	\hspace{0.6cm} - Liefert die Kodierung der gedrückten Taste zurück \\
+	$\rhd$ Klassenkonstanten für jede Taste: \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_A // Buchstabe A} \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_COLON // Doppelpunkt} \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_BACKSPACE // Enter Taste} \\
+	$\rhd$ Beispiel Verwendung: \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{public class MyKeyListener extends KeyAdapter \{} \\
+	\hspace{0.4cm} 2 \hspace{0.5cm} \texttt{public void keyPressed (KeyEvent event) \{} \\
+	\hspace{0.4cm} 3 \hspace{0.9cm} \texttt{switch (event.getKeyCode()) \{}	\\
+	\hspace{0.4cm} 4 \hspace{1.3cm} \texttt{case KeyEvent.VK\_A: ... break;} \\
+	\hspace{0.4cm} 5 \hspace{1.3cm} \texttt{case KeyEvent.VK\_COLON: ... break;} \\
+	\hspace{0.4cm} 6 \hspace{1.3cm} \texttt{case KeyEvent.VK\_Backspace: ... break;} \\
+	\hspace{0.4cm} 7 \hspace{0.9cm} \texttt{\}} \\
+	\hspace{0.4cm} 8 \hspace{0.5cm} \texttt{\}} \\
+	\hspace{0.4cm} 9 \hspace{0.1cm} \texttt{\}}
+	} \\ \hline
+
+	\makecell[l]{Interface MouseListener} & \makecell[l]{$\rhd$ Abhorchen der Maus \\
+	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{MouseAdapter} erweitert \\
+	\hspace{0.4cm} $\diamond$ \texttt{MouseAdapter} implementiert alle drei \texttt{Mouse}-Interfaces \\
+	\hspace{0.4cm} $\diamond$  \texttt{MouseListener, MouseMotionListener, MouseWheelListener} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseClicked ( MouseEvent event )} \\
+	\hspace{0.6cm} - Wird beim kurzen Klicken der Maustaste ausgeführt \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mousePressed ( MouseEvent event )} \\	
+	\hspace{0.6cm} - Wird beim Herunterdrücken der Maustaste ausgeführt \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseReleased ( MouseEvent event )} \\
+	\hspace{0.6cm} - Wird beim Loslassen der Maustaste ausgeführt \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseEntered ( MouseEvent event )} \\
+	\hspace{0.6cm} - Wird ausgeführt, sobald der Mauszeiger den abgehorchten Bereich betritt \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseExited ( MouseEvent event )} \\
+	\hspace{0.6cm} - Wird ausgeführt, sobald der Mauszeiger den abgehorchten Bereich verlässt} \\ \hline
+
+	\makecell[l]{Interface \\ MouseMotionListener} & \makecell[l]{$\rhd$ Abhorchen der Mausbewegung \\
+	$\rhd$ Methoden sind auch in Klasse \texttt{MouseAdapter} enthalten \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseDragged ( MouseEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseMoved ( MouseEvent event )}  } \\ \hline
+
+	\makecell[l]{Interface \\ MouseWheelListener} & \makecell[l]{$\rhd$ Abhorchen der Mausradbewegung \\
+	$\rhd$ Methoden sind auch in Klasse \texttt{MouseAdapter} enthalten \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseWheelMoved ( MouseWheelEvent event )}} \\ \hline
+
+	\makecell[l]{Klasse MouseEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei z.B.: \texttt{mouseClicked} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getButton()} \\
+	\hspace{0.6cm} - Liefert die gedrückte Taste zurück \\
+	\hspace{0.4cm} $\diamond$ \texttt{getX()} \\
+	\hspace{0.6cm} - Liefert x-Koordinate abhängig vom Ursprung des Bereichs \\
+	\hspace{0.4cm} $\diamond$ \texttt{getY()} \\
+	\hspace{0.6cm} - Liefert y-Koordinate abhängig vom Ursprung des Bereichs \\
+	$\rhd$ Klassenkonstanten für Maustasten: \\
+	\hspace{0.4cm} $\diamond$ \texttt{MouseEvent.BUTTON1} \\
+	\hspace{0.4cm} $\diamond$ \texttt{MouseEvent.BUTTON2}} \\ \hline
+
+	\makecell[l]{Klasse \\ MouseWheelEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei z.B.: \texttt{mouseWheelMoved} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getWheelRotation()} \\
+	\hspace{0.6cm} - Liefert die Anzahl der gedrehten "Ticks"  } \\ \hline
+
+	\makecell[l]{Interface \\ WindowListener} & \makecell[l]{$\rhd$ Abhorchen von Fensteraktionen \\
+	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{WindowAdapter} erweitert \\
+	\hspace{0.4cm} $\diamond$ \texttt{WindowAdapter} implementiert alle drei \texttt{Window}-Interfaces \\
+	\hspace{0.4cm} $\diamond$ \texttt{WindowListener, WindowStateListener, WindowFocusListener} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowOpened (WindowEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowClosing (WindowEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowClosed (WindowEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowClosed (WindowEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowDeactivated (WindowEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowIconified (WindowEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowDeiconified (WindowEvent event)}} \\ \hline
+
+	\makecell[l]{Interface \\ WindowStateListener} & \makecell[l]{$\rhd$ Abhorchen des Status des Fensters \\
+	$\rhd$ Methoden sind auch in \texttt{WindowAdapter} vorhanden \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowStateChanged ( WindowEvent event )}} \\ \hline
+
+	\makecell[l]{Interface \\ WindowFocusListener} & \makecell[l]{$\rhd$ Abhorchen des Fokus im Bezug auf das Fenster \\
+	$\rhd$ Methoden sind auch in \texttt{WindowAdapter} vorhanden \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowGainedFocus ( WindowEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void windowLostFocus ( WindowEvent event )} } \\ \hline
+
+	\makecell[l]{Klasse Canvas} & \makecell[l]{$\rhd$ abgegrenzte Zeichenfläche in einem Fenster \\
+	$\rhd$ Vorhergehensweise: \\
+	\hspace{0.4cm} $\diamond$ Erstellung eigener Subtyp-Klasse von \texttt{Canvas} \\
+	\hspace{0.4cm} $\diamond$ Implementieren der Methode \texttt{public void paint (Graphics graphics)} \\
+	\hspace{0.4cm} $\diamond$ Füllen der Methode mit eigener Zeichenlogik \\
+	\hspace{0.4cm} $\diamond$ Verwendung von \texttt{java.awt.Graphics;} \\
+	\hspace{0.4cm} $\diamond$ Hinzufügen zum \texttt{Frame} mithilfe von \texttt{add} \\
+	$\rhd$ Beleuchtung nützlicher Aspekte von Graphics: \\
+	$\rhd$ \texttt{FontMetrics} \\
+	\hspace{0.4cm} $\diamond$ Informationen über festgelegte Schriftart und Schriftgröße \\
+	\hspace{0.4cm} $\diamond$ Abfrage: \\
+	\hspace{0.6cm} - \texttt{FontMetrics fontM = graphics.getFontMetrics();} \\
+	\hspace{0.4cm} $\diamond$ Abfrage der maximalen Stringhöhe: \\
+	\hspace{0.6cm} - \texttt{int maxHeight = fontM.getMaxAscent() + fontM.getMaxDescent();} \\
+	\hspace{0.6cm} - Methoden geben maximalen Abstand von der Basislinie des Textes an \\
+	\hspace{0.4cm} $\diamond$ Abfrage der Stringbreite von gegebenem String: \\
+	\hspace{0.6cm} - \texttt{int widthStr = fontMetrics.stringWidth(string);} \\
+	$\rhd$ Abfrage des Zeichenfensters als Rechteck: \\
+	\hspace{0.6cm} - \texttt{Rectangle area = graphics.getClipBounds();} \\
+	\hspace{0.6cm} - \texttt{x} und \texttt{y} geben den Ursprung an \\
+	\hspace{0.6cm} - \texttt{width} und \texttt{height} die Breite und Höhe \\
+	$\rhd$ Einige Methoden von \texttt{Graphics} \\
+	\hspace{0.4cm} $\diamond$ \texttt{setColor(Color color)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{fillOval(...)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{drawOval(...)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{drawString(...)}} \\ \hline
+
+	\makecell[l]{Klasse Checkbox} & \makecell[l]{$\rhd$ Kleiner Button (Pin) mit etwas Text \\
+	$\rhd$ Zwei Zustände: An oder Aus \\
+	$\rhd$ Konstruktor: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Checkbox(String label) // Titel der Checkbox} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Checkbox} standardmä\ss ig aus \\
+	$\rhd$ Benötigt ein Objekt vom Typ \texttt{ItemListener} (siehe unten) \\
+	\hspace{0.4cm} $\diamond$ \texttt{ItemListener item = new MyItemListener(checkbox,...);} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{isSelected()} \\
+	\hspace{0.6cm} - \texttt{true}, wenn die \texttt{Checkbox} an ist \\
+	\hspace{0.4cm} $\diamond$ \texttt{setLabel(string);} \\
+	\hspace{0.6cm} - Setzt den Titel der \texttt{Checkbox}} \\ \hline
+
+	\makecell[l]{Interface \\ ItemListener} & \makecell[l]{$\rhd$ Zugehörig zu \texttt{Checkbox} \\
+	$\rhd$ Funktionales Interface \\
+	$\rhd$ Funktionale Methode \texttt{itemStateChanged (ItemEvent event)} \\
+	$\rhd$ Vorhergehensweise analog zu \texttt{ActionListener} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ Aufruf auf an Klasse übergebene \texttt{Checkbox} \\
+	\hspace{0.4cm} $\diamond$ \texttt{isSelected()} \\
+	\hspace{0.6cm} - \texttt{true}, wenn die \texttt{Checkbox} an ist} \\ \hline
+
+	\makecell[l]{Klasse Choice} & \makecell[l]{$\rhd$ Repräsentiert ein Auswahlmenü  } \\ \hline
+
+	\end{longtable}
+
+
+
+
+
 \section{Generics}
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
@@ -756,7 +1019,7 @@
 
 \section{Klassen}
 
-	\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
 	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ meist in seperater .java Datei  \\
 	$\rhd$ \texttt{public class MyClass \{\}} \\
@@ -802,8 +1065,33 @@
 	\hspace{0.4cm} $\diamond$ Gibt an, welche Implementationen aller Methoden verwendet wird \\
 	\hspace{0.4cm} $\diamond$ Ermöglicht, die Feststellung der Klasse zur Laufzeit \\
 	\hspace{0.4cm} $\diamond$ Methode in Supertyp und Substyp haben den selben Index (Position) } \\ \hline
+
+	\makecell[l]{Verschachtelte Klassen} & \makecell[l]{$\rhd$ Einbettung von Klasse in andere Klasse \\
+	$\rhd$ Eingebettete Klasse sind ähnlich einem Attribut einer Klasse \\
+	$\rhd$ Zum Beispiel:
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{public class X \{} \\
+	\hspace{0.4cm} 2 \hspace{0.5cm} \texttt{private class Y \{...\}} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{\}} \\
+	$\rhd$ \texttt{Y} ist in diesem Fall die innere, \texttt{X} die äußere Klasse \\
+	$\rhd$ Innere Klasse darf: \\
+	\hspace{0.4cm} $\diamond$ Alle Identifier möglich \\
+	$\rhd$ Äußere Klasse darf: \\
+	\hspace{0.4cm} $\diamond$ Nur \texttt{public} oder ohne \texttt{public}, kein \texttt{private} oder \texttt{protected} \\
+	$\rhd$ Maximal eine Klasse darf \texttt{public} sein $\rightarrow$ Name der Quelldatei \\
+	$\rhd$ Innere Klassen sind davon allerdings nicht betroffen \\
+	$\rhd$ Objekterzeugung: \\
+	\hspace{0.4cm} $\diamond$ Erstellung von Objekten der inneren Klasse über Objekt der äußeren Klasse \\ 
+	\hspace{0.4cm} $\diamond$ Automatische Erzeugung eines Verweises auf Erzeugungsobjekt \\
+	\hspace{0.4cm} $\diamond$ \texttt{X a = new X(); a.newY();} \\
+	$\rhd$  Aufruf: \\
+	\hspace{0.4cm} $\diamond$ \texttt{OuterClass.InnerClass x = ...;} \\
+	\hspace{0.4cm} $\diamond$ Äußere Klasse + Innere Klasse durch Punkt getrennt \\
+	$\rhd$ \texttt{static}: \\
+	\hspace{0.4cm} $\diamond$ \texttt{static} auch bei inneren Klassen möglich \\
+	\hspace{0.4cm} $\diamond$ Kann nur auf Klassenmethoden und -attribite zugreifen \\
+	\hspace{0.4cm} $\diamond$ Erzeugung ohne Objekt möglich z.B.: \texttt{X.Y a = new X.Y();} } \\ \hline
 	
-	\end{tabular}
+	\end{longtable}
 
 \section{Konversionen}
 
@@ -1143,7 +1431,91 @@
 	$\rhd$ z.B.: \texttt{int n}   } \\ \hline
 
 	\end{tabular}
+
+\section{Threads}
+
+	\begin{longtable}{ | p{4cm} p{13.5cm} | }
+	\hline
 	
+	
+	\makecell[l]{Interface Runnable} & \makecell[l]{$\rhd$ Aus Package \texttt{java.lang} \\
+	$\rhd$ Enthält den Inhalt des parallel laufenden Prozesses \\
+	$\rhd$ \texttt{Functional Interface} mit funktionaler Methode \texttt{run} \\
+	$\rhd$ Funktionsweise: \\
+	\hspace{0.4cm} $\diamond$ Erstellung einer Klasse, die das Interface \texttt{Runnable} implementiert \\
+	\hspace{0.4cm} $\diamond$ Implementierung der funktionalen Methode \texttt{run} \\
+	\hspace{0.6cm} - \texttt{public void run() \{...\}} \\
+	\hspace{0.4cm} $\diamond$ Erzeugung eines Objekts unserer Klasse \\
+	\hspace{0.6cm} - z.B.: \texttt{Runnable runnable = new MyRunnable(...);} \\ 
+	\hspace{0.4cm} $\diamond$ Erzeugung eines \texttt{Thread}-Objekts mithilfe unseres \texttt{runnable} \\
+	\hspace{0.6cm} - \texttt{new Thread(runnable).start();} \\
+	\hspace{0.4cm} $\diamond$ Der \texttt{Thread} wird dadurch auch gestartet} \\ \hline
+		
+	\makecell[l]{Klasse Thread} & \makecell[l]{$\rhd$ Aus Package \texttt{java.lang} \\
+	$\rhd$ \texttt{Thread} organisiert einen parallel laufenden Prozess \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{static currentThread} \\
+	\hspace{0.6cm} - Keine Parameter \\
+	\hspace{0.6cm} - Liefert den \texttt{Thread} in dem die Methode aufgerufen wurde \\
+	\hspace{0.4cm} $\diamond$ \texttt{dumpStack} \\
+	\hspace{0.6cm} - Schreiben den CallStacks auf \texttt{System.err} \\
+	\hspace{0.4cm} $\diamond$ \texttt{static getAllStackTraces} \\
+	\hspace{0.6cm} - Liefert die CallStacks aller \texttt{Threads} als \texttt{Map}	\\
+	\hspace{0.4cm} $\diamond$ \texttt{getId} \\
+	\hspace{0.6cm} - Jeder \texttt{Thread} besitzt eine ID von Typ \texttt{long} \\
+	\hspace{0.6cm} - Diese ID ist einmalig und bleibt gleich \\
+	\hspace{0.4cm} $\diamond$ \texttt{getName} \\
+	\hspace{0.6cm} - Abfrage des nicht einmaligen Namens \\
+	\hspace{0.4cm} $\diamond$ \texttt{getPriority; setPriority} \\
+	\hspace{0.6cm} - Jeder \texttt{Thread} besitzt eine Priorität \\
+	\hspace{0.6cm} - Anfangs gesetzt und dauernd beschränkt durch Klassenkonstanten \\
+	\hspace{0.4cm} $\diamond$ \texttt{static sleep} \\
+	\hspace{0.6cm} - Anhalten des \texttt{Threads} für übergebene Pause (\texttt{long}) \\
+	\hspace{0.4cm} $\diamond$ \texttt{getState} \\
+	\hspace{0.6cm} - Gibt den Status des \texttt{Threads} aus \\
+	 } \\ \hline
+
+	\makecell[l]{Threads und Streams} & \makecell[l]{$\rhd$ Verknüpfung zweier \texttt{Threads} mithilfe von \texttt{PipedInput(Output)Stream} \\
+	$\rhd$ z.B.: Ungefähre Vorhergehensweise: \\
+	\hspace{0.4cm} $\diamond$ Erzeugung beider Streams: (Beachten von \texttt{try-catch}): \\
+	\hspace{0.6cm} - \texttt{PipedOutputStream out = new PipedOutputStream();} \\
+	\hspace{0.6cm} - \texttt{PipedInputStream in = new PipedInputStream(out);} \\
+	\hspace{0.4cm} $\diamond$ Implementieren einer schreibenden \texttt{Runnable}-Klasse \\
+	\hspace{0.6cm} - z.B.: Schreiben von zufälligen Zahlen auf \texttt{out} \\
+	\hspace{0.4cm} $\diamond$ Erstellen des \texttt{Threads}: \\
+	\hspace{0.6cm} - \texttt{Runnable runnable = new MyWriteRunnable(out);} \\
+	\hspace{0.6cm} - \texttt{new Thread(runnable).start();} \\
+	\hspace{0.4cm} $\diamond$ Lesen mithilfe \texttt{in} der geschriebenen Daten \\
+	\hspace{0.4cm} $\Rightarrow$ Zwei verbundene Streams, einer schreibt, der andere liest} \\ \hline
+	
+	\makecell[l]{Interferiende Threads} & \makecell[l]{$\rhd$ Reihenfolge der Zugriffe, bei Zugriff auf die selbe Ressource, ungewiss \\
+	$\rhd$ z.B.: Gleichzeitiges Schreiben auf \texttt{StdOut // Standard Out $\rightarrow$ System.out} } \\ \hline
+
+	\makecell[l]{Thread terminieren} & \makecell[l]{$\rhd$ Beispiel: \\
+	\hspace{0.4cm} $\diamond$ Einfügen einer Boolean-Variable in dazugehöriger \texttt{Runnable}-Klasse \\
+	\hspace{0.4cm} $\diamond$ Ausführung von \texttt{run()} solange diese \texttt{false} ist \\
+	\hspace{0.4cm} $\diamond$ Setzen der Variable auf \texttt{true}, wenn terminiert werden soll \\
+	$\rhd$ Sobald die Methode \texttt{run} beendet ist, terminiert der \texttt{Thread} \\
+	$\rhd$ Andere Umsetzung: \\
+	\hspace{0.4cm} $\diamond$ Einfügen einer \texttt{terminate()}-Methode in die \texttt{Runnable}-Klasse \\
+	\hspace{0.4cm} $\diamond$ Diese setzt z.B. die oben implementierte Variable auf \texttt{true} \\
+	\hspace{0.4cm} $\diamond$ Zugriff auf diese Methode über das erzeugte \texttt{Runnable}-Objekt} \\ \hline
+
+	\makecell[l]{Gründe für Threads} & \makecell[l]{$\rhd$ Parallelisierung \\
+	\hspace{0.4cm} $\diamond$ Aufteilung der Arbeitslast \\
+	\hspace{0.4cm} $\diamond$ Oft jedoch nicht schneller, sondern langsamer \\
+	$\rhd$ Abspaltung von eigenständigen Programmteilen \\
+	\hspace{0.4cm} $\diamond$ Starten und Vergessen } \\ \hline
+
+	\makecell[l]{Parallelisierung von \\ Streams} & \makecell[l]{$\rhd$ Bereits implementiert, automatische, effiziente Aufteilung \\
+	$\rhd$ Methode \texttt{parallelStream()} \\
+	\hspace{0.4cm} $\diamond$ Kann, aber muss nicht, aufteilen \\
+	\hspace{0.4cm} $\diamond$ Liefert den selben Stream als Rückgabetyp zurück \\
+	\hspace{0.4cm} $\diamond$ bequeme Möglichkeit zur Verarbeitung großer Datenmengen } \\ \hline
+
+	\end{longtable}
+
+
 \section{Vererbung}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
