@@ -63,7 +63,8 @@
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
 	
-	\makecell[l]{Informationen } & \makecell[l]{$\rhd$ Sammlungen von Elementen (Objekte eines generischen Typs) \\
+	\makecell[l]{Informationen } & \makecell[l]{
+	$\rhd$ Sammlungen von Elementen (Objekte eines generischen Typs) \\
 	$\rhd$ Struktur: \\
 	\hspace{0.4cm} $\diamond$ Alle Klassen und Interfaces in \texttt{java.util} \\
 	\hspace{0.4cm} $\diamond$ Interface \texttt{Collection}: Alle Klassen implementieren dieses Interface \\
@@ -99,7 +100,8 @@
 	\hspace{0.6cm} - \texttt{true}, falls \texttt{Object} mindestens einmal vorhanden \\
 	\hspace{0.6cm} - Bei mehreren, entscheidet die \texttt{Collection}-Klasse welches entfernt wird } \\ \hline
 
-	\makecell[l]{Interface \texttt{List}} & \makecell[l]{$\rhd$ Erweitert das Interface \texttt{Collection} \\
+	\makecell[l]{Interface \texttt{List}} & \makecell[l]{
+	$\rhd$ Erweitert das Interface \texttt{Collection} \\
 	$\rhd$ Unterschied: Definition einer Reihenfolge auf den Elementen \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{indexOf} \\
@@ -113,13 +115,15 @@
 	\hspace{0.6cm} - Identisch zu Methode \texttt{set}, jedoch ein Unterschied: \\
 	\hspace{0.6cm} - Überschreibt das Element \textbf{nicht}, sondern fügt es vor dem Element ein } \\ \hline
 
-	\makecell[l]{Sortieren mit Comparator} & \makecell[l]{$\rhd$ Klasse \texttt{Collections} hat Klassenmethode \texttt{sort} \\
+	\makecell[l]{Sortieren mit Comparator} & \makecell[l]{
+	$\rhd$ Klasse \texttt{Collections} hat Klassenmethode \texttt{sort} \\
 	$\rhd$ \texttt{Collections.sort(list, new MyComparator());} \\
 	\hspace{0.4cm} $\diamond$ Erster Parameter: Zu sortierende Liste (z.B.: \texttt{List<Student> list = ...}) \\
 	\hspace{0.4cm} $\diamond$ Zweiter Parameter: Selbst erstellte Sortierlogik \\
 	\hspace{0.4cm} $\diamond$ Typparameter von \texttt{Comparator} und \texttt{List} müssen gleich sein } \\ \hline
 
-	\makecell[l]{Interface \texttt{Iterator}} & \makecell[l]{$\rhd$ \texttt{Collection} und \texttt{List} erben von Interface \texttt{Iterable} \\
+	\makecell[l]{Interface \texttt{Iterator}} & \makecell[l]{
+	$\rhd$ \texttt{Collection} und \texttt{List} erben von Interface \texttt{Iterable} \\
 	$\rhd$ Jede Klasse, die \texttt{Collection} implementiert hat eine eigene \texttt{Iterator}-Klasse \\
 	$\rhd$ Diese eigene \texttt{Iterator}-Klasse implementiert das Interface \texttt{Iterator} \\
 	$\rhd$ \texttt{Collection<Number> c1 = new ArrayList<Number>();} \\
@@ -134,7 +138,8 @@
 	\hspace{0.6cm} - \texttt{true}, falls mindestens ein Element noch nicht durch \\
 	\hspace{0.9cm} diesen \texttt{Iterator} zurückgeliefert wurde } \\ \hline
 
-	\makecell[l]{Interface \texttt{Map}} & \makecell[l]{$\rhd$ z.B.: \texttt{Map<String,Integer> map = new HashMap<String,Integer>();} \\
+	\makecell[l]{Interface \texttt{Map}} & \makecell[l]{
+	$\rhd$ z.B.: \texttt{Map<String,Integer> map = new HashMap<String,Integer>();} \\
 	\hspace{0.4cm} $\diamond$  Erster Typparameter: \texttt{Key} (hier: \texttt{String}) \\
 	\hspace{0.4cm} $\diamond$  Typparameter: \texttt{Value} (hier: \texttt{Integer}) \\
 	$\rhd$ Eine \texttt{Map} realisiert eine Abbildung von den \texttt{Keys} in die \texttt{Values} \\
@@ -143,7 +148,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{put(key, value) // Fügt Paar in Map ein} \\
 	\hspace{0.4cm} $\diamond$ \texttt{get(key) // Gibt value zu bestimmtem key zurück} } \\ \hline
 
-	\makecell[l]{\texttt{LinkedList}} & \makecell[l]{$\rhd$ Aufbau: \\
+	\makecell[l]{\texttt{LinkedList}} & \makecell[l]{
+	$\rhd$ Aufbau: \\
 	\hspace{0.4cm} $\diamond$ Elemente der Liste enthalten: \\
 	\hspace{0.6cm} - \texttt{Key} vom Typ T \\
 	\hspace{0.6cm} - Attribut vom selben Elementtyp mit Namen \texttt{next} \\
@@ -189,26 +195,26 @@
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Unsere Vorstellung} & 
-	\makecell[l]{$\rhd$ gro\ss es Feld aus Maschinenwörtern mit eindeutiger Adresse} \\ \hline
+	\makecell[l]{Unsere Vorstellung} & \makecell[l]{
+	$\rhd$ gro\ss es Feld aus Maschinenwörtern mit eindeutiger Adresse} \\ \hline
 	
-	\makecell[l]{Erzeugung eines \\ neuen Objekts} & 
-	\makecell[l]{$\rhd$ Reservierung von ungenutztem Speicher in ausreichender Grö\ss e} \\ \hline
+	\makecell[l]{Erzeugung eines \\ neuen Objekts} & \makecell[l]{
+	$\rhd$ Reservierung von ungenutztem Speicher in ausreichender Grö\ss e} \\ \hline
 	
-	\makecell[l]{Referenz} & 
-	\makecell[l]{$\rhd$ Name der Variable, die die Anfangsadresse des Objekts speichert \\ 
+	\makecell[l]{Referenz} & \makecell[l]{
+	$\rhd$ Name der Variable, die die Anfangsadresse des Objekts speichert \\ 
 	$\rhd$ Kann auch an komplett anderer Stelle als das Objekt gespeichert sein } \\ \hline
 	
-	\makecell[l]{Speicherort primitiver \\ Datentypen} & 
-	\makecell[l]{$\rhd$ Name verweist tatsächlich auf Speicherstelle, an der Wert abgespeichet wird } \\ \hline
+	\makecell[l]{Speicherort primitiver \\ Datentypen} & \makecell[l]{
+	$\rhd$ Name verweist tatsächlich auf Speicherstelle, an der Wert abgespeichet wird } \\ \hline
 	
-	\makecell[l]{Prozessablauf} & 
-	\makecell[l]{$\rhd$ Program Counter enthält Adresse der nächsten Anweisung \\
+	\makecell[l]{Prozessablauf} & \makecell[l]{
+	$\rhd$ Program Counter enthält Adresse der nächsten Anweisung \\
 	\hspace{0.4cm} $\diamond$ Zählt nach jeder Anwendung hoch und verweist auf nächsten Speicher \\
 	$\rhd$ CPU verarbeitet parallel die momentane Anweisung aus Program Counter} \\ \hline
 	
-	\makecell[l]{Methodenausführung} & 
-	\makecell[l]{$\rhd$ Einrichtung einer Variable \texttt{StackPointer} bei Programmstart \\
+	\makecell[l]{Methodenausführung} & \makecell[l]{
+	$\rhd$ Einrichtung einer Variable \texttt{StackPointer} bei Programmstart \\
 	$\rhd$ StackPointer enthält die Adresse des \texttt{Call-Stacks} \\
 	$\rhd$ Bei Methodenaufruf wird im Speicher Platz reserviert, genannt \texttt{Frame} \\
 	$\rhd$ \texttt{Frame}  wird dann auf dem Call-Stack abgelegt\\
@@ -216,8 +222,8 @@
 	$\rhd$ Methodenaufruf vorbei: Frame wird wieder vom \texttt{Call-Stack} genommen \\
 	$\rhd$ \texttt{StackPointer} wird auf Adresse des vorherigen \texttt{Frames}  gesetzt} \\ \hline
 	
-	\makecell[l]{Methodentabelle} & \makecell[l]{$\rhd$ Enthält bei Objekt die Anfangsadressen der 
-	verfügbaren Methoden } \\ \hline
+	\makecell[l]{Methodentabelle} & \makecell[l]{
+	$\rhd$ Enthält bei Objekt die Anfangsadressen der verfügbaren Methoden } \\ \hline
 	
 	\end{tabular}
 	
@@ -229,8 +235,8 @@
 
 \begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Array} & 
-	\makecell[l]{$\rhd$ Verwendet zum Speichern von mehreren Variablen des selben Typs \\
+	\makecell[l]{Array} & \makecell[l]{
+	$\rhd$ Verwendet zum Speichern von mehreren Variablen des selben Typs \\
 	$\rhd$ Erzeugung: \texttt{int[] test = new int[n];} \\
 	$\rhd$ \texttt{n} gibt in diesem Fall die feste Anzahl der speicherbaren Variablen an \\
 	$\rhd$ Natürlich auch Arrays von Objekten möglich \\
@@ -244,40 +250,46 @@
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Konstanten} & \makecell[l]{$\rhd$ Variable/Referenz wird dadurch unveränderbar \\
+
+	\makecell[l]{Konstanten} & \makecell[l]{
+	$\rhd$ Variable/Referenz wird dadurch unveränderbar \\
 	$\rhd$ z.B.: \texttt{final myClass ABC = new myClass();} \\
 	\hspace{0.4cm} $\diamond$ Referenz zwar nicht veränderbar, Objekt aber schon \\ 
 	$\rhd$ \texttt{Integer.MAX\_VALUE / Integer.MIN\_VALUE} \\
 	$\rhd$ Unendlich: \texttt{Double.POSITIVE\_INFINITY / Double.NEGATIVE\_INFINITY} \\
 	$\rhd$ Müssen initalisiert werden } \\ \hline
 	
-	\makecell[l]{Primitive Dateitypen} & 
-	\makecell[l]{$\rhd$ Ganze Zahlen: byte $\rightarrow$ short $\rightarrow$ int $\rightarrow$ long \\
+	\makecell[l]{Primitive Dateitypen} & \makecell[l]{
+	$\rhd$ Ganze Zahlen: byte $\rightarrow$ short $\rightarrow$ int $\rightarrow$ long \\
 	$\rhd$ Gebrochene Zahlen: float $\rightarrow$ double \\
 	$\rhd$ Logik: boolean \\
 	$\rhd$ Zeichen: char \\
 	$\rhd$ Mehrere Definitonen: \texttt{int m = 1, n, k = 2;} \\ 
 	$\rhd$ Ohne Initialisierung: undefinierter Wert} \\ \hline
 	
-	\makecell[l]{Literale} & \makecell[l]{$\rhd$ wörtlich hingeschriebene Werte eines Datentyps  \\
+	\makecell[l]{Literale} & \makecell[l]{
+	$\rhd$ wörtlich hingeschriebene Werte eines Datentyps  \\
 	$\rhd$ Zahlen standardmä\ss ig int, falls \texttt{long} gewünscht: \texttt{123L oder 123l} \\ 
 	$\rhd$ Bei gebrochenen double, falls \texttt{float} gewünscht: \texttt{12.3F oder 12.3f} \\
 	$\rhd$ null: Nutzung für Referenzen $\rightarrow$ verweist auf nichts} \\ \hline
 	
-	\makecell[l]{Boolean} & \makecell[l]{$\rhd$ nur \texttt{true} und \texttt{false} \\
+	\makecell[l]{Boolean} & \makecell[l]{
+	$\rhd$ nur \texttt{true} und \texttt{false} \\
 	$\rhd$ Negation \texttt{!a} \\
 	$\rhd$ Logisches Und: \texttt{a \&\& b} \\
 	$\rhd$ Logisches Oder: \texttt{a || b} (inklusiv) \\
 	$\rhd$ Gleichheit: \texttt{a == b} } \\ \hline
 	
-	\makecell[l]{Zeichentyp char} & \makecell[l]{$\rhd$ z.B.: \texttt{char c = ´a´;} \\
+	\makecell[l]{Zeichentyp char} & \makecell[l]{
+	$\rhd$ z.B.: \texttt{char c = ´a´;} \\
 	$\rhd$ Interne Kodierung als Unicode \\
 	$\rhd$ \textbackslash t Horizontaler Tab \\
 	$\rhd$ \textbackslash b Backspace \\
 	$\rhd$ \textbackslash n Neue Zeile \\
 	$\rhd$ Auch Darstellung im Hexacode (\textbackslash u039A)} \\ \hline
 	
-	\makecell[l]{Enumeration} & \makecell[l]{$\rhd$ Zusammenfassung mehrerer Konstanten (feste Anzahl)\\
+	\makecell[l]{Enumeration} & \makecell[l]{
+	$\rhd$ Zusammenfassung mehrerer Konstanten (feste Anzahl)\\
 	$\rhd$ Erzeugung meist in eigener .java Datei \\
 	$\rhd$ \texttt{enum MyDirection \{DOWN, RIGHT\} } \\
 	$\rhd$ Keine Objekterzeugung von Enumeration möglich \\
@@ -288,7 +300,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{name() // Returns the name of the calling object as string} \\
 	 } \\ \hline
 	
-	\makecell[l]{Referenztypen} & \makecell[l]{$\rhd$ Alle Typen, die keine primitiven Datentypen sind \\
+	\makecell[l]{Referenztypen} & \makecell[l]{
+	$\rhd$ Alle Typen, die keine primitiven Datentypen sind \\
 	$\rhd$ Unterscheidung zwischen Referez und eigentlichem Objekt \\
 	$\rhd$ Gleichheitsoperator \texttt{==} vergleicht nur die Referenz (Objektidentität) \\
 	\hspace{0.4cm} $\diamond$ Verweis auf dasselbe Objekt \\
@@ -303,10 +316,11 @@
 
 \begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Exception-Klassen} & \makecell[l]{$\rhd$ Alle Klassen, die direkt oder indirekt von java.lang.Exception abgeleitet sind \\
-	$\rhd$  } \\ \hline
+	\makecell[l]{Exception-Klassen} & \makecell[l]{
+	$\rhd$ Alle Klassen, die direkt oder indirekt von java.lang.Exception abgeleitet sind} \\ \hline
 
-	\makecell[l]{Exception werfen} & \makecell[l]{$\rhd$ \texttt{throws Exception \{...\}} nach Parameterliste im Methodenkopf \\
+	\makecell[l]{Exception werfen} & \makecell[l]{
+	$\rhd$ \texttt{throws Exception \{...\}} nach Parameterliste im Methodenkopf \\
 	$\rhd$ Dies signalisiert, dass die Methode mindestens einen Fehler wirft \\
 	$\rhd$ Die geworfene Exception muss vom \texttt{throws}-Typ oder Subtyp sein \\
 	$\rhd$ Auch mehrere Exceptions möglich, mit einem Komma getrennt \\
@@ -317,7 +331,8 @@
 	\hspace{0.4cm} $\diamond$ Führt zur Beendung der Methode \\
 	\hspace{0.4cm} $\diamond$ Liefert das geworfene Exception-Objekt zurück } \\ \hline
 
-	\makecell[l]{Exception fangen} & \makecell[l]{$\rhd$ Bei Methoden, die Exceptions werfen, wird ein \texttt{try-catch}-Block benötigt \\
+	\makecell[l]{Exception fangen} & \makecell[l]{
+	$\rhd$ Bei Methoden, die Exceptions werfen, wird ein \texttt{try-catch}-Block benötigt \\
 	$\rhd$ Aufbau: \\
 	\hspace{0.4cm} $\diamond$ Methoden, die Exceptions werfen in \texttt{try \{...\}} aufrufen \\
 	\hspace{0.4cm} $\diamond$ Falls Exception auftritt wird \texttt{catch (Exception exc) \{...\}} aufgerufen \\
@@ -333,20 +348,24 @@
 	\hspace{0.4cm} $\diamond$ Deswegen Reihung der \texttt{catch}-Blöcke von Subtyp nach Supertyp \\
 	$\rhd$ Auch mehrere Exceptions in einem \texttt{catch}-Block möglich mit \texttt{||}} \\ \hline
 
-	\makecell[l]{Weiterreichen} & \makecell[l]{$\rhd$ Weiterreichen der Fehlermeldung durch \texttt{throws} im Methodenkopf möglich \\
+	\makecell[l]{Weiterreichen} & \makecell[l]{
+	$\rhd$ Weiterreichen der Fehlermeldung durch \texttt{throws} im Methodenkopf möglich \\
 	$\rhd$ Kein \texttt{try-catch}-Block notwendig \\
 	$\rhd$ Main-Methode kann z.B. keine Exceptions weiterreichen} \\ \hline
 
-	\makecell[l]{ \texttt{try-with-ressources} } & \makecell[l]{$\rhd$ Für Ressourcen, die unbedingt wieder geschlossen werden müssen \\
+	\makecell[l]{ \texttt{try-with-ressources} } & \makecell[l]{
+	$\rhd$ Für Ressourcen, die unbedingt wieder geschlossen werden müssen \\
 	$\rhd$ Öffnung der Ressource in runden Klammern: \texttt{try (Printer p =... ) \{...\}} \\
 	$\rhd$ Mehrere Ressourcen möglich, getrennt durch Semikolon } \\ \hline
 
-	\makecell[l]{Runtime Exceptions} & \makecell[l]{$\rhd$ Ausnahme zu \texttt{try}-Blöcken \\
+	\makecell[l]{Runtime Exceptions} & \makecell[l]{
+	$\rhd$ Ausnahme zu \texttt{try}-Blöcken \\
 	$\rhd$ Exceptions von java.lang.RuntimeException und Subtypen \\
 	$\rhd$ z.B.: IndexOutOfBoundsException, NullPointerException \\ 
 	$\rhd$ Grund: Vermeidung von dauerenden \texttt{try}-Blöcken} \\ \hline
 	
-	\makecell[l]{Throwable und Error} & \makecell[l]{$\rhd$ Exception und Error sind beide von Throwable abgeleitet \\
+	\makecell[l]{Throwable und Error} & \makecell[l]{
+	$\rhd$ Exception und Error sind beide von Throwable abgeleitet \\
 	$\rhd$ Alle drei befinden sich im Paket java.lang \\
 	$\rhd$ Error: \\
 	\hspace{0.4cm} $\diamond$ Werden geworfen, falls Fehlerbehandlung keinen Sinn macht \\
@@ -365,12 +384,13 @@
 \section{Fehler}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Kompilierzeitfehler \\ (compile-time errors)} & 
-	\makecell[l]{$\rhd$ Falsche Klammersetzung, falsche Schlüsselwörter,..\\
+
+	\makecell[l]{Kompilierzeitfehler \\ (compile-time errors)} & \makecell[l]{
+	$\rhd$ Falsche Klammersetzung, falsche Schlüsselwörter,..\\
 	$\rhd$ Programm wird nicht übersetzt $\Rightarrow$ Fehlermeldung vom Compiler } \\ \hline
 	
-	\makecell[l]{Laufzeitfehler \\ (run-time errors)} & 
-	\makecell[l]{$\rhd$ Tritt während der Ausführung auf \\
+	\makecell[l]{Laufzeitfehler \\ (run-time errors)} & \makecell[l]{
+	$\rhd$ Tritt während der Ausführung auf \\
 	$\rhd$ Führt zum Abbruch des Programms $\Rightarrow$ Ausgabe der Fehlermeldung \\
 	$\rhd$ Kann nicht vom Compiler entdeckt werden \\
 	$\rhd$ IndexOutOfBounds, NullPointerException,.. } \\ \hline
@@ -380,7 +400,8 @@
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
 	
-	\makecell[l]{System Properties \\ (java.lang.System)} & \makecell[l]{$\rhd$ Attribute der Umgebung, in denen das Java Programm abläuft \\
+	\makecell[l]{System Properties \\ (java.lang.System)} & \makecell[l]{
+	$\rhd$ Attribute der Umgebung, in denen das Java Programm abläuft \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{getProperty} \\
 	\hspace{0.6cm} - Erhält \texttt{String} und gibt \texttt{String} zurück \\ 
@@ -406,13 +427,15 @@
 	\hspace{0.4cm} $\diamond$ \texttt{System.setIn(in); System.setOut(out); System.setErr(err);}
 	} \\ \hline
 
-	\makecell[l]{Klasse Path / Paths} & \makecell[l]{$\rhd$ Beide in \texttt{java.nio.file} \\
+	\makecell[l]{Klasse Path / Paths} & \makecell[l]{
+	$\rhd$ Beide in \texttt{java.nio.file} \\
 	$\rhd$ Objekt der Klasse \texttt{Path} verwaltet einen Pfadnamen \\
 	\hspace{0.4cm} $\diamond$ Dort muss nicht unbedingt etwas existieren \\
 	$\rhd$ \texttt{Paths} wird nur dazu genutzt um Objekt von \texttt{Path} zu erzeugen \\
 	\hspace{0.4cm} $\diamond$ z.B.: \texttt{Path path = Paths.get(homeDir, \string"fop.txt\string");}   } \\ \hline
 
-	\makecell[l]{Klasse Files} & \makecell[l]{$\rhd$ Aus Package \texttt{java.nio.file} \\
+	\makecell[l]{Klasse Files} & \makecell[l]{
+	$\rhd$ Aus Package \texttt{java.nio.file} \\
 	$\rhd$ Nützliche Sammlung von Klassenmethoden rund um Dateien \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{lines // Files.lines(path);} \\
@@ -455,12 +478,14 @@
 	7 \hspace{0.1cm} \texttt{\}} \\
 	$\rhd$ \texttt{try-with-resources} wird für Interface \texttt{AutoCloseable} verwendet } \\ \hline
 
-	\makecell[l]{Bytedaten} & \makecell[l]{$\rhd$ Direkt, ohne Bezug zu Streams \\
+	\makecell[l]{Bytedaten} & \makecell[l]{
+	$\rhd$ Direkt, ohne Bezug zu Streams \\
 	$\rhd$ Klassen und Interfaces finden sich in \texttt{java.io} \\
 	$\rhd$ Byteweise Verarbeitung sinnvoll für Audio oder Bilddateien, nicht für Text \\
 	$\rhd$ Wird aber meist durch Bibliotheken oder Ähnliches gehandhabt} \\ \hline
 
-	\makecell[l]{Bytedaten lesen} & \makecell[l]{$\rhd$ Verwendung eines \texttt{InputStream}-Objekts \\
+	\makecell[l]{Bytedaten lesen} & \makecell[l]{
+	$\rhd$ Verwendung eines \texttt{InputStream}-Objekts \\
 	$\rhd$ \texttt{InputStream} abstrakt, deswegen nur Subtypen z.B.: \texttt{FileInputStream} \\
 	\hspace{0.4cm} $\diamond$ \texttt{FileInputStream} nutzt den Namen der Datei als String im Konstruktor \\
 	$\rhd$ Methoden: \\
@@ -472,7 +497,8 @@
 	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{int n = in.read();} \\
 	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{if (n == 1) return;} } \\ \hline
 
-	\makecell[l]{Bytedaten schreiben} & \makecell[l]{$\rhd$ Verwendung eines \texttt{OutputStream}-Objekts \\
+	\makecell[l]{Bytedaten schreiben} & \makecell[l]{
+	$\rhd$ Verwendung eines \texttt{OutputStream}-Objekts \\
 	$\rhd$ \texttt{OutputStream} abstrakt, deswegen nur Subtypen z.B.: \texttt{FileOutputStream} \\
 	\hspace{0.4cm} $\diamond$ \texttt{FileOutputStream} nutzt den Namen der Datei als String im Konstruktor \\
 	\hspace{0.4cm} $\diamond$ Existiert die Datei schon, geht der Inhalt verloren \\
@@ -525,12 +551,14 @@
 	\hspace{0.4cm} $\diamond$ Zwei aneinander gekoppelte Lese/Schreib-Klassen
 	} \\ \hline
 
-	\makecell[l]{Textdaten direkt} & \makecell[l]{$\rhd$ Bequemere Zugriffsmöglichkeiten für Textdaten vorhanden \\
+	\makecell[l]{Textdaten direkt} & \makecell[l]{
+	$\rhd$ Bequemere Zugriffsmöglichkeiten für Textdaten vorhanden \\
 	$\rhd$ \texttt{Reader} und \texttt{Writer} aus Package \texttt{java.io} \\
 	$\rhd$ Textdatei besteht aus einzelnen Zeichen aka \texttt{char} \\
 	\hspace{0.4cm} $\diamond$ Jedes \texttt{char} ist zwei Byte gro\ss} \\ \hline
 
-	\makecell[l]{Textdaten lesen} & \makecell[l]{$\rhd$ Komplett analog zu \texttt{InputStream} und \texttt{FileInputStream} \\
+	\makecell[l]{Textdaten lesen} & \makecell[l]{
+	$\rhd$ Komplett analog zu \texttt{InputStream} und \texttt{FileInputStream} \\
 	$\rhd$ \texttt{Reader} abstrakt, deswegen nur Subtypen z.B. \texttt{FileReader} \\
 	\hspace{0.4cm} $\diamond$ \texttt{FileReader} nutzt den Namen der Datei als String im Konstruktor \\
 	$\rhd$ Methoden: \\
@@ -576,12 +604,14 @@
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
 	
-	\makecell[l]{Window Manager} & \makecell[l]{$\rhd$ Systemprozess, der permanent im Hintergrund als \texttt{Service} läuft \\
+	\makecell[l]{Window Manager} & \makecell[l]{
+	$\rhd$ Systemprozess, der permanent im Hintergrund als \texttt{Service} läuft \\
 	$\rhd$ Stellt generelle, anwendungsunspezifische Funktionalitäten zur Verfügung \\
 	\hspace{0.4cm} $\diamond$ Öffnen, Schlie\ss en, Ikonifizieren, Grö\ss e ändern \\
 	\hspace{0.4cm} $\diamond$ Rahmen um Fenster, Bildschirmhintergrund } \\ \hline
 
-	\makecell[l]{Klasse Frame} & \makecell[l]{$\rhd$ Abgeleitet von \texttt{java.awt.Window;} (awt = abstract window toolkit) \\
+	\makecell[l]{Klasse Frame} & \makecell[l]{
+	$\rhd$ Abgeleitet von \texttt{java.awt.Window;} (awt = abstract window toolkit) \\
 	$\rhd$ Im Gegensatz zu \texttt{Window} aber mit Rahmen (vom \texttt{Window Manager} verwaltet) \\
 	$\rhd$ Beispielkonstruktor: \texttt{Frame frame = new Frame(string); // Fenstertitel} \\
 	$\rhd$ Vorhergehensweise: \\
@@ -605,7 +635,8 @@
 	\hspace{0.6cm} - Fügt den übergebenen Komponenten zum \texttt{Frame} hinzu \\
 	} \\ \hline
 
-	\makecell[l]{Komponenten} & \makecell[l]{$\rhd$ Eigene Klasse für jede Komponente \\
+	\makecell[l]{Komponenten} & \makecell[l]{
+	$\rhd$ Eigene Klasse für jede Komponente \\
 	$\rhd$ Alle Klassen oder Interfaces aus \texttt{java.awt}, falls nicht anders gesagt \\
 	$\rhd$ Werden mithilfe von \texttt{add(Component comp)} zum Fenster hinzugefügt } \\ \hline
 
@@ -623,7 +654,8 @@
 	\hspace{0.6cm} - Setzt den Titel des \texttt{Button}
 	} \\ \hline
 
-	\makecell[l]{Interface ActionListener} & \makecell[l]{$\rhd$ Zugehörig zu \texttt{Button} \\
+	\makecell[l]{Interface ActionListener} & \makecell[l]{
+	$\rhd$ Zugehörig zu \texttt{Button} \\
 	$\rhd$ Aus Package \texttt{java.awt.event} \\
 	$\rhd$ Funktionales Interface \\
 	$\rhd$ Funktionale Methode \texttt{actionPerformed (ActionEvent event)} \\
@@ -641,7 +673,8 @@
 	\hspace{0.6cm} - z.B.: als \texttt{private}-Klasse (Stichwort: \texttt{nested classes}) \\
 	 } \\ \hline
 
-	\makecell[l]{Klasse ActionEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei \texttt{actionPerformed} \\
+	\makecell[l]{Klasse ActionEvent} & \makecell[l]{
+	$\rhd$ Übergebener Parameter bei \texttt{actionPerformed} \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{getWhen()} \\
 	\hspace{0.6cm} - Gibt die Uhrzeit des Geschehnisses als \texttt{long} zurück \\
@@ -663,7 +696,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{addMouseListener(...)} \\
 	\hspace{0.4cm} $\diamond$ \texttt{addWindowListener(...)} } \\ \hline
 
-	\makecell[l]{Adapter} & \makecell[l]{$\rhd$ Verwendung von Adaptern, wenn passendes Interface nicht \texttt{functional} ist \\
+	\makecell[l]{Adapter} & \makecell[l]{
+	$\rhd$ Verwendung von Adaptern, wenn passendes Interface nicht \texttt{functional} ist \\
 	\hspace{0.4cm} $\diamond$ z.B. Interface \texttt{KeyListener, MouseListener,..} \\
 	\hspace{0.4cm} $\diamond$ Diese Interfaces besitzen mehrere Methoden \\
 	$\rhd$ Adapter sind Klassen und bestehen zu jedem \texttt{Listener}-Interface \\
@@ -677,24 +711,26 @@
 	\hspace{0.4cm} $\diamond$ Erweitern der eigenen \texttt{Listener}-Klasse mit Adapter \\
 	\hspace{0.4cm} $\diamond$ z.B.: \texttt{public class MyKeyListener extends KeyAdapter \{...\}}} \\ \hline
 
-	\makecell[l]{Interface KeyListener} & \makecell[l]{$\rhd$ Abhorchen der Tastatur \\
+	\makecell[l]{Interface KeyListener} & \makecell[l]{
+	$\rhd$ Abhorchen der Tastatur \\
 	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{KeyAdapter} (siehe Adapter) erweitert \\
 	$\rhd$ Methoden: \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void keyPressed ( KeyEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void keyPressed (KeyEvent event)} \\
 	\hspace{0.6cm} - Wird beim Herunterdrücken einer Taste ausgeführt \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void keyReleased ( KeyEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void keyReleased (KeyEvent event)} \\
 	\hspace{0.6cm} - Wird beim Loslassen einer Taste ausgeführt \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void keyTyped ( KeyEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void keyTyped (KeyEvent event)} \\
 	\hspace{0.6cm} - Wird beim Antippen einer Taste ausgeführt} \\ \hline
 
-	\makecell[l]{Klasse KeyEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei z.B.: \texttt{keyPressed} \\
+	\makecell[l]{Klasse KeyEvent} & \makecell[l]{
+	$\rhd$ Übergebener Parameter bei z.B.: \texttt{keyPressed} \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{getKeyCode()} \\
 	\hspace{0.6cm} - Liefert die Kodierung der gedrückten Taste zurück \\
 	$\rhd$ Klassenkonstanten für jede Taste: \\
 	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_A // Buchstabe A} \\
 	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_COLON // Doppelpunkt} \\
-	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_BACKSPACE // Enter Taste} \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{KeyEvent.VK\_BACKSPACE // Backspace Taste} \\
 	$\rhd$ Beispiel Verwendung: \\
 	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{public class MyKeyListener extends KeyAdapter \{} \\
 	\hspace{0.4cm} 2 \hspace{0.5cm} \texttt{public void keyPressed (KeyEvent event) \{} \\
@@ -707,34 +743,38 @@
 	\hspace{0.4cm} 9 \hspace{0.1cm} \texttt{\}}
 	} \\ \hline
 
-	\makecell[l]{Interface MouseListener} & \makecell[l]{$\rhd$ Abhorchen der Maus \\
+	\makecell[l]{Interface MouseListener} & \makecell[l]{
+	$\rhd$ Abhorchen der Maus \\
 	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{MouseAdapter} erweitert \\
 	\hspace{0.4cm} $\diamond$ \texttt{MouseAdapter} implementiert alle drei \texttt{Mouse}-Interfaces \\
 	\hspace{0.4cm} $\diamond$  \texttt{MouseListener, MouseMotionListener, MouseWheelListener} \\
 	$\rhd$ Methoden: \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseClicked ( MouseEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseClicked (MouseEvent event)} \\
 	\hspace{0.6cm} - Wird beim kurzen Klicken der Maustaste ausgeführt \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mousePressed ( MouseEvent event )} \\	
+	\hspace{0.4cm} $\diamond$ \texttt{public void mousePressed (MouseEvent event)} \\	
 	\hspace{0.6cm} - Wird beim Herunterdrücken der Maustaste ausgeführt \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseReleased ( MouseEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseReleased (MouseEvent event)} \\
 	\hspace{0.6cm} - Wird beim Loslassen der Maustaste ausgeführt \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseEntered ( MouseEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseEntered (MouseEvent event)} \\
 	\hspace{0.6cm} - Wird ausgeführt, sobald der Mauszeiger den abgehorchten Bereich betritt \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseExited ( MouseEvent event )} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseExited (MouseEvent event)} \\
 	\hspace{0.6cm} - Wird ausgeführt, sobald der Mauszeiger den abgehorchten Bereich verlässt} \\ \hline
 
-	\makecell[l]{Interface \\ MouseMotionListener} & \makecell[l]{$\rhd$ Abhorchen der Mausbewegung \\
+	\makecell[l]{Interface \\ MouseMotionListener} & \makecell[l]{
+	$\rhd$ Abhorchen der Mausbewegung \\
 	$\rhd$ Methoden sind auch in Klasse \texttt{MouseAdapter} enthalten \\
 	$\rhd$ Methoden: \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseDragged ( MouseEvent event )} \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseMoved ( MouseEvent event )}  } \\ \hline
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseDragged (MouseEvent event)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseMoved (MouseEvent event)}  } \\ \hline
 
-	\makecell[l]{Interface \\ MouseWheelListener} & \makecell[l]{$\rhd$ Abhorchen der Mausradbewegung \\
+	\makecell[l]{Interface \\ MouseWheelListener} & \makecell[l]{
+	$\rhd$ Abhorchen der Mausradbewegung \\
 	$\rhd$ Methoden sind auch in Klasse \texttt{MouseAdapter} enthalten \\
 	$\rhd$ Methoden: \\
-	\hspace{0.4cm} $\diamond$ \texttt{public void mouseWheelMoved ( MouseWheelEvent event )}} \\ \hline
+	\hspace{0.4cm} $\diamond$ \texttt{public void mouseWheelMoved (MouseWheelEvent event)}} \\ \hline
 
-	\makecell[l]{Klasse MouseEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei z.B.: \texttt{mouseClicked} \\
+	\makecell[l]{Klasse MouseEvent} & \makecell[l]{
+	$\rhd$ Übergebener Parameter bei z.B.: \texttt{mouseClicked} \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{getButton()} \\
 	\hspace{0.6cm} - Liefert die gedrückte Taste zurück \\
@@ -746,12 +786,14 @@
 	\hspace{0.4cm} $\diamond$ \texttt{MouseEvent.BUTTON1} \\
 	\hspace{0.4cm} $\diamond$ \texttt{MouseEvent.BUTTON2}} \\ \hline
 
-	\makecell[l]{Klasse \\ MouseWheelEvent} & \makecell[l]{$\rhd$ Übergebener Parameter bei z.B.: \texttt{mouseWheelMoved} \\
+	\makecell[l]{Klasse \\ MouseWheelEvent} & \makecell[l]{
+	$\rhd$ Übergebener Parameter bei z.B.: \texttt{mouseWheelMoved} \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{getWheelRotation()} \\
 	\hspace{0.6cm} - Liefert die Anzahl der gedrehten "Ticks"  } \\ \hline
 
-	\makecell[l]{Interface \\ WindowListener} & \makecell[l]{$\rhd$ Abhorchen von Fensteraktionen \\
+	\makecell[l]{Interface \\ WindowListener} & \makecell[l]{
+	$\rhd$ Abhorchen von Fensteraktionen \\
 	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{WindowAdapter} erweitert \\
 	\hspace{0.4cm} $\diamond$ \texttt{WindowAdapter} implementiert alle drei \texttt{Window}-Interfaces \\
 	\hspace{0.4cm} $\diamond$ \texttt{WindowListener, WindowStateListener, WindowFocusListener} \\
@@ -764,18 +806,21 @@
 	\hspace{0.4cm} $\diamond$ \texttt{public void windowIconified (WindowEvent event)} \\
 	\hspace{0.4cm} $\diamond$ \texttt{public void windowDeiconified (WindowEvent event)}} \\ \hline
 
-	\makecell[l]{Interface \\ WindowStateListener} & \makecell[l]{$\rhd$ Abhorchen des Status des Fensters \\
+	\makecell[l]{Interface \\ WindowStateListener} & \makecell[l]{
+	$\rhd$ Abhorchen des Status des Fensters \\
 	$\rhd$ Methoden sind auch in \texttt{WindowAdapter} vorhanden \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{public void windowStateChanged ( WindowEvent event )}} \\ \hline
 
-	\makecell[l]{Interface \\ WindowFocusListener} & \makecell[l]{$\rhd$ Abhorchen des Fokus im Bezug auf das Fenster \\
+	\makecell[l]{Interface \\ WindowFocusListener} & \makecell[l]{
+	$\rhd$ Abhorchen des Fokus im Bezug auf das Fenster \\
 	$\rhd$ Methoden sind auch in \texttt{WindowAdapter} vorhanden \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{public void windowGainedFocus ( WindowEvent event )} \\
 	\hspace{0.4cm} $\diamond$ \texttt{public void windowLostFocus ( WindowEvent event )} } \\ \hline
 
-	\makecell[l]{Klasse Canvas} & \makecell[l]{$\rhd$ abgegrenzte Zeichenfläche in einem Fenster \\
+	\makecell[l]{Klasse Canvas} & \makecell[l]{
+	$\rhd$ abgegrenzte Zeichenfläche in einem Fenster \\
 	$\rhd$ Vorhergehensweise: \\
 	\hspace{0.4cm} $\diamond$ Erstellung eigener Subtyp-Klasse von \texttt{Canvas} \\
 	\hspace{0.4cm} $\diamond$ Implementieren der Methode \texttt{public void paint (Graphics graphics)} \\
@@ -802,7 +847,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{drawOval(...)} \\
 	\hspace{0.4cm} $\diamond$ \texttt{drawString(...)}} \\ \hline
 
-	\makecell[l]{Klasse Checkbox} & \makecell[l]{$\rhd$ Kleiner Button (Pin) mit etwas Text \\
+	\makecell[l]{Klasse Checkbox} & \makecell[l]{
+	$\rhd$ Kleiner Button (Pin) mit etwas Text \\
 	$\rhd$ Zwei Zustände: An oder Aus \\
 	$\rhd$ Konstruktor: \\
 	\hspace{0.4cm} $\diamond$ \texttt{Checkbox(String label) // Titel der Checkbox} \\
@@ -815,17 +861,332 @@
 	\hspace{0.4cm} $\diamond$ \texttt{setLabel(string);} \\
 	\hspace{0.6cm} - Setzt den Titel der \texttt{Checkbox}} \\ \hline
 
-	\makecell[l]{Interface \\ ItemListener} & \makecell[l]{$\rhd$ Zugehörig zu \texttt{Checkbox} \\
+	\makecell[l]{Interface \\ ItemListener} & \makecell[l]{
+	$\rhd$ Verwendung bei \texttt{Checkbox} und \texttt{Choice} \\
 	$\rhd$ Funktionales Interface \\
 	$\rhd$ Funktionale Methode \texttt{itemStateChanged (ItemEvent event)} \\
 	$\rhd$ Vorhergehensweise analog zu \texttt{ActionListener} \\
+	\hspace{0.4cm} $\diamond$ Erstellung neuer Klasse, die \texttt{ItemListener} implementiert} \\ \hline
+
+	\makecell[l]{Klasse Choice} & \makecell[l]{
+	$\rhd$ Repräsentiert ein Auswahlmenü \\
+	$\rhd$ Verwendet auch das Interface \texttt{ItemListener} \\
+	$\rhd$ Konstruktor: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Choice choice = new Choice();}
 	$\rhd$ Methoden: \\
-	\hspace{0.4cm} $\diamond$ Aufruf auf an Klasse übergebene \texttt{Checkbox} \\
-	\hspace{0.4cm} $\diamond$ \texttt{isSelected()} \\
-	\hspace{0.6cm} - \texttt{true}, wenn die \texttt{Checkbox} an ist} \\ \hline
+	\hspace{0.4cm} $\diamond$ \texttt{add(string)} \\
+	\hspace{0.6cm} - Hinzufügen neuer Auswahlen \\
+	\hspace{0.6cm} - Startet bei Index 0 \\
+	\hspace{0.4cm} $\diamond$ \texttt{select(int)} \\
+	\hspace{0.6cm} - Legt eine Auswahl als Standard fest \\
+	\hspace{0.6cm} - Übergabe des Index als \texttt{int}
+	\hspace{0.4cm} $\diamond$ \texttt{getSelectedItem()} \\
+	\hspace{0.6cm} - Liefert den ausgewählten String zurück \\
+	\hspace{0.4cm} $\diamond$ \texttt{getSelectedIndex()} \\
+	\hspace{0.6cm} - Liefert Index der aktiven Auswahl } \\ \hline
 
-	\makecell[l]{Klasse Choice} & \makecell[l]{$\rhd$ Repräsentiert ein Auswahlmenü  } \\ \hline
+	\makecell[l]{Klasse Label} & \makecell[l]{
+	$\rhd$ Nicht durch User interagierbares Rechteck mit Text \\
+	$\rhd$ Konstruktor: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Label(String text) // Labeltext} \\
+	$\rhd$ Wartet auf Events bei anderen Entitäten \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{setAlignment(int alignment)} \\
+	\hspace{0.6cm} - Auswahl der Zentierung des Textes \\
+	\hspace{0.6cm} - Paramter: \texttt{Label.CENTER, Label.RIGHT, Label.LEFT} \\
+	\hspace{0.4cm} $\diamond$ \texttt{setBackground(Color c)} \\
+	\hspace{0.6cm} - Setzen der Hintergrundfarbe \\
+	\hspace{0.4cm} $\diamond$ \texttt{	setText(String text)} \\
+	\hspace{0.6cm} - Setzt den Text des \texttt{Label} \\
+	\hspace{0.6cm} - z.B.: Aufruf beim Drücken eines \texttt{Button}} \\ \hline
 
+	\makecell[l]{Klasse List} & \makecell[l]{
+	$\rhd$ Auswahlmenü \\
+	$\rhd$ Aus \texttt{java.awt}, \textbf{nicht} \texttt{java.util} \\
+	$\rhd$ Konstruktor:  \\
+	\hspace{0.4cm} $\diamond$ \texttt{List(int rows, boolean multipleMode)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{rows} gibt die maximale Anzahl der zugleich angezeigten Menüpunkte an \\
+	\hspace{0.4cm} $\diamond$ Anzahl der Möglichkeiten größer als \texttt{rows} $\rightarrow$ Scrollbar \\
+	\hspace{0.4cm} $\diamond$ \texttt{multipleMode}: Auswahl mehrerer Menüpunkte ermöglichen \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{add(String item)} \\
+	\hspace{0.6cm} - Hinzufügen neuer Menüpunkte \\
+	\hspace{0.4cm} $\diamond$ \texttt{getSelectedIndexes()} \\
+	\hspace{0.6cm} - Liefert die Indizes der ausgewählten Punkte \\
+	\hspace{0.4cm} $\diamond$ \texttt{setMultipleMode(boolean b)} \\
+	\hspace{0.6cm} - De-/Aktivieren der Mehrfachauswahl} \\ \hline
+
+	\makecell[l]{Klasse Scrollbar} & \makecell[l]{
+	$\rhd$ Werden meist automatisch hinzugefügt (\texttt{List}) \\
+	$\rhd$ z.B.: Erstellung eines eigenen Schiebereglers \\
+	$\rhd$ Benötigt ein Objekt vom Typ \texttt{AdjustmentListener} (siehe unten) \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{AdjustmentListener adjust = new MyAdjustListener(frame);} \\
+	$\rhd$ Konstruktor: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Scrollbar(int orientation, int value, int visible,} \\
+	\hspace{2.5cm} \texttt{ int minimum, int maximum)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{orientation}: \texttt{Scrollbar.VERTICAL, Scrollbar.HORIZONTAL} \\
+	\hspace{0.4cm} $\diamond$ \texttt{value}: Startwert der Scrollbar \\
+	\hspace{0.4cm} $\diamond$ \texttt{visible}: Grö\ss e des scrollbaren Balkens \\
+	\hspace{0.4cm} $\diamond$ \texttt{minimum}: Minimal einstellbarer Wert \\
+	\hspace{0.4cm} $\diamond$ \texttt{maximum}: Maximal einstellbarer Wert} \\ \hline
+
+	\makecell[l]{Interface \\ AdjustmentListener} & \makecell[l]{
+	$\rhd$ Verwendung bei \texttt{Scrollbar} \\
+	$\rhd$ Funktionales Interface \\
+	$\rhd$ Funktionale Methode: \texttt{adjustmentValueChanged (AdjustmentEvent event)} \\
+	$\rhd$ Vorhergehensweise analog zu \texttt{ActionListener} \\
+	\hspace{0.4cm} $\diamond$ Erstellung neuer Klasse, die \texttt{AdjustmentListener} implementiert} \\ \hline
+
+	\makecell[l]{Klasse \\ Adjustmentevent} & \makecell[l]{$\rhd$ Übergebener Parameter bei \texttt{adjustmentValueChanged} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getValue()} \\
+	\hspace{0.6cm} - Liefert den neuen Wert der Scrollbar} \\ \hline
+
+	\makecell[l]{Klasse Textfield} & \makecell[l]{
+	$\rhd$ Zeile, vom Nutzer schreibbar \\
+	$\rhd$ z.B.: Benutzername, Passwort, etc.. \\
+	$\rhd$ Benötigt ein Objekt vom Typ \texttt{KeyListener} (siehe oben) \\
+	$\rhd$ Konstruktor: \\
+	\hspace{0.4cm} $\diamond$ \texttt{TextField(int columns)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{columns} gibt die Zeichenzahl in der Zeile an \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{setEchoChar(char c)} \\
+	\hspace{0.6cm} - Anzeige der eingegebenen Zeichen mit anderem Zeichen z.B.: '*' \\
+	\hspace{0.6cm} - Rückgängig machen: \texttt{field.setEchochar((char) 0);} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{getText()} \\
+	\hspace{0.6cm} - Liefert den eingegebenen Text als String} \\ \hline
+
+	\makecell[l]{Klasse TextArea} & \makecell[l]{
+	$\rhd$ Eingabebereich über mehrere Zeilen \\
+	$\rhd$ z.B.: Verwendung eines Objekts des Typs \texttt{FocusListener} \\
+	$\rhd$ Konstruktor: \\
+	\hspace{0.4cm} $\diamond$ \texttt{TextArea(String text, int rows, int columns, int scrollbars)} \\
+	\hspace{0.4cm} $\diamond$ \texttt{text}: Text, falls Bereich leer und nicht im Mausfokus \\
+	\hspace{0.4cm} $\diamond$ \texttt{scrollbars}: Legt die Art der \texttt{Scrollbar} fest \\
+	\hspace{0.6cm} - \texttt{Scrollbar.BOTH, Scrollbar.HORIZONTAL\_ONLY} \\
+	\hspace{0.6cm} - \texttt{Scrollbar.NONE, Scrollbar.VERTICAL\_ONLY} \\
+	\hspace{0.4cm} $\diamond$ \texttt{rows}: Anzahl der Zeilen \\
+	\hspace{0.4cm} $\diamond$ \texttt{columns}: Breite der Zeilen \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{setText(String t)} \\
+	\hspace{0.6cm} - Setzt den Text des Textfeldes \\
+	\hspace{0.4cm} $\diamond$ \texttt{getText()} \\
+	\hspace{0.6cm} - Liefert den geschriebenen Text als String \\
+	$\rhd$ Leerer Text: \texttt{(\string"\string")} \\
+	\hspace{0.4cm} $\diamond$ z.B.: Vergleich mit momentanem Text mit \texttt{equals}} \\ \hline
+
+	\makecell[l]{Interface FocusListener} & \makecell[l]{
+	$\rhd$ Verwendung bei \texttt{TextArea} \\
+	$\rhd$ Kein funktionales Interface, trotzdem keine Adapter-Klasse \\
+	$\rhd$ Vorhergehensweise analog zu \texttt{ActionListener} \\
+	$\rhd$ Im Gegensatz zu \texttt{WindowFocusListener} auch für einzelne Komponenten \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{focusGained(FocusEvent e)} \\ 
+	\hspace{0.6cm} - Wird ausgeführt, wenn eine Komponente den Tastaturfokus erhält \\
+	\hspace{0.4cm} $\diamond$ \texttt{focusLost(FocusEvent e)} \\
+	\hspace{0.6cm} - Wird ausgeführt, wenn eine Komponente den Tastaturfokus verliert} \\ \hline
+
+	\makecell[l]{Hierarchie graphischer \\ Komponenten} & \makecell[l]{
+	$\rhd$ Vom \texttt{java.awt.Component} direkt abgeleitet: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Button} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Canvas} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Checkbox} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Choice} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Label} \\
+	\hspace{0.4cm} $\diamond$ \texttt{List} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Scrollbar} \\
+	\hspace{0.4cm} $\diamond$ \texttt{TextComponent // Supertyp von TextArea und TextField} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Container}
+	$\rhd$ Von \texttt{Container} direkt abgeleitet: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Window} \\
+	$\rhd$ Von \texttt{Window} direkt abgeleitet: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Frame} } \\ \hline
+
+
+	\makecell[l]{Klasse Component} & \makecell[l]{
+	$\rhd$ Die meisten Methoden sind hier definiert, aber nicht implementiert \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{setVisible(boolean b), setFont(Font f),..} \\
+	\hspace{0.4cm} $\diamond$ Die Methoden werden in den Komponentenklassen dann implementiert} \\ \hline
+
+	\makecell[l]{Klasse Container} & \makecell[l]{
+	$\rhd$ Fasst mehrere Komponenten zu einer zusammen \\
+	$\rhd$ Hinzufügen von \texttt{Buttons,..., Windows, Frames, Containern} möglich \\
+	$\rhd$ \textbf{Wichtig:} Hinzufügen von \texttt{Container} möglich \\
+	\hspace{0.4cm} $\diamond$ Ähnliche Struktur wie ein Ordnerverzeichnis \\
+	\hspace{0.4cm} $\diamond$ z.B.: \texttt{Frame} in einem \texttt{Frame} \\
+	$\rhd$ Methoden: \\
+	\hspace{0.4cm} $\diamond$ \texttt{paint (Graphics graphics)} \\
+	\hspace{0.6cm} - In \texttt{Component} definiert, hier überschrieben \\
+	\hspace{0.6cm} - Ruft \texttt{paint} für jeden enthaltenen Komponenten auf \\
+	\hspace{0.4cm} $\diamond$ \texttt{add (Component comp)} \\
+	\hspace{0.6cm} - Hinzufügen einer Komponente zum \texttt{Container} \\
+	\hspace{0.4cm} $\diamond$ \texttt{add (Component comp, Object constraints)} \\
+	\hspace{0.6cm} - Steuerung der Position mithilfe des zweiten Parameters \\ \\
+	\hspace{0.6cm} - Weiteres bei \texttt{LayoutManager} \\
+	\hspace{0.4cm} $\diamond$ \texttt{setLayout (LayoutManager manager)} \\
+	\hspace{0.6cm} - Setzen des \texttt{LayoutManager} \\
+	\hspace{0.6cm} - Dieser steuert die Platzierung der Komponenten \\ 
+	\hspace{0.6cm} - Jeder \texttt{Container} hat zu jedem Zeitpunkt einen \texttt{LayoutManager} \\
+	\hspace{0.4cm} $\diamond$ \texttt{validate()} \\
+	\hspace{0.6cm} - Aktualisierung nach z.B.: Grö\ss enänderung } \\ \hline
+
+	\makecell[l]{Klasse LayoutManager} & \makecell[l]{
+	$\rhd$ Wird bei Erstellung eines \texttt{Containers} oder Subtyps automatisch eingerichtet \\
+	\hspace{0.4cm} $\diamond$ Standardklasse für für \texttt{Window} und \texttt{Frame} ist \texttt{BorderLayout} \\
+	$\rhd$ \texttt{BorderLayout} \\
+	$\rhd$ Einteilung des Fensters in fünf Bereiche \\
+	\hspace{0.4cm} $\diamond$ \texttt{NORTH, EAST, SOUTH, WEST, CENTER} \\
+	\hspace{0.4cm} $\diamond$ Mögliche Positionen als Klassenkonstaten vordefiniert \\
+	\hspace{0.6cm} - z.B.: \texttt{BorderLayout.NORTH, BorderLayout.CENTER,..} \\
+	\hspace{0.4cm} $\diamond$ Verwendung bei \texttt{add (Component comp, Object constraints)} \\
+	\hspace{0.6cm} - z.B.: \texttt{frame.add (comp1, BorderLayout.NORTH);} \\
+	\hspace{0.6cm} - Ohne Wahl der Position (normales \texttt{add}): \texttt{CENTER} als Standard \\
+	$\rhd$ \texttt{BorderLayout} an sich für das Fenster an sich meist die richtige Wahl \\
+	\hspace{0.4cm} $\diamond$ Aber nicht unbedingt für \texttt{Container} innerhalb eines Fensters \\
+	$\rhd$ \texttt{BoxLayout} \\ 
+	\hspace{0.4cm} $\diamond$ Anlegen in einer Reihe nacheinander \\
+	\hspace{0.4cm} $\diamond$ Wahl ob vertikal oder horizontal im Konstruktor \\
+	$\rhd$ \texttt{GridLayout} \\
+	\hspace{0.4cm} $\diamond$ Matrixartiges Anlegen (wie Telefontastatur) \\
+	\hspace{0.4cm} $\diamond$ Anzahl Zeilen und Spalten im Konstruktor festgelegt \\
+	$\rhd$ \texttt{BorderLayout, BoxLayout und GridLayout}: \\
+	\hspace{0.4cm} $\diamond$ Passen Größe der Komponenten anhand der Gesamtsituation an \\
+	\hspace{0.4cm} $\diamond$ Nicht unbedingt passendste Größe für Komponente \\
+	$\rhd$ \texttt{FlowLayout} \\
+	\hspace{0.4cm} $\diamond$ Anlegen in einer Zeile nebeneinander \\
+	\hspace{0.6cm} - Anfangen einer Zeile, falls die alte voll ist \\
+	\hspace{0.4cm} $\diamond$ Wählt automatisch die bestmöglichste Größe für Komponenten \\
+	\hspace{0.6cm} - Abfrage über \texttt{getPreferredSize()} \\
+	$\rhd$ \texttt{CardLayout} \\
+	\hspace{0.4cm} $\diamond$ Zeigt Komponenten nicht alle gleichzeitig, sondern nacheinander \\
+	\hspace{0.4cm} $\diamond$ Navigation: \texttt{first, last, next, previous} \\
+	$\rhd$ \texttt{validate()} \\
+	\hspace{0.4cm} $\diamond$ Notwendig zur Aktualisierung von sichtbaren Fenstern \\
+	\hspace{0.4cm} $\diamond$ Wann: \\
+	\hspace{0.6cm} - Ändern der Anzahl von Komponenten \\
+	\hspace{0.6cm} - Ändern der Grö\ss e von Komponenten (auch Schrift)} \\ \hline
+
+	\makecell[l]{Java Swing (javax.swing)} & \makecell[l]{
+	$\rhd$ \texttt{java.awt} als Grundlage \\
+	$\rhd$ Zweite Bibliothek, die die Funktionalitäten erweitert \\
+	$\rhd$ Verbindung zu \texttt{java.awt}: \\
+	\hspace{0.4cm} $\diamond$ \texttt{JFrame extends java.awt.Frame} \\
+	\hspace{0.4cm} $\diamond$ \texttt{JComponent extends java.awt.Container} \\
+	\hspace{0.6cm} - Funktionalitäten von \texttt{Container} hier in \texttt{JComponent} \\
+	$\rhd$ Von \texttt{JComponent} abgeleitet: \\
+	\hspace{0.4cm} $\diamond$ \texttt{JButton, JCheckbox, JLabel} \\
+	\hspace{0.4cm} $\diamond$ \texttt{JList<T>, JScrollbar, JTextComponent} \\
+	$\rhd$ \texttt{JButton, JCheckbox} sind aber indirekt abgeleitet: \\
+	\hspace{0.4cm} $\diamond$ Zwischenklasse \texttt{AbstractButton} bei beiden \\
+	\hspace{0.6cm} - \texttt{public class JButton extends AbstractButton\{\}} \\
+	\hspace{0.4cm} $\diamond$ Bei \texttt{JCheckbox} zusätzlich noch \texttt{JToggleButton extends AbstractButton} \\
+	\hspace{0.6cm} - \texttt{public class JCheckbox extends JToggleButton \{\}} \\
+	\hspace{0.4cm} $\diamond$ \textbf{Grund:} \\
+	\hspace{0.6cm} - Einführung zusätzlicher, eng verwandter, Komponenten \\
+	\hspace{0.6cm} - Deswegen Auslagerung in Supertyp \\
+	$\rhd$ \texttt{JList<T>}: \\
+	\hspace{0.4cm} $\diamond$ in \texttt{Swing} generisch, Liste von beliebigem Referenztyp \\
+	\hspace{0.4cm} $\diamond$ in \texttt{java.awt} wird String verwendet} \\ \hline
+	 
+	\makecell[l]{Klasse JComponent} & \makecell[l]{
+	$\rhd$ Bietet mehr Funktionalitäten als \texttt{Component} \\
+	$\rhd$ ToolTips: \\
+	\hspace{0.4cm} $\diamond$ Hinzufügen von MouseOver-ToolTips \\
+	\hspace{0.4cm} $\diamond$ \texttt{setToolTipText(String s)} \\
+	\hspace{0.6cm} - Setzen des Tooltip-Texts \\
+	\hspace{0.4cm} $\diamond$ Deaktivieren mithilfe Übergabe von \texttt{null} \\
+	$\rhd$ \texttt{Randdarstellungen:} \\
+	\hspace{0.4cm} $\diamond$ Ränder für Komponenten \textbf{innerhalb} eines Fensters \\
+	\hspace{0.4cm} $\diamond$ \texttt{setBorder (Border border)} \\
+	\hspace{0.4cm} $\diamond$ Verwendung der Klasse \texttt{BorderFactory} zur Erzeugung der \texttt{Border} \\
+	\hspace{0.6cm} - \texttt{BorderFactory.createLineBorder(Color color,int thickness)} \\
+	\hspace{0.8cm} - Simpler rechteckiger Rahmen mit angegebener Dicke und Farbe \\
+	\hspace{0.6cm} - \texttt{BorderFactory.createBevelBorder(BevelBorder.LOWERED)} \\
+	\hspace{0.6cm} - \texttt{BorderFactory.createBevelBorder(BevelBorder.RAISED)} \\
+	\hspace{0.8cm} - Ganze Komponente mit 3D Effekt (tiefer oder höher erscheinend) \\
+	\hspace{0.6cm} - \texttt{BorderFactory.createEtchedBorder(EtchedBorder.LOWERED)} \\
+	\hspace{0.6cm} - \texttt{BorderFactory.createEtchedBorder(EtchedBorder.RAISED)} \\
+	\hspace{0.8cm} - Nur Rand mit 3D Effekt (tiefer oder höher erscheinend) \\
+	\hspace{0.6cm} - \texttt{BorderFactory.createEmptyBorder()} \\
+	\hspace{0.8cm} - Zurücksetzen des Randeffekts \\
+	$\rhd$ \texttt{Look and Feel:} \\
+	\hspace{0.4cm} $\diamond$ Anpassung der Gesamterscheinung an Systemstandard \\
+	\hspace{0.4cm} $\diamond$ Verwendung von \texttt{javax.swing.UIManager} \\
+	\hspace{0.4cm} $\diamond$ Setzen des Look and Feel auf Systemstandard: \\
+	\hspace{0.8cm} 1 \hspace{0.1cm} \texttt{String s = UIManager.getSystemLookAndFeelClassName();}  \\
+	\hspace{0.8cm} 2 \hspace{0.1cm} \texttt{UIManager.setLookAndFeel(s);} \\
+	\hspace{0.4cm} $\diamond$ Setzen des Look and Feel auf z.B. Java-Standard \\
+	\hspace{0.8cm} Methode: \texttt{UIManager.setLookAndFeel(LookAndFeel lookAndFeel)} \\
+	\hspace{0.8cm} 1 \hspace{0.1cm} \texttt{UIManager.setLookAndFeel(new MetalLookAndFeel());}  \\
+	$\rhd$ \texttt{KeyBindings:} \\
+	\hspace{0.4cm} $\diamond$ Funktionalitäten wie \texttt{Listener} automatisch umgesetzt \\
+	\hspace{0.4cm} $\diamond$ Erläuterung der Funktion anhand eines Beispiels: \\
+	\hspace{0.8cm} 1 \hspace{0.1cm} \texttt{String keyStrokeStr = \string"alt shift X\string";} \\
+    \hspace{0.8cm} 2 \hspace{0.1cm} \texttt{KeyStroke keystroke = KeyStroke.getKeyStroke(keyStrokeStr);} \\
+    \hspace{0.8cm} 3 \hspace{0.1cm} \texttt{textArea.getInputMap().put(keystroke, keyStrokeStr);} \\
+	\hspace{0.8cm} 4 \hspace{0.1cm} \texttt{StyledEditorKit.UnderlineAction action } \\
+	\hspace{0.8cm} 5 \hspace{0.5cm} \texttt{= new StyledEditorkit.UnderlineAction();} \\
+	\hspace{0.8cm} 6 \hspace{0.1cm} \texttt{textArea.getActionMap().put(keyStrokeStr, action);} \\
+	\hspace{0.6cm} - Zeile 1: Kodierung einer Tastenkombination als String \\
+	\hspace{0.6cm} - Regeln dafür: Dokumentation \texttt{javax.swing.KeyStroke} \\
+	\hspace{0.6cm} - Zeile 2: Umwandlung des Strings in \texttt{KeyStroke}-Objekt \\
+	\hspace{0.6cm} - Jeder \texttt{JComponent} hat \texttt{actionMap} und \texttt{inputMap} (ähnlich wie \texttt{Map}) \\
+	\hspace{0.6cm} - Zeile 3 und 6: Einfügen von \texttt{Key + Value} in jeweilige \texttt{Map} \\
+	\hspace{0.6cm} - Verbindung dieser \texttt{Maps} über \texttt{Value} von Input und \texttt{Key} von Action \\
+	\hspace{0.6cm} - Verbindung über \texttt{keyStrokeStr} einer Aktion mit Tastenkombination \\
+	\hspace{0.6cm} - Zeile 4 und 5: Verwendung von \texttt{Action extends ActionListener} \\
+	\hspace{0.6cm} - Verwendung der Methode \texttt{actionPerformed} \\
+	\hspace{0.6cm} - Klassen in Java vorhanden, die \texttt{Action} implementieren (UnderlineAction) \\
+	\hspace{0.6cm} - Klasse \texttt{UnderlineAction} ist in Klasse \texttt{StyledEditorKit} eingebettet \\
+	\hspace{0.6cm} - Enthält viele Funktionalitäten zum Editieren von Texten \\
+	$\rhd$ \texttt{Drag \& Drop:} \\
+	\hspace{0.4cm} $\diamond$ Automatisch implementiert, Konfiguration möglich \\
+	$\rhd$ \texttt{Assistive Technologies:} \\
+	\hspace{0.4cm} $\diamond$ Unterstützungsmöglichkeiten für Leute mit Handicap \\
+	$\rhd$ Zusätzliche Features von \texttt{JFrame}: \\
+	\hspace{0.4cm} $\diamond$ Separierung von Hauptmenü und Rest des Fensters} \\ \hline
+	
+	\makecell[l]{Weitere GUI-Klassen} & \makecell[l]{
+	$\rhd$ \texttt{JFormattedTextfield}: \\
+	\hspace{0.4cm} $\diamond$ Erlaubt Formatierungsregeln für den einzugebenden Text \\
+	\hspace{0.4cm} $\diamond$ z.B. für Datumsangaben
+	\hspace{0.4cm} $\diamond$ \texttt{JFormattedTextField extends JTextField} \\
+	$\rhd$ \texttt{JPasswordField}: \\
+	\hspace{0.4cm} $\diamond$ Zusätzliche Funktionalitäten für Passwörter \\
+	$\rhd$ \texttt{JRadioButton}: \\
+	\hspace{0.4cm} $\diamond$ kleiner, anklickbarer Bereich \\
+	\hspace{0.4cm} $\diamond$ Verwendung im Rahmen eines Objekts von Klasse \texttt{ButtonGroup} \\
+	\hspace{0.4cm} $\diamond$ Nur ein \texttt{RadioButton} in \texttt{ButtonGroup} kann gleichzeitig angeklickt sein \\
+	$\rhd$ \texttt{JToolbar}: \\
+	\hspace{0.4cm} $\diamond$ Vereinfachte Möglichkeit für Standardmenüs \\
+	$\rhd$ \texttt{JSlider}: \\
+	\hspace{0.4cm} $\diamond$ Klasse für Schieberegler \\
+	\hspace{0.4cm} $\diamond$ Besser als Verwendung einer \texttt{Scrollbar} als Schieberegler \\
+	$\rhd$ \texttt{Popup}: \\
+	\hspace{0.4cm} $\diamond$ Popup-Fenster \\
+	$\rhd$ \texttt{JTable}: \\
+	\hspace{0.4cm} $\diamond$ Umsetzung einer Tabelle \\
+	\hspace{0.4cm} $\diamond$ Häufiges Verwendungsbeispiel: \\
+	\hspace{0.8cm} 1 \hspace{0.1cm} \texttt{Object[][] entries = ...;} \\
+	\hspace{0.8cm} 2 \hspace{0.1cm} \texttt{Object[] columnNames = ...;} \\
+	\hspace{0.8cm} 3 \hspace{0.1cm} \texttt{JTable table = new JTable(entries, columnNames);} \\
+	\hspace{0.8cm} 4 \hspace{0.1cm} \texttt{JScrollPane scrollPane = new JScrollPane(table);} \\
+	\hspace{0.8cm} 5 \hspace{0.1cm} \texttt{table.setFillsViewportHeight(true);} \\
+	\hspace{0.8cm} 6 \hspace{0.1cm} \texttt{int[] selectedRows = table.getSelectedRows();} \\
+	\hspace{0.8cm} 7 \hspace{0.1cm} \texttt{int[] selectedColumns = table.getSelectedColumns();} \\
+	\hspace{0.6cm} - Zeile 1: Erzeugung der Tabellenmatrix \\
+	\hspace{0.6cm} - Zeile 2: Erzeugung der Spaltennamen \\
+	\hspace{0.6cm} - Zeile 3: Konstruktor der Tabelle mit den eben erstellen Arrays \\
+	\hspace{0.6cm} - Zeile 4: \texttt{JScrollPane} kapselt Objekt von \texttt{Component} ein \\
+	\hspace{0.6cm} - Zeigt nur einen Ausschnitt der übergebenen Komponente \\
+	\hspace{0.6cm} - Fügt au\ss erdem \texttt{Scrollbar} ein \\
+	\hspace{0.6cm} - Zeile 5: Vertikale Streckung der Tabelle, um gesamte Höhe auszufüllen \\
+	\hspace{0.6cm} - Zeile 6: Abfrage der momentan ausgewählten Zeile \\
+	\hspace{0.6cm} - Zeile 7: Abfrage der momentan ausgewählten Spalte} \\ \hline
+	
+	
+	
 	\end{longtable}
 
 
@@ -835,7 +1196,8 @@
 \section{Generics}
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Wrapper-Klassen} & \makecell[l]{$\rhd$ primitive Datentypen nicht mit Generizität vereinbar \\
+	\makecell[l]{Wrapper-Klassen} & \makecell[l]{
+	$\rhd$ primitive Datentypen nicht mit Generizität vereinbar \\
 	$\rhd$ Deswegen benötigen wir eine stellvertretende Klasse $\rightarrow$ Wrapper-Klassen \\
 	$\rhd$ selber Name, nur mit gro"sem Anfangsbuchstaben (Integer, Long, Character,..) \\
 	$\rhd$ Konstruktor mit Parameter des zugehörigen Datentyps \\
@@ -848,7 +1210,8 @@
 	\hspace{0.4cm} $\diamond$ Boxing: \texttt{Integer i = 123;} \\
 	\hspace{0.4cm} $\diamond$ Unboxing: \texttt{System.out.print(i); // 123} } \\ \hline
 	
-	\makecell[l]{Generische Klassen} & \makecell[l]{$\rhd$ \texttt{public class Pair <T1, T2> \{...\}} \\
+	\makecell[l]{Generische Klassen} & \makecell[l]{
+	$\rhd$ \texttt{public class Pair <T1, T2> \{...\}} \\
 	$\rhd$ Klasse \texttt{Pair} ist \textbf{generisch} / Klasse \texttt{Pair} ist mit T1 und T2 \textbf{parametrisiert} \\
 	$\rhd$ \texttt{T1} und \texttt{T2} sind die \textbf{Typparameter} von Klasse \texttt{Pair} \\
 	$\rhd$ \texttt{T1} und \texttt{T2} können als Datentypen/Rückgabewerte verwendet werden \\
@@ -858,7 +1221,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{Pair} ist mit \texttt{Integer} und \texttt{Double} \textbf{instanziiert}\\
 	\hspace{0.4cm} $\diamond$ Typparameter können natürlich auch vom selben Typ sein} \\ \hline
 
-	\makecell[l]{Generische Methoden} & \makecell[l]{$\rhd$ Auch in \textbf{nicht-generischen Klassen} generische Methoden möglich \\
+	\makecell[l]{Generische Methoden} & \makecell[l]{
+	$\rhd$ Auch in \textbf{nicht-generischen Klassen} generische Methoden möglich \\
 	$\rhd$ \texttt{public class X \{...\}} \\
 	$\rhd$ Einzelne Methode parametrisiert: \\
 	\hspace{0.4cm} $\diamond$ \texttt{public <T1,T2> Pair<T1,T2> makePair(T1 t1, T2 t2) \{...\}} \\
@@ -871,7 +1235,8 @@
 	\hspace{1.2cm} \texttt{public <T2> Pair<T1,T2> makePair(T1 t1, T2 t2) \{...\} } \\
 	\hspace{0.8cm} \} } \\ \hline 
 
-	\makecell[l]{Typparameter} & \makecell[l]{$\rhd$ Alle Arten von Klassen und Arrays möglich \\
+	\makecell[l]{Typparameter} & \makecell[l]{
+	$\rhd$ Alle Arten von Klassen und Arrays möglich \\
 	$\rhd$ Auch parametrisierte Klassen sind als Typparamter möglich \\
 	$\rhd$ Typparameter dürfen jedoch nicht vom primitiven Datentyp sein \\
 	$\rhd$ Vererbung von Typparametern ist jedoch nicht übertragbar \\ 
@@ -881,7 +1246,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{pair = new Pair<> ("Hello", 123);} \\
 	\hspace{0.4cm} $\diamond$ \texttt{"Diamond-Operator"}: Compiler erkennt selbstständig die Instanziierung } \\ \hline
 
-	\makecell[l]{Eingeschränkte \\ Typparameter} & \makecell[l]{$\rhd$ Werden bei der Definition von generischen Klassen/Methoden verwendet \\
+	\makecell[l]{Eingeschränkte \\ Typparameter} & \makecell[l]{
+	$\rhd$ Werden bei der Definition von generischen Klassen/Methoden verwendet \\
 	$\rhd$ \texttt{<T extends X> // T gleich X, oder direkt/indirekt Subtyp von X} \\
 	\hspace{0.4cm} $\diamond$ Notwendig um sicherzustellen, dass aufgerufene Methoden definiert sind \\
 	\hspace{0.4cm} $\diamond$ z.B.: \texttt{<T extends Number> // z.B.: doubleValue() immer vorhanden} \\
@@ -889,7 +1255,8 @@
 	\hspace{0.4cm} $\diamond$ \texttt{<T extends X \& Interface1 \& Interface2} \\
 	\hspace{0.4cm} $\diamond$ Klasse muss, falls vorhanden, an erster Stelle stehen} \\ \hline
 
-	\makecell[l]{Wildcards} & \makecell[l]{$\rhd$ Werden bei der Instanziierung von Typparametern verwendet \\
+	\makecell[l]{Wildcards} & \makecell[l]{
+	$\rhd$ Werden bei der Instanziierung von Typparametern verwendet \\
 	$\rhd$ \texttt{public double m (X<? extends Number> n) \{...\}} \\
 	\hspace{0.4cm} $\diamond$ Ermöglicht nun die Verwendung von Subklassen bei aktualen Parametern \\
 	\hspace{0.4cm} $\diamond$ (Siehe Einschränkung \texttt{Typparameter / 4. Stichpunkt}) \\
@@ -904,7 +1271,8 @@
 	$\rhd$ \texttt{X<? super Double>} \\
 	\hspace{0.4cm} $\diamond$ Mit allen Supertypen (direkt/indirekt) und alle implementieren Interfaces} \\ \hline
 
-	\makecell[l]{Empfehlungen} & \makecell[l]{$\rhd$ Oracle-Empfehlungen im Bezug auf Wildcards \\
+	\makecell[l]{Empfehlungen} & \makecell[l]{
+	$\rhd$ Oracle-Empfehlungen im Bezug auf Wildcards \\
 	$\rhd$ In-Parameter (Werte einer Methode, die nur gelesen werden): \\ 
 	\hspace{0.4cm} $\diamond$ Verwendung von \texttt{extends} \\
 	$\rhd$ Out-Paramter (Werte einer Methode, die nur geschrieben werden): \\
@@ -914,7 +1282,8 @@
 	$\rhd$ Rückgaben: \\
 	\hspace{0.4cm} $\diamond$ Keine Verwendung von Wildcards} \\ \hline
 
-	\makecell[l]{Interface Comparator} & \makecell[l]{$\rhd$  \texttt{Functional Interface} im Package \texttt{java.util} \\
+	\makecell[l]{Interface Comparator} & \makecell[l]{
+	$\rhd$  \texttt{Functional Interface} im Package \texttt{java.util} \\
 	$\rhd$ Verwendung: \\
 	\hspace{0.4cm} $\diamond$ Erstellen einer Vergleichsklasse, die \texttt{Comparator<T>} implementiert \\
 	\hspace{0.4cm} $\diamond$ \texttt{..class MyComp<T extends Number> implements Comparator<T> \{...\}} \\
@@ -926,7 +1295,8 @@
 	\hspace{0.4cm} $\diamond$ Positive Zahl, falls 1.Objekt-Wert dem 2.Objekt-Wert nachfolgend ist \\
 	$\rhd$ \texttt{String} hat bereits eine Methode \texttt{compareTo}: sortiert lexikographisch }  \\ \hline
 
-	\makecell[l]{Einschränkungen} & \makecell[l]{$\rhd$ Keine primitiven Datentypen als Instanziierung von Typparametern \\
+	\makecell[l]{Einschränkungen} & \makecell[l]{
+	$\rhd$ Keine primitiven Datentypen als Instanziierung von Typparametern \\
 	$\rhd$ Keine Erzeugung von Objekten/Arrays von Typparametern mit \texttt{new} \\
 	$\rhd$ Keine Klassenattribute von Typparametern \\
 	$\rhd$ Kein Downcast oder \texttt{instanceof} von Typparametern \\
@@ -940,7 +1310,8 @@
 \section{Graphics (java.awt.Graphics;)}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Applet} & \makecell[l]{$\rhd$ leichtgewichtige Variante an Graphikprogrammen \\
+	\makecell[l]{Applet} & \makecell[l]{
+	$\rhd$ leichtgewichtige Variante an Graphikprogrammen \\
 	$\rhd$ \texttt{import java.awt.Applet;} \\
 	$\rhd$ 1. Erstellen eigener Applet-Klasse (\texttt{extends Applet}) \\
 	$\rhd$ 2. Überschreiben der Methode \texttt{paint} \\
@@ -954,7 +1325,8 @@
 	\hspace{0.8cm} \texttt{pic[0].setFillColor(Color.RED);	  // Füllfarbe} \\
 	\hspace{0.8cm} \texttt{pic[0].paint(graphics); // Eigentliches Zeichnen}} \\ \hline
 	
-	\makecell[l]{GeomShape2D} & \makecell[l]{$\rhd$ Abstrake Klasse (Methode \texttt{paint} ist abstrakt) \\
+	\makecell[l]{GeomShape2D} & \makecell[l]{
+	$\rhd$ Abstrake Klasse (Methode \texttt{paint} ist abstrakt) \\
 	$\rhd$ Attribute: \\
 	\hspace{0.4cm} \texttt{int positionX; int positionY; int rotationAngle;} \\
 	\hspace{0.4cm} \texttt{int transparencyValue; Color boundaryColor; Color fillColor;} \\
@@ -965,28 +1337,30 @@
 \section{Interfaces}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ Meist in eigener Datei \\
+	\makecell[l]{Erzeugung} & \makecell[l]{
+	$\rhd$ Meist in eigener Datei \\
 	$\rhd$ \texttt{public interface MyInterface \{...\}} \\
 	$\rhd$ Alle Methodes und das Interface \textbf{müssen} \texttt{public} sein \\ } \\ \hline
 	
-	\makecell[l]{Methoden} & 
-	\makecell[l]{$\rhd$ Werden hier nicht implementiert, sondern nur definiert \\
+	\makecell[l]{Methoden} & \makecell[l]{
+	$\rhd$ Werden hier nicht implementiert, sondern nur definiert \\
 	$\rhd$ \texttt{public} kann weggelassen werden, da ohnehin notwending \\
 	$\rhd$ Implementierte Methoden müssen dann auch \texttt{public} sein \\
 	$\rhd$ Falls eine der Methoden nicht implementiert wird $\Rightarrow$ Klasse abstrakt} \\ \hline
 	
-	\makecell[l]{Verwendung} & \makecell[l]{$\rhd$ \texttt{implements MyInterface} nach Klassenname  \\
+	\makecell[l]{Verwendung} & \makecell[l]{
+	$\rhd$ \texttt{implements MyInterface} nach Klassenname  \\
 	$\rhd$ Beliebig viele Interfaces möglich (seperiert durch ,) \\
 	$\rhd$ Ein Interface kann mehrere andere Interfaces erweitern (\texttt{extends}} \\ \hline
 	\end{tabular}
 
 \section{JUnit-Tests}
 
-
-\begin{tabular}{ | p{4cm} p{13.5cm} | }
+	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
 
-	\makecell[l]{Allgemein} & \makecell[l]{$\rhd$ Tests als Ganzes - Black-Box-Tests \\
+	\makecell[l]{Allgemein} & \makecell[l]{
+	$\rhd$ Tests als Ganzes - Black-Box-Tests \\
 	$\rhd$ JUnit-Tests werden in eine seperate Quelldatei geschrieben \\
 	$\rhd$ Die zu testende Einheit/Klasse wird dann importiert } \\ \hline
 
@@ -997,20 +1371,21 @@
 	$\rhd$ \texttt{import org.junit.jupiter.api.BeforeEach;} \\
 	$\rhd$ \texttt{import static org.junit.jupiter.api.Assertions.assertThrows;}} \\ \hline
 
-	\makecell[l]{Methoden:} & 
-	\makecell[l]{$\rhd$ \texttt{assertEquals(...,...); // \texttt{true}, falls beide Parameter identisch} \\
+	\makecell[l]{Methoden:} & \makecell[l]{
+	$\rhd$ \texttt{assertEquals(...,...); // \texttt{true}, falls beide Parameter identisch} \\
 	\hspace{0.4cm} $\diamond$ Existiert auch mit 3 Parametern, 3. Wert entspricht maximalen Unterschied \\ 
 	$\rhd$ \texttt{assertTrue(...); // \texttt{true}, falls der Parameter \texttt{true} ist} \\
 	$\rhd$ \texttt{assertThrows(...,...); // Wirft Exception abhängig von Executable} \\
 	\hspace{0.4cm} $\diamond$ Erster Parameter zu werfende Exception.class \\
 	\hspace{0.4cm} $\diamond$ Zweiter Paramter Functional Interface aus dem Package java.lang.reflect } \\ \hline
 	
-	\makecell[l]{Test} & 
-	\makecell[l]{$\rhd$ \texttt{@Test} vor der Methode \\
+	\makecell[l]{Test} & \makecell[l]{
+	$\rhd$ \texttt{@Test} vor der Methode \\
 	$\rhd$ \texttt{void} als Rückgabewert \\
 	$\rhd$ Nutzung einer \texttt{assert}-Methode (siehe Methoden)} \\ \hline
 
-	\makecell[l]{BeforeEach} & \makecell[l]{$\rhd$ \texttt{@BeforeEach} vor der Methode \\
+	\makecell[l]{BeforeEach} & \makecell[l]{
+	$\rhd$ \texttt{@BeforeEach} vor der Methode \\
 	$\rhd$ Wird vor jeder einzelnen Testmethode einmal ausgeführt  } \\ \hline
 	
 	
@@ -1021,19 +1396,22 @@
 
 	\begin{longtable}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Erzeugung} & \makecell[l]{$\rhd$ meist in seperater .java Datei  \\
+
+	\makecell[l]{Erzeugung} & \makecell[l]{
+	$\rhd$ meist in seperater .java Datei  \\
 	$\rhd$ \texttt{public class MyClass \{\}} \\
 	$\rhd$ \texttt{new MyClass();}: \\
 	\hspace{0.4cm} $\diamond$ Reserviert ausreichend Speicherplatz für das Objekt \\ 
 	$\rhd$ \texttt{MyClass x = new MyClass();}: \\
 	\hspace{0.4cm} $\diamond$ Speichern der Adresse des neuen Objekts in der Referenz x } \\ \hline
 	
-	\makecell[l]{Attribute} & \makecell[l]{$\rhd$ Eigenschaften der Objekte/Klassen \\
+	\makecell[l]{Attribute} & \makecell[l]{
+	$\rhd$ Eigenschaften der Objekte/Klassen \\
 	$\rhd$ z.B.: \texttt{private int x;} (Objektattribut) \\
 	$\rhd$ z.B.: \texttt{private static int x;} (Klassenattribut)  } \\ \hline
 	
-	\makecell[l]{Konstruktor} & 
-	\makecell[l]{$\rhd$ Wird zur Erzeugung von neuen Objekten einer Klasse verwendet \\
+	\makecell[l]{Konstruktor} & \makecell[l]{
+	$\rhd$ Wird zur Erzeugung von neuen Objekten einer Klasse verwendet \\
 	$\rhd$ Methode mit selben Namen wie Klasse und ohne Rückgabetyp \\
 	$\rhd$ z.B.: \texttt{public MyClass (int x, int y) \{this.x = x; this.y = y;\}} \\
 	$\rhd$ Erzeugung eines neuen Objekts: \texttt{MyClass test = new MyClass(2,4);} \\
@@ -1045,20 +1423,22 @@
 	\hspace{0.4cm} $\diamond$ Wird genutzt um auf jeden Fall Klassenkonstanten zu initialisieren \\
 	$\rhd$ Aufruf anderen Konstruktors in Konstruktor mit \texttt{this(Parameter);}} \\ \hline
 
-	\makecell[l]{Abstraktion} & \makecell[l]{$\rhd$ \texttt{abstract public class MyClass \{...\}} \\
+	\makecell[l]{Abstraktion} & \makecell[l]{
+	$\rhd$ \texttt{abstract public class MyClass \{...\}} \\
 	$\rhd$ Notwendig, sobald Klasse eine abstrakte Methode beinhaltet \\
 	$\rhd$ Keine Objekterzeugung möglich \\
 	$\rhd$ Meist als Klasse mit Rahmenbedingungen für Subklassen verwendet }  \\ \hline
 	
-	\makecell[l]{Klasse aller Klassen} & \makecell[l]{$\rhd$ \texttt{java.lang.Object} \\
+	\makecell[l]{Klasse aller Klassen} & \makecell[l]{
+	$\rhd$ \texttt{java.lang.Object} \\
 	$\rhd$ Jede Klasse ist direkt oder indirekt von \texttt{Object} abgeleitet \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{boolean equals (Object obj) \{...\} // Test auf Wertgleichheit} \\
 	\hspace{0.4cm} $\diamond$ \texttt{String toString() \{...\} // Zustand des Objekts als String } \\
 	\hspace{0.4cm} $\diamond$ Werden oft an jeweilige Klasse angepasst } \\ \hline
 	
-	\makecell[l]{Verborgene Informationen} & 
-	\makecell[l]{$\rhd$ Jedes Objekt einer Klasse erhält einen Verweis auf ein anonymes Objekt \\
+	\makecell[l]{Verborgene Informationen} & \makecell[l]{
+	$\rhd$ Jedes Objekt einer Klasse erhält einen Verweis auf ein anonymes Objekt \\
 	$\rhd$ Dieses anonyme Objket wird für jede Klasse nur einmal eingerichtet \\
 	$\rhd$ Enthät Informatiuonen zur Klasse, Attribute und Methoden der Klasse \\
 	$\rhd$ Methodentabelle: \\
@@ -1066,7 +1446,8 @@
 	\hspace{0.4cm} $\diamond$ Ermöglicht, die Feststellung der Klasse zur Laufzeit \\
 	\hspace{0.4cm} $\diamond$ Methode in Supertyp und Substyp haben den selben Index (Position) } \\ \hline
 
-	\makecell[l]{Verschachtelte Klassen} & \makecell[l]{$\rhd$ Einbettung von Klasse in andere Klasse \\
+	\makecell[l]{Verschachtelte Klassen} & \makecell[l]{
+	$\rhd$ Einbettung von Klasse in andere Klasse \\
 	$\rhd$ Eingebettete Klasse sind ähnlich einem Attribut einer Klasse \\
 	$\rhd$ Zum Beispiel:
 	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{public class X \{} \\
@@ -1097,11 +1478,13 @@
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Implizit} & 
-	\makecell[l]{$\rhd$ Immer möglich, wenn kein Informationsverlust entstehen kann \\
+
+	\makecell[l]{Implizit} & \makecell[l]{
+	$\rhd$ Immer möglich, wenn kein Informationsverlust entstehen kann \\
 	$\rhd$ z.B.: kleinerer Datentyp in grö\ss eren } \\ \hline
 	
-	\makecell[l]{Explizit} & \makecell[l]{$\rhd$ Meist Informationsverlust \\
+	\makecell[l]{Explizit} & \makecell[l]{
+	$\rhd$ Meist Informationsverlust \\
 	$\rhd$ Durchführung durch Angabe des Datentyps in Klammern davor \\
 	$\rhd$ z.B.: \texttt{int i = (int)testDouble;} } \\ \hline
 	\end{tabular}
@@ -1110,24 +1493,27 @@
 \section{Methoden}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Methodenaufbau} & 
-	\makecell[l]{$\rhd$  Modifier Rückgabewert Identifier (Parameterliste) \{Anweisung\} \\
+	\makecell[l]{Methodenaufbau} & \makecell[l]{
+	$\rhd$  Modifier Rückgabewert Identifier (Parameterliste) \{Anweisung\} \\
 	$\rhd$ Alles vor den Anweisung: Methodenkopf (Head) \\
 	$\rhd$ Alles in den geschweiften Klammern: Methodenrumpf (Body) \\
 	$\rhd$ z.B.: \texttt{public void setX (int x) \{this.x = x;\}} (Objektmethode) \\
 	$\rhd$ z.B.: \texttt{public static void setY (int y) \{this.y = y;\}} (Klassenmethode) \\
 	$\rhd$ \texttt{this.x} steht hier für das Objektattribut und nicht den Parameter} \\ \hline
 	
-	\makecell[l]{Ausführung} & \makecell[l]{$\rhd$ Objektmethoden: \texttt{myObject.setX(2);} \\
+	\makecell[l]{Ausführung} & \makecell[l]{
+	$\rhd$ Objektmethoden: \texttt{myObject.setX(2);} \\
 	$\rhd$ Klassenmethoden: \texttt{MyClass.setY(2);}} \\ \hline
 	
-	\makecell[l]{return} & 
-	\makecell[l]{$\rhd$ Wird für Rückgabe bei Methoden mit Rückgabewert benötigt } \\ \hline
+	\makecell[l]{return} & \makecell[l]{
+	$\rhd$ Wird für Rückgabe bei Methoden mit Rückgabewert benötigt } \\ \hline
 	
-	\makecell[l]{Abstraktion} & \makecell[l]{$\rhd$ \texttt{abstract} vor Modifier (\texttt{z.B.: public)} \\
+	\makecell[l]{Abstraktion} & \makecell[l]{
+	$\rhd$ \texttt{abstract} vor Modifier (\texttt{z.B.: public)} \\
 	$\rhd$ Abstrakte Methoden haben keinen Methodenrumpf } \\ \hline
 	
-	\makecell[l]{Parameter} & \makecell[l]{$\rhd$ Parameterliste in Definition: Formale Parameter \\
+	\makecell[l]{Parameter} & \makecell[l]{
+	$\rhd$ Parameterliste in Definition: Formale Parameter \\
 	$\rhd$ Parameterliste bei Methodenaufruf: Aktuale Parameter \\
 	\hspace{0.4cm} $\diamond$ Kommt von actual $\Rightarrow$ tatsächlich, vorliegend \\
 	$\rhd$ Verhalten bei Referenzen: \\
@@ -1140,12 +1526,13 @@
 	\hspace{0.4cm} $\diamond$ Ermöglicht variable Anzahl von Werten \texttt{(1.42,2.7)} \\
 	\hspace{0.4cm} $\diamond$ z.B.: Funktion, die das Maximum von übergebenen Variablen bestimmt} \\ \hline
 
-	\makecell[l]{Signatur} & \makecell[l]{$\rhd$ Besteht aus Identifier und Parameterliste \\
+	\makecell[l]{Signatur} & \makecell[l]{
+	$\rhd$ Besteht aus Identifier und Parameterliste \\
 	$\rhd$ Eine Klasse kann keine zwei Methoden mit derselben Signatur haben  } \\ \hline
 	
 
-	\makecell[l]{Klassenmethoden} & 
-	\makecell[l]{$\rhd$ Wird mithilfe von \texttt{static} zwischen Modifier und Rückgabewert definiert \\
+	\makecell[l]{Klassenmethoden} & \makecell[l]{
+	$\rhd$ Wird mithilfe von \texttt{static} zwischen Modifier und Rückgabewert definiert \\
 	$\rhd$ Klassenmethoden werden über den Klassennamen aufgerufen \\
 	$\rhd$ \textbf{Nicht erlaubt:} Lesen und Schreiben von Objektmethoden und -Attributen \\
 	$\rhd$ \textbf{Nicht erlaubt:} Objektmethoden aufrufen \\
@@ -1161,7 +1548,8 @@
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
 	
-	\makecell[l]{Informationen} & \makecell[l]{$\rhd$ Objekt der Klasse \texttt{Optional} kapselt ein Objekt seines Typparameters ein \\
+	\makecell[l]{Informationen} & \makecell[l]{
+	$\rhd$ Objekt der Klasse \texttt{Optional} kapselt ein Objekt seines Typparameters ein \\
 	$\rhd$ Bietet bequemem Umgang mit der Möglichkeit, dass eine Referenz \texttt{null} ist } \\ \hline
 
 	\makecell[l]{Methoden} & \makecell[l]{
@@ -1191,7 +1579,8 @@
 	\hspace{0.6cm} - z.B.: \texttt{Optional<Number> opt3 = opt1.filter(x -> x + 2 == 1);} \\
 	\hspace{0.6cm} - Gibt selbes Objekt zurück, falls Gleichung erfüllt } \\ \hline
 
-	\makecell[l]{Beispiel} & \makecell[l]{$\rhd$ \texttt{Optional<Number> opt1 = Optional.ofNullable(null);} \\
+	\makecell[l]{Beispiel} & \makecell[l]{
+	$\rhd$ \texttt{Optional<Number> opt1 = Optional.ofNullable(null);} \\
 	$\rhd$ \texttt{Number n1 = opt1.get(); // NoSuchElementException} \\
 	$\rhd$ \texttt{Number n2 = opt1.orElseGet(() -> 0); // Falls null -> 0}  } \\ \hline
 	
@@ -1201,7 +1590,8 @@
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
 	
-	\makecell[l]{Package} & \makecell[l]{$\rhd$ Zusammenfassung von mehreren Dateien \\
+	\makecell[l]{Package} & \makecell[l]{
+	$\rhd$ Zusammenfassung von mehreren Dateien \\
 	$\rhd$ Wird zur Gruppierung von ähnlichen Funktionalitäten verwendet \\
 	$\rhd$ Ermöglicht selbe Dateinamen in unterschiedlichen Packages \\
 	$\rhd$ Bestehen nur aus Kleinbuchstaben \\
@@ -1219,7 +1609,8 @@
 	$\rhd$ Konstanten: \texttt{import static java.lang.Math.PI;} \\
 	\hspace{0.4cm} $\diamond$ Ermöglicht Schreiben von \texttt{PI} statt \texttt{Math.PI}} \\ \hline
 	
-	\makecell[l]{Zugriffsrechte} & \makecell[l]{$\rhd$ Klassen/Enum: nur \texttt{public} oder nichts \\
+	\makecell[l]{Zugriffsrechte} & \makecell[l]{
+	$\rhd$ Klassen/Enum: nur \texttt{public} oder nichts \\
 	\hspace{0.4cm} $\diamond$ Nur eine Klasse darf \texttt{public} sein (Damit auch Dateiname) \\
 	$\rhd$ \texttt{private:} Zugriff innerhalb der Klasse \\
 	$\rhd$ \texttt{Keine Angabe:} \texttt{private} + im Package \\
@@ -1233,17 +1624,21 @@
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Quelltest} & \makecell[l]{$\rhd$ z.B. selbst geschriebener Java-Code } \\ \hline
+
+	\makecell[l]{Quelltest} & \makecell[l]{
+	$\rhd$ z.B. selbst geschriebener Java-Code } \\ \hline
 	
-	\makecell[l]{Java-Bytecode} & \makecell[l]{$\rhd$ Wird durch Übersetzung des Java-Quelltextes erzeugt 
-	} \\ \hline
+	\makecell[l]{Java-Bytecode} & \makecell[l]{
+	$\rhd$ Wird durch Übersetzung des Java-Quelltextes erzeugt } \\ \hline
 	
-	\makecell[l]{Programm} & \makecell[l]{$\rhd$ Sequenz von Informationen} \\ \hline
+	\makecell[l]{Programm} & \makecell[l]{
+	$\rhd$ Sequenz von Informationen} \\ \hline
 		
-	\makecell[l]{Aufruf eines Programms} & \makecell[l]{$\rhd$ Starten eines Prozesses, 
-	der die Anweisungen des	Programmes abarbeitet } \\ \hline
+	\makecell[l]{Aufruf eines Programms} & \makecell[l]{
+	$\rhd$ Starten eines Prozesses, der die Anweisungen des Programmes abarbeitet } \\ \hline
 	
-	\makecell[l]{Prozesse} & \makecell[l]{$\rhd$ CPU besteht aus mehreren Prozessorkernen \\
+	\makecell[l]{Prozesse} & \makecell[l]{
+	$\rhd$ CPU besteht aus mehreren Prozessorkernen \\
 	$\rhd$ Mehrere Prozesse laufen dementsprechend parallel \\
 	$\rhd$ Allerdings bearbeitet jeder Kern nur einen Prozess gleichzeitig (sehr kurz) \\
 	\hspace{0.4cm}$\diamond$ Illusion von Multitasking } \\ \hline
@@ -1252,7 +1647,9 @@
 \section{Random (java.util.Random;)}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Verwendung} & \makecell[l]{$\rhd$ Erzeugung eines neuen Objekts \\
+
+	\makecell[l]{Verwendung} & \makecell[l]{
+	$\rhd$ Erzeugung eines neuen Objekts \\
 	\hspace{0.4cm} $\diamond$ \texttt{Random random = new Random();} \\
 	$\rhd$ Zahlenerzeugung mithilfe von: \\
 	\hspace{0.4cm} $\diamond$ \texttt{random.nextInt();} \\
@@ -1276,27 +1673,30 @@
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{while-Schleife} & \makecell[l]{$\rhd$ \texttt{while (Bedingung) \{Anweisung;\}} \\ 
+	\makecell[l]{while-Schleife} & \makecell[l]{
+	$\rhd$ \texttt{while (Bedingung) \{Anweisung;\}} \\ 
 	$\rhd$ Schleife wird ausgeführt, solange die Bedingung wahr ist \\ 
 	$\rhd$ \{\} kann bei einzelner Anweisung auch weggelassen werden } \\ \hline
 	
-	\makecell[l]{do-while-Schleife} & 
-	\makecell[l]{$\rhd$ \texttt{do \{Anweisung;\} while (Bedingung);} \\ 
+	\makecell[l]{do-while-Schleife} & \makecell[l]{
+	$\rhd$ \texttt{do \{Anweisung;\} while (Bedingung);} \\ 
 	$\rhd$ Anweisungsblock wird immer mindestens einmal ausgeführt } \\ \hline
 	
-	\makecell[l]{for-Schleife} & 
-	\makecell[l]{$\rhd$ \texttt{for (Anweisung davor; Bedingung; Anweisung danach) \{Anweisung\}} \\
+	\makecell[l]{for-Schleife} & \makecell[l]{
+	$\rhd$ \texttt{for (Anweisung davor; Bedingung; Anweisung danach) \{Anweisung\}} \\
 	$\rhd$ z.B.: \texttt{for (int i = 0; i < 10; i++) \{...\}} \\
 	\hspace{0.4cm}$\diamond$ Zehnmalige Ausführung der Anweisung \\
 	$\rhd$ Kurzform: \texttt{for (Position p : positions) \{\}} \\
 	\hspace{0.4cm} $\diamond$ (Komponententyp Identifier : ArrayName)  } \\ \hline
 	
-	\makecell[l]{if-Anweisung} & \makecell[l]{$\rhd$ \texttt{if (Bedingung) \{...\}} \\
+	\makecell[l]{if-Anweisung} & \makecell[l]{
+	$\rhd$ \texttt{if (Bedingung) \{...\}} \\
 	\hspace{0.4cm} $\diamond$ Führt den Code in der Anweisung nur aus, falls die Bedingung erfüllt ist \\
 	$\rhd$ \texttt{if (Bedingung) \{\} else \{\}} \\
 	\hspace{0.4cm} $\diamond$ Code, der ausgeführt wird, falls Bedingung nicht erfüllt ist} \\ \hline
 
-	\makecell[l]{switch-Anweisung} & \makecell[l]{$\rhd$ Abfrage von mehreren Fällen \\
+	\makecell[l]{switch-Anweisung} & \makecell[l]{
+	$\rhd$ Abfrage von mehreren Fällen \\
 	$\rhd$ \texttt{switch (i) \{ case 2: ... break; case 3: ... break; default: ... \}} \\
 	$\rhd$\texttt{break;} Ohne break, geht es mit der Anweisung für den nächsten Fall weiter \\
 	$\rhd$ Keine Variablen als Abfragen für Fälle / kein Ausdruck, nur EIN Wert \\
@@ -1309,12 +1709,14 @@
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
 	
-	\makecell[l]{Information} & \makecell[l]{$\rhd$ Generisches Interface \texttt{Stream} \\
+	\makecell[l]{Information} & \makecell[l]{
+	$\rhd$ Generisches Interface \texttt{Stream} \\
 	$\rhd$ Einheitliche Schnittstelle für Listen, Arrays, Dateien \\
 	$\rhd$ Relevante Kapitel: \texttt{Optional} \\
 	} \\ \hline
 
-	\makecell[l]{Methodenzusammenfassung} & \makecell[l]{$\rhd$ filter, map, max, of \\
+	\makecell[l]{Methodenzusammenfassung} & \makecell[l]{
+	$\rhd$ filter, map, max, of \\
 	$\rhd$ \texttt{filter} \\
 	\hspace{0.4cm} $\diamond$ Liefert Stream vom selben generischen Typ zurück \\
 	\hspace{0.4cm} $\diamond$ Formaler Parameter: \texttt{java.util.function.Predicate;} \\
@@ -1348,23 +1750,28 @@
 	$\rhd$ Zusammenfassung dieser Operationen möglich: \\
 	$\rhd$ \texttt{... =  list.stream().filter(myPred).map(myFct).max(new MyComp());} } \\ \hline
 
-	\makecell[l]{Stream aus Array} & \makecell[l]{$\rhd$ \texttt{Number[] a = new Number[100]; // Erstellt Array} \\
+	\makecell[l]{Stream aus Array} & \makecell[l]{
+	$\rhd$ \texttt{Number[] a = new Number[100]; // Erstellt Array} \\
 	$\rhd$ \texttt{Stream<Number> stream1 = Arrays.stream(a); // Erzeugt Stream} \\
 	\hspace{0.4cm} $\diamond$ Aufruf der \texttt{Arrays}-Klassenmethoden \texttt{stream(Array a)} } \\ \hline
 
-	\makecell[l]{Iterator} & \makecell[l]{$\rhd$ \texttt{Iterator iter = stream.iterator(); // Erzeugt Iterator Objekt} \\
+	\makecell[l]{Iterator} & \makecell[l]{
+	$\rhd$ \texttt{Iterator iter = stream.iterator(); // Erzeugt Iterator Objekt} \\
 	$\rhd$ \texttt{iter.hasNext() // Verwendung als Abbruchbedingung} \\
 	$\rhd$ \texttt{iter.next() // Zum Fortschreiten im Iterator}  } \\ \hline
 
-	\makecell[l]{Liste aus Stream} & \makecell[l]{$\rhd$ \texttt{List<String> list = stream.collect(Collectors.toList());} \\
+	\makecell[l]{Liste aus Stream} & \makecell[l]{
+	$\rhd$ \texttt{List<String> list = stream.collect(Collectors.toList());} \\
 	\hspace{0.4cm} $\diamond$ \texttt{Collectors} besitzt viele Klassenmethoden zur Verarbeitung von Streams \\
 	\hspace{0.4cm} $\diamond$ \texttt{toList()} liefert das generische Interface \texttt{Collector} } \\ \hline
 
-	\makecell[l]{Array aus Stream} & \makecell[l]{$\rhd$ \texttt{Number[] a = stream.toArray(Number[]::new);} \\
+	\makecell[l]{Array aus Stream} & \makecell[l]{
+	$\rhd$ \texttt{Number[] a = stream.toArray(Number[]::new);} \\
 	$\rhd$ Art der Erzeugung abhängig vom Parameter \\
 	$\rhd$ Parameter: Siehe Methodennamen als Lambda-Ausdrücke } \\ \hline %% TOOOOOODOOOOOOOOOO!!!!
 
-	\makecell[l]{Int-/Long-/\\ DoubleStreams} & \makecell[l]{$\rhd$ Methoden sind genau diesselben wie bei normalen Streams \\
+	\makecell[l]{Int-/Long-/\\ DoubleStreams} & \makecell[l]{
+	$\rhd$ Methoden sind genau diesselben wie bei normalen Streams \\
 	$\rhd$ z.B.: \texttt{IntStream stream1 = IntStream.of(1,2,3);} \\
 	$\rhd$ Nutzen der Klasse \texttt{Random} für unendlichen Stream mit Zufallszahlen \\
 	\hspace{0.4cm} $\diamond$ \texttt{IntStream stream1 = new Random().ints();}} \\ \hline
@@ -1377,10 +1784,12 @@
 \section{String (java.lang.String)}	
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Eigenschaften} & \makecell[l]{$\rhd$ Sonderrolle, da Klasse, aber trotzdem Literale in Java \\
+	\makecell[l]{Eigenschaften} & \makecell[l]{
+	$\rhd$ Sonderrolle, da Klasse, aber trotzdem Literale in Java \\
 	$\rhd$ Zeichenketten, die aus allen möglichen chars bestehen} \\ \hline
 	
-	\makecell[l]{Methoden:} & \makecell[l]{$\rhd$ \texttt{String str = "Hello World";} \\
+	\makecell[l]{Methoden:} & \makecell[l]{
+	$\rhd$ \texttt{String str = "Hello World";} \\
 	\hspace{0.8cm} $\diamond$ \texttt{str.length; // 11} \\
 	\hspace{0.8cm} $\diamond$ \texttt{str.charAt(2); // e} \\
 	\hspace{0.8cm} $\diamond$ \texttt{str.indexOf('e'); // 2} \\
@@ -1396,10 +1805,13 @@
 
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Keywords} & \makecell[l]{$\rhd$ Können nur an bestimmten Stellen im Code stehen \\
+
+	\makecell[l]{Keywords} & \makecell[l]{
+	$\rhd$ Können nur an bestimmten Stellen im Code stehen \\
 	$\rhd$ z.B. \texttt{class, import, public, while,..}} \\ \hline
 	
-	\makecell[l]{Identifier} & \makecell[l]{$\rhd$ Namen für Klassen, Variablen, Methoden,.. \\
+	\makecell[l]{Identifier} & \makecell[l]{
+	$\rhd$ Namen für Klassen, Variablen, Methoden,.. \\
 	$\rhd$ Erstes Zeichen darf keine Ziffer sein \\
 	$\rhd$ Keine Keywords als Identifier
 	$\rhd$ Identifier sind case-sensitive } \\ \hline
@@ -1411,11 +1823,13 @@
 	$\rhd$ Konstanten bestehen aus $\_$ und Gro\ss buchstaben (\texttt{CENTS$\_$PER$\_$EURO}) \\
 	$\rhd$ Packagenamen nur aus Kleinbuchstaben und \_ bei unzulässigen Zeichen} \\ \hline
 	
-	\makecell[l]{Kommentare} & \makecell[l]{$\rhd$ \texttt{//} Einzelne Zeile \\
+	\makecell[l]{Kommentare} & \makecell[l]{
+	$\rhd$ \texttt{//} Einzelne Zeile \\
 	$\rhd$ \texttt{/*...*/} Mehrere Zeilen \\
 	$\rhd$ \texttt{/**...*/} Erzeugung von Javadoc }  \\ \hline
 
-	\makecell[l]{Javadoc} & \makecell[l]{$\rhd$ Erzeugung mithilfe von \texttt{/**} und Enter \\
+	\makecell[l]{Javadoc} & \makecell[l]{
+	$\rhd$ Erzeugung mithilfe von \texttt{/**} und Enter \\
 	$\rhd$ Bei Methodenköpfen: \\
 	\hspace{0.4cm} $\diamond$ \texttt{@param x the dividend} \\
 	\hspace{0.4cm} $\diamond$ \texttt{@return x divided by x}  \\
@@ -1424,10 +1838,12 @@
 	\hspace{0.4cm} $\diamond$ \texttt{@author} \\
 	\hspace{0.4cm} $\diamond$ \texttt{@version}} \\ \hline
 
-	\makecell[l]{Rechtsausdrücke} & \makecell[l]{$\rhd$ Haben Typ und Wert \\
+	\makecell[l]{Rechtsausdrücke} & \makecell[l]{
+	$\rhd$ Haben Typ und Wert \\
 	$\rhd$ z.B.: \texttt{2*3+1}  } \\ \hline
 
-	\makecell[l]{Linksausdrücke} & \makecell[l]{$\rhd$ Verweisen auf Speicherstellen \\
+	\makecell[l]{Linksausdrücke} & \makecell[l]{
+	$\rhd$ Verweisen auf Speicherstellen \\
 	$\rhd$ z.B.: \texttt{int n}   } \\ \hline
 
 	\end{tabular}
@@ -1438,7 +1854,8 @@
 	\hline
 	
 	
-	\makecell[l]{Interface Runnable} & \makecell[l]{$\rhd$ Aus Package \texttt{java.lang} \\
+	\makecell[l]{Interface Runnable} & \makecell[l]{
+	$\rhd$ Aus Package \texttt{java.lang} \\
 	$\rhd$ Enthält den Inhalt des parallel laufenden Prozesses \\
 	$\rhd$ \texttt{Functional Interface} mit funktionaler Methode \texttt{run} \\
 	$\rhd$ Funktionsweise: \\
@@ -1451,7 +1868,8 @@
 	\hspace{0.6cm} - \texttt{new Thread(runnable).start();} \\
 	\hspace{0.4cm} $\diamond$ Der \texttt{Thread} wird dadurch auch gestartet} \\ \hline
 		
-	\makecell[l]{Klasse Thread} & \makecell[l]{$\rhd$ Aus Package \texttt{java.lang} \\
+	\makecell[l]{Klasse Thread} & \makecell[l]{
+	$\rhd$ Aus Package \texttt{java.lang} \\
 	$\rhd$ \texttt{Thread} organisiert einen parallel laufenden Prozess \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{static currentThread} \\
@@ -1475,7 +1893,8 @@
 	\hspace{0.6cm} - Gibt den Status des \texttt{Threads} aus \\
 	 } \\ \hline
 
-	\makecell[l]{Threads und Streams} & \makecell[l]{$\rhd$ Verknüpfung zweier \texttt{Threads} mithilfe von \texttt{PipedInput(Output)Stream} \\
+	\makecell[l]{Threads und Streams} & \makecell[l]{
+	$\rhd$ Verknüpfung zweier \texttt{Threads} mithilfe von \texttt{PipedInput(Output)Stream} \\
 	$\rhd$ z.B.: Ungefähre Vorhergehensweise: \\
 	\hspace{0.4cm} $\diamond$ Erzeugung beider Streams: (Beachten von \texttt{try-catch}): \\
 	\hspace{0.6cm} - \texttt{PipedOutputStream out = new PipedOutputStream();} \\
@@ -1488,10 +1907,12 @@
 	\hspace{0.4cm} $\diamond$ Lesen mithilfe \texttt{in} der geschriebenen Daten \\
 	\hspace{0.4cm} $\Rightarrow$ Zwei verbundene Streams, einer schreibt, der andere liest} \\ \hline
 	
-	\makecell[l]{Interferiende Threads} & \makecell[l]{$\rhd$ Reihenfolge der Zugriffe, bei Zugriff auf die selbe Ressource, ungewiss \\
+	\makecell[l]{Interferiende Threads} & \makecell[l]{
+	$\rhd$ Reihenfolge der Zugriffe, bei Zugriff auf die selbe Ressource, ungewiss \\
 	$\rhd$ z.B.: Gleichzeitiges Schreiben auf \texttt{StdOut // Standard Out $\rightarrow$ System.out} } \\ \hline
 
-	\makecell[l]{Thread terminieren} & \makecell[l]{$\rhd$ Beispiel: \\
+	\makecell[l]{Thread terminieren} & \makecell[l]{
+	$\rhd$ Beispiel: \\
 	\hspace{0.4cm} $\diamond$ Einfügen einer Boolean-Variable in dazugehöriger \texttt{Runnable}-Klasse \\
 	\hspace{0.4cm} $\diamond$ Ausführung von \texttt{run()} solange diese \texttt{false} ist \\
 	\hspace{0.4cm} $\diamond$ Setzen der Variable auf \texttt{true}, wenn terminiert werden soll \\
@@ -1501,13 +1922,15 @@
 	\hspace{0.4cm} $\diamond$ Diese setzt z.B. die oben implementierte Variable auf \texttt{true} \\
 	\hspace{0.4cm} $\diamond$ Zugriff auf diese Methode über das erzeugte \texttt{Runnable}-Objekt} \\ \hline
 
-	\makecell[l]{Gründe für Threads} & \makecell[l]{$\rhd$ Parallelisierung \\
+	\makecell[l]{Gründe für Threads} & \makecell[l]{
+	$\rhd$ Parallelisierung \\
 	\hspace{0.4cm} $\diamond$ Aufteilung der Arbeitslast \\
 	\hspace{0.4cm} $\diamond$ Oft jedoch nicht schneller, sondern langsamer \\
 	$\rhd$ Abspaltung von eigenständigen Programmteilen \\
 	\hspace{0.4cm} $\diamond$ Starten und Vergessen } \\ \hline
 
-	\makecell[l]{Parallelisierung von \\ Streams} & \makecell[l]{$\rhd$ Bereits implementiert, automatische, effiziente Aufteilung \\
+	\makecell[l]{Parallelisierung von \\ Streams} & \makecell[l]{
+	$\rhd$ Bereits implementiert, automatische, effiziente Aufteilung \\
 	$\rhd$ Methode \texttt{parallelStream()} \\
 	\hspace{0.4cm} $\diamond$ Kann, aber muss nicht, aufteilen \\
 	\hspace{0.4cm} $\diamond$ Liefert den selben Stream als Rückgabetyp zurück \\
@@ -1519,17 +1942,19 @@
 \section{Vererbung}
 	\begin{tabular}{ | p{4cm} p{13.5cm} | }
 	\hline
-	\makecell[l]{Zweck} & \makecell[l]{$\rhd$ Weitergabe von allen Methoden und Attributen } \\ \hline
+	\makecell[l]{Zweck} & \makecell[l]{
+	$\rhd$ Weitergabe von allen Methoden und Attributen } \\ \hline
 	
-	\makecell[l]{Verwendung} & 
-	\makecell[l]{$\rhd$ \texttt{public class MySubClass extends MyClass \{\}} } \\ \hline
+	\makecell[l]{Verwendung} & \makecell[l]{
+	$\rhd$ \texttt{public class MySubClass extends MyClass \{\}} } \\ \hline
 	
-	\makecell[l]{Konstruktor} & 
-	\makecell[l]{$\rhd$ Aufruf des Konstruktors der Superklasse mithilfe von \texttt{super(Parameter);} \\
+	\makecell[l]{Konstruktor} & \makecell[l]{
+	$\rhd$ Aufruf des Konstruktors der Superklasse mithilfe von \texttt{super(Parameter);} \\
 	$\rhd$ Dieser Aufruf erfolgt im Konstruktor der Subklasse \\
 	$\rhd$ z.B.: \texttt{public MySubClass (int x) \{ super(x);<v\}}} \\ \hline
 	
-	\makecell[l]{Overwrite} & \makecell[l]{$\rhd$ Methoden in Subklassen können auch neu geschrieben werden \\
+	\makecell[l]{Overwrite} & \makecell[l]{
+	$\rhd$ Methoden in Subklassen können auch neu geschrieben werden \\
 	\hspace{0.4cm} $\diamond$ Die Implementation der Superklasse wird sozusagen überschrieben \\
 	$\rhd$ Selber Name und Parameterliste notwendig \\
 	$\rhd$ Signatur der Methoden muss identisch sein \\
@@ -1542,15 +1967,16 @@
 	$\rhd$ Exceptions: \\
 	\hspace{0.4cm} $\diamond$ Exception Klasse darf durch Subtyp ersetzt werden} \\ \hline
 	
-	\makecell[l]{Overload} & 
-	\makecell[l]{$\rhd$ Methoden mit selbem Bezeichner, aber unterschiedlicher Parameterliste \\
+	\makecell[l]{Overload} & \makecell[l]{
+	$\rhd$ Methoden mit selbem Bezeichner, aber unterschiedlicher Parameterliste \\
 	$\rhd$ Die Methode wird überladen \\ 
 	$\rhd$ Konstruktoren kann man auch überladen \\
 	\hspace{0.4cm} $\diamond$ Für manche Werte werden dann Standardwerte gesetzt \\
 	\hspace{0.4cm} $\diamond$ Anderer Konstruktor auch in Konstruktor aufrufbar (\texttt{this(1);}) \\
 	$\rhd$ Alle Methoden einer Klasse müssen unterschiedliche Signatur haben } \\ \hline
 		
-	\makecell[l]{Subtypen} & \makecell[l]{$\rhd$ Abgeleitete Klassen / Interfaces (\texttt{extends}) \\
+	\makecell[l]{Subtypen} & \makecell[l]{
+	$\rhd$ Abgeleitete Klassen / Interfaces (\texttt{extends}) \\
 	$\rhd$ Überall wo ein Referenztyp (Supertyp) erwartet wird: \\
 	\hspace{0.4cm} $\diamond$ Verwendung eines Objekts eines Subtyps möglich \\
 	\hspace{1.2cm} in Zuweisung an Variable \\
@@ -1558,21 +1984,23 @@
 	\hspace{1.2cm} als Rückgabewert	} \\ \hline
 	
 	
-	\makecell[l]{Statischer Typ} & \makecell[l]{$\rhd$ Der Typ, mit dem Referenz definiert wird \\
+	\makecell[l]{Statischer Typ} & \makecell[l]{
+	$\rhd$ Der Typ, mit dem Referenz definiert wird \\
 	$\rhd$ Statischer Typ unveränderlich mit Referenz verknüpft $\Rightarrow$ statisch \\
 	$\rhd$ z.B.: \texttt{X a = new Y();} $\Rightarrow$ \texttt{X} hier statischer Typ \\
 	$\rhd$ \textbf{Entscheidet}, auf welche Attribute/Methoden zugegriffen werden darf \\
 	\hspace{0.4cm} $\diamond$ Müssen im statischen Typ vorhanden sein (definiert oder ererbt)\\
 	 } \\ \hline
 	
-	\makecell[l]{Dynamischer Typ} & 
-	\makecell[l]{$\rhd$ Der Typ des Objekts einer Referenz, auf das diese Referenz \\
+	\makecell[l]{Dynamischer Typ} & \makecell[l]{
+	$\rhd$ Der Typ des Objekts einer Referenz, auf das diese Referenz \\
 	$\rhd$ Muss gleich dem statischen Typ oder ein Subtyp des statischen Typs sein \\
 	$\rhd$ Kann sich beliebig häufig ändern $\Rightarrow$ dynamisch \\
 	$\rhd$ z.B.: \texttt{X a = new Y();} $\Rightarrow$ \texttt{Y} hier dynamischer Typ \\
 	$\rhd$ \textbf{Entscheidet}, welche Implementation der Methode aufgerufen wird} \\ \hline
 	
-	\makecell[l]{Downcast} & \makecell[l]{$\rhd$ \texttt{if (y instanceof X) \{...\}} \\
+	\makecell[l]{Downcast} & \makecell[l]{
+	$\rhd$ \texttt{if (y instanceof X) \{...\}} \\
 	\hspace{0.4cm} $\diamond$ Gibt \texttt{true} zurück, falls \texttt{y} (Variable von Referenztyp) gleich 
 	dem Typen \\
 	\hspace{0.7cm}  von \texttt{X} oder ein Subtyp von \texttt{X} ist \\
@@ -1583,7 +2011,8 @@
 	\hspace{0.4cm} $\diamond$ 
 	\textbf{Warum?} Zugriff auf Funktionen, die nicht im statischen Typ existieren } \\ \hline	
 	
-	\makecell[l]{Garbage Collector} & \makecell[l]{$\rhd$ Teil des Laufzeitsystems \\
+	\makecell[l]{Garbage Collector} & \makecell[l]{
+	$\rhd$ Teil des Laufzeitsystems \\
 	$\rhd$ Wird selbstständig aufgerufen, um Objekte ohne Referenz zu löschen \\
 	$\rhd$ Kann zwecks Laufzeitoptimierung konfiguriert werden} \\ \hline
 	
