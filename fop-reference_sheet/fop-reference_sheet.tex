@@ -2228,6 +2228,13 @@
 	$\rhd$ Beispiel: Jahr 2000 Problem \\
 	\hspace{0.4cm} $\diamond$ Nicht gedacht, dass Programme bis Jahr 2000 im Dienst sind} \\ \hline
 
+	\end{longtable}
+
+\subsection*{Korrektheit von Software}
+
+	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
 	\makecell[l]{Korrektheit von \\ Software} & \makecell[l]{
 	$\rhd$ Kein Programmabbruch durch Fehler \\
 	$\rhd$ Termination, wenn: \\
@@ -2275,10 +2282,341 @@
 	\hspace{0.6cm} - \textbf{Nichts} darf zurückgenommen werden} \\ \hline
 
 	\makecell[l]{Korrektheit von \\ Subroutinen} & \makecell[l]{
-	$\rhd$ Subroutine als Oberbegriff für Methoden/Funktionen} \\ \hline
+	$\rhd$ Subroutine als Oberbegriff für Methoden/Funktionen \\
+	$\rhd$ Vertrag zwischen dem Nutzer und dem Entwickler einer Subroutine \\
+	\hspace{0.4cm} $\diamond$ Wenn der Aufruf alle Vorbedingungen erfüllt, \\
+	\hspace{0.8cm} muss die Subroutine alle Nachbedingungen erfüllen \\
+	\hspace{0.4cm} $\diamond$ Vorbedingungen: \\
+	\hspace{0.6cm} - Implementationsinvariante vor dem Aufruf eingehalten \\
+	\hspace{0.6cm} - Parameter müssen gewisse Bedingungen erfüllen \\
+	\hspace{0.6cm} - Variable/Konstante außerhalb der Klasse \\
+	\hspace{0.6cm} - Externe Datenquellen (z.B. Dateien) \\
+	\hspace{0.4cm} $\diamond$ Nachbedingungen: \\
+	\hspace{0.6cm} - Implementationsinvariante nach dem Aufruf eingehalten \\
+	\hspace{0.6cm} - Rückgabewert muss von bestimmtem Typ sein \\
+	\hspace{0.6cm} - Variable außerhalb der Klasse \\
+	\hspace{0.6cm} - Externe Datenquellen (z.B. Dateien) \\
+	$\rhd$ Aufbau des Vertrags: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Type} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Precondition} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Returns} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Postcondition} \\
+	$\rhd$ Ableitung von Basisklasse / Implementationen von Interface: \\
+	\hspace{0.4cm} $\diamond$ Vorbedingung darf nur abgeschwächt werden, nicht verschärft oder ersetzt \\
+	\hspace{0.4cm} $\diamond$ Nachbedingung darf nur verschärft werden, nicht abgeschwächt oder ersetzt \\
+	\hspace{0.4cm} $\diamond$ Zweiter Teil des Liskov Substitution Principle} \\ \hline
 	
+	\makecell[l]{Korrektheit von \\ rekursiven Subroutinen} & \makecell[l]{
+	$\rhd$ Rekursionsabbruch \\
+	\hspace{0.4cm} $\diamond$ Muss vorhanden sein, damit Rekursion ordentlich terminiert \\
+	$\rhd$ Rekursionsschritt \\
+	\hspace{0.4cm} $\diamond$ Schritt näher an den Rekursionsabbruch \\
+	$\rhd$ Beweis der Korrektheit mithilfe von Induktion: \\
+	\hspace{0.4cm} $\diamond$ Induktionsbehauptung: Aufstellen für \texttt{Problemgrö\ss e} \\
+	\hspace{0.4cm} $\diamond$ Induktionsanfang: z.B.: \texttt{Problemgröße} = 1 \\
+	\hspace{0.4cm} $\diamond$ Induktionsvorraussetzung: Der Vertrag gelte für ... \\
+	\hspace{0.4cm} $\diamond$ Induktionschritt: z.B.: Verringerung der Listenlänge } \\ \hline
+
+	\makecell[l]{Korrektheit von \\ Schleifen} & \makecell[l]{
+	$\rhd$ {\makebox[3.2cm][l]{Schleifeninvariante}}: Aussagen darüber, was sich während Schleife nicht ändert \\
+	\hspace{0.4cm} $\diamond$ Formulierung: \string"Nach h $\geq$ 0 Schritten ist ... \string" \\
+	\hspace{0.6cm} - Verwendung einer Variable (h), die nicht im Code vorkommt \\
+	$\rhd$ {\makebox[3.2cm][l]{Schleifenvariante}}: Aussagen darüber, was sich während Schleife ändert \\
+	\hspace{0.4cm} $\diamond$ Formulierung: \texttt{for}: \string"h steigt um 1 \string"
+	$\rhd$ Zusammenfassung: \\
+	\hspace{0.4cm} $\diamond$ Formulierung: \string"Nach Schleifenende ist... \string" \\
+	$\rhd$ Induktion bei Schleifen: \\
+	\hspace{0.4cm} $\diamond$ Invariante = Induktionsbehauptung: \string"Nach h $\geq$ 0 Schleifendurchläufen gilt...\string" \\
+	\hspace{0.4cm} $\diamond$ Induktionsanfang, also h=0: \string"Die Initialisierung vor der Schleife sorgt dafür, \\ 
+	\hspace{0.8cm} dass die Invariante unmittelbar vor dem ersten Durchlauf erfüllt ist.\string" \\
+	\hspace{0.4cm} $\diamond$ Induktionsvorraussetzung für h > 0: "Die Invariante gelte für h-1." \\
+	\hspace{0.4cm} $\diamond$ Induktionsschritt: \string"Unter Voraussetzung, dass..., nach h Durchläufen gilt.\string"} \\ \hline
 
 	\end{longtable}
+
+
+\section{Anhang: Effizienz von Software} 
+
+\subsection*{Nebenaspekte der Effizienz} 
+
+	\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
+	\makecell[l]{Speicherplatz} & \makecell[l]{
+	$\rhd$ Heutzutage z.B. auch bei größeren Datenmengen noch relevant \\
+	$\rhd$ Begriffe: \\
+	\hspace{0.4cm} $\diamond$ Begrenzter Objektspeicher: \texttt{Heap} \\
+	\hspace{0.4cm} $\diamond$ Voller Speicher: \texttt{OutOfMemoryError} \\
+	$\rhd$ Regeln: \\
+	\hspace{0.4cm} $\diamond$ Vermeidung des unnötigen Festhaltens von Speicher \\
+	$\rhd$ Memory Leaks in \texttt{C} und \texttt{C++} \\
+	\hspace{0.4cm} $\diamond$ Manuelle Freigabe von Speicherbereichen auf dem \texttt{Heap} notwendig \\
+	\hspace{0.4cm} $\diamond$ Führt bei Nichtbeachtung zu Memory Leaks \\
+	$\rhd$ Speicherproblem bei Rekursion: \\
+	\hspace{0.4cm} $\diamond$ Nur ein begrenzter Bereich für \texttt{Call-Stack} reserviert \\
+	\hspace{0.4cm} $\diamond$ Zu tiefe Rekursion $\rightarrow$ \texttt{StackOverflowError}} \\ \hline  
+	
+	\makecell[l]{Netzwerkbelastung} & \makecell[l]{
+	$\rhd$ Wird in späteren Veranstaltungen noch intensiver aufgegriffen \\
+	$\rhd$ Generisches Beispiel: Dezentrale Datenhaltung \\
+	\hspace{0.4cm} $\diamond$ Daten werden redundant auf mehreren Netzwerkknoten gehalten \\
+	\hspace{0.6cm} - Mindestens ein Server, auf den Nutzer Zugriff hat, vorhanden \\
+	\hspace{0.4cm} $\diamond$ Vorteile: \\
+	\hspace{0.6cm} - Je nach Belastungssituation, Weiterleitung zu anderem Server \\
+	\hspace{0.6cm} - Keine langen Wege im Netzwerk \\
+	\hspace{0.4cm} $\diamond$ Nachteil: \\
+	\hspace{0.6cm} - Abgleich der Daten nach Änderung erfordert baldige Kommunikation \\
+	\hspace{0.4cm} $\diamond$ Geeignete Wahl der Serverstruktur vonnöten} \\ \hline
+	
+	\makecell[l]{Reservierung von \\ Ressourcen} & \makecell[l]{
+	$\rhd$ Ressourcen: Entitäten, die exklusiv von einem Prozess reserviert werden \\
+	$\rhd$ Wird später in Veranstaltungen zu Datenbanksystem näher behandelt \\
+	$\rhd$ z.B. Verwendung von \texttt{try-with-resources} \\
+	\hspace{0.4cm} $\diamond$ Ressourcen werden automatisch in jedem Fall wieder geschlossen \\
+	\hspace{0.4cm} $\diamond$ Ressourcen werden auf das zeitliche Minimum beschränkt} \\ \hline
+
+	\makecell[l]{Pareto Regel} & \makecell[l]{
+	$\rhd$ Allgemein statistische Regel aus der VWL \\
+	$\rhd$ Übertragung auf das Thema effiziente Software: \\
+	\hspace{0.4cm} $\diamond$ Nur wenige Quelltext is für den Großteil der Ineffizienz verantwortlich \\
+	$\rhd$ Konsequenz für Effizienzverbesserungen: \\
+	\hspace{0.4cm} $\diamond$ 1. Prüfen wo die Effizienzverluste auftreten \\
+	\hspace{0.4cm} $\diamond$ 2. Bei Verbesserungen auf diese Stellen konzentrieren} \\ \hline
+
+	\end{tabular}
+
+	\pagebreak
+
+\subsection*{Hauptaspekt der Effizient - Laufzeit}
+
+	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
+	\makecell[l]{Laufzeit messen} & \makecell[l]{
+	$\rhd$ Grundlegende Unterscheidungen: \\
+	\hspace{0.4cm} $\diamond$ Gewöhnliche Zeit vs CPU-Zeit \\
+	\hspace{0.6cm} - Gewöhnliche Zeit: wieviel Zeit seit dem Start vergangen ist \\
+	\hspace{0.6cm} - CPU-Zeit: Wieviel Rechenzeit der Thread bisher hatte \\
+	\hspace{0.6cm} - CPU-Zeit deswegen meist effizientere Betrachtung \\
+	\hspace{0.4cm} $\diamond$ User Time vs System Time \\
+	\hspace{0.6cm} - User Time: bislang verbrauchte CPU-Zeit für Prozess \\
+	\hspace{0.6cm} - System Time: Vom System für den Prozess verbrauchte CPU-Zeit \\
+	\hspace{0.6cm} - CPU-Zeit = User Time + System Time \\
+	$\rhd$ Gewöhnliche Zeit Messung: \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{long startTime = System.currentTimeMillis();} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{..some code..;} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{System.out.print(System.currentTimeMillis() - startTime);} \\
+	\hspace{0.4cm} $\diamond$ auch noch Methode \texttt{nanoTime()} \\
+	\hspace{0.6cm} - Jedoch nur Garantie, dass diese auf Millisekunden genau ist \\
+	$\rhd$ CPU-Zeit Messung: \\
+	\hspace{0.4cm} $\diamond$ Messung im aufgerufenen Thread: \\
+	\hspace{0.6cm} 1 \hspace{0.1cm} \texttt{import java.lang.management.*;} \\
+	\hspace{0.6cm} 2 \hspace{0.1cm} \texttt{ThreadMXBean bean = ManagementFactory.getThreadMXBean();} \\
+	\hspace{0.6cm} 3 \hspace{0.1cm} \texttt{long startTimeCpu = bean.getCurrentThreadCpuTime();} \\
+	\hspace{0.6cm} 4 \hspace{0.1cm} \texttt{long startTimeUser = bean.getCurrentThreadUserTime();} \\
+	\hspace{0.6cm} 5 \hspace{0.1cm} \texttt{long cpuTime = bean.getCurrentThreadCpuTime()-startTimeCpu;} \\
+	\hspace{0.6cm} 6 \hspace{0.1cm} \texttt{long userTime = bean.getCurrentThreadUserTime()-startTimeUser;} \\
+	\hspace{0.6cm} 7 \hspace{0.1cm} \texttt{long systemTime = cpuTime - userTime;} \\
+	\hspace{0.4cm} $\diamond$ Messung in anderen Threads: \\
+	\hspace{0.6cm} 1 \hspace{0.1cm} \texttt{long totalTime = 0;} \\
+	\hspace{0.6cm} 2 \hspace{0.1cm} \texttt{for (Thread thread : threads) \{} \\
+	\hspace{0.6cm} 3 \hspace{0.5cm} \texttt{long time = bean.getThreadCpuTime(thread.getId());} \\
+	\hspace{0.6cm} 4 \hspace{0.5cm} \texttt{if (time != -1) totalTime += time;} \\
+	\hspace{0.6cm} 5 \hspace{0.1cm} \texttt{\}} \\
+	\hspace{0.6cm} - Zeile 2: Durchlauf durch alle Threads \\
+	\hspace{0.6cm} - Zeile 3: Abfrage der verbrauchten CPU-Zeit eines Threads \\
+	\hspace{0.6cm} - Zeile 4: Falls Thread schon terminiert, wird -1 zurückgeliefert \\
+	$\rhd$ Kommerzielle Tools zur Zeitmessung (Profiler): \\
+	\hspace{0.4cm} $\diamond$ JVM Profiler: \\
+	\hspace{0.6cm} - CPU-Zeit, Methodenaufrufe, Speichernutzung \\
+	\hspace{0.6cm} - Abgriff dieser Daten direkt an der JVM \\
+	\hspace{0.4cm} $\diamond$ Instrumentalisierende Profiler: \\
+	\hspace{0.6cm} - Fügen weiteren Code zum Monitoring ein \\
+	\hspace{0.6cm} - \string"instrumentalisieren\string" den zu überwachenden Code \\
+	\hspace{0.6cm} - Jedoch zusätzliche Laufzeit \\
+	\hspace{0.4cm} $\diamond$ Application Performance Monitoring (APM): \\
+	\hspace{0.6cm} - instrumentialiserende Profile mit minimalistischer Datensammlung \\
+	\hspace{0.6cm} - Geringer Laufzeit-Overhead \\
+	\hspace{0.6cm} - Gesammelten Daten geben jedoch oft nur Hinweise \\
+	\hspace{0.6cm} - Geeignet für Monitoring im produktiven Einsatz} \\ \hline  
+
+	\makecell[l]{Laufzeitverbesserungen} & \makecell[l]{
+	$\rhd$ Assert-Anweisungen abschalten \\
+	$\rhd$ Werte nicht mehrfach berechnen \\
+	\hspace{0.4cm} $\diamond$ z.B. Verwendung einer Methodenrückgabe für \texttt{for}-Schleifenbedingung \\
+	\hspace{0.6cm} - Stattdessen Abspeichern der Rückgabe in Konstante \\
+	\hspace{0.4cm} $\diamond$ Verwendung von Konstanten bei Doppeltberechnungen \\
+	\hspace{0.6cm} - Aufpassen auf Seiteneffekte, die z.B. durch mehrfachen Aufruf entstehen \\
+	$\rhd$ Primitive Datentypen sind schneller \\
+	\hspace{0.4cm} $\diamond$ Verwendung statt Wrapper-Klassen \\
+	\hspace{0.4cm} $\diamond$ Verzichten auf Generizität an gewissen Stellen \\
+	\hspace{0.4cm} $\diamond$ z.B. Konversion von Datenstrukturen für Berechnung in Effizientere  \\
+	\hspace{0.4cm} $\diamond$ Verzichten auf \texttt{BigInteger} und \texttt{BigDecimal} \\
+	\hspace{0.6cm} - deutlich höhere Laufzeit \\
+	$\rhd$ Inlining \\
+	\hspace{0.4cm} $\diamond$ Direkte Angabe eines Wertes statt der Benutzung der \texttt{get()}-Methode \\
+	$\rhd$ Unrolling bei Schleifen \\
+	\hspace{0.4cm} $\diamond$ Falls Fortsetzungsbedingung aufwendiger als Anweisungsblock ist \\
+	\hspace{0.4cm} $\diamond$ Ausführen der Anweisung mehrmals in einem Durchlauf \\
+	$\rhd$ \texttt{StringBuilder} bzw \texttt{StringBuffer} statt \texttt{+} \\
+	\hspace{0.4cm} $\diamond$ Durch \texttt{+} werden immer neue String Objekte erzeugt \\
+	\hspace{0.4cm} $\diamond$ \texttt{StringBuilder} um Strings ohne neue Objekte aufzubauen \\
+	\hspace{0.6cm} - \texttt{StringBuilder str = new StringBuilder("Hello");} \\
+	\hspace{0.6cm} - \texttt{str.append("!");} \\
+	\hspace{0.6cm} - \texttt{str.insert(5, "World");} \\
+	\hspace{0.4cm} $\diamond$ \texttt{StringBuffer} etwas langsamer, aber mehrere Threads möglich \\
+	$\rhd$ Speicherplatz spendieren \\
+	\hspace{0.4cm} $\diamond$ Opfern von Speicherplatz für bessere Laufzeit \\
+	$\rhd$ Cache-Awareness \\
+	\hspace{0.4cm} $\diamond$ Daten werden aus dem Cache über Register in die CPU geladen \\
+	\hspace{0.4cm} $\diamond$ Nach Verarbeitung über Register wieder in den Cache \\
+	\hspace{0.4cm} $\diamond$ Immer feste Größe an Bytes zwischen Cache und Hauptspeicher transferiert \\
+	\hspace{0.4cm} $\diamond$ Zugriffe auf Daten, die nicht im Cache sind: \texttt{Cache Misses} \\
+	\hspace{0.6cm} - \texttt{Cache Misses} kosten viel vergleichsweise viel Laufzeit \\
+	\hspace{0.4cm} $\diamond$ z.B.: Durchlauf eines Matrix-Arrays in sinnvoller Reihenfolge \\
+	$\rhd$ Minimierung Anzahl Zugriffe auf Hintergrundspeicher \\
+	\hspace{0.4cm} $\diamond$ Hintergrundspeicher: z.B. Festplatten \\
+	\hspace{0.4cm} $\diamond$ Auch Kopie fester Grö\ss e in den Hauptspeicher: \texttt{Seite} \\
+	\hspace{0.4cm} $\diamond$ Zugriff auf Information, die nicht im Hauptspeicher ist: \texttt{Page Fault} \\
+	\hspace{0.4cm} $\diamond$ Datenstruktur \texttt{B-Baum}: \\
+	\hspace{0.6cm} - Minimiert Anzahl der Zugriffe auf Hintergrundspeicher \\
+	\hspace{0.6cm} - Wird in fast jedem Datenbanksystem verwendet \\
+	\hspace{0.6cm} - Näheres in AuD-Veranstaltung \\
+	$\rhd$ Threads vermeiden \\
+	\hspace{0.4cm} $\diamond$ Können Laufzeit verbessern, aber auch eventuell verschlechtern \\
+	\hspace{0.4cm} $\diamond$ Threads zur Designverbesserung fragwürdig \\ 
+	$\rhd$ Tools suchen und verwenden \\
+	\hspace{0.4cm} $\diamond$ Aggresive Optimierung: \\
+	\hspace{0.6cm} - Java Byte Code nicht besonders gut optimiert \\
+	\hspace{0.6cm} - \texttt{Virtual Dispatch} an vielen Stellen wegoptimieren \\
+	\hspace{0.4cm} $\diamond$ Native Code Compilation: \\
+	\hspace{0.6cm} - Übersetzung in Maschinencode statt Java Byte Code \\
+	\hspace{0.6cm} - Ist um Größenordnungen schneller, aber nicht portabel } \\ \hline
+
+	\makecell[l]{Asymptotische \\ Komplexität} & \makecell[l]{
+	$\rhd$ Zur Vereinfachung: erst nur \texttt{User Time} \\
+	\hspace{0.4cm} $\diamond$ Schätzung der Laufzeit durch eine mathematische Funktion \\
+	\hspace{0.6cm} - In Kennzahlen, die die Problemgröße beschreiben \\
+	\hspace{0.6cm} - Mathematische Überlegungen und/oder empirische Laufzeitstudien \\
+	\hspace{0.6cm} - Es können auch mehrere Problemgrö\ss en vorhanden sein \\
+	\hspace{0.4cm} $\diamond$ Representative Operation Counts \\
+	\hspace{0.6cm} - Identifikation der Anweisungen, die die Laufzeit dominieren könnten \\
+	\hspace{0.6cm} - Ausführungen zählen für mathematische Überlegungen \\
+	\hspace{0.6cm} - Laufzeiten akkumulieren bei Laufzeitstudien \\
+	\hspace{0.6cm} - Akkumulation: Verwendung der Zeitmessung + Akkumulator \\
+	$\rhd$ Asymptotische Komplexität  am Beispiel der linearen/binären Suche: \\
+	\hspace{0.4cm} $\diamond$ Asymptotische Komplexität \texttt{(AK)} gibt an, in welcher Grö\ss enordnung die \\ 
+	\hspace{0.8cm} Laufzeit des Algorithmus  mit der Problemgrö\ss e wächst \\
+	\hspace{0.6cm} - \texttt{AK} von linearer Suche ist linear \\
+	\hspace{0.6cm} - \texttt{AK} von binärer Suche ist logarithmisch \\
+	$\rhd$ \texttt{Worst Case} und \texttt{Best Case} am selben Beispiel \\
+	\hspace{0.4cm} $\diamond$ Problemgrö\ss e hier: Zahl $N$ der zu durchsuchenden Werte \\
+	\hspace{0.6cm} - also die Länge des Arrays \\
+	\hspace{0.4cm} $\diamond$ Für jede Problemgrö\ss e gibt es einen \texttt{Worst} und \texttt{Best Case} \\
+	\hspace{0.6cm} - Zwei mathematische Funktionen in der Problemgrö\ss e \\
+	\hspace{0.4cm} $\diamond$ \texttt{Best Case}: \\
+	\hspace{0.6cm} - Fall, der die geringste Laufzeit produziert \\ 
+	\hspace{0.6cm} - Hier: das erste angeschautete Element ist größer/gleich dem gesuchten \\
+	\hspace{0.6cm} - Die Laufzeit im \texttt{Best} Case hängt \textbf{hier} nicht von $N$ ab \\
+	\hspace{0.4cm} $\diamond$ \texttt{Worst Case}: \\
+	\hspace{0.6cm} - Fall, der die grö\ss te Laufzeit produziert \\
+	\hspace{0.6cm} - Hier: Man muss die ganze Schleife durchlaufen \\
+	\hspace{0.6cm} - Lineare Suche: $N$ Durchläufe \\
+	\hspace{0.6cm} - Binäre Suche: ca. $\log_2N$ Durchläufe \\
+	\hspace{0.4cm} $\diamond$ Bei großen Werte von $N$ alle Operationen außer Schleife unerheblich \\
+	\hspace{0.4cm} $\diamond$ Die Laufzeit pro Durchlauf variiert nur in engen Grenzen \\
+	\hspace{0.4cm} $\diamond$ Die Laufzeiten pro Durchlauf bewegen sich in relativ engen Korridor \\
+	\hspace{0.6cm} - $[c_1 * N ~ ... ~ c_2 * N]$ bei linearer Suche im \texttt{Worst Case} \\
+	\hspace{0.6cm} - $[c_3 * \log_2 N ~ ... ~ c_4 * \log_2 N]$ bei binärer Suche im \texttt{Worst Case}	\\
+	\hspace{0.4cm} $\diamond$ Im \texttt{Best Case} bei beiden: $[c_5 ~ ... ~ c_6]$ \textbf{unabhängig von $N$} \\
+	$\rhd$ Schreibweise \\
+	\hspace{0.4cm} $\diamond$ Seien $f: \mathbb{N} \rightarrow \mathbb{R}$ und $g: \mathbb{N} \rightarrow \mathbb{R}$ \\
+	\hspace{0.4cm} $\diamond$ Annahme: Es gibt beliebige, aber feste $c_u, c_o \in \mathbb{R}~(0 < c_u \leq c_o)$, so dass \\
+	\hspace{0.8cm} ab einer gewissen Grö\ss e der Eingabe $n$ gilt: \\
+	\hspace{3cm} $c_u * g(n) \leq f(n) \leq c_o * g(n).$ \\
+	\hspace{0.4cm} $\diamond$ Dann schreiben wir: $f \in \Theta(g).$ \\ 
+	\hspace{0.6cm} - $\Theta$: Menge aller Funktionen, die asymptotisch äquivalent zu $g$ sind \\
+	\hspace{0.6cm} - Korridor um die eine Funktion, die von der anderen nicht verlassen wird: \\ 
+	\hspace{1cm} 	asymptotisch gleich \\
+	\hspace{0.4cm} $\diamond$ Bei einer konstanten Funktion $g$ schreiben wir: $f \in \Theta(1)$ \\ 
+	\hspace{0.6cm} - Konstante Vergleichsfunktion, $f$ bleibt in einem horizontalen Korridor \\
+	\hspace{0.4cm} $\diamond$ Laufzeit bei linearer/binärer Suche: \\
+	\hspace{0.6cm} - Lineare Suche im \texttt{Worst Case}: $\in \Theta(N)$ \\
+	\hspace{0.6cm} - Binäre Suche im \texttt{Worst Case}: $\in \Theta(\log_2 N)$ \\
+	\hspace{0.6cm} - Beide im \texttt{Best Case}: $\in \Theta(1)$ \\
+	$\rhd$ Grenzen der Asymptotik \\
+	\hspace{0.4cm} $\diamond$ Nicht sinnvoll, wenn es um kleine Problemgrö\ss en geht \\
+	\hspace{0.4cm} $\diamond$ Sehr viele kleine Probleme können aber trotzdem zu Laufzeitproblemen führen} \\ \hline
+	
+	\makecell[l]{Untere und \\ obere Schranken} & \makecell[l]{
+	$\rhd$ Asymptotisches Verhalten lässt sich oft nicht genau einschätzen \\
+	\hspace{0.4cm} $\diamond$ Verwendung von oberen und unteren Schranken \\
+	$\rhd$ Zwei mathematische Funktionen $g_u$ und $g_o$, so dass $f$ \\
+	\hspace{0.4cm} $\diamond$ \texttt{mindestens} so schnell wie $g_u$ und \\
+	\hspace{0.4cm} $\diamond$ \texttt{höchstens} so schnell wie $g_o$ wächst. \\
+	$\rhd$ Bis jetzt als asymptotischen Vergleich nur $\Theta()$ für asymptotische Gleichheit \\
+	$\rhd$ Schreibweise für grö\ss er/kleiner-Vergleich: \\
+	\hspace{0.4cm} $\diamond$ Seien $f,g: \mathbb{N} \rightarrow \mathbb{R}^+$. \\
+	\hspace{0.4cm} $\diamond$ Wir schreiben $f \in o(g)$, wenn $\lim_{n\rightarrow \infty} \frac{f(n)}{g(n)} = 0$ \\
+	\hspace{0.6cm} - $g(n)$ wächst schneller als $f(n)$ \\
+	\hspace{0.4cm} $\diamond$ $f \in o(g)$ und $f \in \Theta(g)$ schließen sich logisch aus \\
+	\hspace{0.6cm} - Gleiche Asmyptotik und echt unterschiedliche Asymptotik schlie\ss en sich aus \\
+	\hspace{0.6cm} - Die schneller wachsende Funktion verlässt den Korridor um die Langsamere \\ 
+	\hspace{0.4cm} $\diamond$ Gibt auch Funktionen, wo weder $f \in o(g)$ oder $f \in \Theta(g)$ gilt \\
+	\hspace{0.6cm} - Funktionen sind unvergleichbar \\
+	$\rhd$ Kleiner-gleich/Grö\ss er-gleich: \\
+	\hspace{0.4cm} $\diamond$ Seien wieder $f,g: \mathbb{N} \rightarrow \mathbb{R}^+$. \\
+	\hspace{0.4cm} $\diamond$ $f \in O(g)$, wenn $f \in \Theta(g)$ oder $f \in o(g)$ ist \\
+	\hspace{0.4cm} $\diamond$ $f \in \Omega(g)$, wenn $g \in \Theta(g)$ oder $g \in o(f)$ ist \\
+	\hspace{0.4cm} $\diamond$ Offentslich gilt $f \in O(g)$ genau dann, wenn $g \in \Omega(f)$ gilt \\
+	\hspace{0.6cm} - $f$ kleiner-gleich $g$ $\rightarrow$ $g$ grö\ss er-gleich $f$ \\
+	$\rhd$ Regeln für $\Theta, O, \Omega$ und $o$ (Seien $f,g,h: \mathbb{N} \rightarrow \mathbb{R}^+)$ \\
+	\hspace{0.4cm} $\diamond$ $\Theta$ induziert eine Äquivalenzrelation, das heißt, es gilt: \\
+	\hspace{0.6cm} - \textbf{Reflexiv}: $f \in \Theta(f)$ \\ 
+	\hspace{0.8cm} - Funktion verläuft in einem Korridor um sich selbst \\
+	\hspace{0.6cm} - \textbf{Symmetrisch}: Wenn $f \in \Theta(g)$, dann ist $g \in \Theta(f)$ \\
+	\hspace{0.8cm} - Gegenseitiges Verlaufen im jeweils anderen Korridor \\
+	\hspace{0.6cm} - \textbf{Transitiv}: Wenn $f \in \Theta(g)$ und $g \in \Theta(h)$, dann auch $f \in \Theta(h)$ \\
+	\hspace{0.8cm} - Transitive Schlussfolgerung über Korridorverläufe \\
+	\hspace{0.4cm} $\diamond$ $O$ induziert eine partielle Ordnung bzgl. $\Theta$, das heißt, es gilt: \\
+	\hspace{0.6cm} - Reflexiv: $f \in O(f)$ \\
+	\hspace{0.6cm} - Antisymmetrisch: Wenn $f \in O(g)$ und $g \in O(f)$, dann ist $f \in \Theta(f)$ \\
+	\hspace{0.6cm} - Transitiv: Wenn $f \in O(g)$ und $g \in O(h)$, dann auch $f \in O(h)$ \\
+	\hspace{0.4cm} $\diamond$ $o$ induziert die strikte partielle Ordnung zu $O$: \\
+	\hspace{0.6cm} - Antireflexiv (d.h. $f \notin O(f)$), antisymmetrisch und transitiv } \\ \hline
+
+	\makecell[l]{Average Case} & \makecell[l]{
+	$\rhd$ Ausgangssituation: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Worst Case} und \texttt{Best Case} gehen ernsthaft auseinander \\ 
+	\hspace{0.4cm} $\diamond$ Der Algorithmus wird sehr viele Male aufgerufen \\
+	$\rhd$ Ziel: \\
+	\hspace{0.4cm} $\diamond$ durchschnittliche Laufzeit durch mathematische Funktion beschreiben \\
+	\hspace{0.6cm} - \texttt{Average Case} \\
+	$\rhd$ Methodisches Problem: \\
+	\hspace{0.4cm} $\diamond$ Basiert darauf, wie wahrscheinlich die möglichen Eingaben sind \\
+	\hspace{0.4cm} $\diamond$ Wahrscheinlichkeitsverteilung / Erwartungswert \\
+	\hspace{0.6cm} - Oft nicht einmal ungefähr bestimmbar \\
+	\hspace{0.6cm} - Daher \texttt{Average Case} nur selten theoretisch betrachtet \\
+	\hspace{0.6cm} - Jedoch Laufzeitstudien auf den realen Daten \\
+	$\rhd$ Beispiel Primzahltest: \\
+	\hspace{0.4cm} $\diamond$ 1. Alle Zahlen $2...N$ sind gleich wahrscheinlich \\
+	\hspace{0.6cm} - $\Omega(\sqrt{n} / \log_e n)$ und $O(\sqrt{n})$ im \texttt{Average Case} \\
+	\hspace{0.6cm} - \texttt{Worst Case} $O(\sqrt{n})$ ist obere Schranke für \texttt{Average Case} \\
+	\hspace{0.4cm} $\diamond$ 2. Primzahlen und Nichtprimzahlen sind gleich wahrscheinlich \\
+	\hspace{0.6cm} - $\Theta(\sqrt{n})$ im \texttt{Average Case} \\
+	\hspace{0.4cm} $\diamond$ 3. Nur gerade Zahlen \\
+	\hspace{0.6cm} - $\Theta(1)$ im \texttt{Average Case} 
+	$\rhd$ Beispiel Lineare Suche: \\
+	\hspace{0.4cm} $\diamond$ Alle Suchwerte 0...\texttt{Integer.MAX\_VALUE} sind gleich wahrscheinlich \\
+	\hspace{0.6cm} - $\Theta(n)$ im \texttt{Average Case} bei "normalen" Werten im Array \\
+	\hspace{0.4cm} $\diamond$ Nur Zahlen, die im Array sind, werden gesucht \\
+	\hspace{0.6cm} - $\Theta(n)$ im \texttt{Average Case} \\
+	\hspace{0.4cm} $\diamond$ Nur Zahlen, die nicht größer, als der kleinste Wert im Array sind \\
+	\hspace{0.6cm} - $\Theta(1)$ im \texttt{Average Case}} \\ \hline
+	\end{longtable}
+	
+
+	
 
 
 \end{document}
