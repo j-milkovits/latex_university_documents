@@ -1821,7 +1821,10 @@
 	$\rhd$ Klassen beginnen mit Gro\ss buchstaben (\texttt{testClass}) \\
 	$\rhd$ Wortanfänge im Inneren mit Gro\ss buchstaben \\
 	$\rhd$ Konstanten bestehen aus $\_$ und Gro\ss buchstaben (\texttt{CENTS$\_$PER$\_$EURO}) \\
-	$\rhd$ Packagenamen nur aus Kleinbuchstaben und \_ bei unzulässigen Zeichen} \\ \hline
+	$\rhd$ Packagenamen nur aus Kleinbuchstaben und \_ bei unzulässigen Zeichen \\
+	$\rhd$ Boolesche Bestandteile: Prädikate (\texttt{isGreen}) \\
+	$\rhd$ Andere Bestandteile mit Wert: Beschreibung des Wertes \\
+	$\rhd$ Subroutinen ohne Rückgabe: Imperativ (\texttt{fillOval})} \\ \hline
 	
 	\makecell[l]{Kommentare} & \makecell[l]{
 	$\rhd$ \texttt{//} Einzelne Zeile \\
@@ -2613,9 +2616,149 @@
 	\hspace{0.6cm} - $\Theta(n)$ im \texttt{Average Case} \\
 	\hspace{0.4cm} $\diamond$ Nur Zahlen, die nicht größer, als der kleinste Wert im Array sind \\
 	\hspace{0.6cm} - $\Theta(1)$ im \texttt{Average Case}} \\ \hline
+
 	\end{longtable}
 	
+\section{Anhang: Fehlersuche und fehlervermeidender Entwurf}
 
+\subsection*{Fehlersuche}
+
+	\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
+	\makecell[l]{Fehlersuche} & \makecell[l]{
+	$\rhd$ Auftreten des Fehlers vs Ursache des Fehlers \\
+	\hspace{0.4cm} $\diamond$ Stelle, an der Fehler auftritt nicht immer Stelle, an der Fehler passiert ist \\
+	\hspace{0.4cm} $\diamond$ Zurückverfolgen der Fehlerursache \\
+	$\rhd$ Fehlerursache: \\
+	\hspace{0.4cm} $\diamond$ Wo zum erstel Mal eine Vor-/Nachbedingung, In-/Variante nicht erfüllt ist \\
+	$\rhd$ Finden des Fehlers mithilfe von \texttt{Assert}-Anweisungen \\
+	$\rhd$ Wenn Fehlerursache nicht klar: \\
+	\hspace{0.4cm} $\diamond$ Weitere \texttt{Assert}-Anweisungen, die weiter zurückgehen \\
+	\hspace{0.4cm} $\diamond$ Temporäre \texttt{Assert}-Anweisungen für kritischen Datensatz \\
+	\hspace{0.6cm} - Hinzufügen eines bestimmten Kommentars für späteres Entfernen \\
+	$\rhd$ Fehler in Bibliothekskomponente eher auszuschließen \\
+	$\rhd$ Falls undurchschaubar: verdächtigen Quelltext neu implementieren} \\ \hline  
+
+	\makecell[l]{Laufzeittests} & \makecell[l]{
+	$\rhd$ Black-Box-Tests \\
+	\hspace{0.4cm} $\diamond$ Testen einer Klasse von außen, ohne hineinzuschauen \\
+	\hspace{0.4cm} $\diamond$ Verwenden von \texttt{JUnit}-Tests \\
+	\hspace{0.4cm} $\diamond$ Jedoch auch spezifischere \texttt{Assert}-Anweisungen möglich \\
+	\hspace{0.4cm} $\diamond$ Prüfung der Darstellungsinvariante bei Klassen/Interfaces \\
+	\hspace{0.4cm} $\diamond$ Prüfung der Nachbedingung bei Subroutinen  
+	$\rhd$ White-Box-Tests \\
+	\hspace{0.4cm} $\diamond$ Hauptsächlich \texttt{Assert}-Anweisungen \\
+	\hspace{0.4cm} $\diamond$ Implementationsinvarianten von Klassen \\
+	\hspace{0.4cm} $\diamond$ Vor- und Nachbedingungen von Anweisungen \\
+	\hspace{0.4cm} $\diamond$ Schleifen(in)varianten \\
+	$\rhd$ Vorhergehensweise: \\
+	\hspace{0.4cm} $\diamond$ Testumgebung parallel zum eigentlichen Code entwickeln \\
+	\hspace{0.4cm} $\diamond$ Änderung der Testumgebung falls Code-Änderung \\
+	\hspace{0.4cm} $\diamond$ Beim Finden eines Fehlers: Einbau eines neuen Tests \\
+	$\rhd$ Coverage/Fehlerabdeckung: \\
+	\hspace{0.4cm} $\diamond$ Randfälle: \\ 
+	\hspace{0.6cm} - z.B.: Dreiecke: Alle Ecken auf einer Linie \\
+	\hspace{0.4cm} $\diamond$ Bei Verzweigungen: jeder mögliche Pfad: \\
+	\hspace{0.6cm} - Überprüfen jedes verschiedenen Ergebnisses \\
+	\hspace{0.4cm} $\diamond$ $n$-verknüpfte \texttt{if}-Abfragen = $2^n$ Fälle zu testen} \\ \hline
+	
+	\end{tabular}
+
+\subsection*{Fehlervermeidender Entwurf}
+
+	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
+	\makecell[l]{Verbesserung} & \makecell[l]{
+	$\rhd$ Prinzipien und Techniken für fehlervermeidenden Entwurf verbessern auch: \\
+	\hspace{0.4cm} $\diamond$ Wartbarkeit \\
+	\hspace{0.4cm} $\diamond$ Modifizierbarkeit \\
+	\hspace{0.4cm} $\diamond$ Erweiterbarkeit  } \\ \hline
+	
+	\makecell[l]{KISS} & \makecell[l]{
+	$\rhd$ \string"keep it simple, stupid!\string" \\
+	$\rhd$ Dekomposition in kleine, überschaubare Einheiten (Klassen, Subroutinen, etc.) \\
+	$\rhd$ Programm muss nicht unbedingt besonders \string"raffiniert\string" sein \\
+	$\rhd$ Zerlegung in intuitiv sofort verständliche, realitätsabbildende Einheiten \\
+	$\rhd$ Gut gewählte Identifier für Einheiten \\
+	$\rhd$ Verwendung der für Java festgelegten Namenskonventionen \\
+	\hspace{0.4cm} $\diamond$ Generelle Regel: \\
+	\hspace{0.6cm} - \textbf{Alle wichtigen} Aspekte zu Wortbestandteilen machen \\
+	\hspace{0.6cm} - Identifier ist der einzige Kommentar, der bei Nutzung dabei steht \\
+	\hspace{0.6cm} - Falls Identifier zu lang werden $\rightarrow$ Struktur gemä\ss KISS überdenken \\
+	\hspace{0.4cm} $\diamond$ Ausnahmen: \\
+	\hspace{0.6cm} - Typische mathematische Notation (x,y,..) \\
+	\hspace{0.6cm} - Packagenamen eher kurz \\
+	\hspace{0.6cm} - Verwendung von allgemein bekannten Abkürzungen } \\ \hline
+
+	\makecell[l]{Separation of \\ Concerns (SoC)} & \makecell[l]{
+	$\rhd$ Zerlegung der Gesamtaufgabe in verschiedene Aspekte \\
+	$\rhd$ Beispiele in der Java-Standardbibliothek: \\
+	\hspace{0.4cm} $\diamond$ Runnable vs Thread \\
+	\hspace{0.6cm} - Zerlegung der Funktionalität von Threads in zwei Concerns \\
+	\hspace{0.4cm} $\diamond$ Component vs Listener vs Event \\
+	\hspace{0.4cm} $\diamond$ Collections.sort vs Comparator \\
+	$\rhd$ Sinn von SoC: \\
+	\hspace{0.4cm} $\diamond$ Übersichtlichere Programmstruktur \\
+	\hspace{0.4cm} $\diamond$ Wiederverwendbarkeit \\
+	\hspace{0.4cm} $\diamond$ Austauschbarkeit - selektiv und unabhängig} \\ \hline	
+
+	\makecell[l]{Model-View-Controller } & \makecell[l]{
+	$\rhd$ Wichtigstes Beispiel für SoC - MVC \\
+	$\rhd$ Relevant für Programme mit starkem GUI-Bezug \\
+	$\rhd$ Logikteile des Programms von Sachen, wie der Darstellung, separieren \\
+	$\rhd$ Aufbau: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Model}: \\
+	\hspace{0.6cm} - Die eigentliche Logik des Programms \\
+	\hspace{0.4cm} $\diamond$ \texttt{View}: \\
+	\hspace{0.6cm} - Darstellung der Modelldaten \\
+	\hspace{0.6cm} - Interaktion mit dem Nutzer \\
+	\hspace{0.4cm} $\diamond$ \texttt{Controller}: \\
+	\hspace{0.6cm} - Verwaltung des Programmlaufs \\ 
+	\hspace{0.6cm} - Häufig eher klein \\
+	$\rhd$ Beispiel Schachprogramm: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Model}: \\
+	\hspace{0.6cm} - In welcher Zeile/Spalte Figur steht \\
+	\hspace{0.6cm} - Vorwissen über den Spieler \\
+	\hspace{0.6cm} - Subroutine zur Berechnung des nächsten Zugs \\
+	\hspace{0.4cm} $\diamond$ \texttt{View}: \\
+	\hspace{0.6cm} - Darstellung des Schachbretts auf dem Bildschirm \\
+	\hspace{0.6cm} - Annahme der Nutzereingaben (Komplette GUI-Verwaltung) \\
+	\hspace{0.6cm} - Die ersten Schritte der Nutzereingaben sind in \texttt{View} \\
+	\hspace{0.4cm} $\diamond$ \texttt{Controller}: \\
+	\hspace{0.6cm} - Wer spielt, ob gerade ein Spiel läuft \\
+	\hspace{0.6cm} - Schicht zwischen \texttt{Model} und \texttt{Controller} oft dünn \\
+	$\rhd$ Datenflüsse (Schach): \\
+	\hspace{0.4cm} $\diamond$ Von der \texttt{View} zum \texttt{Model}: Welchen Zug der Spieler gemacht hat \\
+	\hspace{0.6cm} - Einzig notwendige Information für \texttt{Model}: von wo nach wo Figur gezogen \\
+	\hspace{0.4cm} $\diamond$ Vom \texttt{Model} zur \texttt{View}: Ob Spielerzug korrekt war und Ergebnis des \texttt{Model} \\
+	\hspace{0.4cm} $\diamond$ Vom \texttt{Model} zum \texttt{Controller}: Ob das Spiel zu Ende ist + Ergebnis \\
+	\hspace{0.4cm} $\diamond$ Von \texttt{View} zum \texttt{Controller}: \\
+	\hspace{0.6cm} - Drücken des Buttons für neues Spiel \\
+	\hspace{0.6cm} - Drücken des Buttons für Programmende \\
+	\hspace{0.4cm} $\diamond$ Vom \texttt{Controller} zum \texttt{Model} und \texttt{View}: \\
+	\hspace{0.6cm} - Beginn eines neuen Spiels \\
+	\hspace{0.6cm} - Anzeige des aktuellen Rankings \\
+	\hspace{0.4cm} $\diamond$ Ansonsten sind die Teile völlig unabhängig voneinander \\
+	$\rhd$ Umsetzung in Java (Schach): \\ 
+	\hspace{0.4cm} $\diamond$ Fenster enthält Schachbrett + weitere Buttons \\
+	\hspace{0.6cm} - von \texttt{View} gezeichnet \\
+	\hspace{0.4cm} $\diamond$ An jeder GUI-Komponente hängen spezifische Listener \\
+	\hspace{0.4cm} $\diamond$ Datenfluss von den Listenern: \\
+	\hspace{0.6cm} - am Spielbrett (z.B. Canvas): Züge des Spielers $\rightarrow$ an das \texttt{Model} \\
+	\hspace{0.6cm} - an Buttons für z.B. Spielende $\rightarrow$ an den \texttt{Controller} \\
+	\hspace{0.6cm} - an Buttons für Änderung der Darstellung $\rightarrow$ an die \texttt{View} \\
+	$\rhd$ Vorteile von \texttt{MVC}: \\
+	\hspace{0.4cm} $\diamond$ Änderung einer Komponente $\rightarrow$ Minimale Änderung der anderen \\
+	\hspace{0.4cm} $\diamond$ \texttt{View} und \texttt{Controller} sind problemlos austauschbar \\
+	\hspace{0.6cm} - z.B. neue Plattform $\rightarrow$ Anderes \texttt{View} \\
+	\hspace{0.4cm} $\diamond$ Mehrere Views gleichzeitig sind möglich \\
+	\hspace{0.6cm} - Verschieden gestaltet, verschiedene Geräte,.. \\
+	\hspace{0.6cm} - Konsistent aufgrund des \texttt{Model} unabhängig von \texttt{View} \\
+	 } \\ \hline
+
+	\end{longtable}
 	
 
 
