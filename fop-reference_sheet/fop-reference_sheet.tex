@@ -33,14 +33,6 @@
 \pagenumbering{arabic} % 1,2,3 on content pages
 
 \begin{comment}
-	\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | }
-	\hline
-	
-	
-	\end{tabular}
-\end{comment}
-
-
 \section{Stuff that I skipped cuz of chapter 4}
 
 \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
@@ -57,7 +49,7 @@
 	\makecell[l]{ActionListener Lambda} & \makecell[l]{$\rhd$ Kapitel 10: 68-69  } \\ \hline
 
 	\end{tabular}
-
+\end{comment}
 
 \section{Collections}
 	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | }
@@ -115,7 +107,7 @@
 	\hspace{0.6cm} - Identisch zu Methode \texttt{set}, jedoch ein Unterschied: \\
 	\hspace{0.6cm} - Überschreibt das Element \textbf{nicht}, sondern fügt es vor dem Element ein } \\ \hline
 
-	\makecell[l]{Sortieren mit Comparator} & \makecell[l]{
+	\makecell[l]{Sortieren mit \\ Comparator} & \makecell[l]{
 	$\rhd$ Klasse \texttt{Collections} hat Klassenmethode \texttt{sort} \\
 	$\rhd$ \texttt{Collections.sort(list, new MyComparator());} \\
 	\hspace{0.4cm} $\diamond$ Erster Parameter: Zu sortierende Liste (z.B.: \texttt{List<Student> list = ...}) \\
@@ -155,7 +147,7 @@
 	\hspace{0.6cm} - Attribut vom selben Elementtyp mit Namen \texttt{next} \\
 	\hspace{0.4cm} $\diamond$ Abspeichern des sogenannten \texttt{head}, dieser speichert die Liste \\
 	\hspace{0.4cm} $\diamond$ Die Liste wird durch die Verkettung untereinander mit \texttt{next} erstellt \\
-	$\rhd$ Die folgenden Beispiele sollen nur die Logik hinter der Klasse erläutern
+	$\rhd$ Die folgenden Beispiele sollen nur die Logik hinter der Klasse erläutern \\
 	$\rhd$ Durchlauf durch alle Elemente: (\textbf{LOGIK})\\
 	\hspace{0.4cm} $\diamond$ (Die eigentliche Implementation in Java sieht anders aus) \\
 	\hspace{0.4cm} $\diamond$ \texttt{for (ListItem<T> p = head; p != null; p = p.next) \{...\}} \\
@@ -600,6 +592,8 @@
 	\end{longtable}
 
 
+\pagebreak
+
 \section{Graphical User Interface}
 	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | }
 	\hline
@@ -654,7 +648,7 @@
 	\hspace{0.6cm} - Setzt den Titel des \texttt{Button}
 	} \\ \hline
 
-	\makecell[l]{Interface ActionListener} & \makecell[l]{
+	\makecell[l]{Interface \\ ActionListener} & \makecell[l]{
 	$\rhd$ Zugehörig zu \texttt{Button} \\
 	$\rhd$ Aus Package \texttt{java.awt.event} \\
 	$\rhd$ Funktionales Interface \\
@@ -682,7 +676,7 @@
 	\hspace{0.6cm} - \texttt{Timestamp stamp = new Timestamp (event.getWhen());} \\ 
 	\hspace{0.6cm} - Methoden: \texttt{stamp.getHour(); stamp.getMinute();}} \\ \hline
 
-	\makecell[l]{Übersicht Listener und \\ Events} & \makecell[l]{
+	\makecell[l]{Übersicht Listener \\ und Events} & \makecell[l]{
 	$\rhd$ \texttt{Listener}-Interface $\leftrightarrow$ \texttt{Event}-Klasse \\
 	$\rhd$ \texttt{KeyListener} $\leftrightarrow$ \texttt{KeyEvent} \\
 	$\rhd$ \texttt{MouseListener} $\leftrightarrow$ \texttt{MouseEvent} \\
@@ -743,7 +737,7 @@
 	\hspace{0.4cm} 9 \hspace{0.1cm} \texttt{\}}
 	} \\ \hline
 
-	\makecell[l]{Interface MouseListener} & \makecell[l]{
+	\makecell[l]{Interface \\ MouseListener} & \makecell[l]{
 	$\rhd$ Abhorchen der Maus \\
 	$\rhd$ Erstellen eigener Klasse, die die Klasse \texttt{MouseAdapter} erweitert \\
 	\hspace{0.4cm} $\diamond$ \texttt{MouseAdapter} implementiert alle drei \texttt{Mouse}-Interfaces \\
@@ -829,7 +823,7 @@
 	\hspace{0.4cm} $\diamond$ Hinzufügen zum \texttt{Frame} mithilfe von \texttt{add} \\
 	$\rhd$ Beleuchtung nützlicher Aspekte von Graphics: \\
 	$\rhd$ \texttt{FontMetrics} \\
-	\hspace{0.4cm} $\diamond$ Informationen über festgelegte Schriftart und Schriftgröße \\
+	\hspace{0.4cm} $\diamond$ Informationen über festgelegte Schriftart und Schriftgrö\ss e \\
 	\hspace{0.4cm} $\diamond$ Abfrage: \\
 	\hspace{0.6cm} - \texttt{FontMetrics fontM = graphics.getFontMetrics();} \\
 	\hspace{0.4cm} $\diamond$ Abfrage der maximalen Stringhöhe: \\
@@ -906,7 +900,7 @@
 	$\rhd$ Konstruktor:  \\
 	\hspace{0.4cm} $\diamond$ \texttt{List(int rows, boolean multipleMode)} \\
 	\hspace{0.4cm} $\diamond$ \texttt{rows} gibt die maximale Anzahl der zugleich angezeigten Menüpunkte an \\
-	\hspace{0.4cm} $\diamond$ Anzahl der Möglichkeiten größer als \texttt{rows} $\rightarrow$ Scrollbar \\
+	\hspace{0.4cm} $\diamond$ Anzahl der Möglichkeiten grö\ss er als \texttt{rows} $\rightarrow$ Scrollbar \\
 	\hspace{0.4cm} $\diamond$ \texttt{multipleMode}: Auswahl mehrerer Menüpunkte ermöglichen \\
 	$\rhd$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{add(String item)} \\
@@ -976,7 +970,7 @@
 	$\rhd$ Leerer Text: \texttt{(\string"\string")} \\
 	\hspace{0.4cm} $\diamond$ z.B.: Vergleich mit momentanem Text mit \texttt{equals}} \\ \hline
 
-	\makecell[l]{Interface FocusListener} & \makecell[l]{
+	\makecell[l]{Interface \\ FocusListener} & \makecell[l]{
 	$\rhd$ Verwendung bei \texttt{TextArea} \\
 	$\rhd$ Kein funktionales Interface, trotzdem keine Adapter-Klasse \\
 	$\rhd$ Vorhergehensweise analog zu \texttt{ActionListener} \\
@@ -1031,7 +1025,7 @@
 	\hspace{0.4cm} $\diamond$ \texttt{validate()} \\
 	\hspace{0.6cm} - Aktualisierung nach z.B.: Grö\ss enänderung } \\ \hline
 
-	\makecell[l]{Klasse LayoutManager} & \makecell[l]{
+	\makecell[l]{Klasse \\ LayoutManager} & \makecell[l]{
 	$\rhd$ Wird bei Erstellung eines \texttt{Containers} oder Subtyps automatisch eingerichtet \\
 	\hspace{0.4cm} $\diamond$ Standardklasse für für \texttt{Window} und \texttt{Frame} ist \texttt{BorderLayout} \\
 	$\rhd$ \texttt{BorderLayout} \\
@@ -1051,12 +1045,12 @@
 	\hspace{0.4cm} $\diamond$ Matrixartiges Anlegen (wie Telefontastatur) \\
 	\hspace{0.4cm} $\diamond$ Anzahl Zeilen und Spalten im Konstruktor festgelegt \\
 	$\rhd$ \texttt{BorderLayout, BoxLayout und GridLayout}: \\
-	\hspace{0.4cm} $\diamond$ Passen Größe der Komponenten anhand der Gesamtsituation an \\
-	\hspace{0.4cm} $\diamond$ Nicht unbedingt passendste Größe für Komponente \\
+	\hspace{0.4cm} $\diamond$ Passen Grö\ss e der Komponenten anhand der Gesamtsituation an \\
+	\hspace{0.4cm} $\diamond$ Nicht unbedingt passendste Grö\ss e für Komponente \\
 	$\rhd$ \texttt{FlowLayout} \\
 	\hspace{0.4cm} $\diamond$ Anlegen in einer Zeile nebeneinander \\
 	\hspace{0.6cm} - Anfangen einer Zeile, falls die alte voll ist \\
-	\hspace{0.4cm} $\diamond$ Wählt automatisch die bestmöglichste Größe für Komponenten \\
+	\hspace{0.4cm} $\diamond$ Wählt automatisch die bestmöglichste Grö\ss e für Komponenten \\
 	\hspace{0.6cm} - Abfrage über \texttt{getPreferredSize()} \\
 	$\rhd$ \texttt{CardLayout} \\
 	\hspace{0.4cm} $\diamond$ Zeigt Komponenten nicht alle gleichzeitig, sondern nacheinander \\
@@ -1067,7 +1061,7 @@
 	\hspace{0.6cm} - Ändern der Anzahl von Komponenten \\
 	\hspace{0.6cm} - Ändern der Grö\ss e von Komponenten (auch Schrift)} \\ \hline
 
-	\makecell[l]{Java Swing (javax.swing)} & \makecell[l]{
+	\makecell[l]{Java Swing \\ (javax.swing)} & \makecell[l]{
 	$\rhd$ \texttt{java.awt} als Grundlage \\
 	$\rhd$ Zweite Bibliothek, die die Funktionalitäten erweitert \\
 	$\rhd$ Verbindung zu \texttt{java.awt}: \\
@@ -1189,9 +1183,7 @@
 	
 	\end{longtable}
 
-
-
-
+\pagebreak
 
 \section{Generics}
 	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | }
@@ -1437,7 +1429,7 @@
 	\hspace{0.4cm} $\diamond$ \texttt{String toString() \{...\} // Zustand des Objekts als String } \\
 	\hspace{0.4cm} $\diamond$ Werden oft an jeweilige Klasse angepasst } \\ \hline
 	
-	\makecell[l]{Verborgene Informationen} & \makecell[l]{
+	\makecell[l]{Verborgene \\ Informationen} & \makecell[l]{
 	$\rhd$ Jedes Objekt einer Klasse erhält einen Verweis auf ein anonymes Objekt \\
 	$\rhd$ Dieses anonyme Objket wird für jede Klasse nur einmal eingerichtet \\
 	$\rhd$ Enthät Informatiuonen zur Klasse, Attribute und Methoden der Klasse \\
@@ -1446,27 +1438,27 @@
 	\hspace{0.4cm} $\diamond$ Ermöglicht, die Feststellung der Klasse zur Laufzeit \\
 	\hspace{0.4cm} $\diamond$ Methode in Supertyp und Substyp haben den selben Index (Position) } \\ \hline
 
-	\makecell[l]{Verschachtelte Klassen} & \makecell[l]{
+	\makecell[l]{Verschachtelte \\ Klassen} & \makecell[l]{
 	$\rhd$ Einbettung von Klasse in andere Klasse \\
 	$\rhd$ Eingebettete Klasse sind ähnlich einem Attribut einer Klasse \\
 	$\rhd$ Zum Beispiel:
 	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{public class X \{} \\
 	\hspace{0.4cm} 2 \hspace{0.5cm} \texttt{private class Y \{...\}} \\
 	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{\}} \\
-	$\rhd$ \texttt{Y} ist in diesem Fall die innere, \texttt{X} die äußere Klasse \\
+	$\rhd$ \texttt{Y} ist in diesem Fall die innere, \texttt{X} die äu\ss ere Klasse \\
 	$\rhd$ Innere Klasse darf: \\
 	\hspace{0.4cm} $\diamond$ Alle Identifier möglich \\
-	$\rhd$ Äußere Klasse darf: \\
+	$\rhd$ Äu\ss ere Klasse darf: \\
 	\hspace{0.4cm} $\diamond$ Nur \texttt{public} oder ohne \texttt{public}, kein \texttt{private} oder \texttt{protected} \\
 	$\rhd$ Maximal eine Klasse darf \texttt{public} sein $\rightarrow$ Name der Quelldatei \\
 	$\rhd$ Innere Klassen sind davon allerdings nicht betroffen \\
 	$\rhd$ Objekterzeugung: \\
-	\hspace{0.4cm} $\diamond$ Erstellung von Objekten der inneren Klasse über Objekt der äußeren Klasse \\ 
+	\hspace{0.4cm} $\diamond$ Erstellung von Objekten der inneren Klasse über Objekt der äu\ss eren Klasse \\ 
 	\hspace{0.4cm} $\diamond$ Automatische Erzeugung eines Verweises auf Erzeugungsobjekt \\
 	\hspace{0.4cm} $\diamond$ \texttt{X a = new X(); a.newY();} \\
 	$\rhd$  Aufruf: \\
 	\hspace{0.4cm} $\diamond$ \texttt{OuterClass.InnerClass x = ...;} \\
-	\hspace{0.4cm} $\diamond$ Äußere Klasse + Innere Klasse durch Punkt getrennt \\
+	\hspace{0.4cm} $\diamond$ Äu\ss ere Klasse + Innere Klasse durch Punkt getrennt \\
 	$\rhd$ \texttt{static}: \\
 	\hspace{0.4cm} $\diamond$ \texttt{static} auch bei inneren Klassen möglich \\
 	\hspace{0.4cm} $\diamond$ Kann nur auf Klassenmethoden und -attribite zugreifen \\
@@ -1851,6 +1843,8 @@
 
 	\end{tabular}
 
+\pagebreak
+
 \section{Threads}
 
 	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | }
@@ -1937,7 +1931,7 @@
 	$\rhd$ Methode \texttt{parallelStream()} \\
 	\hspace{0.4cm} $\diamond$ Kann, aber muss nicht, aufteilen \\
 	\hspace{0.4cm} $\diamond$ Liefert den selben Stream als Rückgabetyp zurück \\
-	\hspace{0.4cm} $\diamond$ bequeme Möglichkeit zur Verarbeitung großer Datenmengen } \\ \hline
+	\hspace{0.4cm} $\diamond$ bequeme Möglichkeit zur Verarbeitung gro\ss er Datenmengen } \\ \hline
 
 	\end{longtable}
 
@@ -2121,19 +2115,19 @@
 	\hline 
 	
 	\makecell[l]{Gebrochene Zahlen} & \makecell[l]{
-	$\rhd$ {makebox[2cm][l]\texttt{float}} 32 Bits \\
-	$\rhd$ {makebox[2cm][l]\texttt{double}} 64 Bits} \\ \hline
+	$\rhd$ {\makebox[2cm][l]{\texttt{float}}} 32 Bits \\
+	$\rhd$ {\makebox[2cm][l]{\texttt{double}}} 64 Bits} \\ \hline
 	
 	\makecell[l]{Probleme mit \\ Ungenauigkeiten} & \makecell[l]{
 	$\rhd$ Umkehrrechnungen liefern nicht genau den Ausgangswert \\
-	$\rhd$ Untergehen der kleineren Zahl bei Addition extrem unterschiedlich großer Zahlen \\
-	$\rhd$ Subtraktion fast gleich großer Zahlen führt mglw. zu inkorrekten Bits \\
+	$\rhd$ Untergehen kleinerer Zahl bei Addition extrem unterschiedlich gro\ss er Zahlen \\
+	$\rhd$ Subtraktion fast gleich gro\ss er Zahlen führt mglw. zu inkorrekten Bits \\
 	$\rhd$ Ersetzen des Tests auf Gleichheit durch \string"ausreichend nahe beieinander"} \\ \hline
 
 	\makecell[l]{Interne Darstellung} & \makecell[l]{
 	$\rhd$ $+3.14159E17$ \\
 	$\rhd$ \texttt{Vorzeichen}: Wird als binäre Information in einem einzelnen Bit abgespeichert \\
-	$\rhd$ \texttt{Basis}: Im Literal zur \texttt{Basis} 10, intern zur \texttt{Basis} 2
+	$\rhd$ \texttt{Basis}: Im Literal zur \texttt{Basis} 10, intern zur \texttt{Basis} 2 \\
 	$\rhd$ \texttt{Mantisse}: Die Gleitkommadarstellung der Zahl ($3.14159$) \\
 	$\rhd$ \texttt{Exponent}: Hier $17$, Angabe der zu multiplizierende Potenz } \\ \hline
 
@@ -2157,6 +2151,7 @@
 
 	\end{tabular}
 
+\pagebreak
 
 \section{Anhang: Korrekte Software}
 
@@ -2192,7 +2187,7 @@
 	\hspace{0.6cm} - z.B. ob Variable typgerechet verwendet wird \\
 	$\rhd$ Syntaxfehler werden meist durch \texttt{Compiler} gefunden \\
 	$\rhd$ Korrekte Klammersetzung: \\
-	\hspace{0.4cm} $\diamond$ Zu jeder öffnenden Klammer genau eine nachfolgende schließende Klammer \\
+	\hspace{0.4cm} $\diamond$ Zu jeder öffnenden Klammer genau eine nachfolgende schlie\ss ende Klammer \\
 	\hspace{0.4cm} $\diamond$ Zwei Klammerpaare immer nacheinander oder ineinander \\
 	$\rhd$ Syntaktische Konstrukte: \\
 	\hspace{0.4cm} $\diamond$ Bildung anhand vorgegebener Struktur \\
@@ -2242,7 +2237,7 @@
 	$\rhd$ Kein Programmabbruch durch Fehler \\
 	$\rhd$ Termination, wenn: \\
 	\hspace{0.4cm} $\diamond$ Aufgabe erledigt \\
-	\hspace{0.4cm} $\diamond$ Befehl zur Termination von außen \\
+	\hspace{0.4cm} $\diamond$ Befehl zur Termination von au\ss en \\
 	$\rhd$ Korrekte Ausgaben und Effekte} \\ \hline
 
 	\makecell[l]{Korrektheit von \\ Klassen} & \makecell[l]{
@@ -2280,7 +2275,7 @@
 	\hspace{0.4cm} $\diamond$ Implementationsinvariante muss bei \texttt{protected}-Attributen der Basisklasse  \\
 	\hspace{0.8cm} übernommen werden \\
 	\hspace{0.6cm} - \texttt{private}-Attribute nicht relevant, unter Kontrolle der Basisklasse \\
-	\hspace{0.4cm} $\diamond$ Übernommen werden heißt: \\
+	\hspace{0.4cm} $\diamond$ Übernommen werden hei\ss t: \\
 	\hspace{0.6cm} - Darf erweitert und verfeinert werden \\
 	\hspace{0.6cm} - \textbf{Nichts} darf zurückgenommen werden} \\ \hline
 
@@ -2292,12 +2287,12 @@
 	\hspace{0.4cm} $\diamond$ Vorbedingungen: \\
 	\hspace{0.6cm} - Implementationsinvariante vor dem Aufruf eingehalten \\
 	\hspace{0.6cm} - Parameter müssen gewisse Bedingungen erfüllen \\
-	\hspace{0.6cm} - Variable/Konstante außerhalb der Klasse \\
+	\hspace{0.6cm} - Variable/Konstante au\ss erhalb der Klasse \\
 	\hspace{0.6cm} - Externe Datenquellen (z.B. Dateien) \\
 	\hspace{0.4cm} $\diamond$ Nachbedingungen: \\
 	\hspace{0.6cm} - Implementationsinvariante nach dem Aufruf eingehalten \\
 	\hspace{0.6cm} - Rückgabewert muss von bestimmtem Typ sein \\
-	\hspace{0.6cm} - Variable außerhalb der Klasse \\
+	\hspace{0.6cm} - Variable au\ss erhalb der Klasse \\
 	\hspace{0.6cm} - Externe Datenquellen (z.B. Dateien) \\
 	$\rhd$ Aufbau des Vertrags: \\
 	\hspace{0.4cm} $\diamond$ \texttt{Type} \\
@@ -2316,7 +2311,7 @@
 	\hspace{0.4cm} $\diamond$ Schritt näher an den Rekursionsabbruch \\
 	$\rhd$ Beweis der Korrektheit mithilfe von Induktion: \\
 	\hspace{0.4cm} $\diamond$ Induktionsbehauptung: Aufstellen für \texttt{Problemgrö\ss e} \\
-	\hspace{0.4cm} $\diamond$ Induktionsanfang: z.B.: \texttt{Problemgröße} = 1 \\
+	\hspace{0.4cm} $\diamond$ Induktionsanfang: z.B.: \texttt{Problemgrö\ss e} = 1 \\
 	\hspace{0.4cm} $\diamond$ Induktionsvorraussetzung: Der Vertrag gelte für ... \\
 	\hspace{0.4cm} $\diamond$ Induktionschritt: z.B.: Verringerung der Listenlänge } \\ \hline
 
@@ -2346,7 +2341,7 @@
 	\hline 
 	
 	\makecell[l]{Speicherplatz} & \makecell[l]{
-	$\rhd$ Heutzutage z.B. auch bei größeren Datenmengen noch relevant \\
+	$\rhd$ Heutzutage z.B. auch bei grö\ss eren Datenmengen noch relevant \\
 	$\rhd$ Begriffe: \\
 	\hspace{0.4cm} $\diamond$ Begrenzter Objektspeicher: \texttt{Heap} \\
 	\hspace{0.4cm} $\diamond$ Voller Speicher: \texttt{OutOfMemoryError} \\
@@ -2381,7 +2376,7 @@
 	\makecell[l]{Pareto Regel} & \makecell[l]{
 	$\rhd$ Allgemein statistische Regel aus der VWL \\
 	$\rhd$ Übertragung auf das Thema effiziente Software: \\
-	\hspace{0.4cm} $\diamond$ Nur wenige Quelltext is für den Großteil der Ineffizienz verantwortlich \\
+	\hspace{0.4cm} $\diamond$ Nur wenige Quelltext is für den Gro\ss teil der Ineffizienz verantwortlich \\
 	$\rhd$ Konsequenz für Effizienzverbesserungen: \\
 	\hspace{0.4cm} $\diamond$ 1. Prüfen wo die Effizienzverluste auftreten \\
 	\hspace{0.4cm} $\diamond$ 2. Bei Verbesserungen auf diese Stellen konzentrieren} \\ \hline
@@ -2473,7 +2468,7 @@
 	$\rhd$ Cache-Awareness \\
 	\hspace{0.4cm} $\diamond$ Daten werden aus dem Cache über Register in die CPU geladen \\
 	\hspace{0.4cm} $\diamond$ Nach Verarbeitung über Register wieder in den Cache \\
-	\hspace{0.4cm} $\diamond$ Immer feste Größe an Bytes zwischen Cache und Hauptspeicher transferiert \\
+	\hspace{0.4cm} $\diamond$ Immer feste Grö\ss e an Bytes zwischen Cache und Hauptspeicher transferiert \\
 	\hspace{0.4cm} $\diamond$ Zugriffe auf Daten, die nicht im Cache sind: \texttt{Cache Misses} \\
 	\hspace{0.6cm} - \texttt{Cache Misses} kosten viel vergleichsweise viel Laufzeit \\
 	\hspace{0.4cm} $\diamond$ z.B.: Durchlauf eines Matrix-Arrays in sinnvoller Reihenfolge \\
@@ -2494,12 +2489,12 @@
 	\hspace{0.6cm} - \texttt{Virtual Dispatch} an vielen Stellen wegoptimieren \\
 	\hspace{0.4cm} $\diamond$ Native Code Compilation: \\
 	\hspace{0.6cm} - Übersetzung in Maschinencode statt Java Byte Code \\
-	\hspace{0.6cm} - Ist um Größenordnungen schneller, aber nicht portabel } \\ \hline
+	\hspace{0.6cm} - Ist um Grö\ss enordnungen schneller, aber nicht portabel } \\ \hline
 
 	\makecell[l]{Asymptotische \\ Komplexität} & \makecell[l]{
 	$\rhd$ Zur Vereinfachung: erst nur \texttt{User Time} \\
 	\hspace{0.4cm} $\diamond$ Schätzung der Laufzeit durch eine mathematische Funktion \\
-	\hspace{0.6cm} - In Kennzahlen, die die Problemgröße beschreiben \\
+	\hspace{0.6cm} - In Kennzahlen, die die Problemgrö\ss e beschreiben \\
 	\hspace{0.6cm} - Mathematische Überlegungen und/oder empirische Laufzeitstudien \\
 	\hspace{0.6cm} - Es können auch mehrere Problemgrö\ss en vorhanden sein \\
 	\hspace{0.4cm} $\diamond$ Representative Operation Counts \\
@@ -2519,14 +2514,14 @@
 	\hspace{0.6cm} - Zwei mathematische Funktionen in der Problemgrö\ss e \\
 	\hspace{0.4cm} $\diamond$ \texttt{Best Case}: \\
 	\hspace{0.6cm} - Fall, der die geringste Laufzeit produziert \\ 
-	\hspace{0.6cm} - Hier: das erste angeschautete Element ist größer/gleich dem gesuchten \\
+	\hspace{0.6cm} - Hier: das erste angeschautete Element ist grö\ss er/gleich dem gesuchten \\
 	\hspace{0.6cm} - Die Laufzeit im \texttt{Best} Case hängt \textbf{hier} nicht von $N$ ab \\
 	\hspace{0.4cm} $\diamond$ \texttt{Worst Case}: \\
 	\hspace{0.6cm} - Fall, der die grö\ss te Laufzeit produziert \\
 	\hspace{0.6cm} - Hier: Man muss die ganze Schleife durchlaufen \\
 	\hspace{0.6cm} - Lineare Suche: $N$ Durchläufe \\
 	\hspace{0.6cm} - Binäre Suche: ca. $\log_2N$ Durchläufe \\
-	\hspace{0.4cm} $\diamond$ Bei großen Werte von $N$ alle Operationen außer Schleife unerheblich \\
+	\hspace{0.4cm} $\diamond$ Bei gro\ss en Werte von $N$ alle Operationen au\ss er Schleife unerheblich \\
 	\hspace{0.4cm} $\diamond$ Die Laufzeit pro Durchlauf variiert nur in engen Grenzen \\
 	\hspace{0.4cm} $\diamond$ Die Laufzeiten pro Durchlauf bewegen sich in relativ engen Korridor \\
 	\hspace{0.6cm} - $[c_1 * N ~ ... ~ c_2 * N]$ bei linearer Suche im \texttt{Worst Case} \\
@@ -2562,7 +2557,7 @@
 	\hspace{0.4cm} $\diamond$ Seien $f,g: \mathbb{N} \rightarrow \mathbb{R}^+$. \\
 	\hspace{0.4cm} $\diamond$ Wir schreiben $f \in o(g)$, wenn $\lim_{n\rightarrow \infty} \frac{f(n)}{g(n)} = 0$ \\
 	\hspace{0.6cm} - $g(n)$ wächst schneller als $f(n)$ \\
-	\hspace{0.4cm} $\diamond$ $f \in o(g)$ und $f \in \Theta(g)$ schließen sich logisch aus \\
+	\hspace{0.4cm} $\diamond$ $f \in o(g)$ und $f \in \Theta(g)$ schlie\ss en sich logisch aus \\
 	\hspace{0.6cm} - Gleiche Asmyptotik und echt unterschiedliche Asymptotik schlie\ss en sich aus \\
 	\hspace{0.6cm} - Die schneller wachsende Funktion verlässt den Korridor um die Langsamere \\ 
 	\hspace{0.4cm} $\diamond$ Gibt auch Funktionen, wo weder $f \in o(g)$ oder $f \in \Theta(g)$ gilt \\
@@ -2574,14 +2569,14 @@
 	\hspace{0.4cm} $\diamond$ Offentslich gilt $f \in O(g)$ genau dann, wenn $g \in \Omega(f)$ gilt \\
 	\hspace{0.6cm} - $f$ kleiner-gleich $g$ $\rightarrow$ $g$ grö\ss er-gleich $f$ \\
 	$\rhd$ Regeln für $\Theta, O, \Omega$ und $o$ (Seien $f,g,h: \mathbb{N} \rightarrow \mathbb{R}^+)$ \\
-	\hspace{0.4cm} $\diamond$ $\Theta$ induziert eine Äquivalenzrelation, das heißt, es gilt: \\
+	\hspace{0.4cm} $\diamond$ $\Theta$ induziert eine Äquivalenzrelation, das hei\ss t, es gilt: \\
 	\hspace{0.6cm} - \textbf{Reflexiv}: $f \in \Theta(f)$ \\ 
 	\hspace{0.8cm} - Funktion verläuft in einem Korridor um sich selbst \\
 	\hspace{0.6cm} - \textbf{Symmetrisch}: Wenn $f \in \Theta(g)$, dann ist $g \in \Theta(f)$ \\
 	\hspace{0.8cm} - Gegenseitiges Verlaufen im jeweils anderen Korridor \\
 	\hspace{0.6cm} - \textbf{Transitiv}: Wenn $f \in \Theta(g)$ und $g \in \Theta(h)$, dann auch $f \in \Theta(h)$ \\
 	\hspace{0.8cm} - Transitive Schlussfolgerung über Korridorverläufe \\
-	\hspace{0.4cm} $\diamond$ $O$ induziert eine partielle Ordnung bzgl. $\Theta$, das heißt, es gilt: \\
+	\hspace{0.4cm} $\diamond$ $O$ induziert eine partielle Ordnung bzgl. $\Theta$, das hei\ss t, es gilt: \\
 	\hspace{0.6cm} - Reflexiv: $f \in O(f)$ \\
 	\hspace{0.6cm} - Antisymmetrisch: Wenn $f \in O(g)$ und $g \in O(f)$, dann ist $f \in \Theta(f)$ \\
 	\hspace{0.6cm} - Transitiv: Wenn $f \in O(g)$ und $g \in O(h)$, dann auch $f \in O(h)$ \\
@@ -2614,7 +2609,7 @@
 	\hspace{0.6cm} - $\Theta(n)$ im \texttt{Average Case} bei "normalen" Werten im Array \\
 	\hspace{0.4cm} $\diamond$ Nur Zahlen, die im Array sind, werden gesucht \\
 	\hspace{0.6cm} - $\Theta(n)$ im \texttt{Average Case} \\
-	\hspace{0.4cm} $\diamond$ Nur Zahlen, die nicht größer, als der kleinste Wert im Array sind \\
+	\hspace{0.4cm} $\diamond$ Nur Zahlen, die nicht grö\ss er, als der kleinste Wert im Array sind \\
 	\hspace{0.6cm} - $\Theta(1)$ im \texttt{Average Case}} \\ \hline
 
 	\end{longtable}
@@ -2637,12 +2632,12 @@
 	\hspace{0.4cm} $\diamond$ Weitere \texttt{Assert}-Anweisungen, die weiter zurückgehen \\
 	\hspace{0.4cm} $\diamond$ Temporäre \texttt{Assert}-Anweisungen für kritischen Datensatz \\
 	\hspace{0.6cm} - Hinzufügen eines bestimmten Kommentars für späteres Entfernen \\
-	$\rhd$ Fehler in Bibliothekskomponente eher auszuschließen \\
+	$\rhd$ Fehler in Bibliothekskomponente eher auszuschlie\ss en \\
 	$\rhd$ Falls undurchschaubar: verdächtigen Quelltext neu implementieren} \\ \hline  
 
 	\makecell[l]{Laufzeittests} & \makecell[l]{
 	$\rhd$ Black-Box-Tests \\
-	\hspace{0.4cm} $\diamond$ Testen einer Klasse von außen, ohne hineinzuschauen \\
+	\hspace{0.4cm} $\diamond$ Testen einer Klasse von au\ss en, ohne hineinzuschauen \\
 	\hspace{0.4cm} $\diamond$ Verwenden von \texttt{JUnit}-Tests \\
 	\hspace{0.4cm} $\diamond$ Jedoch auch spezifischere \texttt{Assert}-Anweisungen möglich \\
 	\hspace{0.4cm} $\diamond$ Prüfung der Darstellungsinvariante bei Klassen/Interfaces \\
@@ -2773,10 +2768,10 @@
 	\hspace{0.4cm} $\diamond$ Änderung Funktionalität, die zu Effekten bei Verwendung des Basistyps führt \\
 	\hspace{0.6cm} - z.B. ein Subtyp von \texttt{List} zählt ab 1 statt ab 0 \\
 	$\rhd$ Unterstützung für LSP in Java: \\
-	\hspace{0.4cm} $\diamond$ Der Kopf der überschriebenen Methode darf nur im engen Maße abweichen \\
+	\hspace{0.4cm} $\diamond$ Der Kopf der überschriebenen Methode darf nur im engen Ma\ss e abweichen \\
 	\hspace{0.6cm} - Kette der Zugriffsrechte \\
 	\hspace{0.6cm} - Verwendung eines Subtyps des Rückgabewerts als Rückgabewert \\
-	\hspace{0.6cm} - Werfen von Subtypen der original geworfenen Exception
+	\hspace{0.6cm} - Werfen von Subtypen der original geworfenen Exception \\
 	$\rhd$ Sicherheitslücke um Subtypen von Arrays zuzulassen: \\
 	\hspace{0.4cm} $\diamond$ \texttt{Y} ist Subtyp von \texttt{X} \\
 	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{X[] a = new Y[200];} \\
@@ -2792,7 +2787,7 @@
 	\hspace{0.6cm} - \texttt{...throws UnsupportedOperationException \{...\}} \\
 	\hspace{0.6cm} - Abgeleitet von \texttt{RuntimeException}, muss also nicht gefangen werden \\
 	\hspace{0.6cm} - Allerdings gefährlich, da potentiell Programmabbruch \\
-	\hspace{0.4cm} $\diamond$ Methode in Subklasse macht dann nichts außer diese \texttt{Exception} zu werfen \\
+	\hspace{0.4cm} $\diamond$ Methode in Subklasse macht dann nichts au\ss er diese \texttt{Exception} zu werfen \\
 	\hspace{0.4cm} $\diamond$ Interfaces stellen potentielle Lösung dar (\texttt{Mixin}) \\
 	} \\ \hline
 
@@ -2807,11 +2802,11 @@
 	
 	\makecell[l]{Bisherige Konzepte} & \makecell[l]{
 	$\rhd$ \texttt{Racket}: \\
-	\hspace{0.4cm} $\diamond$ Funktionen, die auf verschiedenen Typen mit versch. Operationen arbeiten können \\
+	\hspace{0.4cm} $\diamond$ Funktionen, die auf versch. Typen mit versch. Operationen arbeiten können \\
 	\hspace{0.6cm} - z.B. \texttt{foldr}, \texttt{map}, ... \\
 	$\rhd$ \texttt{Java}: \\
 	\hspace{0.4cm} $\diamond$ Ableitungen von Klassen / Implementierung von Interfaces \\
-	\hspace{0.6cm} - Polymorphie hier: Speicherung eines Subtyp-Objekts in Referenz des Basistyps \\
+	\hspace{0.6cm} - Speicherung eines Subtyp-Objekts in Referenz des Basistyps \\
 	\hspace{0.6cm} - Typ in gewissen Grenzen frei wählbar \\
 	\hspace{0.4cm} $\diamond$ Ad-hoc Polymorphie (eher primitiv) \\
 	\hspace{0.6cm} - Methodenüberladung und implizite Konversion \\
@@ -2852,12 +2847,12 @@
 
 \subsection*{Abstraktion und Polymorphie}
 
-	\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
 	\hline 
 	
 	\makecell[l]{Abstraktion} & \makecell[l]{
-	$\rhd$ Chaos an Entitäten gedanklich in geeigneter Form strukturieren
-	\hspace{0.4cm} $\diamond$ Zuordnung der Entitäten zu passenden Kategorien
+	$\rhd$ Chaos an Entitäten gedanklich in geeigneter Form strukturieren \\
+	\hspace{0.4cm} $\diamond$ Zuordnung der Entitäten zu passenden Kategorien \\
 	\hspace{0.6cm} - \texttt{Differenzierung} \\
 	\hspace{0.4cm} $\diamond$ Bei jeder Kategorie: \\
 	\hspace{0.6cm} - Herausfaktorisieren des Gemeinsamen aller Elemente in der Kategorie \\
@@ -2915,7 +2910,7 @@
 	\makecell[l]{Duck-Typing \\ objektorientiert} & \makecell[l]{
 	$\rhd$ rein dynamische Polymorphie \\
 	$\rhd$ \texttt{Reflection} in Java (\texttt{java.lang.reflect.*}) \\
-	\hspace{0.4cm} $\diamond$ \texttt{Java Beans}: Duck-Typing Konzept, das auf \texttt{Reflection} beruht
+	\hspace{0.4cm} $\diamond$ \texttt{Java Beans}: Duck-Typing Konzept, das auf \texttt{Reflection} beruht \\
 	$\rhd$ Möglichkeiten zur Analyse und den Methodenaufruf eines unbekannten Objekts \\
 	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{Integer i = 123;} \\
 	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{String str = "Hello";} \\
@@ -2937,9 +2932,8 @@
 	\hspace{0.6cm} - Parameter müssen natürlich übereinstimmen \\
 	\hspace{0.4cm} $\diamond$ Duck-Typing Anpassung: \\
 	\hspace{0.6cm} - Übergabe eines \texttt{Object obj} an Methode oben \\
-	\hspace{0.6cm} - \texttt{Class<?> c = obj.getClass();} \\
-	\hspace{0.6cm} - $\rightarrow$ \textbf{dynamische Prüfung} } \\ \hline
+	\hspace{0.6cm} - \texttt{Class<?> c = obj.getClass();} $\rightarrow$ \textbf{dynamische Prüfung} } \\ \hline
 
-	\end{tabular}
+	\end{longtable}
 
 \end{document}
