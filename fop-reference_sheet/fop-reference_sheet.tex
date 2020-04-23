@@ -2755,10 +2755,50 @@
 	\hspace{0.6cm} - z.B. neue Plattform $\rightarrow$ Anderes \texttt{View} \\
 	\hspace{0.4cm} $\diamond$ Mehrere Views gleichzeitig sind möglich \\
 	\hspace{0.6cm} - Verschieden gestaltet, verschiedene Geräte,.. \\
-	\hspace{0.6cm} - Konsistent aufgrund des \texttt{Model} unabhängig von \texttt{View} \\
-	 } \\ \hline
+	\hspace{0.6cm} - Konsistent aufgrund des \texttt{Model} unabhängig von \texttt{View}} \\ \hline
+
+	\makecell[l]{Konformität} & \makecell[l]{
+	$\rhd$  Konformität von Subtypen zu ihren Basistypen \\
+	$\rhd$ Liskov Substitution Principle (LSP): \\
+	\hspace{0.4cm} $\diamond$ Jede Aussage über das logische Verhalten der Basisklasse muss \\
+	\hspace{0.8cm} auch für die abgeleitete Klasse gelten. \\
+	\hspace{0.4cm} $\diamond$ Konstantes Ergebnis, falls statischer und dynamischer Typ ungleich sind \\
+	\hspace{0.4cm} $\diamond$ Relevant beim Überschreiben von Methoden \\
+	$\rhd$ Erlaubt nach LSP beim Überschreiben im Subtyp sind: \\
+	\hspace{0.4cm} $\diamond$ Anpassung der Funktionalität an die Besonderheiten des Subtyps \\
+	\hspace{0.6cm} - z.B. \texttt{read} von \texttt{Reader} / \texttt{BufferedReader} \\
+	\hspace{0.4cm} $\diamond$ Zusätzliche Funktionalität, die keinen Effekt auf erwartetes Verhalten hat \\ 
+	\hspace{0.6cm} - z.B. \texttt{Window} und \texttt{Frame} // Hinzufügen eines Rahmens \\
+	$\rhd$ Verboten nach LSP beim Überschreiben im Subtyp ist \\
+	\hspace{0.4cm} $\diamond$ Änderung Funktionalität, die zu Effekten bei Verwendung des Basistyps führt \\
+	\hspace{0.6cm} - z.B. ein Subtyp von \texttt{List} zählt ab 1 statt ab 0 \\
+	$\rhd$ Unterstützung für LSP in Java: \\
+	\hspace{0.4cm} $\diamond$ Der Kopf der überschriebenen Methode darf nur im engen Maße abweichen \\
+	\hspace{0.6cm} - Kette der Zugriffsrechte \\
+	\hspace{0.6cm} - Verwendung eines Subtyps des Rückgabewerts als Rückgabewert \\
+	\hspace{0.6cm} - Werfen von Subtypen der original geworfenen Exception
+	$\rhd$ Sicherheitslücke um Subtypen von Arrays zuzulassen: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Y} ist Subtyp von \texttt{X} \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{X[] a = new Y[200];} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{X x = a[150];} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{a[150] = new X();} \\
+	\hspace{0.4cm} $\diamond$ Zeile 1: Zuweisen von ArrayObjekten des Subtyps ist kein Problem \\
+	\hspace{0.4cm} $\diamond$ Zeile 2: Lesender Zugriff auf die Komponenten des Arrays auch nicht \\
+	\hspace{0.4cm} $\diamond$ Zeile 3: Diese Anweisung geht zwar durch den Compiler, aber ist falsch \\
+	\hspace{0.4cm} $\diamond$ Werfen einer \texttt{ArrayStoreException extends RunTimeException} \\
+	$\rhd$ Methoden, die für abgeleitete Klasse potentiell unpassend sind: \\
+	\hspace{0.4cm} $\diamond$ Stichwort: Kreis-Ellipse-Dilemma \\
+	\hspace{0.4cm} $\diamond$ In Basisklasse Definition mit \texttt{Exception} \\
+	\hspace{0.6cm} - \texttt{...throws UnsupportedOperationException \{...\}} \\
+	\hspace{0.6cm} - Abgeleitet von \texttt{RuntimeException}, muss also nicht gefangen werden \\
+	\hspace{0.6cm} - Allerdings gefährlich, da potentiell Programmabbruch \\
+	\hspace{0.4cm} $\diamond$ Methode in Subklasse macht dann nichts außer diese \texttt{Exception} zu werfen \\
+	\hspace{0.4cm} $\diamond$ Interfaces stellen potentielle Lösung dar (\texttt{Mixin}) \\
+	} \\ \hline
 
 	\end{longtable}
+
+\section{Anhang: Polymorphie}
 	
 
 
