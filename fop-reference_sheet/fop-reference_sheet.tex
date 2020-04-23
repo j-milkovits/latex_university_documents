@@ -2800,6 +2800,146 @@
 
 \section{Anhang: Polymorphie}
 	
+\subsection*{Generelle Einteilung} 
 
+	\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
+	\makecell[l]{Bisherige Konzepte} & \makecell[l]{
+	$\rhd$ \texttt{Racket}: \\
+	\hspace{0.4cm} $\diamond$ Funktionen, die auf verschiedenen Typen mit versch. Operationen arbeiten können \\
+	\hspace{0.6cm} - z.B. \texttt{foldr}, \texttt{map}, ... \\
+	$\rhd$ \texttt{Java}: \\
+	\hspace{0.4cm} $\diamond$ Ableitungen von Klassen / Implementierung von Interfaces \\
+	\hspace{0.6cm} - Polymorphie hier: Speicherung eines Subtyp-Objekts in Referenz des Basistyps \\
+	\hspace{0.6cm} - Typ in gewissen Grenzen frei wählbar \\
+	\hspace{0.4cm} $\diamond$ Ad-hoc Polymorphie (eher primitiv) \\
+	\hspace{0.6cm} - Methodenüberladung und implizite Konversion \\
+	\hspace{0.4cm} $\diamond$  \texttt{Generics} \\
+	\hspace{0.6cm} - Typparameter sind die polymorphen Typen} \\ \hline  
+	
+	\makecell[l]{Einteilung von \\ Konzepten} & \makecell[l]{
+	$\rhd$ Betrachung von zwei Zeitpunkten \\
+	\hspace{0.4cm} $\diamond$ Zeitpunkt der Übersetzung \\
+	\hspace{0.4cm} $\diamond$ Zeitpunkt an dem Ablauf an der Stelle im Quelltext ist \\
+	$\rhd$ Konformitätsprüfung: \\
+	\hspace{0.4cm} $\diamond$ zur Kompilierzeit $\rightarrow$ statische Prüfung \\
+	\hspace{0.4cm} $\diamond$ zur Laufzeit $\rightarrow$ dynamische Prüfung \\
+	$\rhd$ Ansteuerung der korrekten Implementation: (Auswahl der Subroutinen für Typ)\\
+	\hspace{0.4cm} $\diamond$ zur Kompilierzeit $\rightarrow$ statische Bindung \\
+	\hspace{0.4cm} $\diamond$ zur Laufzeit $\rightarrow$ dynamische Bindung \\
+	$\rhd$ Funktionen in \texttt{Racket}: \\
+	\hspace{0.4cm} $\diamond$ Dynamische Prüfung (wird geprüft, wenn die Operation ausgeführt wird) \\
+	\hspace{0.4cm} $\diamond$ Dynamische Bindung (Steuerung nach erfolgreicher Prüfung) \\
+	$\rhd$ \texttt{Java} - Klassen ableiten / Interfaces implementieren: \\
+	\hspace{0.4cm} $\diamond$ Statische Prüfung (Inspektion des Quelltexts ausreichend) \\
+	\hspace{0.4cm} $\diamond$ Dynamische Bindung (Auswahl welcher Implementation erst beim Aufruf) \\
+	$\rhd$ \texttt{Java} - Ad-hoc Polymorphie: \\
+	\hspace{0.4cm} $\diamond$ Statische Prüfung \\
+	\hspace{0.4cm} $\diamond$ Statische Bindung (Impliziten Konversionen) \\
+	\hspace{0.4cm} $\diamond$ Dynamische Bindung (Methodenüberladung) \\
+	\hspace{0.6cm} - Hier wäre generell aber auch statische Bindung möglich (Java-spezifisch) \\
+	$\rhd$ \texttt{Java}-\texttt{Generics}: \\
+	\hspace{0.4cm} $\diamond$ Statische Prüfung (Überprüfung ob Typparameter passend) \\
+	\hspace{0.4cm} $\diamond$ Dynamische Bindung \\
+	\hspace{0.6cm} - Auch hier statische Bindung eigentlich möglich \\ 
+	$\rhd$ Typische Begriffe: \\
+	\hspace{0.4cm} $\diamond$ \textbf{Duck-Typing}: dynamische Prüfung und Bindung \\
+	\hspace{0.4cm} $\diamond$ \textbf{Subtyppolymorphie}: statische Prüfung und dynamische Bindung \\ 
+	\hspace{0.4cm} $\diamond$ \textbf{Generizität}: statische Prüfung und Bindung } \\ \hline
+
+	\end{tabular}
+
+\subsection*{Abstraktion und Polymorphie}
+
+	\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+	\hline 
+	
+	\makecell[l]{Abstraktion} & \makecell[l]{
+	$\rhd$ Chaos an Entitäten gedanklich in geeigneter Form strukturieren
+	\hspace{0.4cm} $\diamond$ Zuordnung der Entitäten zu passenden Kategorien
+	\hspace{0.6cm} - \texttt{Differenzierung} \\
+	\hspace{0.4cm} $\diamond$ Bei jeder Kategorie: \\
+	\hspace{0.6cm} - Herausfaktorisieren des Gemeinsamen aller Elemente in der Kategorie \\
+	\hspace{0.6cm} - können auch mehrere gemeinsame, zu trennende Aspekte sein \\
+	\hspace{0.6cm} - Unterschiedliches für sich stehen lassen \\
+	\hspace{0.6cm} - \texttt{Generalisierung} \\
+	\hspace{0.4cm} $\diamond$ Beziehungen zwischen den Kategorien herstellen} \\ \hline  
+	
+	\makecell[l]{Beispiel Racket} & \makecell[l]{
+	$\rhd$ Entitäten: Datenverarbeitungsaufgaben mittels einer Durchlauf durch Liste \\
+	\hspace{0.4cm} $\diamond$ Selbe Standardaufgaben immer wieder \\
+	$\rhd$ Kategorie: \texttt{fold, filter} und \texttt{map} \\
+	$\rhd$ Bei jeder Kategorie: \\
+	\hspace{0.4cm} $\diamond$ Gemeinsamkeit in jeweilige Funktion herausfaktorisiert \\
+	\hspace{0.4cm} $\diamond$ Unterschiede: Unterschiedliche Parameter neben der Liste \\
+	$\rhd$ Beziehungen: \texttt{filter} und \texttt{map} sind \textbf{intermediate} \\
+	\hspace{0.4cm} $\diamond$ \texttt{fold} ist hingegen \textbf{terminal}} \\ \hline
+
+	\makecell[l]{Beispiel Java} & \makecell[l]{
+	$\rhd$ \texttt{Component: Button, Canvas,...} \\
+	\hspace{0.4cm} $\diamond$ Gemeinsame Abstraktion: Arten von Komponenten in GUI \\
+	\hspace{0.4cm} $\diamond$ Gemeinsamkeiten in \texttt{Component} herausfaktorisiert \\
+	$\rhd$ \texttt{Listener: KeyListener, MouseListener,...} \\
+	\hspace{0.4cm} $\diamond$ Funktionalität der \texttt{Listener} herausfaktorisiert \\
+	\hspace{0.4cm} $\diamond$ Getrennt von der jeweiligen Komponente \\
+	$\rhd$ \texttt{Event: ActionEvent, KeyEvent,...} \\
+	\hspace{0.4cm} $\diamond$ Auch \texttt{Event} aus dem Konzept \texttt{Listener} ausgelagert } \\ \hline
+
+	\makecell[l]{Abstraktion auf \\ Typebene} & \makecell[l]{
+	$\rhd$ In logischer Einheit sind ein/mehrere Typen nicht festgelegt \\
+	$\rhd$ Können bei der Nutzung aus Menge von Typen gewählt werden \\
+	$\rhd$ Gewählte Typen müssen verlangte Funktionalitäten bieten \\
+	$\rhd$ Mehrene offene Typen müssen auch gemeinsam korrekt sein} \\ \hline
+
+	\makecell[l]{Polymorphie} & \makecell[l]{
+	$\rhd$ Oberbegriff für alle Programmierkonzepte, mit denen Abstraktion auf \\
+	\hspace{0.3cm} Typebene realisiert werden kann \\
+	$\rhd$ Gründe für Polymorphie: \\
+	\hspace{0.4cm} $\diamond$ Separation of Concerns \\
+	\hspace{0.6cm} - SoC hat aber natürlich auch viele weitere Gesichtspunkte \\
+	\hspace{0.4cm} $\diamond$ Gleichbehandlung von Typen, wo die Unterschiede vernachlässigbar sind \\
+	\hspace{0.4cm} $\diamond$ Einheit (deren Logik auf versch. Typen passt) nur einmal implementieren \\
+	\hspace{0.6cm} - Unterschiede dann in ausgelagerten Details} \\ \hline
+
+	\makecell[l]{Konzepte von \\ Konformität} & \makecell[l]{
+	$\rhd$ Konformität ist sehr vielfältig, viele Arten sie abzuprüfen \\
+	$\rhd$ Zusammenfassung bisheriger Stoff dazu: \\
+	\hspace{0.4cm} $\diamond$ \texttt{Racket}: ob Operationen für Operanden definiert sind \\
+	\hspace{0.4cm} $\diamond$ Suptyppolymorphie: nur Funktionalität des statischen Typs erlaubt \\
+	\hspace{0.4cm} $\diamond$ Ad-hoc Polymorphie: \\
+	\hspace{0.6cm} - Methodenüberladung: Überprüfung, ob Signatur einzigartig \\
+	\hspace{0.6cm} - Implizite Konversion: Abprüfen eingebauter Regeln \\
+	\hspace{0.4cm} $\diamond$ Generizität: unterschiedliche Modelle, sprachabhängig} \\ \hline
+
+	\makecell[l]{Duck-Typing \\ objektorientiert} & \makecell[l]{
+	$\rhd$ rein dynamische Polymorphie \\
+	$\rhd$ \texttt{Reflection} in Java (\texttt{java.lang.reflect.*}) \\
+	\hspace{0.4cm} $\diamond$ \texttt{Java Beans}: Duck-Typing Konzept, das auf \texttt{Reflection} beruht
+	$\rhd$ Möglichkeiten zur Analyse und den Methodenaufruf eines unbekannten Objekts \\
+	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{Integer i = 123;} \\
+	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{String str = "Hello";} \\
+	\hspace{0.4cm} 3 \hspace{0.1cm} \texttt{Class<?> c = Class.forName(nameOfClass);} \\
+	\hspace{0.4cm} 4 \hspace{0.1cm} \texttt{Method m = c.getDeclaredMethod("myMethod",} \\
+	\hspace{0.4cm} 5 \hspace{2.5cm} \texttt{i.getClass(), str.getClass());} \\
+	\hspace{0.4cm} 6 \hspace{0.1cm} \texttt{m.invoke(i, str);} \\
+	\hspace{0.4cm} $\diamond$ Zeile 3: Liefert das \texttt{Class}-Objekt für übergebene Klasse zurück\\
+	\hspace{0.6cm} - Kompletter Name + Package-Pfad als Parameter \\
+	\hspace{0.6cm} - \texttt{java.lang.Class} bietet Funktionalitäten rund um Klassen \\
+	\hspace{0.6cm} - Zu jeder Klasse \texttt{X} existiert ein Objekt von \texttt{Class} (\texttt{Class<X>}) \\
+	\hspace{0.6cm} - Existieren auch für primitive Datentypen und für \texttt{void}\\
+	\hspace{0.4cm} $\diamond$ Zeile 4: Liefert die abgefragte Methode des \texttt{Class}-Objekts zurück \\
+	\hspace{0.6cm} - Erste Parameter ist der Name der Methode \\
+	\hspace{0.6cm} - beliebig viele weitere Parameter, methodenabhängig \\
+	\hspace{0.6cm} - Muss genauso viele Parameter enthalten, wie die abgefragte Methode \\
+	\hspace{0.6cm} - Jeder Parameter ist das \texttt{Class}-Objekt des Parametertyps \\
+	\hspace{0.4cm} $\diamond$ Zeile 6: Aufruf der abgespeicherten Methode \\
+	\hspace{0.6cm} - Parameter müssen natürlich übereinstimmen \\
+	\hspace{0.4cm} $\diamond$ Duck-Typing Anpassung: \\
+	\hspace{0.6cm} - Übergabe eines \texttt{Object obj} an Methode oben \\
+	\hspace{0.6cm} - \texttt{Class<?> c = obj.getClass();} \\
+	\hspace{0.6cm} - $\rightarrow$ \textbf{dynamische Prüfung} } \\ \hline
+
+	\end{tabular}
 
 \end{document}
