@@ -1,0 +1,318 @@
+\input{../reference_sheet_preamble}
+
+\renewcommand{\arraystretch}{1.75} 
+
+\begin{titlepage}
+  \title{Racket Reference Sheet} % document_name-type_of_document
+  \author{Jonas Milkovits}
+  \date{Last Edited: \today}
+\end{titlepage}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+\pagenumbering{roman} % i, ii, iii on beginning pages, that don't have content
+\tableofcontents
+\clearpage
+\pagenumbering{arabic} % 1,2,3 on content pages
+
+\section{Einleitung: Funktionales Programmiern}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Funktionale \\ Programmierkonzepte} & \makecell[l]{
+  $\rhd$ Auch \texttt{Java} enthält auch funktionale Konzepte \\
+  $\rhd$ Unser gewähltes Beispiel: \texttt{HtDP-TL} \\
+  \hspace{0.4cm} $\diamond$ Dialekt von \texttt{Racket} \\
+  \hspace{0.4cm} $\diamond$ \texttt{Racket} Dialekt von \texttt{Scheme} \\
+  $\rhd$ Wir sprechen hier aber der Einfachheit halber von \texttt{Racket}} \\ \hline
+  
+  \makecell[l]{Funktionales \\ Programmieren} & \makecell[l]{
+  $\rhd$ Funktionen sind zentrale Bausteine \\
+  \hspace{0.4cm} $\diamond$ $f: D_1 ~ x ~ D_2 ~ x ~ ... ~ x ~ D_n \rightarrow R$ \\
+  $\rhd$ Programmdesign \\
+  \hspace{0.4cm} $\diamond$ Zerlegung der zu erstellenden Funktionalität in Funktionen \\
+  \hspace{0.4cm} $\diamond$ Funktionen rufen andere grundlegende Funktionen auf \\
+  $\rhd$ Funktionen werden variiert durch Parameter, die auch Funktionen sind } \\ \hline
+
+  \makecell[l]{Deklaratives \\ Programmieren} & \makecell[l]{
+  $\rhd$ Grö\ss ere Sprachfamilie \\
+  \hspace{0.4cm} $\diamond$ Funktionales Programmieren: Untersprache \\
+  $\rhd$ Grundsätzlicher Gedanke des deklarativen Programmierens: \\
+  \hspace{0.4cm} $\diamond$ Nur Angabe der "Formel" für das Ergebnis \\
+  \hspace{0.4cm} $\diamond$ Nicht Angabe der Befehle, die ausgeführt werden sollen \\
+  $\rhd$ \texttt{Java}: imperativer Programmierstil \\
+  $\rhd$ Konsequenzen: \\
+  \hspace{0.4cm} $\diamond$ Keine zeitlichen Abläufe \\
+  \hspace{0.4cm} $\diamond$ Keine Vererbungskonzepte/Objektidentität \\
+  $\rhd$ Jeder Aufruf einer Funktion kann durch den Rückgabewert ersetzt werden \\
+  $\rhd$ Funktion liefert für selbe Parameter \textbf{immer} das selbe Ergebnis \\
+  $\rhd$ Funktionen haben nur Rückgabewerte, keine Seiteneffekte \\
+  $\rhd$ Fachbegriff: \texttt{referenzielle Transparenz} } \\ \hline
+
+  \end{tabular}
+
+
+
+
+\section{Datentypen} 
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Zahlen (number)} & \makecell[l]{
+  $\rhd$ Exakte Zahlen: \\
+  \hspace{0.4cm} $\diamond$ ganzzahlig: \texttt{123} \\
+  \hspace{0.4cm} $\diamond$ rational: \texttt{3/5} \\
+  $\rhd$ Nichtexakte Zahlen: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(sqrt 2)} \\
+  \hspace{0.6cm} - Setzen in Klammern, da "Funktionsaufruf" \\
+  \hspace{0.4cm} $\diamond$ Ergebnisdarstellung mit \texttt{\#i} vor Zahl \\
+  \hspace{0.6cm} - \texttt{(sqrt 5) ; \#i6.480...} \\
+  $\rhd$ Komplexe Zahlen: \\
+  \hspace{0.4cm} $\diamond$ \texttt{3.14159+3/5i} \\
+  \hspace{0.4cm} $\diamond$ Realteil + Imaginärteil + i} \\ \hline 
+
+  \makecell[l]{Symbole} & \makecell[l]{
+  $\rhd$ Symbol steht für nichts, hat nur für Programmierer eine Bedeutung \\ 
+  $\rhd$ Erzeugung: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(define last-name 'Spielberg)} \\
+  $\rhd$ Funktionen: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(symbol=? 'Hello 'World)} \\
+  \hspace{0.6cm} - Liefert genau dann \texttt{\#t}, falls beide Symbole gleich sind } \\ \hline
+
+  \makecell[l]{Boolean} & \makecell[l]{
+  $\rhd$ \texttt{\#t} für \texttt{true} \\
+  $\rhd$ \texttt{\#f} für \texttt{false} \\
+  $\rhd$ Boolesche Verknüpfungsoperatoren: \\
+  \hspace{0.4cm} $\diamond$ Veroderung: \texttt{(or b1 b2 b3)} \\
+  \hspace{0.4cm} $\diamond$ Verundung: \texttt{(and b1 b2 b3)} \\
+  \hspace{0.4cm} $\diamond$ Negation: \texttt{(not b1)} \\
+  $\rhd$ Vergleichsoperatoren: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(= x1 x2 x3) ; (and (= x1 x2)(= x2 x3))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(< x1 x2 x3) ; (and (< x1 x2)(< x2 x3))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(<= x1 x2 x3)} \\
+  $\rhd$ Boolsche Funktionen \\
+  \hspace{0.4cm} $\diamond$  \texttt{(integer? value)} \\
+  \hspace{0.6cm} - Liefert \texttt{\#t} zurück, falls \texttt{value} ganzzahlig \\
+  \hspace{0.6cm} - z.B. \texttt{(if (integer? (- x y)) \#t \#f)} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(number? value)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} eine Zahl ist \\
+  \hspace{0.4cm} $\diamond$ \texttt{(real? value)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} keine imaginäre Zahl ist \\
+  \hspace{0.4cm} $\diamond$ \texttt{(rational? value)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} eine rationale Zahl ist \\
+  \hspace{0.4cm} $\diamond$ \texttt{(natural? value)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} natürliche Zahl \\
+  \hspace{0.4cm} $\diamond$ \texttt{(symbol? value)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} ein Symbol ist } \\ \hline
+  
+  
+
+  \end{tabular}
+
+\section{Funktionen} 
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Erzeugung} & \makecell[l]{
+  $\rhd$ \texttt{(define (name param1 param2) (Ausdruck)) ; Funktion}   \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (add x y) (+ x y))}
+  \hspace{0.4cm} $\diamond$ \texttt{define} sagt, dass Konstante oder Funktion definiert wird \\
+  \hspace{0.4cm} $\diamond$ Konstante: \texttt{(define name value)} \\
+  \hspace{0.4cm} $\diamond$ kein \texttt{return} notwendig} \\ \hline
+  
+  \makecell[l]{Aufruf} & \makecell[l]{
+  $\rhd$ \texttt{(name param1 param2)} \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(add 2.71 3.14)} \\
+  \hspace{0.4cm} $\diamond$ Ergebnis wird ins Ausgabefenster des Bildschirms geschrieben} \\ \hline  
+
+  \makecell[l]{Arithmetische \\ Operationen} & \makecell[l]{
+  $\rhd$ \texttt{(+ 2 3) ; 5} \\
+  $\rhd$ \texttt{(- -2 3 ; -5)}
+  $\rhd$ \texttt{(/ 37 30) ; 1.23..} \\
+  $\rhd$ \texttt{(modulo 20 3) ; 2} \\
+  $\rhd$ Verkettung: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(* (+ 2 3) 4) ; 20} \\
+  $\rhd$ Auch mehrere Operanden \\
+  \hspace{0.4cm} $\diamond$ \texttt{(+ 3 4 5)} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(- 1 2 3) ; 1 - (2 + 3)} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(/ 1 2 3) ; 1 / (2 * 3)} \\
+  } \\ \hline
+
+  \makecell[l]{Mathematische \\ Funktionen} & \makecell[l]{
+  $\rhd$ \texttt{(floor 3.14) ; 3} \\
+  \hspace{0.4cm} $\diamond$ Abrunden des übergebenen Wertes \\
+  $\rhd$ \texttt{(ceiling 3.14) ; 4} \\
+  \hspace{0.4cm} $\diamond$ Aufrunden des übergebenen Wertes \\
+  $\rhd$ \texttt{(gcd 357 753 573)} \\
+  \hspace{0.4cm} $\diamond$ Größter gemeinsamer Teiler \\
+  \hspace{0.4cm} $\diamond$ \texttt{greatest common denominator} \\
+  $\rhd$ \texttt{(modulo 753 357)} \\ 
+  \hspace{0.4cm} $\diamond$ Rest der ganzzahigen Division } \\ \hline
+
+  \makecell[l]{Typ einer Funktion} & \makecell[l]{
+  $\rhd$ Prüfung erst zur Laufzeit, ob Typen der Operanden zur Operation passen \\
+  $\rhd$ Typenzusicherung deswegen über Verträge (siehe Vertrag)  } \\ \hline
+
+  \makecell[l]{Definitionen \\ verstecken} & \makecell[l]{
+  $\rhd$ Zugriff auf definierte Funktionen nur innerhalb des \texttt{local}-Blocks \\
+  $\rhd$ Verwendung von \texttt{(local ... )} \\
+  \hspace{0.4cm} 1 \hspace{0.1cm} \texttt{(define (fct x)} \\
+  \hspace{0.4cm} 2 \hspace{0.5cm} \texttt{(local ( ; Öffnen des Blocks für lokale Definition} \\
+  \hspace{0.4cm} 3 \hspace{0.7cm} \texttt{(define const 10)} \\
+  \hspace{0.4cm} 4 \hspace{0.7cm} \texttt{(define (mult-const y) (* const y))) ; Blockschlie\ss ung} \\
+  \hspace{0.4cm} 5 \hspace{0.5cm} \texttt{(+ const (mult-const x)))) ; Schließen von local und define} \\
+  \hspace{0.4cm} $\diamond$ \texttt{local} enthält in sich einen Block für lokale Definitionen \\
+  \hspace{0.4cm} $\diamond$ Zeile 5: Die letzte Zeile stellt den Wert des \texttt{local}-Ausdrucks dar} \\ \hline
+  
+  \end{tabular}
+
+
+\section{Klassen}
+
+\section{Konstanten} 
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Allgemein} & \makecell[l]{
+  $\rhd$ In Racket stellt jeder Wert, der definiert wird, eine Konstante dar} \\ \hline  
+  
+  \makecell[l]{Erzeugung} & \makecell[l]{
+  $\rhd$ (define name ausdruck) \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define my-pi 3.14159)} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(define my-pi (+ 3 0.14159)) }} \\ \hline
+
+  \makecell[l]{Wichtige \\ Konstanten} & \makecell[l]{
+  $\rhd$ \texttt{pi} \\
+  $\rhd$ \texttt{e}   } \\ \hline
+
+  \end{tabular}
+
+\section{Laufzeitchecks und Fehler}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Allgemein} & \makecell[l]{
+  $\rhd$ Möglichkeit des Testens von Funktionen zur Laufzeit} \\ \hline
+  
+  \makecell[l]{Verwendung} & \makecell[l]{
+  $\rhd$ \texttt{(check-expect param1 param2)} \\
+  \hspace{0.4cm} $\diamond$ Abbruch mit Fehlermeldung, falls inkorrekt \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(check-expect (divide 15 3) 5) ; \#t} \\
+  $\rhd$ \texttt{(check-within param1 param2 param3)} \\
+  \hspace{0.4cm} $\diamond$ Test, ob Werte ausreichend nahe beeinander liegen \\
+  \hspace{0.4cm} $\diamond$ \texttt{param3} ist dieser maximale Abstand \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(check-within (divide pi e) 1.15 0.01)} \\
+  $\rhd$ \texttt{(check-error (divide 15 0) \string"/: division by zero\string")} \\
+  \hspace{0.4cm} $\diamond$ Test, ob Fehler im Fehlerfall wirklich geworfen wird \\
+  \hspace{0.4cm} $\diamond$ Fehlermeldung des 1. Parameters muss dem 2. Parameter entsprechen \\
+  \hspace{0.4cm} $\diamond$ \texttt{\string"\string"} geben hier einen String an \\
+  \hspace{0.4cm} $\diamond$ Nachgucken der entsprechenden Fehlermeldung in Racket Dokumentation} \\ \hline
+
+  \makecell[l]{Werfen eines Fehlers} & \makecell[l]{
+  $\rhd$ "Laufzeittests" können auch innerhalb einer Methode ausgeführt werden \\
+  $\rhd$ Bei "falschem" Parameter kann man selbst einer \texttt{Error} werfen \\
+  $\rhd$ \texttt{(if (= y 0) (error \string"Division by 0\string") (/x y))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{error} führt zum Programmabbruch und Ausgabe der Fehlermeldung  } \\ \hline
+
+  \end{tabular}
+
+\section{Objektmodell}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Allgemein} & \makecell[l]{
+  $\rhd$ Es gibt keine Objekte, nur Werte \\
+  \hspace{0.4cm} $\diamond$ Werte sind \textbf{immer} Konstante, \textbf{nie} Variable \\
+  \hspace{0.4cm} $\diamond$ Werte werden \textbf{immer} kopiert \\
+  \hspace{0.6cm} - Formaler Paramater innerhalb Funktion ist Kopie des aktualen Parameters \\
+  $\rhd$ Laufzeitsystem kann intern zur Optimierung von Grundlogik abweichen} \\ \hline  
+
+  \makecell[l]{Aufweichung des \\ Objektmodells} & \makecell[l]{
+  $\rhd$ TODO in 4D  } \\ \hline
+  
+  \end{tabular}
+
+\section{Syntax}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Präfixnotation} & \makecell[l]{
+  $\rhd$ Zuerst der Operand, danach die Operanden \\
+  \hspace{0.4cm} $\diamond$ (+ 1 2)} \\ \hline
+
+  \makecell[l]{Klammersetzung} & \makecell[l]{
+  $\rhd$ Jede Einheit, die nicht atomar ist, wird in Klammern gesetzt \\
+  \hspace{0.4cm} $\diamond$ Zusammengesetzte Ausdrücke \\
+  \hspace{0.4cm} $\diamond$ Funktionen allgemein \\
+  $\rhd$ Keine unterschiedlichen Bindungsstärken, immer Setzen aller Klammern  } \\ \hline
+
+  \makecell[l]{Kommentare} & \makecell[l]{
+  $\rhd$ Einzelne Zeile: \texttt{;} \\
+  } \\ \hline
+
+  \makecell[l]{Identifier} & \makecell[l]{
+  $\rhd$ Keine Zahlen \\
+  $\rhd$ Keine Whitespaces \\
+  $\rhd$ Konventionen: \\
+  \hspace{0.4cm} $\diamond$ Keine Gro\ss buchstaben \\
+  \hspace{0.4cm} $\diamond$ Bindestriche zwischen den einzelnen Wörtern \\
+  \hspace{0.6cm} - z.B. \texttt{this-identifier-conforms-to-all-conventions} } \\ \hline  
+  
+  \end{tabular}
+
+\section{Verzweigung, switch} 
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{if-Anweisung} & \makecell[l]{
+  $\rhd$ Boolsche Funktion mit drei Parametern \\
+  $\rhd$ \texttt{( if(bedindung) anweisung-if-true anweisung-if-false)} \\
+  \hspace{0.4cm} $\diamond$ Muss wiede jeder andere Funktion in Klammern stehen \\
+  \hspace{0.4cm} $\diamond$ Liefert ersten Parameter zurück falls \texttt{true} \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (my-abs x) (if (< 0 x) -x x))} } \\ \hline  
+  
+  \end{tabular}
+
+
+
+\section{Vertrag}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Allgemein} & \makecell[l]{
+  $\rhd$ Warum? \\
+  \hspace{0.4cm} $\diamond$ Typprüfung erst zur Laufzeit \\
+  \hspace{0.4cm} $\diamond$ Fehlervermeidung \\
+  $\rhd$ "Vertrag": \\
+  \hspace{0.4cm} $\diamond$ Nutzer erfüllt seinen Teil des Vertrags (Precondition) \\
+  \hspace{0.4cm} $\diamond$ Dann erfüllt Funktion ihren Teil des Vertrags  } \\ \hline  
+  
+  \makecell[l]{Aufbau} & \makecell[l]{
+  \texttt{;; Type: number number -> number} \\
+  \texttt{;;} \\
+  \texttt{;; Returns: the sum of two parameters} \\
+  $\rhd$ \texttt{Type:} Aufzählung der Paramater nach Reihenfolge des Auftretens \\
+  $\rhd$ \texttt{->}: Angabe des Rückgabetyps nach dem Pfeil \\
+  $\rhd$ \texttt{Returns}: Kurze Beschreibung des Rückgabewertes \\
+  $\rhd$ Nutzung von \texttt{;;} statt \texttt{;} ist hier Konvention } \\ \hline
+
+  \makecell[l]{Weitere \\ Elemente} & \makecell[l]{
+  $\rhd$ \texttt{;; Precondition}: Angabe für Parameterrichtlinien  } \\ \hline
+
+  \end{tabular}
+
+
+
+
+\end{document}
