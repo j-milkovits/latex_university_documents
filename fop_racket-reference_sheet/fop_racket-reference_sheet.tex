@@ -213,7 +213,8 @@
   \hspace{0.4cm} $\diamond$ Test, ob Fehler im Fehlerfall wirklich geworfen wird \\
   \hspace{0.4cm} $\diamond$ Fehlermeldung des 1. Parameters muss dem 2. Parameter entsprechen \\
   \hspace{0.4cm} $\diamond$ \texttt{\string"\string"} geben hier einen String an \\
-  \hspace{0.4cm} $\diamond$ Nachgucken der entsprechenden Fehlermeldung in Racket Dokumentation} \\ \hline
+  \hspace{0.4cm} $\diamond$ Nachgucken der entsprechenden Fehlermeldung in Racket Dokumentation \\
+  $\rhd$ Wichtig: Abprüfung aller Randfälle} \\ \hline
 
   \makecell[l]{Werfen eines Fehlers} & \makecell[l]{
   $\rhd$ "Laufzeittests" können auch innerhalb einer Methode ausgeführt werden \\
@@ -238,6 +239,30 @@
   \makecell[l]{Aufweichung des \\ Objektmodells} & \makecell[l]{
   $\rhd$ TODO in 4D  } \\ \hline
   
+  \end{tabular}
+
+\section{Rekursion} 
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Allgemein} & \makecell[l]{
+  $\rhd$ Grundlegendes Konzept zur Steuerung des Programmablaufs in Funktion \\
+  \hspace{0.4cm} $\diamond$ Verwendung anstatt von Schleifen wie in z.B. Java \\
+  \hspace{0.4cm} $\diamond$ Schleifen widersprechen funktionaler Programmierung} \\ \hline  
+  
+  \makecell[l]{Beispiel \\ Normale Berechnung} & \makecell[l]{
+  $\rhd$ z.B. \texttt{(define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1)))))} \\
+  \hspace{0.4cm} $\diamond$ Zurückliefern von \texttt{1}, falls \texttt{n} gleich 0 ist \\
+  \hspace{0.6cm} - Ermöglicht Multiplizieren mit 1 auf niedrigster Rekursionsstufe \\
+  \hspace{0.6cm} - Verändert damit den Rückgabewert nicht und beendet Rekursion \\
+  \hspace{0.4cm} $\diamond$ Beispiel für \texttt{factorial 2} \\
+  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(factorial 2)} \\
+  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (factorial 1))} \\
+  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (* 1 (factorial 0)))} \\
+  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (* 1 1)) ; Ergebnis: 2} \\
+  } \\ \hline
+
   \end{tabular}
 
 \section{Syntax}
@@ -279,7 +304,8 @@
   $\rhd$ \texttt{( if(bedindung) anweisung-if-true anweisung-if-false)} \\
   \hspace{0.4cm} $\diamond$ Muss wiede jeder andere Funktion in Klammern stehen \\
   \hspace{0.4cm} $\diamond$ Liefert ersten Parameter zurück falls \texttt{true} \\
-  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (my-abs x) (if (< 0 x) -x x))} } \\ \hline  
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (my-abs x) (if (< 0 x) -x x))} \\
+  $\rhd$ Verschachtelung von \texttt{if}-Anweisungen auch möglich} \\ \hline  
   
   \end{tabular}
 
