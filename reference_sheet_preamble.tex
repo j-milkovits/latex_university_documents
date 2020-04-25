@@ -35,3 +35,10 @@
     linktoc=all,     %set to all if you want both sections and subsections linked
     linkcolor=blue,  %choose some color if you want links to stand out
 }
+
+% Some settings for itemize
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}} % creates a scalable bullet
+
+\renewcommand\labelitemi{$\bullet$}             % Used to standardize symbols for itemize
+\renewcommand\labelitemii{$\sbullet[.75]$}
+\renewcommand\labelitemiii{$\sbullet$}
