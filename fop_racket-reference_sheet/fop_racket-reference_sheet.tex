@@ -1,5 +1,7 @@
 \input{../reference_sheet_preamble}
 
+\usepackage{tuda-ci}
+
 \renewcommand{\arraystretch}{1.75} 
 
 \begin{titlepage}
@@ -23,34 +25,34 @@
   \hline 
   
   \makecell[l]{Funktionale \\ Programmierkonzepte} & \makecell[l]{
-  $\rhd$ Auch \texttt{Java} enthält auch funktionale Konzepte \\
-  $\rhd$ Unser gewähltes Beispiel: \texttt{HtDP-TL} \\
+  $\triangleright$ Auch \texttt{Java} enthält auch funktionale Konzepte \\
+  $\triangleright$ Unser gewähltes Beispiel: \texttt{HtDP-TL} \\
   \hspace{0.4cm} $\diamond$ Dialekt von \texttt{Racket} \\
   \hspace{0.4cm} $\diamond$ \texttt{Racket} Dialekt von \texttt{Scheme} \\
-  $\rhd$ Wir sprechen hier aber der Einfachheit halber von \texttt{Racket}} \\ \hline
+  $\triangleright$ Wir sprechen hier aber der Einfachheit halber von \texttt{Racket}} \\ \hline
   
   \makecell[l]{Funktionales \\ Programmieren} & \makecell[l]{
-  $\rhd$ Funktionen sind zentrale Bausteine \\
+  $\triangleright$ Funktionen sind zentrale Bausteine \\
   \hspace{0.4cm} $\diamond$ $f: D_1 ~ x ~ D_2 ~ x ~ ... ~ x ~ D_n \rightarrow R$ \\
-  $\rhd$ Programmdesign \\
+  $\triangleright$ Programmdesign \\
   \hspace{0.4cm} $\diamond$ Zerlegung der zu erstellenden Funktionalität in Funktionen \\
   \hspace{0.4cm} $\diamond$ Funktionen rufen andere grundlegende Funktionen auf \\
-  $\rhd$ Funktionen werden variiert durch Parameter, die auch Funktionen sind } \\ \hline
+  $\triangleright$ Funktionen werden variiert durch Parameter, die auch Funktionen sind } \\ \hline
 
   \makecell[l]{Deklaratives \\ Programmieren} & \makecell[l]{
-  $\rhd$ Grö\ss ere Sprachfamilie \\
+  $\triangleright$ Grö\ss ere Sprachfamilie \\
   \hspace{0.4cm} $\diamond$ Funktionales Programmieren: Untersprache \\
-  $\rhd$ Grundsätzlicher Gedanke des deklarativen Programmierens: \\
+  $\triangleright$ Grundsätzlicher Gedanke des deklarativen Programmierens: \\
   \hspace{0.4cm} $\diamond$ Nur Angabe der "Formel" für das Ergebnis \\
   \hspace{0.4cm} $\diamond$ Nicht Angabe der Befehle, die ausgeführt werden sollen \\
-  $\rhd$ \texttt{Java}: imperativer Programmierstil \\
-  $\rhd$ Konsequenzen: \\
+  $\triangleright$ \texttt{Java}: imperativer Programmierstil \\
+  $\triangleright$ Konsequenzen: \\
   \hspace{0.4cm} $\diamond$ Keine zeitlichen Abläufe \\
   \hspace{0.4cm} $\diamond$ Keine Vererbungskonzepte/Objektidentität \\
-  $\rhd$ Jeder Aufruf einer Funktion kann durch den Rückgabewert ersetzt werden \\
-  $\rhd$ Funktion liefert für selbe Parameter \textbf{immer} das selbe Ergebnis \\
-  $\rhd$ Funktionen haben nur Rückgabewerte, keine Seiteneffekte \\
-  $\rhd$ Fachbegriff: \texttt{referenzielle Transparenz} } \\ \hline
+  $\triangleright$ Jeder Aufruf einer Funktion kann durch den Rückgabewert ersetzt werden \\
+  $\triangleright$ Funktion liefert für selbe Parameter \textbf{immer} das selbe Ergebnis \\
+  $\triangleright$ Funktionen haben nur Rückgabewerte, keine Seiteneffekte \\
+  $\triangleright$ Fachbegriff: \texttt{referenzielle Transparenz} } \\ \hline
 
   \end{tabular}
 
@@ -63,38 +65,39 @@
   \hline 
   
   \makecell[l]{Zahlen (number)} & \makecell[l]{
-  $\rhd$ Exakte Zahlen: \\
+  $\triangleright$ Exakte Zahlen: \\
   \hspace{0.4cm} $\diamond$ ganzzahlig: \texttt{123} \\
   \hspace{0.4cm} $\diamond$ rational: \texttt{3/5} \\
-  $\rhd$ Nichtexakte Zahlen: \\
+  $\triangleright$ Nichtexakte Zahlen: \\
   \hspace{0.4cm} $\diamond$ \texttt{(sqrt 2)} \\
   \hspace{0.6cm} - Setzen in Klammern, da "Funktionsaufruf" \\
   \hspace{0.4cm} $\diamond$ Ergebnisdarstellung mit \texttt{\#i} vor Zahl \\
   \hspace{0.6cm} - \texttt{(sqrt 5) ; \#i6.480...} \\
-  $\rhd$ Komplexe Zahlen: \\
+  $\triangleright$ Komplexe Zahlen: \\
   \hspace{0.4cm} $\diamond$ \texttt{3.14159+3/5i} \\
   \hspace{0.4cm} $\diamond$ Realteil + Imaginärteil + i} \\ \hline 
 
   \makecell[l]{Symbole} & \makecell[l]{
-  $\rhd$ Symbol steht für nichts, hat nur für Programmierer eine Bedeutung \\ 
-  $\rhd$ Erzeugung: \\
+  $\triangleright$ Symbol steht für nichts, hat nur für Programmierer eine Bedeutung \\ 
+  $\triangleright$ Erzeugung: \\
   \hspace{0.4cm} $\diamond$ \texttt{(define last-name 'Spielberg)} \\
-  $\rhd$ Funktionen: \\
+  $\triangleright$ Funktionen: \\
   \hspace{0.4cm} $\diamond$ \texttt{(symbol=? 'Hello 'World)} \\
-  \hspace{0.6cm} - Liefert genau dann \texttt{\#t}, falls beide Symbole gleich sind } \\ \hline
+  \hspace{0.6cm} - Liefert genau dann \texttt{\#t}, falls beide Symbole gleich sind \\
+  $\triangleright$ Vergleich auf Gleichheit: \texttt{(symbol=? param1 param2)}} \\ \hline
 
   \makecell[l]{Boolean} & \makecell[l]{
-  $\rhd$ \texttt{\#t} für \texttt{true} \\
-  $\rhd$ \texttt{\#f} für \texttt{false} \\
-  $\rhd$ Boolesche Verknüpfungsoperatoren: \\
+  $\triangleright$ \texttt{\#t} für \texttt{true} \\
+  $\triangleright$ \texttt{\#f} für \texttt{false} \\
+  $\triangleright$ Boolesche Verknüpfungsoperatoren: \\
   \hspace{0.4cm} $\diamond$ Veroderung: \texttt{(or b1 b2 b3)} \\
   \hspace{0.4cm} $\diamond$ Verundung: \texttt{(and b1 b2 b3)} \\
   \hspace{0.4cm} $\diamond$ Negation: \texttt{(not b1)} \\
-  $\rhd$ Vergleichsoperatoren: \\
+  $\triangleright$ Vergleichsoperatoren: \\
   \hspace{0.4cm} $\diamond$ \texttt{(= x1 x2 x3) ; (and (= x1 x2)(= x2 x3))} \\
   \hspace{0.4cm} $\diamond$ \texttt{(< x1 x2 x3) ; (and (< x1 x2)(< x2 x3))} \\
   \hspace{0.4cm} $\diamond$ \texttt{(<= x1 x2 x3)} \\
-  $\rhd$ Boolsche Funktionen \\
+  $\triangleright$ Boolsche Funktionen \\
   \hspace{0.4cm} $\diamond$  \texttt{(integer? value)} \\
   \hspace{0.6cm} - Liefert \texttt{\#t} zurück, falls \texttt{value} ganzzahlig \\
   \hspace{0.6cm} - z.B. \texttt{(if (integer? (- x y)) \#t \#f)} \\
@@ -107,7 +110,9 @@
   \hspace{0.4cm} $\diamond$ \texttt{(natural? value)} \\
   \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} natürliche Zahl \\
   \hspace{0.4cm} $\diamond$ \texttt{(symbol? value)} \\
-  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} ein Symbol ist } \\ \hline
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} ein Symbol ist \\
+  \hspace{0.4cm} $\diamond$ \texttt{(empty? list)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{list} leer ist} \\ \hline
   
   
 
@@ -119,48 +124,48 @@
   \hline 
   
   \makecell[l]{Erzeugung} & \makecell[l]{
-  $\rhd$ \texttt{(define (name param1 param2) (Ausdruck)) ; Funktion}   \\
+  $\triangleright$ \texttt{(define (name param1 param2) (Ausdruck)) ; Funktion}   \\
   \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (add x y) (+ x y))}
   \hspace{0.4cm} $\diamond$ \texttt{define} sagt, dass Konstante oder Funktion definiert wird \\
   \hspace{0.4cm} $\diamond$ Konstante: \texttt{(define name value)} \\
   \hspace{0.4cm} $\diamond$ kein \texttt{return} notwendig} \\ \hline
   
   \makecell[l]{Aufruf} & \makecell[l]{
-  $\rhd$ \texttt{(name param1 param2)} \\
+  $\triangleright$ \texttt{(name param1 param2)} \\
   \hspace{0.4cm} $\diamond$ z.B. \texttt{(add 2.71 3.14)} \\
   \hspace{0.4cm} $\diamond$ Ergebnis wird ins Ausgabefenster des Bildschirms geschrieben} \\ \hline  
 
   \makecell[l]{Arithmetische \\ Operationen} & \makecell[l]{
-  $\rhd$ \texttt{(+ 2 3) ; 5} \\
-  $\rhd$ \texttt{(- -2 3 ; -5)}
-  $\rhd$ \texttt{(/ 37 30) ; 1.23..} \\
-  $\rhd$ \texttt{(modulo 20 3) ; 2} \\
-  $\rhd$ Verkettung: \\
+  $\triangleright$ \texttt{(+ 2 3) ; 5} \\
+  $\triangleright$ \texttt{(- -2 3 ; -5)}
+  $\triangleright$ \texttt{(/ 37 30) ; 1.23..} \\
+  $\triangleright$ \texttt{(modulo 20 3) ; 2} \\
+  $\triangleright$ Verkettung: \\
   \hspace{0.4cm} $\diamond$ \texttt{(* (+ 2 3) 4) ; 20} \\
-  $\rhd$ Auch mehrere Operanden \\
+  $\triangleright$ Auch mehrere Operanden \\
   \hspace{0.4cm} $\diamond$ \texttt{(+ 3 4 5)} \\
   \hspace{0.4cm} $\diamond$ \texttt{(- 1 2 3) ; 1 - (2 + 3)} \\
   \hspace{0.4cm} $\diamond$ \texttt{(/ 1 2 3) ; 1 / (2 * 3)} \\
   } \\ \hline
 
   \makecell[l]{Mathematische \\ Funktionen} & \makecell[l]{
-  $\rhd$ \texttt{(floor 3.14) ; 3} \\
+  $\triangleright$ \texttt{(floor 3.14) ; 3} \\
   \hspace{0.4cm} $\diamond$ Abrunden des übergebenen Wertes \\
-  $\rhd$ \texttt{(ceiling 3.14) ; 4} \\
+  $\triangleright$ \texttt{(ceiling 3.14) ; 4} \\
   \hspace{0.4cm} $\diamond$ Aufrunden des übergebenen Wertes \\
-  $\rhd$ \texttt{(gcd 357 753 573)} \\
+  $\triangleright$ \texttt{(gcd 357 753 573)} \\
   \hspace{0.4cm} $\diamond$ Größter gemeinsamer Teiler \\
   \hspace{0.4cm} $\diamond$ \texttt{greatest common denominator} \\
-  $\rhd$ \texttt{(modulo 753 357)} \\ 
+  $\triangleright$ \texttt{(modulo 753 357)} \\ 
   \hspace{0.4cm} $\diamond$ Rest der ganzzahigen Division } \\ \hline
 
   \makecell[l]{Typ einer Funktion} & \makecell[l]{
-  $\rhd$ Prüfung erst zur Laufzeit, ob Typen der Operanden zur Operation passen \\
-  $\rhd$ Typenzusicherung deswegen über Verträge (siehe Vertrag)  } \\ \hline
+  $\triangleright$ Prüfung erst zur Laufzeit, ob Typen der Operanden zur Operation passen \\
+  $\triangleright$ Typenzusicherung deswegen über Verträge (siehe Vertrag)  } \\ \hline
 
   \makecell[l]{Definitionen \\ verstecken} & \makecell[l]{
-  $\rhd$ Zugriff auf definierte Funktionen nur innerhalb des \texttt{local}-Blocks \\
-  $\rhd$ Verwendung von \texttt{(local ... )} \\
+  $\triangleright$ Zugriff auf definierte Funktionen nur innerhalb des \texttt{local}-Blocks \\
+  $\triangleright$ Verwendung von \texttt{(local ... )} \\
   \hspace{0.4cm} 1 \hspace{0.1cm} \texttt{(define (fct x)} \\
   \hspace{0.4cm} 2 \hspace{0.5cm} \texttt{(local ( ; Öffnen des Blocks für lokale Definition} \\
   \hspace{0.4cm} 3 \hspace{0.7cm} \texttt{(define const 10)} \\
@@ -180,16 +185,16 @@
   \hline 
   
   \makecell[l]{Allgemein} & \makecell[l]{
-  $\rhd$ In Racket stellt jeder Wert, der definiert wird, eine Konstante dar} \\ \hline  
+  $\triangleright$ In Racket stellt jeder Wert, der definiert wird, eine Konstante dar} \\ \hline  
   
   \makecell[l]{Erzeugung} & \makecell[l]{
-  $\rhd$ (define name ausdruck) \\
+  $\triangleright$ (define name ausdruck) \\
   \hspace{0.4cm} $\diamond$ z.B. \texttt{(define my-pi 3.14159)} \\
   \hspace{0.4cm} $\diamond$ \texttt{(define my-pi (+ 3 0.14159)) }} \\ \hline
 
   \makecell[l]{Wichtige \\ Konstanten} & \makecell[l]{
-  $\rhd$ \texttt{pi} \\
-  $\rhd$ \texttt{e}   } \\ \hline
+  $\triangleright$ \texttt{pi} \\
+  $\triangleright$ \texttt{e}   } \\ \hline
 
   \end{tabular}
 
@@ -199,30 +204,64 @@
   \hline 
   
   \makecell[l]{Allgemein} & \makecell[l]{
-  $\rhd$ Möglichkeit des Testens von Funktionen zur Laufzeit} \\ \hline
+  $\triangleright$ Möglichkeit des Testens von Funktionen zur Laufzeit} \\ \hline
   
   \makecell[l]{Verwendung} & \makecell[l]{
-  $\rhd$ \texttt{(check-expect param1 param2)} \\
+  $\triangleright$ \texttt{(check-expect param1 param2)} \\
   \hspace{0.4cm} $\diamond$ Abbruch mit Fehlermeldung, falls inkorrekt \\
   \hspace{0.4cm} $\diamond$ z.B. \texttt{(check-expect (divide 15 3) 5) ; \#t} \\
-  $\rhd$ \texttt{(check-within param1 param2 param3)} \\
+  $\triangleright$ \texttt{(check-within param1 param2 param3)} \\
   \hspace{0.4cm} $\diamond$ Test, ob Werte ausreichend nahe beeinander liegen \\
   \hspace{0.4cm} $\diamond$ \texttt{param3} ist dieser maximale Abstand \\
   \hspace{0.4cm} $\diamond$ z.B. \texttt{(check-within (divide pi e) 1.15 0.01)} \\
-  $\rhd$ \texttt{(check-error (divide 15 0) \string"/: division by zero\string")} \\
+  $\triangleright$ \texttt{(check-error (divide 15 0) \string"/: division by zero\string")} \\
   \hspace{0.4cm} $\diamond$ Test, ob Fehler im Fehlerfall wirklich geworfen wird \\
   \hspace{0.4cm} $\diamond$ Fehlermeldung des 1. Parameters muss dem 2. Parameter entsprechen \\
   \hspace{0.4cm} $\diamond$ \texttt{\string"\string"} geben hier einen String an \\
   \hspace{0.4cm} $\diamond$ Nachgucken der entsprechenden Fehlermeldung in Racket Dokumentation \\
-  $\rhd$ Wichtig: Abprüfung aller Randfälle} \\ \hline
+  $\triangleright$ Wichtig: Abprüfung aller Randfälle} \\ \hline
 
   \makecell[l]{Werfen eines Fehlers} & \makecell[l]{
-  $\rhd$ "Laufzeittests" können auch innerhalb einer Methode ausgeführt werden \\
-  $\rhd$ Bei "falschem" Parameter kann man selbst einer \texttt{Error} werfen \\
-  $\rhd$ \texttt{(if (= y 0) (error \string"Division by 0\string") (/x y))} \\
+  $\triangleright$ "Laufzeittests" können auch innerhalb einer Methode ausgeführt werden \\
+  $\triangleright$ Bei "falschem" Parameter kann man selbst einer \texttt{Error} werfen \\
+  $\triangleright$ \texttt{(if (= y 0) (error \string"Division by 0\string") (/x y))} \\
   \hspace{0.4cm} $\diamond$ \texttt{error} führt zum Programmabbruch und Ausgabe der Fehlermeldung  } \\ \hline
 
   \end{tabular}
+
+\section{Listen}
+
+    \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+    \hline 
+    
+    \makecell[l]{Erzeugung \\ einfacher Listen} & \makecell[l]{
+    $\triangleright$ \texttt{(define list1 (list 1 2 3))} \\
+    \hspace{0.4cm} $\diamond$ Erstellt eine Liste mit den Werten 1,2,3 \\
+    \hspace{0.4cm} $\diamond$ Funktion \texttt{list} kann beliebig viele Parameter haben \\
+    \hspace{0.4cm} $\diamond$ Die Elemente der Liste sind ihr Rückgabewert} \\ \hline  
+    
+    \makecell[l]{Erzeugung von Listen \\ aus Listen} & \makecell[l]{
+    $\triangleright$ \texttt{(define list2 (cons 7 list1))} \\
+    \hspace{0.4cm} $\diamond$ Funktion \texttt{cons} fügt \texttt{7} und \texttt{list1} zu \texttt{list2} zusammen \\
+    \hspace{0.4cm} $\diamond$ Zweiter Parameter muss zwingend eine Liste sein \\
+    \hspace{0.4cm} $\diamond$ Erster Parameter in Liste dann auch an erster Stelle} \\ \hline
+
+    \makecell[l]{\texttt{empty}} & \makecell[l]{
+    $\triangleright$ Name für die leere Liste \\
+    $\triangleright$ z.B. \texttt{(define list1 (cons 1 empty))} \\
+    $\triangleright$ \texttt{empty?} überprüft, ob die Liste leer ist \\
+    \hspace{0.4cm} $\diamond$ Wird gerne als Rekursionsanker verwendet} \\ \hline
+    
+
+    \makecell[l]{Funktionen auf \\ Listen} & \makecell[l]{
+    $\triangleright$ \texttt{(first list1)} \\
+    \hspace{0.4cm} $\diamond$ Liefert den ersten Wert der Liste zurück \\
+    \hspace{0.4cm} $\diamond$ Erwartet, dass die Liste nicht leer ist \\
+    $\triangleright$ \texttt{(rest list1)} \\
+    \hspace{0.4cm} $\diamond$ Liefert Liste zurück, die alle Elemente außer dem Ersten enthält \\
+    \hspace{0.4cm} $\diamond$ Erwartet, dass die Liste nicht leer ist} \\ \hline
+
+    \end{tabular}
 
 \section{Objektmodell}
 
@@ -230,40 +269,80 @@
   \hline 
   
   \makecell[l]{Allgemein} & \makecell[l]{
-  $\rhd$ Es gibt keine Objekte, nur Werte \\
+  $\triangleright$ Es gibt keine Objekte, nur Werte \\
   \hspace{0.4cm} $\diamond$ Werte sind \textbf{immer} Konstante, \textbf{nie} Variable \\
   \hspace{0.4cm} $\diamond$ Werte werden \textbf{immer} kopiert \\
   \hspace{0.6cm} - Formaler Paramater innerhalb Funktion ist Kopie des aktualen Parameters \\
-  $\rhd$ Laufzeitsystem kann intern zur Optimierung von Grundlogik abweichen} \\ \hline  
+  $\triangleright$ Laufzeitsystem kann intern zur Optimierung von Grundlogik abweichen} \\ \hline  
 
   \makecell[l]{Aufweichung des \\ Objektmodells} & \makecell[l]{
-  $\rhd$ TODO in 4D  } \\ \hline
+  $\triangleright$ TODO in 4D  } \\ \hline
   
   \end{tabular}
 
 \section{Rekursion} 
 
-  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
-  \hline 
-  
-  \makecell[l]{Allgemein} & \makecell[l]{
-  $\rhd$ Grundlegendes Konzept zur Steuerung des Programmablaufs in Funktion \\
-  \hspace{0.4cm} $\diamond$ Verwendung anstatt von Schleifen wie in z.B. Java \\
-  \hspace{0.4cm} $\diamond$ Schleifen widersprechen funktionaler Programmierung} \\ \hline  
-  
-  \makecell[l]{Beispiel \\ Normale Berechnung} & \makecell[l]{
-  $\rhd$ z.B. \texttt{(define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1)))))} \\
-  \hspace{0.4cm} $\diamond$ Zurückliefern von \texttt{1}, falls \texttt{n} gleich 0 ist \\
-  \hspace{0.6cm} - Ermöglicht Multiplizieren mit 1 auf niedrigster Rekursionsstufe \\
-  \hspace{0.6cm} - Verändert damit den Rückgabewert nicht und beendet Rekursion \\
-  \hspace{0.4cm} $\diamond$ Beispiel für \texttt{factorial 2} \\
-  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(factorial 2)} \\
-  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (factorial 1))} \\
-  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (* 1 (factorial 0)))} \\
-  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (* 1 1)) ; Ergebnis: 2} \\
-  } \\ \hline
+    \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+    \hline 
+    
+    \makecell[l]{Allgemein} & \makecell[l]{
+    $\triangleright$ Grundlegendes Konzept zur Steuerung des Programmablaufs in Funktion \\
+    \hspace{0.4cm} $\diamond$ Verwendung anstatt von Schleifen wie in z.B. Java \\
+    \hspace{0.4cm} $\diamond$ Schleifen widersprechen funktionaler Programmierung} \\ \hline  
+    
+    \makecell[l]{Beispiel \\ Normale Berechnung} & \makecell[l]{
+    $\triangleright$ z.B. \texttt{(define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1)))))} \\
+    \hspace{0.4cm} $\diamond$ Zurückliefern von \texttt{1}, falls \texttt{n} gleich 0 ist \\
+    \hspace{0.6cm} - Ermöglicht Multiplizieren mit 1 auf niedrigster Rekursionsstufe \\
+    \hspace{0.6cm} - Verändert damit den Rückgabewert nicht und beendet Rekursion \\
+    \hspace{0.4cm} $\diamond$ Beispiel für \texttt{factorial 2} \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(factorial 2)} \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (factorial 1))} \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (* 1 (factorial 0)))} \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(* 2 (* 1 1)) ; Ergebnis: 2} \\
+    } \\ \hline
 
-  \end{tabular}
+    \makecell[l]{Rekursion auf \\ Listen} & \makecell[l]{
+    $\triangleright$ z.B.: Summe einer Listen von Zahlen: \\
+    \hspace{0.4cm} $\diamond$ Falls Liste leer ist: Summe = \texttt{0} \\
+    \hspace{0.4cm} $\diamond$ Sonst Summe = erstes Elemente plus Summe der Restliste \\
+    \hspace{0.4cm} $\diamond$ Folgendes Beispiel im Rahmen einer Methode \texttt{sum} \\
+    \hspace{0.4cm} $\diamond$ Addiert rekursiv die Werte der Liste \\
+    \hspace{0.4cm} $\diamond$ Falls Liste leer ist, wird 0 zurückgegeben und Rekursion \string"fällt zusammen\string" \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(if (empty? list)} \\
+    \hspace{0.6cm} 2 \hspace{0.5cm} \texttt{0} \\
+    \hspace{0.6cm} 3 \hspace{0.5cm} \texttt{(+ (first list) (sum (rest list)))} \\
+    $\triangleright$ z.B.: Liste der Quadratwurzeln einer Liste \\
+    \hspace{0.4cm} $\diamond$ Kerngedanke: Sukzessiver Aufbau einer neuen Liste der Quadratwurzeln \\
+    \hspace{0.4cm} $\diamond$ Alle Wurzeln müssen durch die Rekursion \string"geschleift\string" werden \\
+    \hspace{0.4cm} $\diamond$ Hinzufügen von \texttt{empty}, falls die Liste leer ist \\
+    \hspace{0.4cm} $\diamond$ Folgendes Beispiel im Rahmen einer Methode \texttt{sqrts} \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(if (empty? list)} \\
+    \hspace{0.6cm} 2 \hspace{0.5cm} \texttt{empty} \\
+    \hspace{0.6cm} 3 \hspace{0.5cm} \texttt{(cons (sqrt (first list)) (sqrts (rest list))))} \\
+    $\triangleright$ z.B.: Filterung einer Liste \\
+    \hspace{0.4cm} $\diamond$ Selbes Konzept wie bei den Quadratwurzeln einer Liste \\
+    \hspace{0.4cm} $\diamond$ Meist mit zwei \texttt{if}-Anweisungen (Rekursionsanker + Filter) \\
+    \hspace{0.4cm} $\diamond$ Falls die Bedingung nicht erfüllt ist, \string"Überspringen\string" des Elements \\
+    \hspace{0.6cm} - Aufruf der rekursiven Methode ohne \texttt{cons} davor \\
+    \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(define (filter-fct list x)} \\
+    \hspace{0.6cm} 2 \hspace{0.5cm} \texttt{(if (empty? list)} \\
+    \hspace{0.6cm} 3 \hspace{0.9cm} \texttt{empty} \\
+    \hspace{0.6cm} 4 \hspace{0.9cm} \texttt{(if (< (first list) x)} \\
+    \hspace{0.6cm} 5 \hspace{1.3cm} \texttt{(cons (first list) (filter-fct (rest list) x))} \\
+    \hspace{0.6cm} 6 \hspace{1.3cm} \texttt{(filter-fct (rest list) x))))}} \\ \hline
+
+    \makecell[l]{Objektmodell} & \makecell[l]{
+    $\triangleright$ Liste ist eine Folge von \textbf{Werten}, nicht von \textbf{Objekten} \\
+    $\triangleright$ Eine gefilterte Liste enthält \textbf{Kopien} von Werten  } \\ \hline
+
+    \makecell[l]{Randfälle bei \\ Listen} & \makecell[l]{
+    $\triangleright$ Ausgabeliste leer, trotz nicht leerer Eingabeliste \\
+    $\triangleright$ Alle Elemente der Eingabeliste in Ausgabeliste \\
+    $\triangleright$ Test auf Vorzeichen bei Filterungen \\
+    $\triangleright$ Eingabeliste leer} \\ \hline
+
+    \end{tabular}
 
 \section{Syntax}
 
@@ -271,41 +350,58 @@
   \hline 
   
   \makecell[l]{Präfixnotation} & \makecell[l]{
-  $\rhd$ Zuerst der Operand, danach die Operanden \\
+  $\triangleright$ Zuerst der Operand, danach die Operanden \\
   \hspace{0.4cm} $\diamond$ (+ 1 2)} \\ \hline
 
   \makecell[l]{Klammersetzung} & \makecell[l]{
-  $\rhd$ Jede Einheit, die nicht atomar ist, wird in Klammern gesetzt \\
+  $\triangleright$ Jede Einheit, die nicht atomar ist, wird in Klammern gesetzt \\
   \hspace{0.4cm} $\diamond$ Zusammengesetzte Ausdrücke \\
   \hspace{0.4cm} $\diamond$ Funktionen allgemein \\
-  $\rhd$ Keine unterschiedlichen Bindungsstärken, immer Setzen aller Klammern  } \\ \hline
+  $\triangleright$ Keine unterschiedlichen Bindungsstärken, immer Setzen aller Klammern  } \\ \hline
 
   \makecell[l]{Kommentare} & \makecell[l]{
-  $\rhd$ Einzelne Zeile: \texttt{;} \\
+  $\triangleright$ Einzelne Zeile: \texttt{;} \\
   } \\ \hline
 
   \makecell[l]{Identifier} & \makecell[l]{
-  $\rhd$ Keine Zahlen \\
-  $\rhd$ Keine Whitespaces \\
-  $\rhd$ Konventionen: \\
+  $\triangleright$ Keine Zahlen \\
+  $\triangleright$ Keine Whitespaces \\
+  $\triangleright$ Konventionen: \\
   \hspace{0.4cm} $\diamond$ Keine Gro\ss buchstaben \\
   \hspace{0.4cm} $\diamond$ Bindestriche zwischen den einzelnen Wörtern \\
   \hspace{0.6cm} - z.B. \texttt{this-identifier-conforms-to-all-conventions} } \\ \hline  
   
   \end{tabular}
 
-\section{Verzweigung, switch} 
+\section{Verzweigung, cond} 
 
   \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
   \hline 
   
   \makecell[l]{if-Anweisung} & \makecell[l]{
-  $\rhd$ Boolsche Funktion mit drei Parametern \\
-  $\rhd$ \texttt{( if(bedindung) anweisung-if-true anweisung-if-false)} \\
+  $\triangleright$ Boolsche Funktion mit drei Parametern \\
+  $\triangleright$ \texttt{( if(bedindung) anweisung-if-true anweisung-if-false)} \\
   \hspace{0.4cm} $\diamond$ Muss wiede jeder andere Funktion in Klammern stehen \\
   \hspace{0.4cm} $\diamond$ Liefert ersten Parameter zurück falls \texttt{true} \\
   \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (my-abs x) (if (< 0 x) -x x))} \\
-  $\rhd$ Verschachtelung von \texttt{if}-Anweisungen auch möglich} \\ \hline  
+  $\triangleright$ Verschachtelung von \texttt{if}-Anweisungen auch möglich} \\ \hline  
+
+  \makecell[l]{cond Funktion} & \makecell[l]{
+  $\triangleright$ Bei mehreren \texttt{if}-Anweisungen meist der bessere Ersatz \\
+  $\triangleright$ Stark an \texttt{switch}-Anweisung aus \texttt{Java} angelegt \\
+  $\triangleright$ Wird bei Rekursion z.B. für Randfälle oder Rekursionsanker verwendet \\
+  $\triangleright$ Aufbau: \\
+  \hspace{0.6cm} 1 \hspace{0.1cm} \texttt{(cond } \\
+  \hspace{0.6cm} 2 \hspace{0.5cm} \texttt{[(empty? list) 2]} \\
+  \hspace{0.6cm} 3 \hspace{0.5cm} \texttt{[(number? a) 0])} 
+  \hspace{0.6cm} 3 \hspace{0.5cm} \texttt{[else 1])} \\
+  $\triangleright$ \texttt{cond}-Funktion hat eine variable Anzahl von Anweisungen \\
+  $\triangleright$ Jede Anweisung wird in \texttt{[]} gefasst und bildet einen Fall ab \\
+  $\triangleright$ Aufbau eines Falls: \texttt{[(bedingung) anweisung]} \\
+  $\triangleright$ Überprüfung aller Fälle der Reihe nach \\
+  \hspace{0.4cm} $\diamond$ Falls ein Fall eintritt, ist die Anweisung dort der Rückgabewert \\
+  $\triangleright$ \texttt{else} deckt den Fall ab, falls keiner der vorangehenden eintritt \\
+  } \\ \hline
   
   \end{tabular}
 
@@ -317,10 +413,10 @@
   \hline 
   
   \makecell[l]{Allgemein} & \makecell[l]{
-  $\rhd$ Warum? \\
+  $\triangleright$ Warum? \\
   \hspace{0.4cm} $\diamond$ Typprüfung erst zur Laufzeit \\
   \hspace{0.4cm} $\diamond$ Fehlervermeidung \\
-  $\rhd$ "Vertrag": \\
+  $\triangleright$ "Vertrag": \\
   \hspace{0.4cm} $\diamond$ Nutzer erfüllt seinen Teil des Vertrags (Precondition) \\
   \hspace{0.4cm} $\diamond$ Dann erfüllt Funktion ihren Teil des Vertrags  } \\ \hline  
   
@@ -328,13 +424,15 @@
   \texttt{;; Type: number number -> number} \\
   \texttt{;;} \\
   \texttt{;; Returns: the sum of two parameters} \\
-  $\rhd$ \texttt{Type:} Aufzählung der Paramater nach Reihenfolge des Auftretens \\
-  $\rhd$ \texttt{->}: Angabe des Rückgabetyps nach dem Pfeil \\
-  $\rhd$ \texttt{Returns}: Kurze Beschreibung des Rückgabewertes \\
-  $\rhd$ Nutzung von \texttt{;;} statt \texttt{;} ist hier Konvention } \\ \hline
+  $\triangleright$ \texttt{Type:} Aufzählung der Paramater nach Reihenfolge des Auftretens \\
+  $\triangleright$ \texttt{->}: Angabe des Rückgabetyps nach dem Pfeil \\
+  $\triangleright$ \texttt{Returns}: Kurze Beschreibung des Rückgabewertes \\
+  $\triangleright$ Nutzung von \texttt{;;} statt \texttt{;} ist hier Konvention } \\ \hline
 
   \makecell[l]{Weitere \\ Elemente} & \makecell[l]{
-  $\rhd$ \texttt{;; Precondition}: Angabe für Parameterrichtlinien  } \\ \hline
+  $\triangleright$ \texttt{;; Precondition}: Angabe für Parameterrichtlinien \\
+  $\triangleright$ \texttt{(list of number)} im \texttt{Type} für Listen \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(list of number) -> number}  } \\ \hline
 
   \end{tabular}
 
