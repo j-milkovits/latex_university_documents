@@ -1,7 +1,7 @@
 \input{../reference_sheet_preamble}
 
 \begin{titlepage}
-  \title{Titel hier einfügen} % document_name-type_of_document
+  \title{Algorithmen und Datenstrukturen} % document_name-type_of_document
   \author{Jonas Milkovits}
   \date{Last Edited: \today}
 \end{titlepage}
@@ -17,34 +17,195 @@
 
 
 \section{Einleitung}
-\begin{itemize}
-  \item \textbf{Problem} im Sinne der Informatik
-    \begin{itemize}
-      \item Enthält eine Beschreibung der Eingabe 
-      \item Enthält eine Beschreibung der Ausgabe
-      \item Gibt \textbf{keinen} Übergang von Eingabe und Ausgabe an
-      \item z.B.: Finde den kürzesten Weg zwischen zwei Orten
-    \end{itemize}
-  \item Probleminstanzen
-    \begin{itemize}
-      \item \textbf{Probleminstanz} ist eine konkrete Eingabenbelegung, für die entsprechende Ausgabe gewünscht ist
-      \item z.B.: Was ist der kürzeste Weg vom Audimax in die Mensa?
-    \end{itemize}
-  \item Begriff des Algorithmus
-    \begin{itemize}
-      \item Endliche Folge von Rechenschritten, der eine \textbf{Ausgabe} in eine \textbf{Eingabe} verwandelt 
-    \end{itemize}
-  \item Anforderungen an Algorithmen
-    \begin{itemize}
-      \item \textbf{Spezifizierung} der Eingabe und Ausgabe 
-        \begin{itemize}
-          \item Anzahl und Typen aller Elemente ist definiert
 
-        \end{itemize}
+\paragraph{Problem im Sinne der Informatik}
+	\begin{itemize}
+      	\item Enthält eine Beschreibung der Eingabe 
+      	\item Enthält eine Beschreibung der Ausgabe
+      	\item Gibt \textbf{keinen} Übergang von Eingabe und Ausgabe an
+      	\item z.B.: Finde den kürzesten Weg zwischen zwei Orten
+	\end{itemize}
+	
+\paragraph{Probleminstanzen}
+    \begin{itemize}
+      	\item Probleminstanz ist eine konkrete Eingabenbelegung, für die entsprechende Ausgabe gewünscht ist
+      	\item z.B.: Was ist der kürzeste Weg vom Audimax in die Mensa?
+	\end{itemize}
+	
+\paragraph{Begriff des Algorithmus}
+    \begin{itemize}
+    	\item Endliche Folge von Rechenschritten, der eine Ausgabe in eine Eingabe verwandelt 
+	\end{itemize}
+	
+\paragraph{Anforderungen an Algorithmen}
+    \begin{itemize}
+      	\item Spezifizierung der Eingabe und Ausgabe 
+        	\begin{itemize}
+          		\item Anzahl und Typen aller Elemente ist definiert
+        	\end{itemize}
+		\item Eindeutigkeit
+        	\begin{itemize}
+          		\item Jeder Einzelschritt ist klar definiert und ausführbar 
+          		\item Die Reihenfolge der Einzelschritte ist festgelegt
+        	\end{itemize}
+      	\item Eindlichkeit
+        	\begin{itemize}
+          		\item Notation hat eine endliche Länge
+        	\end{itemize}
+	\end{itemize}
+
+\paragraph{Eigenschaften von Algorithmen}
+	\begin{itemize}
+		\item Determiniertheit
+			\begin{itemize}
+				\item Für gleiche Eingabe stets die gleiche Ausgabe (andere mögliche Zwischenzustände)
+			\end{itemize}
+		\item Determinismus
+			\begin{itemize}
+				\item Für gleiche Eingabe stets identische Ausführung und Ausgabe
+			\end{itemize}
+		\item Terminierung
+			\begin{itemize}
+				\item Algorithmus läuft für jede Eingabe nur endlich lange
+			\end{itemize}
+		\item Korrektheit
+			\begin{itemize}
+				\item Algorithmus berechnet stets die spezifizierte Ausgabe (falls dieser terminiert)
+			\end{itemize}
+		\item Effizienz
+			\begin{itemize}
+				\item Sparsamkeit im Ressourcenverbrauch (Zeit, Speicher, Energie,...)
+			\end{itemize}
+	\end{itemize}
+
+\paragraph{Begriff der Datenstrukturen}
+	\begin{itemize}
+		\item Methode, um Datenabzuspeichern und zu organisieren
+		\item Erleichtert Zugriff auf Daten und Modifikation der Daten
+		\item Beinhalten Strukturbestandteile und Nutzerdaten (Payload)
+		\item Sequenzen: Arrays, Listen,...
+		\item Topologische Strukturen: Bäume, Graphen,... 
     \end{itemize}
+    
+\section{Sortieren}
+
+\subsection{Allgemeine Informationen}
+
+\paragraph{Das Sortierproblem} 
+    \begin{itemize}
+        \item Ausgangspunkt: Folge von Datensätzen $D_1,D_2,...,D_n$
+        \item Zu sortierende Elemente heißen auch Schlüssel(werte)
+        \item Ziel: Datensätze so anzuordnen, dass die Schlüsselwerte sukzessive ansteigen/absteigen
+        \item Bedingung: Schlüsselwerte müssen vergleichbar sein
+        \item Durchführung:
+            \begin{itemize}
+                \item Eingabe: Sequenz von Schlüsselwerten $<a_1,a_2,...,a_n>$
+                \item Engabe ist eine \textbf{Instanz} des Sortierproblems
+                \item Ausgabe: Permutation $<a_1', a_2', ..., a_n'>$ derselben Folge mit Eigenschaft $a_1' \leq ... \leq a_n'$
+            \end{itemize}
+        \item Algorithmus \textbf{korrekt}, wenn dieser das Problem für alle Instanzen löst
+    \end{itemize}
+
+\paragraph{Exkurs: Totale Ordnung}
+    \begin{itemize}
+        \item Sei $M$ eine nicht leere Menge und $\leq \subseteq MxM$ eine binäre Relation auf $M$
+        \item Das Paar $(M, \leq)$ heißt genau dann totale Relation auf der Menge $M$, wenn Folgendes erfüllt ist:
+            \begin{itemize}
+                \item Reflexivität: $\forall x \in M: x \leq x$
+                \item Transitivität: $\forall x,y,z \in M: x \leq y \land y \leq z \Rightarrow x \leq z$
+                \item Antisymmetrie: $\forall x,y \in M: x \leq y \land y \leq x \Rightarrow x = y$
+                \item Totalität: $\forall x,y \in M: x \leq y \lor y \leq x$
+            \end{itemize}
+        \item z.B.: $\leq$ Ordnung auf natürlichen Zahlen bildet eine totale Ordnung ($1 \leq 2 \leq 3 ...$)
+        \item z.B.: Lexikographische Ordnung $\leq_{lex}$ ist eine totale Ordnung ($A \leq B \leq C ...$)
+    \end{itemize}
+
+\paragraph{Vergleichskriterien von Sortieralgorithmen}
+    \begin{itemize}
+        \item Berechnungsaufwand $O(n)$
+        \item Effizient: Best Case vs Average Case vs Worst Case
+        \item Speicherbedarf:
+            \begin{itemize}
+                \item in-place (in situ): Zusätzlicher Speicher von der Eingabegröße unabhängig
+                \item out-of-place: Speichermehrbedarf von Eingabegröße abhängig
+            \end{itemize}
+        \item Stabilität: Stabile Verfahren verändern die Reihenfolge von äquivalenten Elementen nicht
+        \item Anwendung als Auswahlfaktor: 
+            \begin{itemize}
+                \item Hauptoperationen beim Sortieren: Vergleiche und Vertausche
+                \item Diese Operationen können sehr teuer oder sehr günstig sein, je nach Aufwand
+                \item Anpassung des Verfahrens abhängig von dem Aufwand dieser Operationen
+            \end{itemize}    
+    \end{itemize}
+
+\subsection{Insertion Sort}
+
+\paragraph{Idee}
+
+    \begin{itemize}
+        \item Halte die linke Teilfolge sortiert
+        \item Füge nächsten Schlüsselwert hinzu, indem es an die korrekte Position eingefügt wird
+        \item Wiederhole den Vorgang bis Teilfolge aus der gesamten Liste besteht
+    \end{itemize}
+
+\paragraph{Code}
+    \begin{minted}[autogobble,escapeinside=||]{c}  
+    1 FOR j = 1 TO A.length - 1
+    2   key = A[j]
+    3   // Füge A[j] in die sortierte Sequenz A[0...j-1] ein
+    4   i = j - 1
+    5   WHILE i |$\geq$| 0 and A[i] > key
+    6       A[i + 1] = A[i]
+    7       i = i - 1
+    8   A[i + 1] = key
+    \end{minted}
+
+
+
+\section{Pseudocode in der Vorlesung AuD}
+
+\paragraph{Datentypen}
+	\begin{itemize}
+		\item String
+			\begin{itemize}
+				\item Aufbau: \mint{c}|"Die Summe ist"|
+				\item Konkatenation: \mint{c}|"Die Summe ist" summe|  
+            \end{itemize}
+        \item Array
+            \begin{itemize}
+                \item \texttt{A}: Bezeichung eines Arrays \texttt{A}
+                \item \texttt{A[i]} Zugriff auf \texttt{(i+1)}-tes Element des Arrays
+            \end{itemize}
+	\end{itemize}
+
+
+\paragraph{Methoden}
+     \begin{itemize}
+	  	\item Rückgabe:
+	  		\mint{c}|return summe| 
+    \end{itemize}
+
+\paragraph{Schleifen}
+  	\begin{itemize}
+		\item While-Schleife 
+        \item[]
+            \begin{minted}[autogobble]{c}  
+                WHILE summe <= n
+                    summe = summe + 1
+                ENDWHILE
+            \end{minted}
+      \end{itemize}
+      
+\paragraph{Variablen}
+	\begin{itemize}
+	 	\item Initialisierung
+        \item[] \mint{c}|summe := 0| 
+            
+	
+	\end{itemize}
+
   
 
-\end{itemize}
 
 
 
