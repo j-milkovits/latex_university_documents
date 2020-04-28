@@ -18,25 +18,6 @@
 \clearpage
 \pagenumbering{arabic} % 1,2,3 on content pages
 
-\begin{comment}
-\section{Stuff that I skipped cuz of chapter 4}
-
-\begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
-	\hline
-	\makecell[l]{Exceptions aus \\ Lambda-Ausdrücken} &
-	\makecell[l]{$\triangleright$ Kapitel 5: 47 - 50  } \\ \hline
-	
-	\makecell[l]{Listen von \\ Lambda-Ausdrücken} & \makecell[l]{$\triangleright$ Kapitel 7: 60 - 65 } \\ \hline
-	
-	\makecell[l]{Methodennamen als \\ Lambda-Ausdrücke} & \makecell[l]{$\triangleright$ Kapitel 8: 55 - 84  } \\ \hline
-
-	\makecell[l]{Streams in Racket} & \makecell[l]{$\triangleright$ Kapitel 8: 122 - 133  } \\ \hline
-
-	\makecell[l]{ActionListener Lambda} & \makecell[l]{$\triangleright$ Kapitel 10: 68-69  } \\ \hline
-
-	\end{tabular}
-\end{comment}
-
 \section{Collections}
 	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | }
 	\hline
@@ -355,7 +336,14 @@
 	\hspace{0.4cm} $\diamond$ Assertanweisungen sinnvoll, da kurz und übersichtlich \\
 	\hspace{0.4cm} $\diamond$ Können zusätzlich vom Compiler an- und abgeschaltet werden \\
 	\hspace{0.4cm} $\diamond$ z.B.: Verwendung für Tests für Methoden und späteres Abschalten \\
-	$\triangleright$ Solche Tests werden White-Box-Tests genannt } \\ \hline
+    $\triangleright$ Solche Tests werden White-Box-Tests genannt } \\ \hline
+    
+    \makecell[l]{Exceptions aus \\ Lambda-Ausdrücken} & \makecell[l]{
+    $\triangleright$ Gute Verwendung, falls die funktionale Methode eines Interface Fehler wirft \\
+    $\triangleright$ \texttt{MyFuncIntf fct = (m,n) -> } \\
+    \hspace{3cm} \texttt{\{if (n == 0) throw new Exception(); return m/n;\};} \\
+    $\triangleright$ Funktionale Methode könnte führt Berechnung aus \\
+    $\triangleright$ Falls \texttt{n == 0} wird jedoch eine Exception geworfen } \\ \hline
 
 	\end{tabular}
 
@@ -577,10 +565,11 @@
 
 	\end{longtable}
 
+\pagebreak
 
 \section{Functional Interfaces und Lambda-Ausdrücke}
 
-    \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+    \begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
     \hline 
     
     \makecell[l]{Functional Interface} & \makecell[l]{
@@ -607,12 +596,12 @@
     } \\ \hline
 
     \makecell[l]{Closure} & \makecell[l]{
-        $\triangleright$ Falls der Parameter (oben 10) zur Laufzeit nicht feststeht (z.B. y): \\
-        \hspace{0.4cm} $\diamond$ Unsichtbare Klasse erhält Attribut, das durch Konstruktor initialisiert wird \\
-        \hspace{0.4cm} $\diamond$ Verwendung dieses Attributs innerhalb der Klasse \\
-        $\triangleright$ Info aus Entstehungskontext des Lambda-Ausdrucks wird mitgespeichert \\
-        \hspace{0.4cm} $\diamond$ Aktualer Wert aber nicht unbedingt kopiert, sondern referenziert \\
-        \hspace{0.4cm} $\diamond$ Vorsicht bei Änderungen  } \\ \hline
+    $\triangleright$ Falls der Parameter (oben 10) zur Laufzeit nicht feststeht (z.B. y): \\
+    \hspace{0.4cm} $\diamond$ Unsichtbare Klasse erhält Attribut, das durch Konstruktor initialisiert wird \\
+    \hspace{0.4cm} $\diamond$ Verwendung dieses Attributs innerhalb der Klasse \\
+    $\triangleright$ Info aus Entstehungskontext des Lambda-Ausdrucks wird mitgespeichert \\
+    \hspace{0.4cm} $\diamond$ Aktualer Wert aber nicht unbedingt kopiert, sondern referenziert \\
+    \hspace{0.4cm} $\diamond$ Vorsicht bei Änderungen  } \\ \hline
 
     \makecell[l]{Lambda-Ausdrücke \\ Aufbau} & \makecell[l]{
     $\triangleright$ \texttt{n -> n \SI{70}{\percent} 2 == 1} \\
@@ -636,10 +625,21 @@
     \hspace{0.6cm} - Die Klasse des Objekts \texttt{pred1} implementiert ja das Interface \\
     \hspace{0.4cm} $\diamond$ Ergänzung des \texttt{Functional Interface} durch diese \texttt{default}-Methoden 
     $\triangleright$ Natürlich auch Array-Erstellung eines Interface möglich \\
-    \hspace{0.4cm} $\diamond$ \texttt{IntPredicate[] predicates = new IntPredicate[6];} \\s
-    \hspace{0.4cm} $\diamond$ \texttt{predicates[0] = n -> n > 0;}} \\ \hline
+    \hspace{0.4cm} $\diamond$ \texttt{IntPredicate[] predicates = new IntPredicate[6];} \\
+    \hspace{0.4cm} $\diamond$ \texttt{predicates[0] = n -> n > 0;} \\
+    $\triangleright$ Auch Erstellung einer Liste möglich \\
+    \hspace{0.4cm} $\diamond$ \texttt{List<IntPredicate> pred = new ArrayList<IntPredicate>();} \\
+    \hspace{0.4cm} $\diamond$ \texttt{pred.add(n -> n > 0);} } \\ \hline
 
-    \end{tabular}
+    \makecell[l]{Methodennamen \\ als Lambda} & \makecell[l]{
+    $\triangleright$ Für Lambda-Ausdrücke, die nur aus einzelnem Methodenaufruf bestehen \\
+    \hspace{0.4cm} $\diamond$ Fachbegriff \texttt{method reference} \\
+    $\triangleright$ Normalerweise: \texttt{... = x -> \{System.out.print(x);\}} \\
+    $\triangleright$ Hier: \texttt{... = System.out::print;} \\
+    \hspace{0.4cm} $\diamond$ Verbinden des Methodennamens mit Referenz auf Objekt durch Doppelpunkt \\
+    \hspace{0.4cm} $\diamond$ Funktioniert auch analog mit Klassenmethoden} \\ \hline
+
+    \end{longtable}
 
 \section{Graphical User Interface}
 	\begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | }
@@ -690,7 +690,7 @@
 	\hspace{0.6cm} - Fügt den übergebenen \texttt{ActionListener} hinzu \\ 
 	\hspace{0.6cm} - Bei jedem Klick wird \texttt{actionPerformed} des \texttt{Listeners} aufgerufen \\
 	\hspace{0.6cm} - Auch mehrere möglich \\
-	\hspace{0.6cm} - Automatische Einrichtung des \texttt{Event Dispatch Thread} \\
+    \hspace{0.6cm} - Automatische Einrichtung des \texttt{Event Dispatch Thread} \\
 	\hspace{0.4cm} $\diamond$ \texttt{setLabel(String label)} \\
 	\hspace{0.6cm} - Setzt den Titel des \texttt{Button}
 	} \\ \hline
@@ -711,7 +711,9 @@
 	$\triangleright$ Alternativ: \\
 	\hspace{0.4cm} $\diamond$ Erstellung des \texttt{Listener} in der Subklasse des \texttt{Frame} \\ 
 	\hspace{0.6cm} - Keine \texttt{Frame}-Übergabe notwendig \\
-	\hspace{0.6cm} - z.B.: als \texttt{private}-Klasse (Stichwort: \texttt{nested classes}) \\
+    \hspace{0.6cm} - z.B.: als \texttt{private}-Klasse (Stichwort: \texttt{nested classes}) \\
+    $\triangleright$ Da \texttt{Functional Interface}: Lambda-Ausdruck \\
+    \hspace{0.4cm} $\diamond$ \texttt{button.addActionListener( (e) -> \{System.out.print("Hello");\})}
 	 } \\ \hline
 
 	\makecell[l]{Klasse ActionEvent} & \makecell[l]{
