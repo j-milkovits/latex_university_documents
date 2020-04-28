@@ -1,7 +1,5 @@
 \input{../reference_sheet_preamble}
 
-\usepackage{tuda-ci}
-
 \renewcommand{\arraystretch}{1.75} 
 
 \begin{titlepage}
@@ -112,9 +110,56 @@
   \hspace{0.4cm} $\diamond$ \texttt{(symbol? value)} \\
   \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} ein Symbol ist \\
   \hspace{0.4cm} $\diamond$ \texttt{(empty? list)} \\
-  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{list} leer ist} \\ \hline
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{list} leer ist \\
+  \hspace{0.4cm} $\diamond$ \texttt{(struct-name? value)} \\
+  \hspace{0.6cm} - \texttt{\#t}, falls \texttt{value} vom Typ des \texttt{Structs} \texttt{struct-name} ist} \\ \hline
   
+  \end{tabular}
+
+\section{filter, map und fold}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
   
+  \makecell[l]{\texttt{filter}} & \makecell[l]{
+  $\triangleright$ Fitlerung gewisser Elemente aus einer Liste mittels Prädikat \\
+  $\triangleright$ Vertrag: \texttt{(X -> boolean) (list of X) -> (list of X)} \\
+  $\triangleright$ \texttt{(filter pred list)} \\
+  \hspace{0.4cm} $\diamond$ Übergabe des Prädikats als ersten Parameter \\
+  \hspace{0.4cm} $\diamond$ Parameter des Prädikats muss hier von \texttt{X} sein \\
+  \hspace{0.4cm} $\diamond$ Übergabe der Liste als zweiten Parameter \\
+  $\triangleright$ Lambda-Beispiel: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(filter (lambda (x) -> (< x 10)) list1)} \\
+  \hspace{0.6cm} - Gibt Liste zurück mit Werten kleiner gleich 10 \\
+  \hspace{0.4cm} $\diamond$ Verträge bei Verwendung solcher Lambda-Funktionen notwendig \\
+  \hspace{0.6cm} - z.B. innerhalb der verwendenden Methode} \\ \hline  
+  
+  \makecell[l]{\texttt{map}} & \makecell[l]{
+  $\triangleright$ Abbildung von Werten auf einen anderen Wert \\
+  $\triangleright$ Vertrag: \texttt{(X -> Y) (list of X) -> (list of Y)} \\
+  $\triangleright$ \texttt{(map fct list)} \\
+  \hspace{0.4cm} $\diamond$ Übergabe der anzuwendenden Funktion als ersten Parameter \\
+  \hspace{0.4cm} $\diamond$ Übergabe der Liste als zweiten Parameter \\
+  $\triangleright$ Lambda-Beispiel: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(map (lambda(x) -> (* x 10)) list1)} \\
+  \hspace{0.6cm} - Multipliziert alle Werte der Liste mit 10 \\
+  \hspace{0.4cm} $\diamond$ Vertrag genau wie bei \texttt{filter} } \\ \hline
+
+  \makecell[l]{\texttt{fold}} & \makecell[l]{
+  $\triangleright$ Faltungsoperation, in Racket \texttt{lfold} und \texttt{rfold} \\
+  \hspace{0.4cm} $\diamond$ \texttt{lfold}: von links nach rechts \\
+  \hspace{0.4cm} $\diamond$ \texttt{rfold}: von rechts nach links \\
+  $\triangleright$ Faltungsoperation rechnet alle Werte nach Berechnungsvorschrift zusammen \\
+  $\triangleright$ Vertrag: \texttt{X (X Y -> X) (list of Y) -> X} \\
+  $\triangleright$ (rfold init fct list) \\
+  \hspace{0.4cm} $\diamond$ Übergabe des Startwerts als ersten Parameter \\
+  \hspace{0.4cm} $\diamond$ Übergabe der Funktion als zweiten Parameter \\
+  \hspace{0.4cm} $\diamond$ Übergabe der Liste als dritten Parameter \\
+  $\triangleright$ Lambda-Beispiel: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(rfold 0 (lambda (x,y) -> (+ x y)) list1)} \\
+  \hspace{0.6cm} - Rechnet alle Werte der Liste zu einem einzigen Wert mit \texttt{+} zusammen \\
+  \hspace{0.4cm} $\diamond$ Vertrag genau wie bei \texttt{filter} \\
+  $\triangleright$ Bei Listen Verwendung von \texttt{empty} als Initialwert} \\ \hline
 
   \end{tabular}
 
@@ -125,7 +170,7 @@
   
   \makecell[l]{Erzeugung} & \makecell[l]{
   $\triangleright$ \texttt{(define (name param1 param2) (Ausdruck)) ; Funktion}   \\
-  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (add x y) (+ x y))}
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define (add x y) (+ x y))} \\
   \hspace{0.4cm} $\diamond$ \texttt{define} sagt, dass Konstante oder Funktion definiert wird \\
   \hspace{0.4cm} $\diamond$ Konstante: \texttt{(define name value)} \\
   \hspace{0.4cm} $\diamond$ kein \texttt{return} notwendig} \\ \hline
@@ -154,7 +199,7 @@
   $\triangleright$ \texttt{(ceiling 3.14) ; 4} \\
   \hspace{0.4cm} $\diamond$ Aufrunden des übergebenen Wertes \\
   $\triangleright$ \texttt{(gcd 357 753 573)} \\
-  \hspace{0.4cm} $\diamond$ Größter gemeinsamer Teiler \\
+  \hspace{0.4cm} $\diamond$ Grö\ss ter gemeinsamer Teiler \\
   \hspace{0.4cm} $\diamond$ \texttt{greatest common denominator} \\
   $\triangleright$ \texttt{(modulo 753 357)} \\ 
   \hspace{0.4cm} $\diamond$ Rest der ganzzahigen Division } \\ \hline
@@ -170,12 +215,34 @@
   \hspace{0.4cm} 2 \hspace{0.5cm} \texttt{(local ( ; Öffnen des Blocks für lokale Definition} \\
   \hspace{0.4cm} 3 \hspace{0.7cm} \texttt{(define const 10)} \\
   \hspace{0.4cm} 4 \hspace{0.7cm} \texttt{(define (mult-const y) (* const y))) ; Blockschlie\ss ung} \\
-  \hspace{0.4cm} 5 \hspace{0.5cm} \texttt{(+ const (mult-const x)))) ; Schließen von local und define} \\
+  \hspace{0.4cm} 5 \hspace{0.5cm} \texttt{(+ const (mult-const x)))) ; Schlie\ss en von local und define} \\
   \hspace{0.4cm} $\diamond$ \texttt{local} enthält in sich einen Block für lokale Definitionen \\
   \hspace{0.4cm} $\diamond$ Zeile 5: Die letzte Zeile stellt den Wert des \texttt{local}-Ausdrucks dar} \\ \hline
   
   \end{tabular}
 
+\section{Funktionen als Daten} 
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Beispiele} & \makecell[l]{
+  $\triangleright$ \texttt{(define add +)} \\
+  \hspace{0.4cm} $\diamond$ Konstante \texttt{add} vom Typ: \texttt{number number -> number} \\
+  \hspace{0.4cm} $\diamond$ Operationen sind in \texttt{Racket} auch Funktionen \\
+  $\triangleright$ \texttt{(define-struct functions (fct1 fct))} \\
+  \hspace{0.4cm} $\diamond$ Auch Abspeichern von Funktionen als \texttt{Struct} \\
+  $\triangleright$ \texttt{(list fct1 3 fct2 +)} \\
+  \hspace{0.4cm} $\diamond$ Funktionen auch als Listenelemente möglich \\
+  } \\ \hline
+  
+  \makecell[l]{Funktionen höherer \\ Ordnung} & \makecell[l]{
+  $\triangleright$ Funktionen, die Funktionen als Parameter enthalten \\
+  $\triangleright$ z.B. \texttt{(define (add fct1 x fct2 y) (+ (fct1 x) (fct2 y)))} \\
+  \hspace{0.4cm} $\diamond$ Verwendung der Funktion gemä\ss  ihres erwarteten Typs (Vertrag) \\
+   } \\ \hline
+
+  \end{tabular}
 
 \section{Klassen}
 
@@ -195,6 +262,30 @@
   \makecell[l]{Wichtige \\ Konstanten} & \makecell[l]{
   $\triangleright$ \texttt{pi} \\
   $\triangleright$ \texttt{e}   } \\ \hline
+
+  \end{tabular}
+
+\section{Lambda-Ausdrücke}
+
+  \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+  \hline 
+  
+  \makecell[l]{Aufbau} & \makecell[l]{
+  $\triangleright$ \texttt{(lambda (x y) -> (+ (* x x) (* y y))} \\
+  \hspace{0.4cm} $\diamond$ Aufbau vergleichbar mit Kurzform in Java} \\ \hline  
+  
+  \makecell[l]{Beispiel} & \makecell[l]{
+  \hspace{0.2cm} 1 \hspace{0.1cm} \texttt{(define (add-unary-functions fct1 fct2)} \\
+  \hspace{0.2cm} 2 \hspace{0.5cm} \texttt{(lambda (x,y) -> (+ (fct1 x) (fct2 y))))} \\
+  $\triangleright$ Die Funktion liefert eine Funktion zurück, die eine Zahl zurückliefert \\
+  $\triangleright$ \texttt{Closure} analog zu Java \\
+  $\triangleright$ Anwendung: \\
+  \hspace{0.4cm} $\diamond$ \texttt{(define (times10 a) (* 10 a))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(define (div5 a) (/ a 5))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{((add-unary-functions times10 a) 3.14 2.71)} \\
+  \hspace{0.6cm} - \texttt{(+ (* 3.14 10) (/ 2.71 5))} \\
+  \hspace{0.6cm} - \texttt{add-unary-functions} liefert Lambda-Ausdruck zurück \\
+  \hspace{0.6cm} - Dieser wird dann mit \texttt{3.14} und \texttt{2.71} aufgerufen} \\ \hline
 
   \end{tabular}
 
@@ -238,7 +329,8 @@
     $\triangleright$ \texttt{(define list1 (list 1 2 3))} \\
     \hspace{0.4cm} $\diamond$ Erstellt eine Liste mit den Werten 1,2,3 \\
     \hspace{0.4cm} $\diamond$ Funktion \texttt{list} kann beliebig viele Parameter haben \\
-    \hspace{0.4cm} $\diamond$ Die Elemente der Liste sind ihr Rückgabewert} \\ \hline  
+    \hspace{0.4cm} $\diamond$ Die Elemente der Liste sind ihr Rückgabewert \\
+    $\triangleright$ Listen müssen nicht homogen sein (auch heterogen möglich)} \\ \hline  
     
     \makecell[l]{Erzeugung von Listen \\ aus Listen} & \makecell[l]{
     $\triangleright$ \texttt{(define list2 (cons 7 list1))} \\
@@ -258,7 +350,7 @@
     \hspace{0.4cm} $\diamond$ Liefert den ersten Wert der Liste zurück \\
     \hspace{0.4cm} $\diamond$ Erwartet, dass die Liste nicht leer ist \\
     $\triangleright$ \texttt{(rest list1)} \\
-    \hspace{0.4cm} $\diamond$ Liefert Liste zurück, die alle Elemente außer dem Ersten enthält \\
+    \hspace{0.4cm} $\diamond$ Liefert Liste zurück, die alle Elemente au\ss er dem Ersten enthält \\
     \hspace{0.4cm} $\diamond$ Erwartet, dass die Liste nicht leer ist} \\ \hline
 
     \end{tabular}
@@ -276,13 +368,28 @@
   $\triangleright$ Laufzeitsystem kann intern zur Optimierung von Grundlogik abweichen} \\ \hline  
 
   \makecell[l]{Aufweichung des \\ Objektmodells} & \makecell[l]{
-  $\triangleright$ TODO in 4D  } \\ \hline
+  $\triangleright$ \texttt{begin} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(begin (fct1 ...) (fct2 ...))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{begin} leitet mehrere Anweisungen ein \\
+  \hspace{0.4cm} $\diamond$ Die letzte Anweisung ist der Wert des \texttt{begin}-Ausdrucks \\
+  $\triangleright$ \texttt{set!} \\
+  \hspace{0.4cm} $\diamond$ (set! new 'test) \\
+  \hspace{0.4cm} $\diamond$ Überschreibt Wert des ersten Parameters mit dem des Zweiten \\
+  \hspace{0.4cm} $\diamond$ \texttt{set!} hat keinen Rückgabewert \\
+  $\triangleright$ \texttt{\#<void>} \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(define new \#<void>)} \\
+  \hspace{0.4cm} $\diamond$ Konstante hat damit einen leeren Wert \\
+  $\triangleright$ Objektidentität: \\
+  \hspace{0.4cm} $\diamond$ generelle Vermeidung wird empfohlen \\
+  \hspace{0.4cm} $\diamond$ \texttt{(eq? a b)} \\
+  \hspace{0.4cm} $\diamond$ Testet ob zwei Objekte dasselbe Objekt sind \\
+  \hspace{0.4cm} $\diamond$ Systemabhängig, interne Implementation} \\ \hline
   
   \end{tabular}
 
 \section{Rekursion} 
 
-    \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+    \begin{longtable}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
     \hline 
     
     \makecell[l]{Allgemein} & \makecell[l]{
@@ -342,6 +449,48 @@
     $\triangleright$ Test auf Vorzeichen bei Filterungen \\
     $\triangleright$ Eingabeliste leer} \\ \hline
 
+    \makecell[l]{Akkumulatoren} & \makecell[l]{
+    $\triangleright$ Wird meist durch lokale Hilfsmethode implementiert \\
+    $\triangleright$ Beispielsmethode: Akkumulation einer Liste \\
+    \hspace{0.4cm} 1 \hspace{0.1cm} \texttt{(define (list-of-sums input-list)} \\ 
+    \hspace{0.4cm} 2 \hspace{0.3cm} \texttt{(local} \\
+    \hspace{0.4cm} 3 \hspace{0.5cm} \texttt{((define (list-of-sum-with-accu list accu))} \\
+    \hspace{0.4cm} 4 \hspace{0.7cm} \texttt{(cond } \\
+    \hspace{0.4cm} 5 \hspace{0.9cm} \texttt{[(empty? list) (list accu)]} \\
+    \hspace{0.4cm} 6 \hspace{0.9cm} \texttt{[else (cons accu (list-of-sums-with-accu (rest list)} \\
+    \hspace{0.4cm} 7 \hspace{6cm} \texttt{(+ (first list) accu)))]))} \\
+    \hspace{0.4cm} 8 \hspace{0.3cm} \texttt{(list-of-sums-with-accu (rest input-list) (first input-list))))} \\
+    \hspace{0.4cm} $\diamond$ Zeile 2: Einrichtung einer lokalen Umgebung \\
+    \hspace{0.4cm} $\diamond$ Zeile 3: Definitionsstart der lokalen Methode mit Akkumulator \\
+    \hspace{0.4cm} $\diamond$ Zeile 8: Letzter Ausdruck des \texttt{local}-Ausdrucks und deswegen Rückgabewert \\
+    \hspace{0.4cm} $\diamond$ Zeile 5: Rekursionsanker: Falls Liste leer, Rückgabe des \texttt{accu} als Liste \\
+    \hspace{0.4cm} $\diamond$ Beispielaufruf: \texttt{(list-of-sums (10 18 22 30))} \\
+    \hspace{0.6cm} - Ausgabe: \texttt{(list 10 28 50 80)}
+    } \\ \hline
+
+    \end{longtable}
+
+\section{Structs}
+
+    \begin{tabular}{ | p{0.2\textwidth} p{0.75\textwidth} | } 
+    \hline 
+    
+    \makecell[l]{Allgemein} & \makecell[l]{
+    $\triangleright$ Zusammenfassung von Elementen, vergleichbar mit Klasse ohne Methoden  } \\ \hline 
+
+    \makecell[l]{Erzeugung} & \makecell[l]{
+    $\triangleright$ \texttt{(define-struct name (attribute1 attribute2 attribute3))} \\
+    \hspace{0.4cm} $\diamond$ Attribute werden in \texttt{Racket} Felder genannt } \\ \hline
+
+    \makecell[l]{\string"Objekterzeugung\string"} & \makecell[l]{
+    $\triangleright$ z.B. \texttt{(define test (make-name 'Hallo 2 (list 1 2 3)))} \\
+    $\triangleright$ \string"Konstruktor\string" wird automatisch erzeugt \\
+    $\triangleright$ Initialisierungen der Felder werden in selber Reihenfolge übergeben  } \\ \hline
+    
+    \makecell[l]{Zugriff} & \makecell[l]{
+    $\triangleright$ \texttt{(name-attribute1 object-name)} \\
+    \hspace{0.4cm} $\diamond$ z.B. \texttt{student-last-name 247852} \\
+    \hspace{0.4cm} $\diamond$ Abfrage des Nachnamens des \texttt{student}-Objektes mit den Namen 247852 } \\ \hline
     \end{tabular}
 
 \section{Syntax}
@@ -432,7 +581,24 @@
   \makecell[l]{Weitere \\ Elemente} & \makecell[l]{
   $\triangleright$ \texttt{;; Precondition}: Angabe für Parameterrichtlinien \\
   $\triangleright$ \texttt{(list of number)} im \texttt{Type} für Listen \\
-  \hspace{0.4cm} $\diamond$ z.B. \texttt{(list of number) -> number}  } \\ \hline
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{(list of number) -> number} \\
+  $\triangleright$ Unterschiedliche Typen in Liste: \texttt{(list of ANY)} \\
+  \hspace{0.4cm} $\diamond$ Verwendung mehrerer \texttt{ANY}: Keine Abhängigkeit voneinander \\
+  $\triangleright$ Feste Typen in Liste: \texttt{(list of student)} \\
+  $\triangleright$ \texttt{X}: Platzhalter für beliebigen Datentyp \\
+  \hspace{0.4cm} $\diamond$ Bei Verwendung von mehreren \texttt{X}: \texttt{X} sind vom gleichen Typ \\
+  \hspace{0.4cm} $\diamond$ Falls diese unterschiedlich sein sollen: Verwendung von \texttt{Y,Z} \\
+  } \\ \hline
+
+  \makecell[l]{Funktionen höherer \\ Ordnung} & \makecell[l]{
+  $\triangleright$ z.B. \texttt{(define (add fct1 x fct2 y) (+ (fct1 x) (fct2 y)))} \\
+  \hspace{0.4cm} $\diamond$ \texttt{(number -> number) number (number -> number) number -> number} \\
+  \hspace{0.4cm} $\diamond$ Beschreibung des Funktionstyps an sich \\
+  $\triangleright$ Vertrag für Lambda-Funktionen vom selben Aufbau \\
+  \hspace{0.4cm} $\diamond$ z.B. \texttt{... -> (number number -> number)} \\
+  \hspace{0.4cm} $\diamond$ Prädikat: \texttt{(X -> boolean) ... -> ...} \\
+  \hspace{0.4cm} $\diamond$ Vertrag für jede Lambda-Funktion notwendig \\
+  \hspace{0.4cm} $\diamond$ sowohl innerhalb, als auch im oberen Vertrag} \\ \hline
 
   \end{tabular}
 
