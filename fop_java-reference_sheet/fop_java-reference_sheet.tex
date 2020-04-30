@@ -1438,7 +1438,10 @@
 
 	\makecell[l]{Methoden:} & \makecell[l]{
 	$\triangleright$ \texttt{assertEquals(...,...); // \texttt{true}, falls beide Parameter identisch} \\
-	\hspace{0.4cm} $\diamond$ Existiert auch mit 3 Parametern, 3. Wert entspricht maximalen Unterschied \\ 
+    \hspace{0.4cm} $\diamond$ Existiert auch mit 3 Parametern, 3. Wert entspricht maximalen Unterschied \\ 
+    \hspace{0.4cm} $\diamond$ Test auf Wertgleichheit, muss aber bei Klasse selbst implementiert werden \\
+    $\triangleright$ \texttt{assertSame(...,...); // \texttt{true}, falls selbe Referenz} \\
+    \hspace{0.4cm} $\diamond$ Test auf Objektidentität \\
 	$\triangleright$ \texttt{assertTrue(...); // \texttt{true}, falls der Parameter \texttt{true} ist} \\
 	$\triangleright$ \texttt{assertThrows(...,...); // Wirft Exception abhängig von Executable} \\
 	\hspace{0.4cm} $\diamond$ Erster Parameter zu werfende Exception.class \\
