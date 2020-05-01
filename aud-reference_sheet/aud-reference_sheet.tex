@@ -401,14 +401,14 @@
         
         \item \textbf{Code}
             \begin{minted}[gobble = 9]{c}  
-            1 FOR j = 1 TO A.length - 1
-            2   key = A[j]
-            3   // Füge A[j] in die sortierte Sequenz A[0...j-1] ein
-            4   i = j - 1
-            5   WHILE i >= 0 and A[i] > key
-            6       A[i + 1] = A[i]
-            7       i = i - 1
-            8   A[i + 1] = key
+            FOR j = 1 TO A.length - 1
+              key = A[j]
+              // Füge A[j] in die sortierte Sequenz A[0...j-1] ein
+              i = j - 1
+              WHILE i >= 0 and A[i] > key
+                  A[i + 1] = A[i]
+                  i = i - 1
+              A[i + 1] = key
             \end{minted}
         \item \textbf{Schleifeninvariante von \texttt{Insertion Sort}} {\label{insSortSiv}} 
             \begin{itemize}
@@ -520,10 +520,10 @@
         
         \item \textbf{Code}
             \begin{minted}[gobble = 9]{c}  
-            1   FOR i = 0 TO A.length - 2
-            2       FOR j = A.length - 1 DOWNTO i + 1
-            3           IF A[j] < A[j-1]
-            4               SWAP(A[j], A[j-1])
+            FOR i = 0 TO A.length - 2
+                FOR j = A.length - 1 DOWNTO i + 1
+                    IF A[j] < A[j-1]
+                        SWAP(A[j], A[j-1])
             \end{minted}
 
         \item \textbf{Analyse von \texttt{Bubble Sort}}
