@@ -372,7 +372,7 @@
         
         \item \textbf{$o$-Notation}
             \begin{itemize}
-                \item $\o$-Notation stellt eine echte obere Schranke dar
+                \item $o$-Notation stellt eine echte obere Schranke dar
                 \item Ausschlaggebend ist, dass es für alle $c \in \mathbb{R}_{>0}$ gelten muss
                 \item Au\ss erdem $<$ statt $\leq$
                 \item z.B.: $2n = o(n^2)$ und $2n^2 \neq o(n^2)$ 
@@ -400,16 +400,20 @@
             \end{itemize}
         
         \item \textbf{Code}
-            \begin{minted}[gobble = 9]{c}  
-            FOR j = 1 TO A.length - 1
-              key = A[j]
-              // Füge A[j] in die sortierte Sequenz A[0...j-1] ein
-              i = j - 1
-              WHILE i >= 0 and A[i] > key
-                  A[i + 1] = A[i]
-                  i = i - 1
-              A[i + 1] = key
-            \end{minted}
+            \begin{itemize}
+                \item[]
+                 \begin{minted}[autogobble]{c}  
+                    FOR j = 1 TO A.length - 1
+                      key = A[j]
+                      // Füge A[j] in die sortierte Sequenz A[0...j-1] ein
+                      i = j - 1
+                      WHILE i >= 0 and A[i] > key
+                          A[i + 1] = A[i]
+                          i = i - 1
+                      A[i + 1] = key
+                    \end{minted}
+            \end{itemize}
+            
         \item \textbf{Schleifeninvariante von \texttt{Insertion Sort}} {\label{insSortSiv}} 
             \begin{itemize}
                 \item Zu Beginn jeder Iteration der \texttt{for}-Schleife besteht die Teilfolge \texttt{A[0...j-1]} aus den Elementen \\
@@ -519,12 +523,15 @@
             \end{itemize}
         
         \item \textbf{Code}
-            \begin{minted}[gobble = 9]{c}  
-            FOR i = 0 TO A.length - 2
-                FOR j = A.length - 1 DOWNTO i + 1
-                    IF A[j] < A[j-1]
-                        SWAP(A[j], A[j-1])
-            \end{minted}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}  
+                    FOR i = 0 TO A.length - 2
+                        FOR j = A.length - 1 DOWNTO i + 1
+                            IF A[j] < A[j-1]
+                                SWAP(A[j], A[j-1])
+                    \end{minted}
+            \end{itemize}
 
         \item \textbf{Analyse von \texttt{Bubble Sort}}
             \begin{itemize}
@@ -548,6 +555,162 @@
                     \end{itemize}
             \end{itemize}
         
+    \end{itemize}
+
+\pagebreak
+
+\subsection{Selection Sort}
+    \begin{itemize}
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item Sortieren durch direktes Auswählen
+                \item \texttt{MinSort}: "wähle kleines Element in Array und tausche es nach vorne" 
+                \item \texttt{MaxSort}: "wähle größtes Element in Array und tausche es nach vorne" 
+            \end{itemize}
+
+        \item \textbf{Code}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    FOR i = 0 TO A.length - 2
+                        k = i 
+                        FOR j = i + 1 TO A.length - 1
+                            IF A[j] < A[k]
+                                k = j 
+                        SWAP(A[i], A[k])
+                    \end{minted}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Divide-And-Conquer-Ansatz}
+    \begin{itemize}
+        \item Anderer Ansatz im Gegensatz zu z.B. \texttt{InsertionSort} (inkrementelle Herangehensweise)
+        \item Laufzeit ist im schlechtesten Fall immer noch besser als \texttt{InsertionSort}
+        \item Prinzip: Zerlege das Problem und löse es direkt oder zerlege es weiter
+        \item \textbf{Divide:} 
+            \begin{itemize}
+                \item Teile das Problem in mehrere Teilprobleme auf
+                \item Teilprobleme sind Instanzen des gleichen Problems 
+            \end{itemize}
+        \item \textbf{Conquer:} 
+            \begin{itemize}
+                \item Beherrsche die Teilprobleme rekursiv
+                \item Falls Teilprobleme klein genug, löse sie auf direktem Weg
+            \end{itemize}
+        \item \textbf{Combine:} 
+            \begin{itemize}
+                \item Vereine die Lösungen der Teilprobleme zu Lösung des ursprünglichen Problems
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Merge Sort} 
+    \begin{itemize}
+        \item \textbf{Idee} 
+            \begin{itemize}
+                \item \textbf{Divide:} Teile die Folge aus $n$ Elementen in zwei Teilfolgen von je $\frac{n}{2}$ Elemente auf
+                \item \textbf{Conquer:} Sortiere die zwei Teilfolgen rekursiv mithilfe von \texttt{MergeSort}
+                \item \textbf{Combine:} Vereinige die zwei sortierten Teilfolgen, um die sortierte Lösung zu erzeugen
+            \end{itemize}
+        \item \textbf{Code} 
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    MERGE-SORT (A,p,r)
+                    IF p < r
+                        q = |$\left \lfloor \texttt{(p+r)/2} \right \rfloor$| // Teilen in 2 Teilfolgen 
+                        MERGE-SORT(A,p,q) // Sortieren der beiden Teilfolgen
+                        MERGE-SORT(A,q+1,r)
+                        MERGE(A,p,q,r) // Vereinigung der beiden sortierten Teilfolgen
+                    \end{minted}
+                \item[]
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    MERGE(A,p,q,r) // Geteiltes Array an Stelle q
+                    |$n_1$| = q - p + 1
+                    |$n_2$| = r - q 
+                    Let L[0...|$n_1$|] and R[0...|$n_2$|] be new arrays 
+                    FOR i = 0 TO |$n_1$| - 1 // Auffüllen der neu erstellten Arrays
+                        L[i] = A[p + i]
+                    FOR j = 0 TO |$n_2$| - 1
+                        R[j] = A[q + j + 1]
+                    L[|$n_1$|] = |$\infty$| // Einfügen des Sentinel-Wertes
+                    R[|$n_2$|] = |$\infty$|
+                    i = 0
+                    j = 0
+                    FOR k = p TO r  // Eintragweiser Vergleich der Elemente          
+                        IF L[i] |$\leq$| R[j]
+                            A[k] = L[i] // Sortiertes Zurückschreiben in Original-Array
+                            i = i + 1
+                        ELSE 
+                            A[k] = R[j]
+                            j = j + 1
+                    \end{minted}
+            \end{itemize}
+        
+        \item \textbf{Korrektheit von MergeSort}
+            \begin{itemize}
+                \item Schleifeninvariante
+                    \begin{itemize}
+                        \item[]
+                            Zu Beginn jeder Iteration der \texttt{for}-Schleife (Letztes \texttt{for} in Methode \texttt{MERGE}) enthält
+                            das Teilfeld \texttt{A[p...k-1]} die \texttt{k-p} kleinsten Elemente aus \texttt{L[0...$n_1$]} und \texttt{R[0...$n_2$]}
+                            in sortierter Reihenfolge. Weiter sind \texttt{L[i]} und \texttt{R[i]} die kleinsten Elemente ihrer Arrays, die noch nicht
+                            zurück kopiert wurden.
+                    \end{itemize}
+                \item Initialisierung
+                    \begin{itemize}
+                        \item[]
+                            Vor der ersten Iteration gilt \texttt{k=p}. Daher ist \texttt{A[p...k-1]} leer und enthält 0 kleinste Elemente von 
+                            \texttt{L} und \texttt{R}. Wegen \texttt{i=j=0} sind \texttt{L[i]} und \texttt{R[i]} die kleinsten Elemente ihrer 
+                            Arrays, die noch nicht zurück kopiert wurden.
+                    \end{itemize}
+                \item Fortsetzung
+                    \begin{itemize}
+                        \item[]
+                            Müssen zeigen, dass Schleifeninvariante erhalten bleibt. Dafür nehmen wir an, dass \texttt{L[i] $\leq$ R[j]}. Dann ist 
+                            \texttt{L[i]} kleinstes Element, welches noch nicht zurück kopiert wurde. Da Array \texttt{A[p...k-1]} die \texttt{k-p}
+                            kleinsten Elemente enthält, wird der Array \texttt{A[p...k]} die \texttt{k-p+1} kleinsten Elemente enthalten, nachdem 
+                            der Wert nach der Durchführung von \texttt{A[k]=L[i]} kopiert wurde. Die Erhöhung der Variablen \texttt{k} und \texttt{i}
+                            stellt die Schleifeninvariante für die nächste Iteration wieder her. Wenn \texttt{L[i]>R[j]} dann analoges Argument 
+                            in der \texttt{ELSE}-Anweisung. 
+                    \end{itemize}
+                \item Terminierung 
+                    \begin{itemize}
+                        \item[]
+                            Beim Abbruch gilt \texttt{k=r+1}. Durch die Schleifeninvariante enthält \texttt{A[p...r]} die kleinste Elemente von 
+                            \texttt{L[0...$n_1$]} und \texttt{R[0...$n_2$]} in sortierter Reihenfolge. Alle Elemente außer der Sentinels wurden
+                            komplett zurück kopiert. \texttt{MergeSort} ist außerdem ein stabiler Algorithmus.
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Analyse von MergeSort} 
+            \begin{itemize}
+                \item Ziel: Bestimme Rekursionsgleichung für Laufzeit $T(n)$ von $n$ Zahlen im schlechtesten Fall
+                \item Divide: Berechnung der Mitte des Feldes: Konstante Zeit $\Theta(1)$
+                \item Conquer: Rekursives Lösen von zwei Teilproblemen der Größe $\frac{n}{2}$: Laufzeit von $2~T(\frac{n}{2})$
+                \item Combine: \texttt{MERGE} auf einem Teilfeld der Länge $n$: Lineare Zeit $\Theta(n)$
+                \item[] \[
+                        T(n) = \left.
+                            \begin{cases}
+                                \Theta(1) & \text{falls } n = 1 \\
+                                2~T(\frac{n}{2}) + \Theta(n) & \text{falls } n > 1 \\
+                            \end{cases}
+                            \right \}
+                        \]
+                \item Lösen der Rekursionsgleichung mithilfe eines Rekursionsbaums
+                    \begin{itemize}
+                        \item[] \includegraphics[width=12cm]{mergeSortBaum.PNG}
+                        \item Verwenden der Konstante $c$ statt $\Theta(1)$
+                        \item $cn$ stellt den Aufwand an der ersten Ebene dar 
+                        \item Der addierte Aufwand jeder Stufe (aller Knoten) ist auch $cn$
+                        \item Die Azahl der Ebenen lässt sich mithilfe von $lg(n) + 1$ bestimmen (2-er Logarithmus)
+                        \item Damit ergibt sich für die Laufzeit: $cn \cdot lg(n)+cn$
+                        \item Für $\lim_{n \rightarrow \infty}$ wird diese zu $n \cdot lg(n)$
+                        \item Laufzeit beträgt damit $\Theta(n \cdot lg(n))$
+                        \item Laufzeit von \texttt{MergaSort} ist in jedem Fall gleich
+                    \end{itemize}
+                
+            \end{itemize}
     \end{itemize}
 
 \pagebreak
