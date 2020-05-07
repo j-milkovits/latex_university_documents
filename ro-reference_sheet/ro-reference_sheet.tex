@@ -230,7 +230,7 @@
 
         \item \textbf{Verfeinerung des Rechensystems}
             \begin{itemize}
-                \item[] \includegraphics[width=12cm]{modernesRechnersystem.PNG}
+                \item[] \includegraphics[width=9cm]{modernesRechnersystem.PNG}
                 \item {\makebox[6cm][l]{CPU/Prozessor:}} führt die im Hauptspeicher abgelegten Befehle aus 
                 \item {\makebox[6cm][l]{ALU/Arithmethic Logical Unit:}} Ausführung der Operationen
                 \item {\makebox[6cm][l]{PC/Program Counter:}} Verweis auf nächsten Maschinenbefehl im Hauptspeicher
@@ -239,12 +239,7 @@
                 \item {\makebox[6cm][l]{Bus Interface:}} Verbinden der einzelnen Komponenten
             \end{itemize}
 
-    \end{itemize}
-
-\subsection{Nötiges Vorwissen für Assembler} 
-    
-    \begin{itemize}
-        \item \textbf{Allgemeine Informationen}
+        \item \textbf{Assembler}
             \begin{itemize}
                 \item Programmieren in der Sprache des Computers
                     \begin{itemize}
@@ -266,174 +261,126 @@
                 \item Große Verbreitung heutzutage in Smartphones
             \end{itemize}
 
-        \item \textbf{Phasen der Übersetzung}
-            \begin{itemize}
-                \item Beispielhaftes \texttt{C}-Programm:
-                \item[]
-                    \begin{minted}[autogobble]{c}
-                    #include<stdio.h> /* Standard Input/Output */ /* Header-Datei*/
-                    int main() {
-                    printf("Hello World\n");
-                    return 0;
-                    }
-                    \end{minted}
-                \item \texttt{C}-Programm an sich für den Menschen verständlich
-                \item Übersetzung in Maschinenbefehle für Ausführung auf dem Rechnersystem:
-                \item[] \includegraphics[width=12cm]{übersetzungsPhasen.PNG}
-                \item 1. Phase (Preprocessor)
-                    \begin{itemize}
-                        \item Aufbereitung durch Ausführung von Direktiven (Code mit \#)
-                        \item z.B.: Bearbeiten von \texttt{\#include <stdio.h>}
-                            \begin{itemize}
-                                \item Lesen des Inhalts der Datei \texttt{stdio.h}
-                                \item Kopieren des Inhalts in die Programmdatei
-                            \end{itemize}
-                        \item Ausgabe: \texttt{C}-Programm mit der Endung \texttt{.i} 
-                    \end{itemize}
-                
-                \item 2. Phase (Compiler)
-                    \begin{itemize}
-                        \item Übersetzt \texttt{C-}Programm \texttt{hello.i} in Assemblerprogramm \texttt{hello.s}
-                    \end{itemize}
+    \end{itemize}
 
-                \item 3. Phase (Assembler)
-                    \begin{itemize}
-                        \item Übersetzt \texttt{hello.s} in Maschinensprache
-                        \item Ergebnis ist das Objekt-Programm \texttt{hello.o}
-                    \end{itemize}
+\pagebreak
 
-                \item 4. Phase (Linker)
-                    \begin{itemize}
-                        \item Zusammenfügen verschiedener Module
-                            \begin{itemize}
-                                \item Code vn \texttt{printf} exisitert bereits als \texttt{print.o}-Datei
-                            \end{itemize}
-                        \item Linker kombiniert \texttt{hello.o} und \texttt{printf.o} zu ausführbarem Programm
-                        \item Ausgabe des Bindevorgangs: ausführbare \texttt{hello}-Objektdatei
-                    \end{itemize}
-            
-            \end{itemize}
-        
-        \item \textbf{Ausführung des Programms}
-            \begin{itemize}
-                \item Ausgangspunkt
-                    \begin{itemize}
-                        \item Ausführbares Objektprogramm \texttt{hello} auf der Festplatte 
-                        \item Starten der Ausführung des Programms unter Nutzung der Shell 
-                    \end{itemize}
-                
-                \item Ablauf:
-                    \begin{itemize}
-                        \item Shell liegt Zeichen des Kommandos ins Register
-                        \item Speichert den Inhalt dann im Hauptspeicher aber
-                        \item[] \includegraphics[width=12cm]{ausführung1.PNG}
-                        \item Schrittweises Kopieren der Befehle/Daten von Festplatte in Hauptspeicher
-                        \item[] \includegraphics[width=12cm]{ausführung2.PNG}
-                        \item Ausführen der Maschinenbefehle des \texttt{hello}-Programms
-                        \item[] \includegraphics[width=12cm]{ausführung3.PNG} 
-                    \end{itemize}
-            \end{itemize}
+\subsection{Phasen der Übersetzung}
 
-        \item \textbf{Erstes Assembler-Programm}
-            \begin{itemize}
-                \item Code
-                    \begin{minted}[autogobble]{c}
-                    #include <stdio.h>
-
-                    int main() {
-                        int p = 5; /* Definition + Variablenzuweisung */
-                        int q = 12;
-                        int result = p + q;
-                        printf("result ist %d \n", result); /* Platzhaltersystem für Strings */
-                        return 0;
-                    }
-                    \end{minted}
-                \item Befehle:
-                    \begin{itemize}
-                        \item \texttt{gcc addition.c} übersetzt das \texttt{C}-Programm 
-                        \item \texttt{gcc -S additionc} generiert das Assemblerprogramm 
-                    \end{itemize}
-                
-                \item Assemblercode
-                \item[]
-                \item[]
-                    \begin{minipage}{0.45\textwidth}
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=8cm]{assemblerARM1.PNG}
-                        \caption{ARM Architektur}
-                    \end{figure}
-                    \end{minipage}
-                    \begin{minipage}[t]{0.45\textwidth}
-                    \vspace{-5cm}
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=6cm]{assemblerIntel1.PNG}
-                        \caption{Intel Architektur}
-                    \end{figure}
-                    \end{minipage}
-
-                    \begin{itemize}
-                        \item Unterschiedliche Syntax abhängig vom Prozessor (auch Registernamen)
-                        \item Relevanter Code \texttt{ARM}:
-                            \begin{itemize}
-                                \item \texttt{mov} schiebt Werte in Register (5,12)
-                                \item \texttt{add} addiert zwei Zahlen
-                                \item Registernamen $r$ und Zahl (z.B. $r0$)
-                            \end{itemize}
-
-                        \item Relevanter Code \texttt{Intel}:
-                            \begin{itemize}
-                                \item \texttt{addl}: Operation hier nur mit 2 Operanden, rechter Wert ist das Zielregister
-                            \end{itemize}
-                    \end{itemize}
-            \end{itemize}
-
-        \item \textbf{Befehle eines Rechnersystems}
-            \begin{itemize}
-                \item Wieviele Befehle und was für Befehle soll ein Rechnersystem haben?
-                \item Viele komplexe Befehle: 
-                    \begin{itemize}
-                        \item \texttt{CISC}-Maschinen (Complex Instruction Set Computer)
-                        \item Befehlsausführung direkt im Speicher möglich
-                        \item Verwendet von Intel-Architektur 
-                    \end{itemize}
-                \item Weitgehend identische Ausführungszeit der Befehle
-                    \begin{itemize}
-                        \item \texttt{RISC}-Maschinen (Reduce Instruction Set Computer)
-                        \item Ermöglicht effizientes Pipeling
-                        \item Werden auch als Load/Store-Architekturen bezeichnet (Nur Ausführung im Register)
-                        \item Verwendet von ARM-Architektur
-                    \end{itemize}
-                \item Jedoch viele Befehle, die jeder Prozessor hat (AND, OR, NOT,..)
-                \item Interner Aufbau eines Rechners hat viele Freiheitsgrade
-                \item Diese Struktur hat erheblichen Einfluss auf die Leistungsfähigkeit eines Rechnersystems 
-                \item $n$-Adressmaschinen
-                    \begin{itemize}
-                        \item Einteilung nach der Anzahl der Operanden in einem Maschinenbefehl 
-                        \item 2-Adressmaschine (Intel Architektur)
-                        \item 3-Adressmaschine (ARM Architektur)
-                    \end{itemize}
-            \end{itemize}
-
-        \item Programmiermodell des \texttt{ARM}-Prozessors - Registersatz
-            \begin{itemize}
-                \item[]
-                    \begin{minipage}{0.2\textwidth}
-                    \includegraphics[width=3cm]{registersatz.PNG}
-                    \end{minipage}
-                    \begin{minipage}[t]{0.7\textwidth}
-                    \vspace{-2cm}
+        \begin{itemize}
+            \item Beispielhaftes \texttt{C}-Programm:
+            \item[]
+                \begin{minted}[autogobble]{c}
+                #include<stdio.h> /* Standard Input/Output */ /* Header-Datei*/
+                int main() {
+                printf("Hello World\n");
+                return 0;
+                }
+                \end{minted}
+            \item \texttt{C}-Programm an sich für den Menschen verständlich
+            \item Übersetzung in Maschinenbefehle für Ausführung auf dem Rechnersystem:
+            \item[] \includegraphics[width=12cm]{übersetzungsPhasen.PNG}
+            \item 1. Phase \textbf{(Preprocessor)}
+                \begin{itemize}
+                    \item Aufbereitung durch Ausführung von Direktiven (Code mit \#)
+                    \item z.B.: Bearbeiten von \texttt{\#include <stdio.h>}
                         \begin{itemize}
-                            \item R0-R12: Normale Register 
-                            \item R13-15: Spezialregister
-                            \item R15: Program Counter 
-                            \item (A/C) PSR TODO
+                            \item Lesen des Inhalts der Datei \texttt{stdio.h}
+                            \item Kopieren des Inhalts in die Programmdatei
                         \end{itemize}
-                    \end{minipage}
-            \end{itemize}
-
+                    \item Ausgabe: \texttt{C}-Programm mit der Endung \texttt{.i} 
+                \end{itemize}
+            
+            \item 2. Phase \textbf{(Compiler)}
+                \begin{itemize}
+                    \item Übersetzt \texttt{C-}Programm \texttt{hello.i} in Assemblerprogramm \texttt{hello.s}
+                \end{itemize}
+            \item 3. Phase \textbf{(Assembler)}
+                \begin{itemize}
+                    \item Übersetzt \texttt{hello.s} in Maschinensprache
+                    \item Ergebnis ist das Objekt-Programm \texttt{hello.o}
+                \end{itemize}
+            \item 4. Phase \textbf{(Linker)}
+                \begin{itemize}
+                    \item Zusammenfügen verschiedener Module
+                        \begin{itemize}
+                            \item Code von \texttt{printf} exisitert bereits als \texttt{print.o}-Datei
+                        \end{itemize}
+                    \item Linker kombiniert \texttt{hello.o} und \texttt{printf.o} zu ausführbarem Programm
+                    \item Ausgabe des Bindevorgangs: ausführbare \texttt{hello}-Objektdatei
+                \end{itemize}
+        
         \end{itemize}
+
+\pagebreak
+
+\subsection{Ausführung eines Programms im Rechnersystem}
+        
+        \begin{itemize}
+            \item Ausgangspunkt
+                \begin{itemize}
+                    \item Ausführbares Objektprogramm \texttt{hello} auf der Festplatte 
+                    \item Starten der Ausführung des Programms unter Nutzung der Shell 
+                \end{itemize}
+            
+            \item Ablauf:
+                \begin{itemize}
+                    \item Shell liegt Zeichen des Kommandos ins Register
+                    \item Speichert den Inhalt dann im Hauptspeicher aber
+                    \item[] \includegraphics[width=9cm]{ausführung1.PNG}
+                    \item Schrittweises Kopieren der Befehle/Daten von Festplatte in Hauptspeicher
+                    \item[] \includegraphics[width=9cm]{ausführung2.PNG}
+                    \item Ausführen der Maschinenbefehle des \texttt{hello}-Programms
+                    \item[] \includegraphics[width=9cm]{ausführung3.PNG} 
+                \end{itemize}
+        \end{itemize}
+
+\pagebreak
+
+\subsection{Befehle eines Rechnersystems}
+    \begin{itemize}
+        \item Wieviele Befehle und was für Befehle soll ein Rechnersystem haben?
+        \item Viele komplexe Befehle: 
+            \begin{itemize}
+                \item \textbf{CISC-Maschinen} (Complex Instruction Set Computer)
+                \item Befehlsausführung direkt im Speicher möglich
+                \item Verwendet von Intel-Architektur 
+            \end{itemize}
+        \item Weitgehend identische Ausführungszeit der Befehle
+            \begin{itemize}
+                \item \textbf{RISC-Maschinen} (Reduce Instruction Set Computer)
+                \item Ermöglicht effizientes Pipeling
+                \item Werden auch als Load/Store-Architekturen bezeichnet (Nur Ausführung im Register)
+                \item Verwendet von ARM-Architektur
+            \end{itemize}
+        \item Jedoch viele Befehle, die jeder Prozessor hat (AND, OR, NOT,..)
+        \item Interner Aufbau eines Rechners hat viele Freiheitsgrade
+        \item Diese Struktur hat erheblichen Einfluss auf die Leistungsfähigkeit eines Rechnersystems 
+        \item \textbf{$n$-Adressmaschinen}
+            \begin{itemize}
+                \item Einteilung nach der Anzahl der Operanden in einem Maschinenbefehl 
+                \item 2-Adressmaschine (Intel Architektur)
+                \item 3-Adressmaschine (ARM Architektur)
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Registersatz}
+    \begin{itemize}
+        \item[]
+            \begin{minipage}{0.2\textwidth}
+            \includegraphics[width=3cm]{registersatz.PNG}
+            \end{minipage}
+            \begin{minipage}[t]{0.7\textwidth}
+            \vspace{-2cm}
+                \begin{itemize}
+                    \item R0-R12: Normale Register 
+                    \item R13-15: Spezialregister
+                    \item R15: Program Counter 
+                    \item (A/C) PSR TODO
+                \end{itemize}
+            \end{minipage}
+    \end{itemize}
+        
         
 
 \end{document}
