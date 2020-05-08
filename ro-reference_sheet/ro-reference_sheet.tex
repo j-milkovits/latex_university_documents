@@ -354,6 +354,17 @@
                 \item Verwendet von ARM-Architektur
             \end{itemize}
         \item Jedoch viele Befehle, die jeder Prozessor hat (AND, OR, NOT,..)
+        \item Unterschiedliche Befehlsformate:
+            \begin{itemize}
+                \item Erlauben Flexibilität
+                \item z.B. \texttt{add} und \texttt{sub} mit drei Registern als Operanden
+                \item z.B. \texttt{ldr} und \texttt{str} verwenden zwei Register und Konstante
+                \item Anzahl an Formaten sollte jedoch klein sein 
+                    \begin{itemize}
+                        \item Hardware weniger aufwendig
+                        \item Erlaubt evtl. höhere Verarbeitungsgeschwindigkeit
+                    \end{itemize}
+            \end{itemize}
         \item Interner Aufbau eines Rechners hat viele Freiheitsgrade
         \item Diese Struktur hat erheblichen Einfluss auf die Leistungsfähigkeit eines Rechnersystems 
         \item \textbf{$n$-Adressmaschinen}
@@ -361,6 +372,18 @@
                 \item Einteilung nach der Anzahl der Operanden in einem Maschinenbefehl 
                 \item 2-Adressmaschine (Intel Architektur)
                 \item 3-Adressmaschine (ARM Architektur)
+            \end{itemize}
+        \item \textbf{Konstanten in Befehlen (intermediates)}
+            \begin{itemize}
+                \item Direkt im Befehl untergebebracht $\rightarrow$ Direktwerte
+                \item Benötigen kein eigenes Register oder Speicherzugriff
+                \item Direktwert ist Zweierkomplementzahl, die 12 Bit breit ist 
+                \item Bitbreite der Direktwertzahl vom Befehl abhängig
+                    \begin{itemize}
+                        \item Befehle haben immer 32 Bit
+                        \item Registeradressen werden mit 4 Bit kodiert
+                        \item Übrigbleibende Bits für Direktwert
+                    \end{itemize}
             \end{itemize}
     \end{itemize}
 
@@ -371,16 +394,242 @@
             \includegraphics[width=3cm]{registersatz.PNG}
             \end{minipage}
             \begin{minipage}[t]{0.7\textwidth}
-            \vspace{-2cm}
+            \vspace{-3cm}
                 \begin{itemize}
-                    \item R0-R12: Normale Register 
-                    \item R13-15: Spezialregister
-                    \item R15: Program Counter 
-                    \item (A/C) PSR TODO
+                    \item R0: Verwendet für Rückgabe von Werten an die \texttt{Shell}
+                    \item R1-R12: General Purpose Register
+                    \item R13: Stack Pointer (sp)
+                    \item R14: Link Register (lr)
+                    \item R15: Program Counter (pc)
+                    \item Current Processor Status Register (CPSR)
                 \end{itemize}
             \end{minipage}
+        \item \textbf{Current Processor Status Register}
+            \begin{itemize}
+                \item Enthält unter anderem die \texttt{Statusflags}
+                \item[] \includegraphics[width=15cm]{statusflags}
+                \item Werden oft für Vergleiche (\texttt{b,beq,...}) verwendet 
+                \item \texttt{N} (Negative): Wird verwendet um zu zeigen, dass Ergebnis negativ ist
+                \item \texttt{Z} (Zero): Wird verwendet um zu zeigen, dass Ergebnis 0 ist 
+                \item \texttt{C} (Carry): Zeigt, dass Carry-Bit besteht 
+                \item \texttt{V} (OverFlow): Zeigt, dass Overflow geschehen ist 
+                \item Namen können je nach Prozessor stark variieren
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Adressierung des Speichers, Lesen und Schreiben auf Speicher}
+    \begin{itemize}
+        \item \textbf{Allgemeine Verwendung von Registerspeicher}
+            \begin{itemize}
+                \item Meist zuviele Daten für die Register 
+                \item Kombination des Registers und Hauptspeichers zum Halten von Daten 
+                \item Speichern von häufig verwendeten Daten in Registern (Schleifenvariable)
+            \end{itemize}
+        
+        \item \textbf{Wort- und Byte-Adressierung von Daten im Speicher }
+            \begin{itemize}
+                \item Byte-adressiert: (ARM)
+                    \begin{itemize}
+                        \item Jedes Byte hat eine eindeutige Adresse (Zugriff auf jedes Byte möglich)
+                        \item Ein Wort (hier 32Bit) besteht aus 4 Bytes (32 Bits)
+                        \item Wortbreite ist von der Architektur abhängig
+                        \item Wortadressen sind immer Vielfache von 4 (Offset von 4)
+                        \item[]
+                        \item[] \includegraphics[width=12cm]{wortAdresse.PNG}
+                        \item Rechts wird ein Byte mit zwei Hexawerten dargestellt ($AB:~1011~1010$)
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Lesen aus byte-adressiertem Speicher}
+            \begin{itemize}
+                \item Lesen geschieht durch Ladebefehle (Transportbefehl)
+                \item Befehlsname: \texttt{load word (ldr)}
+                \item Alternative für Bytes statt Wörtern: \texttt{ldrb}
+                \item Adressarithmethik: 
+                \begin{itemize}
+                    \item Adressen werden relativ zu Register angegeben
+                    \item Basisadresse (startet bei Wort 9) plus Distanz (offset)
+                    \item Adresse = \texttt{(r5 (Basis) + 8 (offset))}
+                \end{itemize}
+                \item Beispiel 1:
+                    \begin{itemize}
+                        \item Lese Datenwort von Speicheradresse \texttt{(r5+8)} und schreibe es in Register \texttt{r7}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            mov r5,#0 /* Transportbefehl, schreibt Konstante 0 in r5 */
+                            ldr r7, [r5,#8] /* r7: Zielregister | [r5,#8] Quelle */
+                            \end{minted}
+                        \item \texttt{r7} enthält das Datenwort der Speicheradresse \texttt{r5+8}
+                    \end{itemize}
+                \item Beispiel 2:
+                    \begin{itemize}
+                        \item Lesen Datenwort 3 (Speicheradresse \texttt{0xC} (12er Offset)) nach \texttt{r7}
+                        \item (Einschub: \texttt{0x} sagt dem Compiler, dass das Folgende eine Hexzahl ist)
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            mov r5,#0 /* Schreibt Konstante 0 in r5 */
+                            ldr r7, [r5, #0xC] /* Lädt den Wert (r5+12) in r7 */
+                            \end{minted}
+                        \item Nach Abarbeiten des Befehls hat \texttt{r7} den Wert \texttt{0x40F30788}
+                        \item[]
+                        \item[] \includegraphics[width=8cm]{byteAdresseBsp2}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Schreiben in byte-adressierten Speicher}
+            \begin{itemize}
+                \item Schreiben geschieht durch Speicherbefehle (Transportbefehl)
+                \item Befehlsname: \texttt{store word (str)}
+                \item Alternative für Bytes statt Wörtern: \texttt{strb}
+                \item Beispiel:
+                    \begin{itemize}
+                        \item Schreibe den Wert aus \texttt{r9} in Speicherwort 5
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            mov r1,#0 /* Speichert Konstante 0 in r1 */
+                            mov r9,#42 /* Speichert Konstante 42 in r9 */
+                            str r9, [r1,#0x14] /* Schreibt Wert des 5. Wortes von r1 in r9 */
+                            \end{minted}
+                        \item \texttt{\#0x14}: $14_{16} = 0001~0100_2 = 20_{10}$ (5.tes Wort)
+                    \end{itemize}
+            \end{itemize}
     \end{itemize}
         
+\subsection{Kontrollstrukturen in Assembler}
+    \begin{itemize}
+        \item \textbf{Statusbits}
+            \begin{itemize}
+                \item Die Wichtigsten:
+                    \begin{itemize}
+                        \item \texttt{CF (CarryFlag)}
+                        \item \texttt{ZF (ZeroFlag)}
+                        \item \texttt{SF (SignFlag)}
+                        \item \texttt{OF (OverflowFlag)}
+                    \end{itemize}
+                \item Verwendung:
+                    \begin{itemize}
+                        \item Vergleiche (\texttt{cmp})
+                        \item Gleichheit
+                    \end{itemize}
+                \item Unterschiede zwischen \texttt{Carry} und \texttt{Overflow}
+                    \begin{itemize}
+                        \item \texttt{Overflow}: Ergebnis passt nicht in maximale darstellbare Werte (z.B. +8 bei 4 Bit im ZK)
+                        \item \texttt{Carry}: Ergebnis passt nicht in Bitbreite ( +5 - 1 = +4)
+                        \item \texttt{Sign}: Vorzeichen negativ
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Sprünge / Verzweigungen}
+            \begin{itemize}
+                \item Änderung der Ausführungsreihenfolge von Befehlen 
+                \item Unbedingte Sprünge
+                    \begin{itemize}
+                        \item Werden immer ausgeführt
+                        \item \mint{c}|b target /* Springt von branch zu target */| 
+                    \end{itemize}
+                \item Bedingte Sprünge
+                    \begin{itemize}
+                        \item Sprünge abhängig von Bedingung 
+                        \item \mint{c}|beq target /* Ein Beispiel, eq für equal */| 
+                    \end{itemize}
+                \item Label 
+                    \begin{itemize}
+                        \item Label sind Namen für Adressen im Programm 
+                        \item Name muss unterschiedlich von Maschinenbefehlen (Mnemonics) sein 
+                        \item Label müssen mit einem Doppelpunkt abgeschlossen werden
+                        \item Werden zur Markierung von Stellen für Sprünge verwendet (target)
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Bedingte Sprünge}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    mov r0,#4       /* r0 = 4 */
+                    add r1,r0,r0    /* r1 = 8 */ 
+                    cmp r0, r1      /* r0 - r1 = -4: NZCV = 1000 */
+                                    /* StatusBits NZCV */
+                    beq there       /* Kein Sprung: Z != 1 */
+                                    /* Müsste bei Gleichheit (equal) 0 sein */
+                    add r1,r1,#42   /* r1 = r1 + 42 */
+
+                    there:
+                    add r1,r1,#78   /* r1 = r1 + 78 */
+                    \end{minted}
+                \item Weitere Bedingungen: 
+                    \begin{itemize}
+                        \item \texttt{beq}: Equal / Gleichheit 
+                        \item \texttt{bne}: Not Equal / Ungleichheit
+                        \item \texttt{bge}: Greater / Größer
+                        \item \texttt{ble}: Less / Kleiner
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{if-Anweisung}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    /* r0 = 5; r1 = 10; r2 = f; r3 = i */
+                    cmp r0,r1       /* Vergleicht r0 und r1 */ 
+                    bne L1          /* Falls Werte ungleich sind, ist hier gegeben */
+                    add r2,r3,#1    /* Wird hier übersprungen */
+                    L1:             /* Hierhin wird gesprungen */
+                    sub r2,r2,r3 
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{if/else-Anweisung}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    /* r0 = 5; r1 = 10; r2 = f; r3 = i */
+                    cmp r0,r1 
+                    bne L1          /* Potentieller Sprung nach L1 */
+                    add r2,r3,#1    /* else-Anweisung (wird übersprungen, falls Bedingung korrekt) */
+                    b L2            /* Überspringen der if-Anweisung, sonst wird beides ausgeführt */
+                    L1:
+                    sub r2,r2,r3 
+                    L2:
+                    ...
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{while-Schleifen}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    /* r0 = pow; r1 = x */
+                    mov r0,#1
+                    mov r1,#0
+                    WHILE:          /* Label für Schleife*/
+                    cmp r0,#128     /* Abbruchbedingung: Falls equal Z = 1 */
+                    beq DONE        /* Sprung aus Schleife */   
+                    lsl r0,r0,#1    /* Linksshift um 1 Bit / Schleifencode */
+                    add r1,r1,#1    /* x = x + 1 / Schleifencode */
+                    b WHILE         /* Fortführen der Schleife */
+                    DONE:
+                    ...
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{for-Schleifen}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    /* r0 = i; r1 = sum */
+                    mov r1,#0
+                    mov r0,#0
+                    FOR:            /* Label für Schleife */
+                    cmp r0,#10      /* Abbruchbedingung: Falls i größer als 10 ist */
+                    bge DONE 
+                    add r1,r1,r0    /* sum = sum + i */
+                    add r0,r0,#1    /* i = i + 1 */
+                    b FOR           /* Fortführen der Schleife */
+                    DONE:
+                    ...
+                    \end{minted}
+            \end{itemize}
+    \end{itemize}
         
 
 \end{document}
