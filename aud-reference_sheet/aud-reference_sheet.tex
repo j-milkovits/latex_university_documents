@@ -17,7 +17,6 @@
 
 
 \section{Einleitung}
-
 \subsection{Probleme in der Informatik}
 \begin{itemize}
     \item Problem im Sinne der Informatik
@@ -88,7 +87,6 @@
 \pagebreak
 
 \section{Sortieren}
-
 \subsection{Einführung ins Sortieren}
     \begin{itemize}
         \item \textbf{Das Sortierproblem}
@@ -1080,8 +1078,208 @@
 
 \pagebreak
 
-\section{Pseudocode in der Vorlesung AuD}
+\section{Grundlegende Datenstrukturen}
+\subsection{Stacks}
+    \begin{itemize}
+        \item \textbf{Abstrakter Datentyp Stack}
+            \begin{itemize}
+                \item \texttt{new S()}
+                    \begin{itemize}
+                        \item Erzeugt neuen (leeren) Stack
+                    \end{itemize}
+                \item \texttt{s.isEmpty()}
+                    \begin{itemize}
+                        \item Gibt an, ob Stack \texttt{s} leer ist
+                    \end{itemize}
+                \item \texttt{s.pop()}
+                    \begin{itemize}
+                        \item Gibt oberstes Element vom Stack \texttt{s} zurück und löscht es vom Stack 
+                        \item Gibt Fehlermeldung aus, falls der Stack leer ist 
+                    \end{itemize}
+                \item \texttt{s.push(k)}
+                    \begin{itemize}
+                        \item Schreibt \texttt{k} als neues oberstes Element auf Stack \texttt{s}
+                    \end{itemize}
+                \item Abstrakter Aufbau:
+                    \begin{itemize}
+                        \item \textbf{LIFO}-Prinzip - Last in, First out 
+                        \item[] \includegraphics[width=6cm]{stack1.PNG}
+                    \end{itemize}
+            \end{itemize}
 
+        \item \textbf{Beispiel Bitcoin}
+        \item[] \includegraphics[width=15cm]{stackBitcoin.PNG}
+        
+        \item \textbf{Stacks als Array}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{stackArray.PNG}  
+                \item \texttt{s.top} zeigt immer auf oberstes Element 
+                \item \texttt{pop()} führt dazu, dass \texttt{s.Top} sich eins nach links bewegt
+                \item \texttt{push(k)} führt dazu, dass \texttt{s.Top} sich eins nach rechts bewegt
+            \end{itemize}
+
+        \item \textbf{Stacks als Array - Methoden, falls maximale Größe bekannt}
+        \item[] \includegraphics[width=12cm]{arrayMethods1}
+
+        \item \textbf{Stacks mit variabler Größe - Einfach}
+            \begin{itemize}
+                \item Falls \texttt{push(k)} bei vollem Array $\Rightarrow$ Vergößerung des Arrays
+                \item Erzeugen eines neuen Arrays mit Länge + 1 und Umkopieren aller Elemente
+                \item Durchschnittlich $\Omega(n)$ Kopierschritte pro \texttt{push}-Befehl
+            \end{itemize}
+
+        \item \textbf{Stacks mit variabler Größe - Verbesserung}
+            \begin{itemize}
+                \item Idee: 
+                    \begin{itemize}
+                        \item Wenn Grenze erreicht, Verdopplung des Speichers und Kopieren der Elemente
+                        \item Falls weniger als ein Viertel belegt, schrumpfe das Array wieder 
+                    \end{itemize}
+                \item Methoden:
+                \item[] \texttt{RESIZE(A,m)} reserviert neuen Speicher der Grö\ss e \texttt{m} und kopiert \texttt{A} um
+                \item[] \includegraphics[width=12cm]{stacksArray2.PNG}
+
+                \item Im Durchschnitt für jeder der mindestens \texttt{n} Befehle $\Theta(1)$ Umkopierschritte
+                
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Verkettete Listen}
+    \begin{itemize}
+        \item \textbf{Aufbau}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{linkedList1.PNG}
+            \end{itemize}
+        
+        \item \textbf{Verkettete Listen durch Arrays}
+            \begin{itemize}
+                \item[] Entspricht doppelter Verkettung zwischen 45 und 12
+                \item[] \includegraphics[width=12cm]{linkedList2.PNG}
+            \end{itemize}
+
+        \item \textbf{Elementare Operationen auf Listen}
+            \begin{itemize}
+                \item Suche nach Element
+                    \begin{itemize}
+                        \item Laufzeit beträgt im Worst Case $\Theta(n)$
+                        \item[] $\Rightarrow$ Keine Überprüfung, ob Wert bereits in Liste, sonst $\Theta(n)$
+                        \item Code:
+                        \item[] 
+                            \begin{minted}[autogobble]{c}
+                            search(L,k)    // Returns pointer to k in L (or nil)
+                            current = L.head;
+                            WHILE current != nil AND current.key != k DO 
+                                current = current.next;
+                            return current;
+                            \end{minted}
+                    \end{itemize}
+
+                \item Einfügen eines Elements am Kopf der Liste 
+                    \begin{itemize}
+                        \item Laufzeit beträgt $\Theta(1)$, da Einfügen am Kopf 
+                        \item Code:
+                        \item[] 
+                            \begin{minted}[autogobble]{c}
+                            insert(L,x)
+                            x.next = l.head;
+                            x.prev = nil;
+                            IF L.head != nil THEN 
+                                L.head.prev = x;
+                            L.head = x;
+                            \end{minted}
+                    \end{itemize}
+
+                \item Löschen eines Elements aus Liste
+                    \begin{itemize}
+                        \item Laufzeit beträgt $\Theta(1)$, da hier Pointer auf Objekt gegeben
+                        \item[] Löschen eines Wertes $k$ mithilfe von Suche beträgt $\Omega(n)$
+                        \item Code:
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            delete (L,x)
+                            IF x.prev != nil THEN
+                                x.prev.next = x.next
+                            ELSE 
+                                L.head = x.next;
+                            IF x.next != nil THEN
+                                x.next.prev = x.prev;
+                            \end{minted} 
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Vereinfachung per Wächter/Sentinels}
+            \begin{itemize}
+                \item Ziel ist die Eliminierung der Spezialfälle für Listenanfang/-ende 
+                \item[] \includegraphics[width=12cm]{linkedListSentinel.PNG}
+                \item Löschen mit Sentinels:
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    deleteSent(L,x)
+                    x.prev.next = x.next;
+                    x.next.prev = x.prev;
+                    \end{minted}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Queues}
+    \begin{itemize}
+        \item \textbf{Abstrakter Datentyp Queue}
+            \begin{itemize}
+                \item \texttt{new Q()}
+                    \begin{itemize}
+                        \item Erzeuge neue (leere) Queue
+                    \end{itemize}
+                
+                \item \texttt{q.isEmpty()}
+                    \begin{itemize}
+                        \item Gibt an, ob Queue \texttt{q} leer ist 
+                    \end{itemize}
+                
+                \item \texttt{q.dequeue()}
+                    \begin{itemize}
+                        \item Gibt vorderstes Element aus \texttt{q} zurück und löscht es auf Queue 
+                        \item Fehlermeldung, falls Queue leer ist 
+                    \end{itemize}
+                
+                \item \texttt{q.enqueue(k)} 
+                    \begin{itemize}
+                        \item Schreibt \texttt{k} als neues hinterstes Element auf \texttt{q}
+                        \item Fehlermeldung, falls Queue voll ist 
+                    \end{itemize}
+                
+                \item Abstrakter Aufbau:
+                    \begin{itemize}
+                        \item \textbf{FIFO}-Prinzip / First in, First out 
+                        \item[] \includegraphics[width=8cm]{queueAbstract}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Queues als (virtuelles) zyklisches Array}
+            \begin{itemize}
+                \item[] Bekannt: Maximale Elemente gleichzeitig in Queue
+                \item[] \includegraphics[width=12cm]{queueZyklisch.PNG} 
+                \item[] 
+                \item Problem, falls \texttt{Q.rear} und \texttt{Q.front} auf selbes Element zeigen 
+                    \begin{itemize}
+                        \item Speichere Information, ob Schlange leer oder voll, in boolean \texttt{empty}
+                        \item Alternativ: Reserviere ein Element des Arrays als Abstandshalter
+                    \end{itemize}
+                
+                \item Methoden für zyklisches Array
+                \item[] \includegraphics[width=12cm]{queueZyklischM.PNG}
+            \end{itemize}
+
+        \item \textbf{Queues durch einfach verkettete Listen}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{queuesListe1.PNG}
+                \item[] Methoden:
+                \item[] \includegraphics[width=12cm]{queuesListe2.PNG} 
+            \end{itemize}
+    \end{itemize}
+
+\pagebreak
+
+\section{Pseudocode in der Vorlesung AuD}
 \begin{itemize}
     \item Datentypen
         \begin{itemize}
