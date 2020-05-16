@@ -630,6 +630,221 @@
                     \end{minted}
             \end{itemize}
     \end{itemize}
+
+\subsection{Nutzung des Hauptspeichers}
+    \begin{itemize}
+        \item \textbf{Erklärung anhand eines Codebeispiels}
+            \begin{itemize}
+                \item[] \includegraphics[width=15cm]{codeBeispielHauptspeicher1}
+                \item \texttt{.data (Zeile 4)}: 
+                    \begin{itemize}
+                        \item Variablen, die im Speicher (nicht im Register) abgelegt werden
+                        \item \texttt{.word}: Festlegung des Typs (hier 32 Bit)
+                        \item Name \texttt{var1}: An sicht frei wählbar
+                    \end{itemize}
+
+                \item \texttt{.global main (Zeile 8)}:
+                    \begin{itemize}
+                        \item Definiert das Label, das als Einsprungspunkt gilt (hier \texttt{main})
+                    \end{itemize}
+
+                \item \texttt{adr\_var1: .word var1 (Zeile 18/19)}:
+                    \begin{itemize}
+                        \item Hier werden die Adressen der Variablen im Speicher in einer Variable abgespeichert
+                        \item Wichtig: Unterscheidung zwischen Adresse und Wert
+                    \end{itemize}
+
+                \item \texttt{ldr r0, adr\_var1 (Zeile 11)}:
+                    \begin{itemize}
+                        \item Lädt nun die Adresse unseres Hauptspeicherwertes in ein Register
+                        \item Hierfür nutzen wir die eben erstellte \texttt{adr\_var1}
+                    \end{itemize}
+
+                \item \texttt{ldr r2,[r0] (Zeile 13)}:
+                    \begin{itemize}
+                        \item Lädt den Inhalt der Adresse in \texttt{r0} in \texttt{r2}
+                        \item Verwendung von \texttt{[]} um dies anzuzeigen
+                    \end{itemize}
+
+                \item Variationen:
+                    \begin{itemize}
+                        \item Zeile 13: \texttt{ldr r2,[r0,\#4]}
+                            \begin{itemize}
+                                \item Hinzufügen eines Offsets beim Laden des Wertes 
+                                \item Dies führt dazu, dass der Wert auf \texttt{r1} geladen wird (12)
+                                \item Ausgabe des Programms ist damit 24, statt 17
+                            \end{itemize}
+                        \item \texttt{mov r5,\#4} | \texttt{ldr r2,[r0,r5]}
+                            \begin{itemize}
+                                \item In Registern gespeicherte Konstanten auch als Offset möglich
+                            \end{itemize}
+                    \end{itemize}
+
+                \item Zusätzliche Visualisierung:
+                    \begin{itemize}
+                        \item[] \includegraphics[width=12cm]{speicherBild.PNG}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Datenfelder (Arrays)}
+    \begin{itemize}
+        \item \textbf{Eigenschaften}
+            \begin{itemize}
+                \item Datenfelder bestehen aus mehreren Worten 
+                \item Nützlich um auf eine große Zahl von Daten gleichen Typs zuzugreifen
+                \item Zugriff auf einzelne Elemente über Index
+                \item[] \includegraphics[width=12cm]{datenfeld1.PNG}
+            \end{itemize} 
+
+        \item \textbf{Verwendung von Arrays}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \includegraphics[width=6cm]{arraybsp.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.55\textwidth}
+                        \begin{itemize}
+                            \item Array mit 5 Elementen
+                            \item Basisadresse: Adresse des ersten Elements (0x1234800)
+                            \item Erster Schritt für Zugriff: Lade Basisadresse des Arrays in Register
+                        \end{itemize}
+                    \end{minipage}
+                \item Beispiel:
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    /* Umsetzung des folgenden C-Codes in Assembler */
+                    int i;
+                    int scores[200];
+                    for (i = 0; i < 200; i = i + 1)
+                        scores[i] = scores[i] + 10;
+                    \end{minted}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    mov r0,#0x14000000  /* Speichern der Basisadresse des Arrays in r0 */
+                    mov r1,#0           /* Verwendung als Zählervariable i */
+                    LOOP:               
+                    cmp r1,#200         /* i < 200 */
+                    bge L3              /* Falls i > 200, Verlassen des Loops */
+                    lsl r2,r1,#2        /* r2 = i * 4 -> Aufgrund des Offsets des Arrays von 4 */
+                    ldr r3,[r0,r2]      /* Laden des Wertes aus Array / r3 = scores[i] */
+                    add r3,r3,#10       /* r3 = scores[i] + 10 */
+                    str r3,[r0,r2]      /* Zurückschreiben in Speicher / r3 Quellregister (nicht Ziel) */
+                                        /* scores[i] = scores[i] + 10 */
+                    add r1,r1,#1        /* i = i + 1 / Hochzählen der Laufvariable */
+                    b LOOP              /* Wiederholen der Schleife */
+                    L3:
+                    ...
+                    \end{minted}
+            \end{itemize}
+    \end{itemize}
+
+
+\subsection{Unterprogramme}
+    \begin{itemize}
+        \item \textbf{Einführung}
+            \begin{itemize}
+                \item Unterprogramme helfen bei der strukturierten Programmierung
+                \item Betrachtung Hauptprogramm, in dem ein Teilprogramm an versch. Stellen ausgeführt werden soll
+                \item Zwei Konzepte: Makrotechnik und Unterprogrammtechnik
+            \end{itemize}
+
+        \item \textbf{Makrotechnik}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.25\textwidth}
+                        \includegraphics[width=5cm]{makrotechnik.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.65\textwidth}
+                        \begin{itemize}
+                            \item Teilprogramm wird, an benötigten Stellen, einkopiert
+                            \item Zuordnung eines Namens für Teilprogramm (Makroname)
+                            \item Nennung des Makronamens an besagter Stelle (Makroaufruf)
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Unterprogrammtechnik}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.25\textwidth}
+                        \includegraphics[width=5cm]{unterprogramm.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.65\textwidth}
+                        \begin{itemize}
+                            \item Teilprogramm nur einmal im Code vorhanden
+                            \item Kennzeichnung durch Marke (Unterprogrammname)
+                            \item Aufruf: Sprungbefehl + Marke 
+                            \item Rückkehr in aufrufendes Programm nach Ausführung
+                            \item[] $\Rightarrow$ durch Sprungbefehl auf Rückkehradresse
+                            \item Rückkehradresse wird an anderer Stelle gespeichert
+                            \item Beachten der Sichtbarkeit von Variablen (global vs lokal)
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Funktions- und Prozeduraufruf}
+            \begin{itemize}
+                \item Aufrufer:
+                    \begin{itemize}
+                        \item Ursprung des Funktionsaufrufs
+                        \item Übergibt Argumente (aktuale Parameter) an Aufgerufenen
+                        \item Springt Aufgerufenen an
+                    \end{itemize}
+
+                \item Aufgerufener:
+                    \begin{itemize}
+                        \item Aufgerufene Funktion
+                        \item Führt Funktion/Prozedur aus
+                        \item Gibt Rückgabewert an Aufrufer zurück 
+                        \item Darf keine Register oder Speicherstellen überschreiben, die im Aufrufer genutzt werden
+                            \begin{itemize}
+                                \item Beachten mit Sorgfalt und vorhandenem Konzept
+                                \item Genutzte Register sollten gesichert werden, um danach wieder zu überschreiben
+                            \end{itemize}
+                    \end{itemize}
+                
+                \item Beispiel:
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            /* Übersetzen des folgenden C-Codes in Assembler */
+                            int main() {
+                                int y;
+                                y = diffofsums(14, 3, 4, 5); 
+                            }
+
+                            int diffofsums(int f, int g, int h, int i){ /* 4 formale Parameter */
+                                int result;
+                                result = (f + g) - (h + i);
+                                return result;
+                            }
+                            \end{minted}
+                        \item[]
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            /* ASSEMBLER */
+                            /* r4 = y */
+                            main:
+                            mov r0,#14      /* Argument 0 = 14 */
+                            mov r1,#3       /* Argument 1 = 3 */
+                            mov r2,#4       /* Argument 2 = 4 */
+                            mov r3,#5       /* Argument 3 = 5 */
+                            bl diffofsums   /* Funktionsaufruf / bl: branch and link */
+                            /* Schreibt die Rückkehradresse des folgenden Befehls mov in link register (r14) */
+                            mov r4,r0       /* y = Rückgabewert */
+                            -------------
+                            diffofsums:
+                            add r8,r0,r1    /* Überschreiben von r8 / Kein Sichern der Werte vorher */
+                            add r9,r2,r3    /* Selbiges gilt für r9 */
+                            sub r4,r8,r9
+                            mov r0,r4       /* Ablegen von Rückgabewert in r0 (return value register) */
+                            mov pc,lr       /* Übergabe der Rückkehradresse an Program Counter */
+                            /* Program Counter führt dann den nächsten Befehl (mov r4,r0) aus */
+                            \end{minted}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
         
 
 \end{document}
