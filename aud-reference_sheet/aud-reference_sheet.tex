@@ -1275,8 +1275,259 @@
                 \item[] Methoden:
                 \item[] \includegraphics[width=12cm]{queuesListe2.PNG} 
             \end{itemize}
+
+        \item \textbf{Laufzeit}
+            \begin{itemize}
+                \item Enqueue: $\Theta(1)$
+                \item Dequeue: $\Theta(1)$
+            \end{itemize}
     \end{itemize}
 
+\pagebreak
+
+\subsection{Binäre Bäume}
+    \begin{itemize}
+        \item \textbf{Bäume durch verkettete Listen}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{binäreBaumeListe.PNG}
+                \item[] Bäume sind \string"azyklisch\string" (Keine "rückführende Spur")   
+            \end{itemize}
+
+        \item \textbf{Darstellung als (ungerichteter) Graph}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}[t]{0.45\textwidth}
+                        \includegraphics[width=7cm]{baumGraph1.PNG}
+                    \end{minipage}
+                    \begin{minipage}[t]{0.45\textwidth}
+                        \includegraphics[width=7cm]{baumGraph2.PNG}
+                    \end{minipage}
+            \end{itemize}
+        
+            \item \textbf{Allgemeine Begrifflichkeiten}
+                \begin{itemize}
+                    \item[]
+                        \begin{minipage}[t]{0.45\textwidth}
+                            \includegraphics[width=8cm]{baumBegriffe1.PNG}
+                        \end{minipage}
+                        \begin{minipage}[t]{0.45\textwidth}
+                            \vspace{-3.5cm}
+                            \begin{itemize}
+                                \item Blatt: Knoten ohne Nachfolger
+                                \item Nachkomme von x: \\
+                                        Erreichbar durch Pfad ausgehend von x
+                            \end{itemize}
+                        \end{minipage}
+                \end{itemize}
+
+            \item \textbf{Begrifflichkeiten Binärbaum}
+                \begin{itemize}
+                    \item[]
+                        \begin{minipage}[t]{0.45\textwidth}
+                            \includegraphics[width=8cm]{binärbaumBegriffe}
+                        \end{minipage}
+                        \begin{minipage}[t]{0.45\textwidth}
+                            \vspace{-4.5cm}
+                            \begin{itemize}
+                                \item Jeder Knoten hat maximal zwei Kinder \\
+                                        \texttt{left=child[0]} und \texttt{right=child[1]}
+                                \item Ausgangsgrad jedes Knoten ist $\leq 2$
+                                \item Höhe leerer Baum per Konvention $-1$
+                                \item Hohe (nicht-leerer) Baum: \\
+                                        max\{Höhe aller Teilbäume der Wurzel\} + 1
+                                \item Halbblatt: Knoten mit nur einem Kind
+                            \end{itemize}
+                        \end{minipage}
+                \end{itemize}
+
+                \pagebreak
+
+            \item \textbf{Traversieren von Bäumen}
+                \begin{itemize}
+                    \item Darstellung eines Baumes mithilfe einer Liste der Werte aller Knoten
+                    \item Laufzeit bei $n$ Knoten: $T(n) = O(n)$
+                    \item Nutzung der Preorder für das Kopieren von Bäumen 
+                        \begin{enumerate}
+                            \item Preorder betrachtet Knoten und legt Kopie an
+                            \item Preorder geht dann in Teilbäume und kopiert diese
+                        \end{enumerate}
+                    \item Nutzung der Postorder für das Löschen von Bäumen
+                        \begin{enumerate}
+                            \item Postorder geht zuerst in Teilbäume und löscht diese 
+                            \item Betrachten des Knoten erst danach und dann Löschung dieses
+                        \end{enumerate}
+                    \item[]
+                    \item[]
+                        \begin{minipage}[t]{0.4\textwidth}
+                            \includegraphics[width=6cm]{inorder1}           
+                        \end{minipage}
+                        \begin{minipage}[t]{0.5\textwidth}
+                            \vspace{-4.75cm}
+                            \begin{itemize}
+                                \item[] \includegraphics[width=6cm]{inorder2}
+                                \item[] \includegraphics[width=6cm]{preorder1}
+                                \item[] \includegraphics[width=6cm]{postorder1}
+                            \end{itemize}
+                        \end{minipage}
+                    \item[]
+                    \item[] \textbf{Code:} \\
+                        \begin{minipage}[t]{0.3\textwidth}
+                            \begin{minted}[autogobble]{c}
+                            inorder(x)
+                            IF x != nil THEN 
+                                inorder(x.left);
+                                print x.key;
+                                inorder(x.right);
+                            \end{minted}
+                        \end{minipage}
+                        \begin{minipage}[t]{0.3\textwidth}
+                            \begin{minted}[autogobble]{c}
+                            preorder(x)
+                            IF x != nil THEN
+                            print x.key;
+                            preorder(x.left);
+                            preorder(x.right);
+                            \end{minted}
+                        \end{minipage}
+                        \begin{minipage}[t]{0.3\textwidth}
+                            \begin{minted}[autogobble]{c}
+                            postorder(x)
+                            IF x != nil THEN
+                                postorder(x.left);
+                                postorder(x.right);
+                                print x.key;
+                            \end{minted}
+                        \end{minipage}
+                \end{itemize}
+
+            \item \textbf{Eindeutige Bestimmbarkeit von Bäumen}
+                \begin{itemize}
+                    \item Nur In-,Pre-,Postorder reichen nicht zur eindeutigen Bestimmbarkeit von Bäumen
+                    \item[] $\Rightarrow$ Preorder/Postorder $+$ Inorder $+$ eindeutige Werte sind notwendig
+                    \item[] \includegraphics[width=12cm]{bestimmbarkeitBaum.PNG} 
+                \end{itemize}
+
+                \pagebreak
+
+            \item \textbf{Abstrakter Datentyp Baum}
+                \begin{itemize}
+                    \item Abstrakter Aufbau:
+                        \begin{itemize}
+                            \item \texttt{new T()}
+                                \begin{itemize}
+                                    \item Erzeugt neuen Baum namens \texttt{t}
+                                \end{itemize}
+
+                            \item \texttt{t.search(k)}
+                                \begin{itemize}
+                                    \item Gibt Element \texttt{x} in Baum \texttt{t} mit \texttt{x.key == k} zurück
+                                \end{itemize}
+                            
+                            \item \texttt{t.insert(k)}
+                                \begin{itemize}
+                                    \item Fügt Element \texttt{x} in Baum \texttt{t} hinzu
+                                \end{itemize}
+                            
+                            \item \texttt{t.delete(x)}
+                                \begin{itemize}
+                                    \item Löscht \texttt{x} aus Baum \texttt{t}
+                                \end{itemize}
+                        \end{itemize}
+
+                    \item Suche nach Elementen
+                        \begin{itemize}
+                            \item Laufzeit = $\Theta(n)$ (Jeder Knoten maximal einmal, jeder Knoten im schlechtesten Fall)
+                            \item Starte mit \texttt{search(T.root,k)}
+                            \item Code:
+                            \item[]
+                                \begin{minted}[autogobble]{c}
+                                search(x,k)
+                                IF x == nil THEN return nil;
+                                IF x.key == k THEN return x;
+                                y = search(x.left,k);
+                                IF y != nil THEN return y;
+                                return search(x.right,k);
+                                \end{minted}
+                        \end{itemize}
+
+                    \item Einfügen von Elementen
+                        \begin{itemize}
+                            \item Laufzeit = $\Theta(1)$ 
+                            \item Hier wird als Wurzel eingefügt (Achtung: Erzeugt linkslastigen Baum)
+                            \item Code:
+                            \item[]
+                                \begin{minted}[autogobble]{c}
+                                insert(T,x) // x.parent == x.left == x.right == nil;
+                                IF T.root != nil THEN 
+                                    T.root.parent = x;
+                                    x.left = T.root;
+                                T.root = x;
+                                \end{minted}
+                        \end{itemize}
+
+                    \item Löschen von Elementen
+                        \begin{itemize}
+                            \item Laufzeit = $\Theta(h)$ (Höhe des Baumes, $h=n$ möglich)
+                            \item Hier: Ersetze $x$ durch Halbblatt ganz rechts
+                            \item[] \includegraphics[width=12cm]{löschenBaum.PNG}
+                            \item \texttt{Connect}-Algorithmus:
+                            \item[]
+                                \begin{minipage}[t]{0.35\textwidth}
+                                    \includegraphics[width=5cm]{löschenBaumConnect.PNG}
+                                \end{minipage}
+                                \begin{minipage}[t]{0.45\textwidth}
+                                    \vspace{-7cm}
+                                    \begin{itemize}
+                                        \item Laufzeit = $\Theta(1)$
+                                        \item[]
+                                            \begin{minted}[autogobble]{c}
+                                            connect(T,y,w) // Connects w to y.parent
+                                            v = y.parent;
+                                            IF y != T.root THEN 
+                                                IF y == v.right THEN 
+                                                    v.right = w;
+                                                ELSE 
+                                                    v.left = w;
+                                            
+                                            ELSE 
+                                                T.root = w;
+                                            
+                                            IF w != nil THEN 
+                                                w.parent = v;
+                                            \end{minted}
+                                    \end{itemize}
+                                \end{minipage}
+
+                            \item \texttt{Delete}-Algorithmus:
+                            \item[]
+                                \begin{minipage}{0.4\textwidth}
+                                    \includegraphics[width=6cm]{löschenBaumDelete.PNG}
+                                \end{minipage}
+                                \begin{minipage}{0.5\textwidth}
+                                    \begin{itemize}
+                                        \item[]
+                                            \begin{minted}[autogobble]{c}
+                                            delete(T,x) // assumes x in T
+                                            y = T.root;
+                                            WHILE y.right != nil DO 
+                                                y = y.right;
+                                            
+                                            connect(T,y,y.left);
+
+                                            if x != y THEN
+                                                y.left = x.left;
+                                                IF x.left != nil THEN
+                                                    x.left.parent = y;
+                                                y.right = x.right;
+                                                IF x.right != nil THEN
+                                                    x.right.parent = y;
+                                                connect(T,x,y);
+                                            \end{minted}
+                                    \end{itemize}
+                                \end{minipage}
+                        \end{itemize}
+                \end{itemize}
+    \end{itemize}
 \pagebreak
 
 \section{Pseudocode in der Vorlesung AuD}
