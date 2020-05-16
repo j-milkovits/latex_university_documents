@@ -1528,7 +1528,167 @@
                         \end{itemize}
                 \end{itemize}
     \end{itemize}
+
+\subsection{Binäre Suchbäume}
+    \begin{itemize}
+        \item \textbf{Definition}
+            \begin{itemize}
+                \item Totale Ordnung auf den Werten 
+                \item Für alle Knoten $z$ gilt:
+                \item[] Wenn $x$ Knoten im linken Teilbaum von $z$, dann \texttt{x.key $\leq$ z.key}
+                \item[] Wenn $y$ Knoten im rechten Teilbaum von $z$, dann \texttt{y.key $\geq$ z.key} 
+                \item Preorder/Postorder + eindeutige Werte $\Rightarrow$ Eindeutige Identifizierung 
+            \end{itemize}
+        
+        \item \textbf{Suchen im Binären Suchbaum}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=8cm]{binärerSuchbaumSuche.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \begin{itemize}
+                            \item Laufzeit $= O(h)$ (Höhe)
+                            \item Code:
+                            \item[]
+                                \begin{minted}[autogobble]{c}
+                                search(x,k) // 1. Aufruf x = root
+                                IF x == nil OR x.key == k THEN
+                                    return x;
+                                IF x.key > k THEN
+                                    return search(x.left,k);
+                                ELSE
+                                    return search(x.right,k);
+                                \end{minted}
+                            \item Iterativer Code:
+                            \item[]
+                                \begin{minted}[autogobble]{c}
+                                iterative-search(x,k)
+                                WHILE x != nil AND x.key != k DO
+                                    IF x.key > k THEN
+                                        x = x.left;
+                                    ELSE
+                                        x = x.right;
+                                return x;
+                                \end{minted}
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Einfügen im Binary Search Tree}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=8cm]{binärerSuchbaumEinfügen.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \begin{itemize}
+                            \item Laufzeit = $O(h)$
+                            \item Aufwenderiger, da Ordnung erhalten werden muss
+                            \item Code:
+                            \item[]
+                                \begin{minted}[autogobble]{c}
+                                insert (T,z) // z.left == z.right == nil;
+                                x = T.root;
+                                px = nil;
+                                WHILE x != nil DO
+                                    px = x;
+                                    IF x.key > z.key THEN
+                                        x = x.left;
+                                    ELSE 
+                                        x = x.right;
+                                z.parent = px;
+                                IF px == nil THEN
+                                    T.root = z;
+                                ELSE 
+                                    IF px.key > z.key THEN
+                                        px.left = z;
+                                    ELSE 
+                                        px.right = z;
+                                \end{minted}
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
 \pagebreak
+
+        \item \textbf{Löschen im BST}
+            \begin{itemize}
+                \item Verschiedene Fälle:
+                    \begin{itemize}
+                        \item[] \includegraphics[width=9cm]{binärerSuchbaumLöschen1.PNG}
+                        \item[] \includegraphics[width=9cm]{binärerSuchbaumLöschen2.PNG} 
+                        \item[] \includegraphics[width=9cm]{binärerSuchbaumLöschen3.PNG} 
+                    \end{itemize}
+
+                \item Code (Transplantation)
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                            \begin{minted}[autogobble]{c}
+                            // HängtTeilbaum v an Parent von u
+                            transplant(T,u,v) 
+                            IF u.parent == nil THEN
+                                T.root = v;
+                            ELSE
+                                IF u == u.parent.left THEN
+                                    u.parent.left = v;
+                                ELSE 
+                                    u.parent.right = v;
+                            IF v != nil THEN
+                                v.parent = u.parent;
+                            \end{minted}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \begin{minted}[autogobble]{c}
+                        delete(T,z)
+                        IF z.left == nil THEN
+                            transplant(T,z,z.left)
+                        ELSE
+                            IF z.right == nil THEN
+                                transplant(T,z,z,left)
+                            ELSE
+                                y = z.right;
+                                WHILE y.left != nil DO y = y.left;
+                                IF y.parent != z THEN
+                                    transplant(T,y,y.right)
+                                    y.right = z.right;
+                                    y.right.parent = y;
+                                transplant(T,z,y)
+                                y.left = z.left;
+                                y.left.parent = y;
+                        \end{minted}
+                    \end{minipage}
+                \item Laufzeit = $O(h)$
+                \item Laufzeit ist damit besser, wenn viele Suchoperationen und $h$ klein relativ zu $n$
+            \end{itemize}
+
+        \item \textbf{Höhe eines BST}
+            \begin{itemize}
+                \item Best Case:
+                    \begin{itemize}
+                        \item Vollständiger Baum (Alle Blätter gleiche Tiefe)
+                        \item $h = O(log_2 n)$
+                        \item Laufzeit = $O(log_2 n)$
+                    \end{itemize}
+                \item Worst Case:
+                    \begin{itemize}
+                        \item Degenerierter Baum (lineare Liste)
+                        \item $h = n - 1$
+                        \item Laufzeit = $\Theta(n)$
+                    \end{itemize}
+                \item Durchschnittliche Höhe:
+                    \begin{itemize}
+                        \item Erwartete Höhe: $\Theta(log_2 n)$
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Suchbäume als Suchindex}
+            \begin{itemize}
+                \item Knoten speichert nur Primärschlüssel und Zeiger auf Daten
+                \item Zusätzliche Indizes möglich, kosten aber Speicherplatzbedarf
+                \item[] \includegraphics[width=12cm]{suchbaumSuchindex.PNG}
+            \end{itemize}
+    \end{itemize}
 
 
 \end{document}
