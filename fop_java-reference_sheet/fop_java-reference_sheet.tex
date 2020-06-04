@@ -5,7 +5,7 @@
 
 \begin{titlepage}
   \title{FOP Reference Sheet} % document_name-type_of_document
-  \author{Jonas Milkovits}
+  \author{J. Milkovits}
   \date{Last Edited: \today}
 \end{titlepage}
 
@@ -407,7 +407,7 @@
 	\hspace{0.4cm} $\diamond$ \texttt{lines // Files.lines(path);} \\
 	\hspace{0.6cm} - Öffnet Datei an übergebenem Pfad \\
 	\hspace{0.6cm} - Liefert einen Stream von Strings, ein String pro Zeile \\
-	\hspace{0.6cm} - Zeilenende durch \texttt{\string"file.separator\string"} gekennzeichnet \\
+	\hspace{0.6cm} - Zeilenende durch \texttt{\string"line.separator\string"} gekennzeichnet \\
 	\hspace{0.6cm} - \texttt{IOException}, falls Problem beim Öffnen der Datei (\texttt{java.io}) \\
 	\hspace{0.4cm} $\diamond$ \texttt{exists // Files.exists(path);} \\
 	\hspace{0.6cm} - \texttt{true}, wenn es dort Datei/Verzeichnis gibt \\
@@ -421,7 +421,7 @@
 	\hspace{0.6cm} - \texttt{true}, falls es ein Verzeichnis ist \\
 	\hspace{0.4cm} $\diamond$ \texttt{size(path) // long size = Files.size(path);} \\
 	\hspace{0.6cm} - Fragt die Grö\ss e der Datei ab \\
-	\hspace{0.6cm} - \texttt{long}, da die Dateigröe oft nicht in \texttt{int} passt \\
+	\hspace{0.6cm} - \texttt{long}, da die Dateigrö\ss e oft nicht in \texttt{int} passt \\
 	\hspace{0.4cm} $\diamond$ \texttt{createFile(path)} \\
 	\hspace{0.6cm} - Richtet Datei an der übergebenen Stelle ein \\
 	\hspace{0.4cm} $\diamond$ \texttt{copy(path1, path2)} \\
@@ -474,8 +474,8 @@
 	\hspace{0.6cm} - Falls \texttt{true}: Inhalt geht nicht verloren, wird hinten angehangen  \\
 	$\triangleright$ Methoden: \\
 	\hspace{0.4cm} $\diamond$ \texttt{write()} \\
-	\hspace{0.4cm} $\diamond$ Hat \texttt{int} als formalen Parametertyp \\
-	\hspace{0.4cm} $\diamond$ Schreibt nur unterestes Byte dieses \texttt{int} \\
+	\hspace{0.6cm} - Hat \texttt{int} als formalen Parametertyp \\
+	\hspace{0.6cm} - Schreibt nur unterestes Byte dieses \texttt{int} \\
 	$\triangleright$ Beispiel: \\
 	\hspace{0.4cm} 1 \hspace{0.1cm} \texttt{FileOutputStream out = new FileOutputStream(fileName);} \\  
 	\hspace{0.4cm} 2 \hspace{0.1cm} \texttt{int i = 5;} \\
@@ -499,7 +499,7 @@
 	\hspace{0.8cm} in die byteweise Darstellung \\
 	\hspace{0.4cm} $\diamond$ Das eigentliche Schreiben übernimmt der übergebene \texttt{OutputStream} \\
 	\hspace{0.4cm} $\diamond$ Methode \texttt{print} \\ 
-	\hspace{0.6cm} - z.B.: \texttt{out1.print("pi = "); out1.print(3.14);} \\
+	\hspace{0.6cm} - z.B.: \texttt{out1.print(\string"pi = \string"); out1.print(3.14);} \\
 	\hspace{0.6cm} - Byteweise Ausgabe von übergebenen Werten \\
 	\hspace{0.4cm} $\diamond$ \texttt{System.out.print()}: \texttt{out} ist von Klasse \texttt{PrintStream} \\
 	\hspace{0.4cm} $\diamond$ Methode \texttt{println} \\
@@ -604,9 +604,9 @@
     \hspace{0.4cm} $\diamond$ Vorsicht bei Änderungen  } \\ \hline
 
     \makecell[l]{Lambda-Ausdrücke \\ Aufbau} & \makecell[l]{
-    $\triangleright$ \texttt{n -> n \SI{70}{\percent} 2 == 1} \\
+    $\triangleright$ \texttt{n -> n \SI{}{\percent} 2 == 1} \\
     \hspace{0.4cm} $\diamond$ Kurzform  \\
-    $\triangleright$ \texttt{(int n) ->\{return n \SI{70}{\percent} 2 == 1;\}} \\
+    $\triangleright$ \texttt{(int n) ->\{return n \SI{}{\percent} 2 == 1;\}} \\
     \hspace{0.4cm} $\diamond$ richtige lange Form, Typangabe des Parameters optional \\
     $\triangleright$ \texttt{(int n, double x) -> \{System.out.print(x); System.out.print(n);\}} \\
     \hspace{0.4cm} $\diamond$ Langform ermöglicht mehrere Anweisungen } \\ \hline
@@ -617,7 +617,7 @@
     $\triangleright$ \texttt{java.util.function.IntPredicate}: \\
     \hspace{0.4cm} $\diamond$ Funktionale Methode \texttt{boolean test(int x);} \\
     \hspace{0.4cm} $\diamond$ Beispiel: \\
-    \hspace{0.6cm} - \texttt{IntPredicate pred1 = n -> n \SI{70}{\percent} 2 == 1} \\
+    \hspace{0.6cm} - \texttt{IntPredicate pred1 = n -> n \SI{}{\percent} 2 == 1} \\
     \hspace{0.6cm} - Gibt \texttt{true} zurück, falls \texttt{n} ungerade ist \\
     $\triangleright$ \texttt{java.util.function.IntPredicate} hat noch \texttt{default}-Methoden: \\
     \hspace{0.4cm} $\diamond$ Zugriff auf diese über \texttt{pred1}: \\
@@ -1793,7 +1793,8 @@
 	\hspace{0.4cm} $\diamond$ Dieser Typ ist abhängig vom aktualen Parameter \\
 	\hspace{0.4cm} $\diamond$ Formaler Parameter: \texttt{java.util.function.Function;} \\
 	$\triangleright$ \texttt{max} \\
-	\hspace{0.4cm} $\diamond$ Liefert nur einzelnes Element zurück abhängig vom \texttt{Comparator} \\
+    \hspace{0.4cm} $\diamond$ Liefert nur einzelnes Element zurück abhängig vom \texttt{Comparator} \\
+    \hspace{0.4cm} $\diamond$ Gibt Objekt vom Typ \texttt{Optional} zurück
 	$\triangleright$ \texttt{of} \\
 	\hspace{0.4cm} $\diamond$ Dient der direkten Erzeugung von Streams \\
 	\hspace{0.4cm} $\diamond$ Beliebige Anzahl an Parametern des Typarameters \\
@@ -1812,7 +1813,6 @@
 	$\triangleright$ \texttt{... stream1.filter(myPred); // Anwenden eines Filter} \\
 	$\triangleright$ \texttt{... stream1.map(myFct); // Anwenden einer Abbildung} \\
 	$\triangleright$ \texttt{Optional<Number> opt = stream.max(new MyComp());} \\
-	\hspace{0.4cm} $\diamond$ Hier \texttt{Optional}, da der Stream auch leer sein kann \\
 	$\triangleright$ Methoden wie \texttt{filter} und \texttt{map} werden \textbf{intermediate operations} genannt \\
 	$\triangleright$ Methoden wie \texttt{max} werden \textbf{terminal operations} genannt \\
 	$\triangleright$ Zusammenfassung dieser Operationen möglich: \\
@@ -1821,7 +1821,7 @@
 	\makecell[l]{Stream aus Array} & \makecell[l]{
 	$\triangleright$ \texttt{Number[] a = new Number[100]; // Erstellt Array} \\
 	$\triangleright$ \texttt{Stream<Number> stream1 = Arrays.stream(a); // Erzeugt Stream} \\
-	\hspace{0.4cm} $\diamond$ Aufruf der \texttt{Arrays}-Klassenmethoden \texttt{stream(Array a)} } \\ \hline
+	\hspace{0.4cm} $\diamond$ Aufruf der \texttt{Arrays}-Klassenmethode \texttt{stream(Array a)} } \\ \hline
 
 	\makecell[l]{Iterator} & \makecell[l]{
 	$\triangleright$ \texttt{Iterator iter = stream.iterator(); // Erzeugt Iterator Objekt} \\
@@ -2278,7 +2278,7 @@
 
 	\makecell[l]{Semantische Ebene} & \makecell[l]{
 	$\triangleright$ Definition Semantik: \\
-	\hspace{0.4cm} $\diamond$ Tatsächlicher Effekt eines sprach korrekten Programms \\
+	\hspace{0.4cm} $\diamond$ Tatsächlicher Effekt eines sprachkorrekten Programms \\
 	\hspace{0.4cm} $\diamond$ 
 	$\triangleright$ Werden zur Laufzeit des Programms gefunden \\
 	\hspace{0.4cm} $\diamond$ Werfen einer \texttt{RunTimeException} \\
@@ -2396,7 +2396,7 @@
 	\hspace{0.4cm} $\diamond$ Formulierung: \string"Nach h $\geq$ 0 Schritten ist ... \string" \\
 	\hspace{0.6cm} - Verwendung einer Variable (h), die nicht im Code vorkommt \\
 	$\triangleright$ {\makebox[3.2cm][l]{Schleifenvariante}}: Aussagen darüber, was sich während Schleife ändert \\
-	\hspace{0.4cm} $\diamond$ Formulierung: \texttt{for}: \string"h steigt um 1 \string"
+	\hspace{0.4cm} $\diamond$ Formulierung: \texttt{for}: \string"h steigt um 1 \string" \\
 	$\triangleright$ Zusammenfassung: \\
 	\hspace{0.4cm} $\diamond$ Formulierung: \string"Nach Schleifenende ist... \string" \\
 	$\triangleright$ Induktion bei Schleifen: \\
@@ -2452,7 +2452,7 @@
 	\makecell[l]{Pareto Regel} & \makecell[l]{
 	$\triangleright$ Allgemein statistische Regel aus der VWL \\
 	$\triangleright$ Übertragung auf das Thema effiziente Software: \\
-	\hspace{0.4cm} $\diamond$ Nur wenige Quelltext is für den Gro\ss teil der Ineffizienz verantwortlich \\
+	\hspace{0.4cm} $\diamond$ Nur wenig Quelltext is für den Gro\ss teil der Ineffizienz verantwortlich \\
 	$\triangleright$ Konsequenz für Effizienzverbesserungen: \\
 	\hspace{0.4cm} $\diamond$ 1. Prüfen wo die Effizienzverluste auftreten \\
 	\hspace{0.4cm} $\diamond$ 2. Bei Verbesserungen auf diese Stellen konzentrieren} \\ \hline
@@ -2717,7 +2717,7 @@
 	\hspace{0.4cm} $\diamond$ Verwenden von \texttt{JUnit}-Tests \\
 	\hspace{0.4cm} $\diamond$ Jedoch auch spezifischere \texttt{Assert}-Anweisungen möglich \\
 	\hspace{0.4cm} $\diamond$ Prüfung der Darstellungsinvariante bei Klassen/Interfaces \\
-	\hspace{0.4cm} $\diamond$ Prüfung der Nachbedingung bei Subroutinen  
+	\hspace{0.4cm} $\diamond$ Prüfung der Nachbedingung bei Subroutinen \\
 	$\triangleright$ White-Box-Tests \\
 	\hspace{0.4cm} $\diamond$ Hauptsächlich \texttt{Assert}-Anweisungen \\
 	\hspace{0.4cm} $\diamond$ Implementationsinvarianten von Klassen \\
