@@ -1005,5 +1005,174 @@
                 \item Die Übersetzung eines Programmes kann also viele verschiedene Ergebnisse haben
                 \item Außerdem werden nicht unbedingt alle Elemente einer Hochsprache in Assembler sichtbar
             \end{itemize}
+
+        \item \textbf{OpenMP (Einschub)}
+            \begin{itemize}
+                \item Threadparalleles Arbeiten auf Rechnersystemene mit gemeinsamen Adressraum
+                \item Gut geeignet für Multicore-Architekturen
+                \item Programm verzweigt automatisch bei parallel-ausführbarem Code in zusätzliche Threads
+                \item Am Schluss werden diese Threads wieder zu einem einzelnen zusammengeführt
+                \item \textbf{Fork-Join-Programmiermodell}
+                \item Verwenden in der Praxis:
+                    \begin{itemize}
+                        \item Einbinden von \texttt{\#include<omp.h>}
+                        \item Compileraufruf: \texttt{gcc - fopenmp name.c}
+                        \item Setzen Umgebungsvariable für Threadanzahl: \texttt{OMP\_NUM\_THREADS=2}
+                    \end{itemize}
+                \item Programme lassen sich aber eher selten sehr gut parallelisieren
+            \end{itemize}
+
+        \item \textbf{Assemblerprogramm}
+            \begin{itemize}
+                \item Definition: 
+                    \begin{itemize}
+                        \item Programm, das die Aufgabe hat, Assemblerbefehle in Maschinencode zu transformieren
+                        \item symbolischen Namen (Labels) Maschinenadressen zuzuweisen
+                        \item Erzeugung einer oder mehrerer Objektdateien
+                    \end{itemize}
+
+                \item \textbf{Crossassembler}
+                    \begin{itemize}
+                        \item Assembler läuft auf Rechnersystem X, generiert aber Maschinencode für Platform Y
+                        \item Verwendung im Bereich der Embedded Systems
+                    \end{itemize}
+                
+                \item \textbf{Disassembler}
+                    \begin{itemize}
+                        \item Übersetzung von Maschinencode in Assemblersprache
+                        \item Verlust von Kommentaren und symbolischen Namen
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Schrittweiser Assembliervorgang}
+            \begin{itemize}
+                \item 1. Schritt:
+                    \begin{itemize}
+                        \item Auffinden von Speicherposition mit Marken (Beziehung zwischen Adresse und Namen bekannt)
+                        \item Übersetzung jedes Assemblerbefehls durch OPCodes, Register und Marken in legale Instruktion
+                    \end{itemize}
+                \item 2. Schritt
+                    \begin{itemize}
+                        \item Erzeugung einer oder mehrerer Objektdateien
+                        \item Enthalten Maschinencode, Daten, Verwaltungsinformationen
+                        \item Jedoch meist nicht ausführbar (Verweise auf andere Funktionen etc.)
+                    \end{itemize}
+                \item Probleme beim 1. Schritt
+                    \begin{itemize}
+                        \item Nutzen von Marken, bevor sie definiert sind (Unbekannte Adressen)
+                        \item Lösung: \textbf{Two-Pass}
+                            \begin{itemize}
+                                \item Assembler macht 2 Läufe über das Programm
+                                \item 1. Lauf: Zuordnen von Maschinenadressen
+                                \item 2. Lauf: Erzeugen der Codes
+                            \end{itemize}
+                    \end{itemize}
+                \item Probleme beim 2. Schritt (Erzeugen des Objektdatei)
+                    \begin{itemize}
+                        \item 1. Fall:
+                            \begin{itemize}
+                                \item Assembler verwendet \textbf{absolute} Adreessen und eine Objektdatei
+                                \item Laden unmittelbar möglich, Speicherort muss jedoch vorher bekannt sein
+                                \item Nachteil: Verschieben des Programms nicht möglich
+                            \end{itemize}
+
+                        \item 2. Fall:
+                            \begin{itemize}
+                                \item Assembler verwendet \textbf{relative} Adressen und ggf. mehrere Programm-Segmente als Eingabe
+                                \item Assembler Ausgabe: $\geq$ 1 Objekt-Dateien
+                                \item Adressen werden relativ zu Objektdateien vergeben
+                                \item Deswegen sind weitere Transformationsschritte notwendig (Binder/Linker/Lader)
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Aufbau eines Objekt-Programms}
+            \begin{itemize}
+                \item Verschiedene Arten von Objekt-Programmen:
+                    \begin{itemize}
+                        \item Relocatable (verschiebbare) Object Files:
+                            \begin{itemize}
+                                \item[] Enthalten binären Code und Daten in einer Form, die mit anderen 
+                                        verschiebbaren \\ Objekt-Files zu einem ausführbaren Objekt-File zusammengefügt werden können. \\
+                                        Diese Files werden in der Regel generiert.
+                            \end{itemize}
+                        \item Executable Object Files:
+                            \begin{itemize}
+                                \item[] Enthalten binären Code und Daten in einer Form, die direkt in den Speicher kopiert
+                                        und ausgeführt werden kann. 
+                            \end{itemize}
+                        \item Shared Object Files:
+                            \begin{itemize}
+                                \item[] Spezieller Typ von Relocatable Object Files, welche in den Speicher geladen werden können
+                                        und dynamisch mit anderen Object-Files zusammengeführt werden können.
+                            \end{itemize}
+                    \end{itemize}
+
+                \item Aufbau eines ELF relocatable object files
+                    \begin{itemize}
+                        \item[]
+                            \begin{minipage}{0.35\textwidth}
+                                \includegraphics[width=7cm]{elfheader.PNG}
+                            \end{minipage}
+                            \begin{minipage}{0.55\textwidth}
+                                \vspace{-2cm}
+                                \begin{itemize}
+                                    \item ELF: Ein Format dieser Files
+                                    \item Beginnt mit 16-Byte Sequenz
+                                    \item Informationen über Wortgrö\ss e, Byte-Ordering,..
+                                    \item .text: Maschinencode des compilierten Programms
+                                    \item .data: Initialisierte globale Variablen
+                                    \item etc.
+                                \end{itemize}
+                            \end{minipage}
+
+                        \item[]
+                        \item Beispiel einer ELF-Header-File (16 Bytes)
+                            \begin{itemize}
+                                \item \texttt{as -o prog.o prog.s} (Übersetzung eines C-Programms)
+                                \item \texttt{readelf -h prog.o} (Lesen ELF-Header / -h für Header) 
+                                \item[] \includegraphics[width=9cm]{elfheaderbsp.PNG}
+                                \item[]
+                                \item \texttt{readelf -a prog.i} (Übersicht über wichtigsten Einträge)
+                                \item \texttt{objdump -S prog.o} (Rückgabe des Maschinencodes)
+                                \item[] \includegraphics[width=9cm]{objdump.PNG}
+                                \item Links ist der Maschinencode mit 8 Byte (32 Bit) in Hexa zu sehen 
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Binder/Linker und Lader}
+            \begin{itemize}
+                \item Definition Binder/Linker
+                    \begin{itemize}
+                        \item Erzeugung eines ausführbaren Objektprogramms aus einzelnen verschiebbaren Objekt-Files
+                        \item Hierzu auflösen der offenen exteren Referenzen
+                    \end{itemize}
+                \item Definition Lader
+                    \begin{itemize}
+                        \item Systemprogramm, das die Objektprogramme in den Speicher lädt und die Ausführung anstö\ss t
+                        \item Kopieren des Objektprogrammes in den Speicher
+                        \item Verschiedene Arten des Ladevorgangs:
+                            \begin{itemize}
+                                \item absolutes Laden (absolute loading)
+                                \item relatives Laden (relocatable loading)
+                                \item dynamisches Laden zur Laufzeit (dynamic run-time loading)
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Laufzeitanalyse von C-Programmen}
+            \begin{itemize}
+                \item Erinnerung: Operationen auf den Registern sind schneller als Operationen auf Hauptspeicher
+                \item Möglichkeit des Programm Profiling hier:
+                    \begin{itemize}
+                        \item Hauptprogramm, das zwei Funktionen (eine iterativ, andere rekursiv) aufruft
+                        \item \texttt{gcc} kann hier bei der Bestimmung der Laufzeit weiterhelfen
+                        \item \texttt{gcc -pg -o function\_fak function\_fak.c} (-pg ist ein run-time flag)
+                        \item Danach Aufruf des Programms (dauert etwas länger)
+                        \item \texttt{gprof function\_fak gmon.out > analysis.txt} (Wertet die Profile-Datei aus)
+                        \item Diese splittet die Zeit der Unterprogramme auf und zeigt die Laufzeiten an
+                    \end{itemize}
+            \end{itemize}
     \end{itemize}
 \end{document}
