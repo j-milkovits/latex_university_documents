@@ -847,4 +847,163 @@
     \end{itemize}
         
 
+\subsection{Stack}
+    \begin{itemize}
+        \item \textbf{Eigenschaften des Stacks}
+            \begin{itemize}
+                \item Speicher für temporäres Zwischenspeichern von Werten
+                \item LIFO-Konzept (\string"last in, first out"\string)
+                \item Dehnt sich aus, falls mehr Daten gespeichert werden müssen
+                \item Zieht sich zusammen, wenn weniger Daten gespeichert werden müssen
+                \item Wächst bei ARM nach unten (von hohen zu niedrigen Adressen)
+                \item Verwendung des \texttt{Stackpointers sp (r13)}
+                \item \texttt{StackPointer} zeigt auf letztes auf dem Stack abgelegtes Element
+            \end{itemize}
+
+        \item \textbf{Verwendung des Stacks bei Unterprogrammen}
+            \begin{itemize}
+                \item Beispiel \texttt{diffofsums}:
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble]{c} 
+                            diffofsums:
+                            add r8, r0, r1
+                            add r9, r2, r3
+                            sub r4, r8, r9
+                            mov r0, r4      /* Rueckgabewert in r0 */
+                            mov pc, lr      /* Ruecksprung zum Aufrufer */
+                            \end{minted}
+                        \item[]
+                        \item Problem hier: \texttt{diffofsums} überschreibt r8, r9, r4 
+                        \item Unterprogramme dürfen aber keine unbeabsichtigten Seiteneffekte haben
+                        \item Vorherige Werte in r8, r9 und r4 gehen hierbei aber verloren
+                    \end{itemize}
+
+                \item Lösung: Register auf Stack Zwischenspeichern
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            diffofsums:
+                            sub sp, sp, #12     /* Speicher auf Stack reservieren (3 Adressen "abziehen") */
+                            str r9, [sp, #8]    /* Speichern an oberster freier Stelle im Stack */
+                            str r8, [sp, #4]
+                            str r4, [sp]        /* Speichern an unterster freier Stelle im Stack */
+                            /* Abspeichern der Werte in Benutzungsreihenfolge hier als Konvention */
+                            add r8, r0, r1      /* Berechnungen durchführen */
+                            add r9, r2, r3
+                            sub r4, r8, r9
+                            mov r0, r4          /* Rückgabewert in r0 */
+
+                            /* Wiederherstellen der Werte nun in umgekehrter Reihenfolge */
+                            ldr r4, [sp]        /* Wiederherstellen von r4 */
+                            ldr r8, [sp, #4]    /* Wiederherstellen von r8 */
+                            ldr r9, [sp, #8]    /* Wiederherstellen von r9 */
+                            add sp, sp, #12     /* Freigabe von Speicher auf dem Stack */
+
+                            mov pc, lr          /* Rücksprung zum Aufrufer */
+                            \end{minted}
+                        \item[]
+                        \item[] \includegraphics[width = 12cm]{stackGrafik.png}
+                    \end{itemize}
+
+                \item Verwendung des Stacks auch bei Unterprogrammaufrufen
+                    \begin{itemize}
+                        \item Das \texttt{LinkRegister} muss vor Unterprogrammaufrufen gesichert werden
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            main:
+                            ...
+                            push {lr}       /* push ist hier nur eine Pseudoinstruktion für str */
+                            bl diffofsums   /* Das LinkRegister wird beim Programmaufruf verändert */
+                            ...
+                            pop {lr}        /* pop ist hier die Pseudoinstruktion für ldr */
+                            bx lr       
+                            \end{minted}
+                        \item[]
+                        \item \texttt{push} und \texttt{pop} sind auch mit Operandenliste möglich
+                            \begin{itemize}
+                                \item \texttt{push \{r9, r8, r4\}}
+                                \item Allerdings muss hierbei das \string"poppen\string" in umgekehrter Reihenfolge beachtet werden
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Rekursion}
+    \begin{itemize}
+        \item \textbf{Graphische Betrachtung}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{rekursion.PNG}
+                \item[] 
+                \item Inkarnation: Ablauf eines Unterprogrammes
+                \item Zwei verschiedene Rückkehradressen:
+                    \begin{itemize}
+                        \item \textbf{RA\_1}: Adresse im Hauptprogramm
+                        \item \textbf{RA\_2}: Adresse im Unterprogramm
+                        \item \textbf{RA\_2} ist immer diesselbe Adresse, da immer selber Code
+                    \end{itemize} 
+            \end{itemize}
+
+        \item \textbf{Code: Fakultätsberechnung}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    .global main
+
+                    main:                       /* Hauptprogramm */
+                            push{lr}            /* Sicherung lr */
+                            mov r0, #3          /* fak von 3 */
+                            bl fak              /* Aufruf von fak */
+                    RA_1:   mov r4, r0          /* RA_1 ist hier kein sinnvoller Code, nur für Adressen hier */
+                            mov r0, r4
+                            pop {lr}
+                            bx lr
+                    
+                    fak:    sub sp, sp, #8      /* Stackspeicher reservieren */
+                            str r0, [sp, #4]    /* Sichern von r0 */
+                            str lr, [sp]        /* Sichern lr */
+                            cmp r0, #1          /* Überprüfung Rekursionsende */
+                            blt else            
+                            sub r0, r0, #1      /* n = n - 1 */
+                            bl fak              /* Funktionsaufruf */
+                    RA_2:   ldr r1, [sp, #4]    /* Laden von n */
+                            mul r0, r1, r0      /* fak (n-1) * n */
+                    fin:    ldr lr, [sp]        /* Laden Rückkehradresse */
+                            add sp, sp, #8      /* Freigabe Stackspeicher */
+                            bx lr
+                    else:   mov r0, #1          /* Rekursionsanker */
+                            b fin
+                    \end{minted}
+                \item[]
+                \item Aufrufer:
+                    \begin{itemize}
+                        \item Lege Aufrufparameter in Register oder auf Stack ab 
+                        \item Sichere notwendige Register auf dem Stack (lr)
+                        \item Rufe Unterprogramm auf (bl)
+                        \item Stelle gesicherte Register wieder her (lr)
+                        \item Verwendung von Rückgabewert
+                    \end{itemize}
+                
+                \item Aufgerufener:
+                    \begin{itemize}
+                        \item Sichere zu erhaltende Register auf dem Stack 
+                        \item Führe Unterprogrammrechnung aus
+                        \item Rückgabewert in r0 legen
+                        \item Wiederherstellen der gesicherten Register
+                        \item Rücksprung zum Aufrufer
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Compilieren, Assemblieren und Linken}
+    \begin{itemize}
+        \item \textbf{Optimierungseinstellungen}
+            \begin{itemize}
+                \item Generieren des Assemblercodes mithilfe von \texttt{gcc -S code.c} führt zu viel \string"unnötigem"\string Code
+                \item z.B. das Speichern von Intermediate Values auf dem Stack etc
+                \item Optimierungsstufen (\texttt{gcc -S -O1 code.c}) erzeugen meist \string"weniger"\string Code
+                \item Die Übersetzung eines Programmes kann also viele verschiedene Ergebnisse haben
+                \item Außerdem werden nicht unbedingt alle Elemente einer Hochsprache in Assembler sichtbar
+            \end{itemize}
+    \end{itemize}
 \end{document}
