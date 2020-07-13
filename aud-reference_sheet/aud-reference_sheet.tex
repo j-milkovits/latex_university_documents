@@ -2145,4 +2145,85 @@
                 \item $O$-Notation versteckt hier konstanten Faktor $t$ für Suche innerhalb eines Knotens
             \end{itemize}
     \end{itemize}
+
+\section{Randomized Data Structures}
+\subsection{Skip Lists}
+    \begin{itemize}
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item Einfügen von \string"Express-Liste\string" mit einigen Elementen
+                \item Beginne mit Suche in der Express-Liste mit weniger Elementen
+                \item Falls das suchende Element kleiner als nächstes Element in Express-Liste $\Rightarrow$ weiter nach rechts
+                \item Falls nicht $\Rightarrow$ Eine Stufe nach unten wandern und dort weiter suchen
+                \item[] \includegraphics[width=12cm]{skiplistSuche.PNG}
+                \item Verbesserung: Zusätzliche Stufen an Express-Listen 
+                \item Anwendung: 
+                \begin{itemize}
+                    \item Gut für parallele Verarbeitung z.B. Multicore-Systeme (Einfügen und Löschen)
+                    \item Dafür logarithmische Laufzeit nur im Durchschnitt
+                \end{itemize}
+                \item Auswahl von Elementen:
+                    \begin{itemize}
+                        \item Abhängig von einer gewählten Wahrscheinlichkeit $p$ 
+                        \item Element kommt mit Wahrscheinlichkeit $p$ in übergeordnete Liste
+                        \item Höhe: $h = O(log_{\frac{1}{p}}n)$
+                        \item Anzahl Elemente: $n \Rightarrow pn \Rightarrow p^2n \Rightarrow ...$ (unten nach oben)
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Implementierung}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=8cm]{skiplistImplement1.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=6cm]{skiplistImplement2.PNG}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Suche}
+            \begin{itemize}
+                \item Laufzeit ist von Expresslisten abhängig
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    search(L, k)
+                    current = L.head;
+                    WHILE current != nil DO
+                        IF current.key == k THEN 
+                            return current;
+                        IF current.next != nil AND current.next.key <= k THEN
+                            current = current.next;
+                        ELSE
+                            current = current.down;
+                    return nil;
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{Einfügen}
+            \begin{itemize}
+                \item Füge auf unterster Ebene ein
+                \item Evtl. auf höheren Ebenen mit zufälliger Wahl mithilfe von $p$ auf jeder Ebene
+            \end{itemize}
+
+        \item \textbf{Löschen}
+            \begin{itemize}
+                \item Entferne Vorkommen des Elements aus allen Ebenen
+            \end{itemize}
+        
+        \item \textbf{Worst-Case-Laufzeiten}
+            \begin{itemize}
+                \item {\makebox[2cm][l]{Einfügen: }} $\Theta(log_{\frac{1}{p}}n)$
+                \item {\makebox[2cm][l]{Löschen: }} $\Theta(log_{\frac{1}{p}}n)$
+                \item {\makebox[2cm][l]{Suchen: }} $\Theta(log_{\frac{1}{p}}n)$
+                \item (Im Durchschnitt)
+                \item $O$-Notation versteckt konstanten Faktor $\frac{1}{p}$
+                \item Speicherbedarf im Durchschnitt: $\frac{n}{1-p}$
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Hashtables}
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{document}
