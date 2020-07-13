@@ -2352,4 +2352,66 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\section{Graph Algorithms}
+\subsection{Graphen}
+    \begin{itemize}
+        \item \textbf{(Endlicher) gerichteter Graph}
+            \begin{itemize}
+                \item (endlicher) gerichteter Graph $G = (V,E)$
+                \item besteht aus (endlicher) Knotenmenge $V$
+                \item besteht aus (endlicher) Kantenmenge $E \subseteq V x V$
+                \item $(u,v) \in E$: Kanten von Knoten $u$ zu $v$
+                \item Kanten haben eine Richtung
+            \end{itemize}
+
+        \item \textbf{Ungerichtete Graphen}
+            \begin{itemize}
+                \item (endlicher) ungerichteter Graph $G = (V,E)$
+                \item besteht aus (endlicher) Knotenmenge $V$
+                \item besteht aus (endlicher) Kantenmenge $E \subseteq V x V$, sodass $(u,v) \in E \Leftrightarrow (v,u) \in E$
+                \item Kanten haben keine Richtung
+            \end{itemize}
+
+        \item \textbf{Pfadfinder}
+            \begin{itemize}
+                \item Knoten $v$ ist von Knoten $u$ erreichbar, wenn es einen Pfad gibt
+                \item $u$ ist immer von $u$ per leerem Pfad (k=1) erreichbar
+                \item Länge des Pfades = $k - 1$ = Anzahl Kanten
+            \end{itemize}
+
+        \item \textbf{Zusammenhänge}
+            \begin{itemize}
+                \item Ungerichtet: Zusammenhängend wenn jeder Knoten von jedem anderen Knoten aus erreichbar ist
+                \item Gerichtet: \textbf{Stark} zusammenhängend, wenn obiges auch gemäß Kantenrichtung gilt
+            \end{itemize}
+
+        \item \textbf{Bäume und Subgraphen} \\
+            Graph $G$ ist ein Baum, wenn $V$ leer ist oder wenn es einen Knoten in $V$ gibt, \\
+            von dem aus jeder andere Knoten eindeutig erreichbar ist (Wurzel). \\
+            Graph $G'=(V',E')$ ist Subgraph von $G=(V,E)$, wenn $V'\subseteq V$ und $E' \subseteq E$.
+
+        \item \textbf{Darstellung von Graphen}
+            \begin{itemize}
+                \item Als Adjazentmatrix (1, wenn Kante von i zu j / 0, wenn keine Kante)
+                \item Bei ungerichteten Graphen ist Matrix spiegelsymmetrisch zur Hauptdiagonalen
+                \item Speicherbedarf: $\Theta(|V^2|)$
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \includegraphics[width=4cm]{graph1.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \includegraphics[width=4cm]{graph2.PNG}
+                    \end{minipage}
+                \item Auch darstellbar als Array mit verketteten Listen
+                \item Speicherbedarf: $\Theta(|V| + |E|)$
+            \end{itemize}
+
+        \item \textbf{Gewichtete Graphen}
+            \begin{itemize}
+                \item gewichteter gerichteter Graph $G=(V,E)$
+                \item besitzt zusätzlich Funktion $w: E \rightarrow R$
+                \item Abspeichern des Werts einer Kante $w((u,v))$
+            \end{itemize}
+    \end{itemize}
 \end{document}
