@@ -2414,4 +2414,76 @@
                 \item Abspeichern des Werts einer Kante $w((u,v))$
             \end{itemize}
     \end{itemize}
+
+\subsection{Breadth-First Search (BFS)}
+    \begin{itemize}
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item Besuche zuerst alle unmittelbaren Nachbarn, dann deren Nachbarn, usw.
+                \item Anwendung: Webcrawling, Garbage Collection,..
+            \end{itemize}
+        
+        \item \textbf{Algorithmus}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    BFS(G,s) //G=(V,E) s = source node in V
+
+                    FOREACH u in V-{s} DO
+                        u.color = WHITE;        // Weiß = noch nicht besucht
+                        u.dist = |$+\infty$|            // Setzen der Distanzen auf Unendlich
+                        u.pred = nil;           // Setzen der Vorgänger auf nil
+                    s.color = GRAY;             // Anfang bei Startnode
+                    s.dist = 0;
+                    s.pred = nil;
+                    newQueue(Q);
+                    enqueue(Q,s);
+                    WHILE !isEmpty(Q) DO
+                    u = dequeue(Q); 
+                    FOREACH v in adj(G,u) DO
+                        IF v.color == WHITE THEN
+                            v.color == GRAY;
+                            v.dist = u.dist+1;
+                            v.pred = u;
+                            enqueue(Q,v);
+                    u.color = BLACK;            // Knoten abgearbeitet
+                    \end{minted}
+                \item Laufzeit: $O(|V| + |E|)$
+                \item Nach Algorithmus steht in $v$ die kürzeste Distanz von $s$ nach $v$
+            \end{itemize}
+
+        \item \textbf{Kürzeste Pfade ausgeben}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    print-path(G,s,v) // Assumes that BFS(G,s) has already been executed
+
+                    IF v == s THEN
+                        print s;
+                    ELSE
+                        IF v.pred == nil THEN
+                            print 'no path from s to v'
+                        ELSE
+                            print-path(G,s,v.pred);
+                            print v;
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{Abgeleiteter BFS-Baum}
+            \begin{itemize}
+                \item[] \includegraphics[width=9cm]{bfsBaum.PNG}
+                \item Subgraph $G^s_{pred} = (V^s_{pred},E^s_{pred})$ von G:
+                    \begin{itemize}
+                        \item $V^s_{pred} = \{v \in V | v.pred \neq nil\} \cup \{s\}$
+                        \item $E^s_{pred} = \{(v.pred,v) | v \in V^s_{pred} - \{s\}\}$
+                    \end{itemize}
+                \item $G^s_{pred}$ enthält alle von $s$ aus erreichbaren Knoten in $G$
+                \item Außerdem handelt es sich hier nur um kürzeste Pfade
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Depth-First Search(DFS)}
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{document}
