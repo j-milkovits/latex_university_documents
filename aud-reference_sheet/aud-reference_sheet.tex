@@ -2297,6 +2297,59 @@
 
 \subsection{Bloom-Filter}
     \begin{itemize}
-        \item 
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item Speicherschonende Wörterbucher mit kleinem Fehler
+                \item z.B. Vermeidung von schlechten Passwörtern 
+                    \begin{enumerate}
+                        \item Abspeichern aller schlechten Passwörter in kompakter Form
+                        \item Prüfe, ob eingegebenes Passwort im Bloom-Filter
+                    \end{enumerate}
+                \item z.B. Erkennen von schädlichen Websites (Chrome früher)
+            \end{itemize}
+
+        \item \textbf{Erstellen}
+            \begin{itemize}
+                \item $n$ Elemente $x_0,...,x_{n-1}$
+                \item $m$ Bits-Speicher z.B. als Bit-Array
+                \item $k$ gute Hash-Funktionen $H_0,...,H_{k-1}$ mit Bildbereich $0,1,...,m-1$
+                \item Empfohlene Wahl: $k = \frac{m}{n} \cdot ln2$ (Fehlerrate von ca. $2^{-k}$)
+                \item Code:
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    initBloom(X, BF, H) // H Array of hash functions
+
+                    FOR i = 0 TO BF.length - 1 DO 
+                        BF[i] = 0;
+                    FOR i = 0 TO X.length - 1 DO
+                        FOR j = 0 TO H.length - 1 DO
+                            BF[H[j](X[i])] = 1;
+                    \end{minted}
+                \item[]
+                \item[1.] Initialisiere Array mit 0-Einträgen
+                \item[2.] Schreibe für jedes Element in jede Bit-Position $H_0(x_i),...,H_{k-1}(x_i)$ eine 1 
+                \item[] \includegraphics[width=12cm]{bloomCreate.PNG} 
+            \end{itemize}
+
+        \item \textbf{Suche}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    searchBloom(BF, H, y)
+
+                    result = 1;
+                    FOR j = 0 TO H.length - 1 DO
+                        result = result AND BF[H[j](y)];
+                    return result;
+                    \end{minted}
+                \item[]
+                \item Gibt an, dass $y$ im Wörterbuch, falls alle $k$ Einträge für $y$ in $BF=1$ sind
+                \item[] \includegraphics[width=12cm]{bloomSearch.PNG}
+                \item Eventuell \string"false positives\string" (1, obwohl $y$ nicht im Wörterbuch)
+                    \begin{itemize}
+                        \item Passiert, falls die Einträge vorher von anderen Werten getroffen wurden
+                        \item Daher gute Hashfunktionen und Filtergrö\ss e nicht zu klein
+                    \end{itemize}
+            \end{itemize}
     \end{itemize}
 \end{document}
