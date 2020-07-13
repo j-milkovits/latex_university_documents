@@ -2136,7 +2136,7 @@
                     \end{minted}
             \end{itemize}
 
-        \item \textbf{Worst-Case-Laufzeiten}
+        \item \textbf{Laufzeiten}
             \begin{itemize}
                 \item {\makebox[2cm][l]{Einfügen: }} $\Theta(log_t~n)$
                 \item {\makebox[2cm][l]{Löschen: }} $\Theta(log_t~n)$
@@ -2211,7 +2211,7 @@
                 \item Entferne Vorkommen des Elements aus allen Ebenen
             \end{itemize}
         
-        \item \textbf{Worst-Case-Laufzeiten}
+        \item \textbf{Laufzeiten}
             \begin{itemize}
                 \item {\makebox[2cm][l]{Einfügen: }} $\Theta(log_{\frac{1}{p}}n)$
                 \item {\makebox[2cm][l]{Löschen: }} $\Theta(log_{\frac{1}{p}}n)$
@@ -2223,6 +2223,79 @@
     \end{itemize}
 
 \subsection{Hashtables}
+    \begin{itemize}
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=7cm]{hashtableIdee.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \begin{itemize}
+                            \item Hashfunktion sollte gut verteilen
+                            \item $h(x)$ sollte uniform sein
+                            \item Unabhängig im Intervall $[0, T.length-1]$ verteilt
+                            \item Einfügen mit konstant vielen Array-Operationen
+                        \end{itemize}
+                    \end{minipage}
+                \item[]
+                \item[]
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=7cm]{hashtableLinkedList.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \begin{itemize}
+                            \item Kollisionsauflösung z.B. mithilfe von LinkedLists
+                            \item Neue Elemente werden vorne angefügt
+                            \item Konstante Anzahl an Array-Operationen
+                            \item Soviele Schritte wie die Liste lang ist 
+                            \item Uniforme Hashfunktion
+                            \item[] $\Rightarrow$ $\frac{n}{T.length}$ Einträge pro Liste
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Hash-Funktionen}
+            \begin{itemize}
+                \item Universelle Hash-Funktion:
+                    \begin{itemize}
+                        \item Wähle zufällige $a,b \in [0, p - 1]$, $p~prim$, $a \neq 0$
+                        \item $h_{a,b}(x)= ((a \cdot x + b)~mod~p)~mod~T.length$
+                    \end{itemize}
+                \item Krypthographische Hash-Funktionen:
+                    \begin{itemize}
+                        \item MD5, SHA-1, SHA-2, SHA-3
+                        \item $h(x) = MD5(x) mod T.length$
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Hashtables vs. Bäume}
+            \begin{itemize}
+                \item Hashtables:
+                    \begin{itemize}
+                        \item nur Suche nach bestimmten Wert möglich
+                        \item meist größer als zu erwartende Anzahl Einträge
+                    \end{itemize}
+                \item Bäume:
+                    \begin{itemize}
+                        \item schnelles Traversieren zu Nachbarn möglich
+                        \item Bereichssuche möglich
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Laufzeiten}
+            \begin{itemize}
+                \item Wählt mal $T.length = n$ ergibt sich konstante Laufzeit
+                \item {\makebox[2cm][l]{Einfügen: }} $\Theta(1)$
+                \item {\makebox[2cm][l]{Löschen: }} $\Theta(1)$
+                \item {\makebox[2cm][l]{Suchen: }} $\Theta(1)$
+                \item (Im Durchschnitt, beim Einfügen sogar im Worst-Case)
+                \item Speicherbedarf i.d.R. höher als n, meist ca. $1,33 \cdot n$
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Bloom-Filter}
     \begin{itemize}
         \item 
     \end{itemize}
