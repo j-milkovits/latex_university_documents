@@ -2484,6 +2484,281 @@
 
 \subsection{Depth-First Search(DFS)}
     \begin{itemize}
-        \item 
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item Besuche zuerst alle noch nicht besuchten Nachfolgeknoten
+                \item \string"Laufe so weit wie möglich weg vom aktuellen Knoten\string"
+            \end{itemize}
+
+        \item \textbf{Algorithmus}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    DFS(G)
+
+                    FOREACH u in V DO
+                        u.color = WHITE;
+                        u.pred = nil;
+                    time = 0;               // time hier als globale Variable
+                    FOREACH u in v DO
+                        IF u.color == WHITE THEN
+                            DFS-VISIT(G,u)  // Start eines rekursiven Aufrufs
+                    \end{minted}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    DFS-VISIT(G,u)
+
+                    time = time + 1;
+                    u.disc = time;          // discovery time
+                    u.color = GRAY;
+                    FOREACH v in adj(G,u) DO
+                        IF v.color == WHITE THEN
+                            v.pred = u;
+                            DFS-VISIT(G,v);
+                    u.color = BLACK;
+                    time = time + 1;
+                    u.finish = time;        // finish time
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{DFS-Wald = Menge von DFS-Bäumen}
+            \begin{itemize}
+                \item Subgraph $G_{pred}=(V,E_{pred})$ von G
+                \item besteht aus $E_{pred} = {(v.pred,v)|v \in V, v.pred \neq nil}$
+                \item DFS-Baum gibt nicht unbedingt den kürzesten Weg wieder
+                \item[] \includegraphics[width=9cm]{dfswald.PNG}
+            \end{itemize}
+        
+        \item \textbf{Kantenarten}
+            \begin{itemize}
+                \item {\makebox[3cm][l]{Baumkanten:}} alle Kanten in $G_{pred}$
+                \item {\makebox[3cm][l]{Vorwärtskanten:}} alle Kanten in $G$ zu Nachkommen in $G_{pred}$, die nicht Baumkante
+                \item {\makebox[3cm][l]{Rückwärtskanten:}} alle Kanten in $G$ zu Vorfahren in $G_{pred}$, die nicht Baumkante
+                \item {\makebox[3cm][l]{Kreuzkanten:}} alle anderen Kanten in $G$ (inkl. Schleifen)
+            \end{itemize}
+
+        \item \textbf{Anwendungen DFS}
+            \begin{itemize}
+                \item Job Scheduling (Job X muss vor Job Y beendet sein)
+                \item Topologisches Sortieren
+                    \begin{itemize}
+                        \item nur für dag (directed acyclic graph)
+                        \item Kanten immer nur nach rechts
+                        \item Sortierung aber nicht eindeutig
+                        \item[] \includegraphics[width=8cm]{topo.PNG}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            TOPOLOGICAL-SORT(G)
+
+                            newLinkedList(L);
+                            run DFS(G) but, each time a node is finished, insert in front of L
+                            return L.head
+                            \end{minted} 
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Starke Zusammenhangskomponenten}
+            \begin{itemize}
+                \item Knotenmenge $C \subseteq V$, so dass
+                \item[] es zwischen zwei Knoten $u,v \in C$ einen Pfad von $u$ nach $v$ gibt
+                \item[] und es keine Menge $D \subseteq V$ mit $C \subsetneq D$ gibt, für die obiges auch gilt.
+                \item[] 
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \includegraphics[width=6cm]{scc.PNG}
+                    \end{minipage} 
+                    \begin{minipage}{0.55\textwidth}
+                    Eigenschaften:
+                        \begin{itemize}
+                            \item Verschiedene SCC's sind disjunkt
+                            \item Zwei SCC's sind nur in eine Richtung verbunden
+                        \end{itemize}
+                    \end{minipage}
+                \item Algorithmus:
+                    \begin{itemize}
+                        \item DFS zweimal laufen lassen
+                        \item[] Einmal auf Graph $G$
+                        \item[] Einmal auf Graph $G^T = (V,E^T)$ (transponiert)
+                        \item Dadurch bleiben die SCC's gleich, die Kanten drehen sich aber jeweils um
+                        \item Code:
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            SCC(G)
+
+                            run DFS(G)
+                            compute |$G^T$|
+                            run DGS(|$G^T$|) but visit vertices in main loop
+                                in descending finish time from 1
+                            output each DFS tree from above as one SCC
+                            \end{minted}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Minimale Spannbäume}
+    \begin{itemize}
+        \item \textbf{Definition}
+            \begin{itemize}
+                \item Verbindung aller Knoten miteinander
+                \item Minimaler Spannbaum $\Rightarrow$ Minimales Gewicht
+            \end{itemize}
+
+        \item \textbf{Allgemeiner Algorithmus}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    genericMST(G,w)
+
+                    A = |$\emptyset$|
+                    WHILE A does not form a spanning tree for G DO
+                        find safe edge {u,v} for A
+                        A = A |$\cup$|{{u,v}}
+                    return A
+                    \end{minted}
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \includegraphics[width=6cm]{mstTerm.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.55\textwidth}
+                        Terminologie:
+                            \begin{itemize}
+                                \item Schnitt (S, V-S) partioniert Knoten in zwei Mengen
+                                \item \{u,v\} überbrückt Schnitt, wenn $u \in S$ und $v \in V-S$
+                                \item Schnitt respektiert $A \subseteq E$, wenn keine Kante \{u,v\} aus A den Schnitt überbrückt
+                                \item \{u,v\} leichte Kante für (S, V-S), wenn w(\{u,v\}) minimal für alle den Schnitt überbrückenden Kanten
+                                \item \{u,v\} sicher für A, wenn $A \cup \{\{u,v\}\}$ Teilmenge eines MST
+                            \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+        
+        \item \textbf{Algorithmus von Kruskal}
+            \begin{itemize}
+                \item Lässt parallel mehrere Unterbäume eines MST wachsen
+                \item In Worten: Suchen der \string"kleinsten\string" Kante und Zusammenfügen von Mengen, falls noch nicht geschehen
+                \item Laufzeit: $O(|E| \cdot log|E|)$
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    MST-Kruskal(G,w)
+                    
+                    A = |$\emptyset$|
+                    FOREACH v in V DO
+                        set(v) = {v};       // Menge mit sich selbst
+                    Sort edges according to weight in nondecreasing order
+                    FOREACH {u,v} in E according to order DO
+                        IF set(u) != set(v) THEN    // Mengen noch nicht verbunden
+                            A = A |$\cup$| {{u,v}}; 
+                            UNION(G,u,v);   // Zusammenführen der Mengen aller Knoten aus den Sets
+                    return A;
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{Algorithmus von Prim}
+            \begin{itemize}
+                \item Konstruiert einen MST Knoten für Knoten
+                \item Fügt immer leichte Kante zu zusammenhängender Menge hinzu
+                \item Laufzeit: $O(|E| + |V| \cdot log|V|)$
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    MST-Prim(G,w,r) // r is given root
+
+                    FOREACH v in V DO 
+                        v.key = +|$\infty$|;
+                        v.pred = nil;
+                    r.key = -|$\infty$|
+                    Q = V;
+                    WHILE !isEmpty(Q) DO
+                        u = EXTRACT-MIN(Q);     // smallest key value
+                        FOREACH v in adj(u) DO
+                            IF v|$\in$|Q and w({u,v})<v.key THEN
+                                v.key = w({u,v});
+                                v.pred = u;
+                    \end{minted}
+            \end{itemize}
+        
+    \end{itemize}
+
+\subsection{Kürzeste Wege in (gerichteten) Graphen}
+    \begin{itemize}
+        \item \textbf{Definition}
+            \begin{itemize}
+                \item SSSP - Single-Source Shortest Path
+                \item Von Quelle $s$ ausgehend die kürzesten Pfad zu allen anderen Knoten
+                \item Kürzester Pfad: Minimales Gewicht von einem zum anderen Knoten
+                \item BFS findet nur minimale Kantenwege (nicht Gewichtswege)
+                \item MST minimiert das Gesamtgewicht des Baumes (nicht zu einzelnen Kanten)
+                \item Negative Kantengewichte sind erlaubt, aber keine Zyklen mit negativem Gesamtgewicht
+            \end{itemize}
+        
+        \item \textbf{Gemeinsame Idee für Algorithmen - Relax}
+            \begin{itemize}
+                \item Verringere aktuelle Distanz von Knoten $v$, wenn durch Kante $(u,v)$ kürzer erreichbar
+                \item[] \includegraphics[width=12cm]{ssspRelax.PNG}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    relax(G,u,v,w)
+
+                    IF v.dist > u.dist + w((u,v)) THEN
+                        v.dist = u.dist + w((u,v));
+                        v.pred = u;
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{Bellman-Ford-Algorithmus}
+            \begin{itemize}
+                \item Laufzeit: $\Theta(|E| \cdot |V|)$
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    Bellman-Ford-SSSP(G,s,w)
+
+                    initSSSP(G,s,w);
+                    FOR i = 1 TO |V|-1 DO
+                        FOREACH (u,v) in E DO
+                            relax(G,u,v,w);
+                    FOREACH (u,v) in E DO   // Prüfung ob negativer Zyklus
+                        IF v.dist > u.dist+w((u,v)) THEN
+                            return false;
+                    return true;
+
+                    initSSSP(G,s,w)
+
+                    FOREACH v in V DO
+                        v.dist = |$\infty$|;
+                        v.pred = nil;
+                    s.dist = 0;
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{TopoSort für dag}
+            \begin{itemize}
+                \item Erhalten des kürzesten Pfades durch das topologische Sortieren
+                \item Laufzeit: $\Theta(|E| + |V|)$
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    TopoSort-SSSP(G,s,w)    // G muss dag sein
+
+                    initSSSP(G,s,w);
+                    execute topological sorting
+                    FOREACH u in V in topological order DO
+                        FOREACH v in adj(u) DO
+                            relax(G,u,v,w);
+                    \end{minted}
+            \end{itemize}
+
+        \item \textbf{Dijkstra-Algorithmus}
+            \begin{itemize}
+                \item Voraussetzung: Keine negativen Kantengewichte
+                \item Laufzeit: $\Theta(|V| \cdot log|V| + |E|)$
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    Dijkstra-SSSP(G,s,w)
+
+                    initSSSP(G,s,w);
+                    Q = V;
+                    WHILE !isEmpty(Q) DO
+                        u = EXTRACT-MIN(Q);     // smallest distance
+                        FOREACH v in adj(u) DO
+                            relax(G,u,v,w);
+                    \end{minted}
+            \end{itemize}
     \end{itemize}
 \end{document}
