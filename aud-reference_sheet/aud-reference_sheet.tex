@@ -2761,4 +2761,85 @@
                     \end{minted}
             \end{itemize}
     \end{itemize}
+
+\subsection{Maximaler Fluss in Graphen}
+    \begin{itemize}
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \includegraphics[width=7cm]{flussIdee.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.55\textwidth}
+                        \begin{itemize}
+                            \item Kanten haben Flusswert und maximale Kapazität
+                            \item Jeder Knoten (außer s und t) haben den gleichen eingehenden und ausgehenden Fluss
+                            \item Ziel: Finde maximalen Fluss von s nach t
+                            \item s: Source/Quelle
+                            \item t: Target/Senke
+                        \end{itemize}
+                    \end{minipage}
+                \item \textbf{Flussnetzwerk:} \\
+                        Ein Flussnetzwerk ist ein gewichteter, gerichteter Graph $G=(V,E)$ mit Kapazität $c$, so dass
+                        $c(u,v) \geq 0$ für $(u,v) \in E$ und $c(u,v) = 0$ für $(u,v) \notin E$, mit zwei Knoten $s,t \in V$,
+                        so dass jeder Knoten von $s$ aus erreichbar ist und $t$ von jedem Knoten aus erreichbar ist. 
+                        Damit gilt $|E| \geq |V| - 1$.
+                \item \textbf{Fluss:} \\
+                        Ein Fluss $f: V x V \rightarrow \mathbb{R}$ für ein Flussnetzwerk $G = (V,E)$ mit Kapazität $c$
+                        und Quelle $s$ und Senke $t$ erfüllt $0 \leq f(u,v) \leq c(u,v)$ für alle $u,v \in V$, sowie für alle
+                        $u \in V - \{s,t\}$: \\ 
+                        $\sum_{v\in V} f(u,v) = \sum_{v\in V} f(v,u)$ (ausgehend = eingehend)
+                \item \textbf{Wert eines Flusses} \\
+                        Der Wert $|f|$ eines Flusses $f: V x V \rightarrow \mathbb{R}$ für ein Flussnetzwerk $G$ ist: \\
+                        $|f| = \sum_{v\in V} f(s,v) = \sum_{v\in V} f(v,s)$
+            \end{itemize}
+
+        \item \textbf{Transformationen}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{flussTrans1.PNG}
+                \item[] \includegraphics[width=12cm]{flussTrans2.PNG}
+            \end{itemize}
+
+        \item \textbf{Restkapazitätsgraph}
+            \begin{itemize}
+                \item Wird für Ford-Fulkerson benötigt
+                \item Restkapazität $c_f(u,v)$: \\
+                        \centerline{$c_f(u,v) = \begin{cases}
+                                                c(u,v) - f(u,v) & \text{falls $(u,v) \in E$} \\
+                                                f(v,u) & \text{falls $(v,u) \in E$} \\
+                                                0 & \text{sonst}
+                                                \end{cases}$}
+                \item $G_f = (V, E_f)$ mit $E_f = \{(u,v) \in V x V | c_f(u,v) > 0 \}$
+                \item[] \includegraphics[width=12cm]{restkapazitätsgraph.PNG}
+                \item Suche eines Pfades von $s$ nach $t$ und Erhöhung aller Flüsse um niedrigsten möglichen Wert auf Pfad
+            \end{itemize}
+
+
+        \item \textbf{Ford-Fulkerson-Algorithmus}
+            \begin{itemize}
+                \item Idee: Suche Pfad von $s$ nach $t$, der noch \textbf{erweiterbar} ist
+                \item Suche dieses Pfades im Restkapazitätsgraphen $G_f$ (mögliche Zu- und Abflüsse)
+                \item Code:
+                \item[]
+                    \begin{minted}[autogobble,escapeinside=||]{c}
+                    Ford-Fulkerson(G,s,t,c)
+
+                    FOREACH e in E do e.flow = 0;
+                    WHILE there is path p from s to t in |$G_{flow}$| DO
+                        |$c_{flow}(p)$| = min {|$c_{flow}(u,v)$| : (u,v) in p}
+                        FOREACH e in p DO
+                            IF e in E THEN
+                                e.flow = e.flow + |$c_{flow}(p)$|;
+                            ELSE
+                                e.flow = e.flow - |$c_{flow}(p)$|;
+                    \end{minted}
+                \item Die Pfadsuche erfolgt z.B. per BFS oder DFS
+                \item Laufzeit: $O(|E| \cdot u \cdot |f^*|)$ \\
+                        ($O(|V| \cdot |E|^2)$ Mit Verbesserung nach Edmonds-Karp) \\
+                        (wobei $f^*$ maximaler Fluss und Fluss um bis zu $\frac{1}{u}$ pro Iteration wächst)
+                \item Beispiel:
+                \item[] \includegraphics[width=12cm]{fordbsp1.PNG}
+                \item[] \includegraphics[width=12cm]{fordbsp2.PNG}
+            \end{itemize}
+    \end{itemize}
 \end{document}
