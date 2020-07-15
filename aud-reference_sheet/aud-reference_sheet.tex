@@ -2842,4 +2842,178 @@
                 \item[] \includegraphics[width=12cm]{fordbsp2.PNG}
             \end{itemize}
     \end{itemize}
+
+\section{Advanced Designs}
+\subsection{Dynamische Programmierung}
+    \begin{itemize}
+        \item \textbf{Anwendung}
+            \begin{itemize}
+                \item[] Anwendung, wenn sich Teilprobleme überlappen
+                \item[1.] Wir charakterisieren die Struktur einer optimalen Lösung
+                \item[2.] Wir definieren den Wert einer optimalen Lösung rekursiv
+                \item[3.] Wir berechnen den Wert einer optimalen Lösung (meist bottom-up Ansatz)
+                \item[4.] Wir konstruieren eine zugehörige optimale Lösung aus berechneten Daten   
+            \end{itemize}
+
+        \item \textbf{Stabzerlegungsproblem}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{stabzerlegungsproblem.PNG}
+                \item[] Optimaler Erlös: zwei 2cm lange Stücke ($5+5=10$) 
+                \item \textit{Aufteilung der Eisenstange:}
+                    \begin{itemize}
+                        \item Stange mit Länge $n$ kann auf $2^{n-1}$ Weisen zerlegt werden
+                        \item Position $i$: Distanz vom linken Ende der Stange
+                        \item Aufteilung in $k$ Teilstäbe ($1 \leq k \leq n$)
+                        \item optimale Zerlegung: $n = i_1 + i_2 + ... + i_k$
+                        \item maximaler Erlös: $r_n = p_{i_1} + p_{i_2} + ... + p_{i_k}$
+                        \item z.B.: $r_4 = 10$ (siehe oben)
+                    \end{itemize}
+                \item \textit{Rekursive Top-Down Implementierung:}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            CUT-ROD(p,n)    // p Preis-Array, n Stangenlänge
+
+                            IF n== 0
+                                return 0;
+                            q = |$-\infty$|;
+                            FOR i = 1 TO n  // nicht Start bei 0, sonst kein Rekursionsschritt
+                                q = max(q, p[i] + CUT-ROD(p, n - i));
+                            return q;
+                            \end{minted}
+                    \end{itemize}
+                \item \textit{Stabzerlegung via Dynamischer Programmierung:}
+                    \begin{itemize}
+                        \item Ziel: \\
+                                Mittels dynamischer Programmierung wollen wir \texttt{CUT-ROD} in einen effizienten
+                                Algorithmus verwandeln.
+                        \item Bemerkung: \\
+                                Naiver rekursiver Ansatz ist \textbf{ineffizient}, da dieser immer wieder diesselben 
+                                Teilprobleme löst.
+                        \item Ansatz: \\
+                                Jedes Teilproblem nur einmal lösen. Falls die Lösung eines Teilproblems nochmal benötigt
+                                wird, schlagen wir diese nach.
+                        \item Dynamische Programmierung wird zusätzlichen Speicherplatz benutzen um Laufzeit einzusparen.
+                        \item Reduktion der exponentiellen Laufzeit auf polynomielle.
+                    \end{itemize}
+                \item \textit{Rekursive Top-Down mit Memoisation:}
+                    \begin{itemize}
+                        \item Idee: Speicherung der Lösungen der Teilprobleme
+                        \item Laufzeit: $\Theta(n^2)$
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            MEMOIZED-CUT-ROD(p, n)
+
+                            Let r[0...] be new array
+                            FOR i = 0 TO n
+                                r[i] = |$-\infty$|
+                            return MEMOIZED-CUT-ROD-AUX(p, n, r)
+
+
+                            MEMOIZED-CUT-ROD-AUX(p, n, r)       // r new Array
+
+                            IF r[n] |$\geq$| 0                        // Abfrage ob vorhanden
+                                return r[n]
+                            IF n == 0
+                                q = 0
+                            ELSE
+                                q = |$-\infty$|
+                                FOR i = 1 to n
+                                q = max(q, p[i] + MEMOIZED-CUT-ROD-AUX(p, n - i, r))
+                            r[n] = q                            // Abspeichern
+                            return q
+                            \end{minted}
+                    \end{itemize}
+                \item \textit{Bottom-Up Ansatz:}
+                    \begin{itemize}
+                        \item Laufzeit: $\Theta(n^2)$
+                        \item Sortieren der Teilprobleme nach ihrer Grö\ss e und lösen in dieser Reihenfolge
+                        \item Immer alle kleineren Teilprobleme bei bestimmten Wert bereits gelöst
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            BOTTOM-UP-CUT-ROD(p, n)
+
+                            Let r[0...n] be a new array
+                            r[0] = 0
+                            FOR j = i TO n
+                                q = |$-\infty$|
+                                FOR i = 1 TO j
+                                    q = max(q, p[i] + r[j - i])
+                                r[j] = q
+                            return r[n]
+                            \end{minted}
+                        \item Teilproblemgraph ($i \rightarrow j$ bedeutet, dass Berechnung von $r_i$ den Wert $r_j$ benutzt)
+                        \item[] \includegraphics[width=8cm]{teilproblemgraph.PNG}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Fibonacci-Zahlen}
+            \begin{itemize}
+                \item $F_1 = F_2 = 1$
+                \item $F_n = F_{n-1} + F_{n-2}$
+                \item \textit{Naiver rekursiver Algorithmus:}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            FIB(n)
+                            
+                            IF n |$\leq$| 2
+                                f = 1;
+                            ELSE
+                                f = FIB(n-1) + FIB(n-2);
+                            return f;
+                            \end{minted}
+                            \item[] \includegraphics[width=9cm]{fibBaum.PNG}
+                            \item[] Gleiche Teilprobleme werden wieder mehrmals gelöst  
+                    \end{itemize}
+                \item \textit{Rekursiver Algorithmus mit Memoisation}
+                    \begin{itemize}
+                        \item Wieder Abspeichern von Teilproblemen um Laufzeit einzusparen
+                        \item Laufzeit: $\Theta(n)$
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            MEMOIZED-FIB(n)
+
+                            Let m[0...n-1] be a new array
+                            FOR i = 0 TO n - 1
+                                m[i] = 0
+                            return MEMOIZED-FIB-AUX(n, m)
+
+
+                            MEMOIZED-FIB-AUX(n, m)
+
+                            IF m[n-1] != 0
+                                return m[n-1];      // Auslesen von gespeicherten Werten
+                            IF n |$\leq$| 2
+                                f = 1;
+                            ELSE
+                                f = MEMOIZED-FIB-AUX(n-1, m) + MEMOIZED-FIB-AUX(n-2, m);
+                            m[n-1] = f;
+                            return f;
+                            \end{minted}
+                    \end{itemize}
+                \item \textit{Bottom-Up Algorithmus}
+                    \begin{itemize}
+                        \item Hier wieder Berechnen aller Teilprobleme von unten beginnend
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            BOTTOM-UP-FIB(n)
+
+                            Let m[0...n-1] be a new array
+                            FOR i = 1 TO n
+                                IF n |$\leq$| 2
+                                    f = 1;
+                                ELSE
+                                    f = BOTTOM-UP-FIB(n-1) + BOTTOM-UP-FIB(n-2);
+                                m[i] = f;
+                            return m[n-1];
+                            \end{minted}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Greedy-Algorithmus}
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{document}
