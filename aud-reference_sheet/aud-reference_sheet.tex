@@ -3014,6 +3014,89 @@
 
 \subsection{Greedy-Algorithmus}
     \begin{itemize}
-        \item 
+        \item \textbf{Idee}
+            \begin{itemize}
+                \item Trifft stets die Entscheidung, die in diesem Moment am besten erscheint
+                \item Trifft \textbf{lokale} optimale Entscheidung (evtl. nicht global die Beste)
+            \end{itemize}
+        
+        \item \textbf{Aktivitäten-Auswahl-Problem}
+            \begin{itemize}
+                \item \textit{Definition}
+                    \begin{itemize}
+                        \item 11 anstehende Aktivitäten $S=\{a_1,...,a_{11}\}$
+                        \item Startzeit $s_i$ und Endzeit $f_i$, wobei $0 \leq s_i < f_i < \infty$
+                        \item Aktivität $a_i$ findet im halboffenen Zeitintervall $[s_i,f_i)$ statt
+                        \item Zwei Aktivititäten sind kompatibel, wenn sich deren Zeitintervalle nicht überlappen
+                        \item[]
+                            \begin{minipage}{0.6\textwidth}
+                                \includegraphics[width=10cm]{aktivProblem1.PNG}
+                            \end{minipage}
+                            \begin{minipage}{0.3\textwidth}
+                                \includegraphics[width=4cm]{aktivProblem2.PNG}
+                            \end{minipage}
+                    \end{itemize}
+                
+                \item \textit{Ansatz mittels dynamischer Programmierung}
+                    \begin{itemize}
+                        \item Menge von Aktivitäten, die starten nachdem $a_i$ endet und enden, bevor $a_j$ startet \\
+                                $S_{ij} = \{a \in S,a = (s,f): s \geq f_i, f < s_j\}$
+                        \item Definiere maximale Menge $A_{ij}$ von paarweise kompatiblen Aktivitäten in $S_{ij}$. \\
+                                $c[i,j] = |A_{ij}|$
+                        \item Optimale Lösung für Menge $S_{ij}$ die Aktivitäten $a_k$ enthält: \\
+                                $c[i,j] = max_{a_k\in S_{ij}}\{c[i,k] + c[k,j] + 1\}$ ($0$, falls $S_{ij} = \emptyset$)
+                    \end{itemize}
+
+                \item \textit{Greedy-Wahl}
+                    \begin{itemize}
+                        \item lokal die beste Wahl
+                        \item Auswahl der Aktivität mit geringster Endzeit (möglichst viele freie Ressourcen)
+                        \item Also hier Teilprobleme, die nach $a_1$ starten
+                        \item $S_k = \{a_i \in S: s_i \geq f_k\}$: Menge an Aktivitäten, die starten, nachdem $a_k$ endet
+                        \item \textit{Optimale-Teilstruktur-Eigenschaft} \\
+                                Wenn $a_1$ in optimaler Lösung enthalten ist, dann besteht optimale Lösung zu ursprünglichem
+                                Problem aus Aktivität $a_1$ und allen Aktivitäten zur einer optimalen Lösung des 
+                                Teilproblems $S_1$
+                    \end{itemize}
+
+                \item \textit{Rekursiver Greedy-Algorithmus}
+                    \begin{itemize}
+                        \item Voraussetzung: Aktivitäten sind monoton steigend nach der Endzeit sortiert
+                        \item Laufzeit: $\Theta(n)$
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            RECURSIVE-ACTIVITY-SELECTOR(s,f,k,n)
+                            // s Anfangszeitenarray, f Endzeitenarray, 
+                            // k Index von Teilproblem, n Größe Anfangsproblem
+                            m = k + 1;
+                            WHILE m |$\leq$| n and s[m] < f[k]  // Suche nach erster Kompatibilität
+                                m = m + 1;
+                            IF m |$\leq$| n
+                                // Ausgabe des Elements und Berechnung weiterer Aktivitäten
+                                return {|$a_m$|} |$\cup$| RECURSIVE-ACTIVITY-SELECTOR(s,f,m,n)
+                            ELSE
+                                return |$\emptyset$|
+                            \end{minted}
+                    \end{itemize}
+                
+                \item \textit{Iterativer Greedy-Algorithmus}
+                    \begin{itemize}
+                        \item Voraussetzung: Aktivitäten sind monoton steigend nach der Endzeit sortiert
+                        \item Laufzeit: $\Theta(n)$
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            GREEDY-ACTIVITY-SELECTOR(s,f)
+
+                            n = s.length;
+                            A = {|$a_1$|};
+                            k = 1;          // Index des zuletzt hinzugefügten Elements in A
+                            FOR m = 2 TO n                      
+                                IF s[m] |$\geq$| f[k]           // Findet zuerst endende Aktivität in Menge
+                                    A = A |$\cup$| {|$a_m$|};   // Fügt diese hinzu, falls kompatibel
+                                    k = m;
+                            return A;
+                            \end{minted}
+                    \end{itemize}
+            \end{itemize}
     \end{itemize}
 \end{document}
