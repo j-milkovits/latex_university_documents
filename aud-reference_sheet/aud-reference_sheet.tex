@@ -3099,4 +3099,447 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\subsection{Backtracking}
+    \begin{itemize}
+        \item \textbf{Suchbaum - Baum der Möglichkeiten}
+            \begin{itemize}
+                \item Darstellung aller für ein Problem bestehenden Möglichkeiten
+                \item Problem: Dreimal hintereinander der selbe Buchstabe (A,B)
+                \item[] \includegraphics[width=9cm]{suchbaum.PNG}
+            \end{itemize}
+
+        \item \textbf{Backtracking - Idee}
+            \begin{itemize}
+                \item Lösung finden via Trial and error
+                \item Schrittweises Herantasten an die Gesamtlösung
+                \item Falls Teillösung inkorrekt $\rightarrow$ Schritt zurück und andere Möglichkeit
+                \item Voraussetzung:
+                    \begin{itemize}
+                        \item Lösung setzt sich aus Komponenten zusammen (Sudoku, Labyrinth,..)
+                        \item Mehrere Wahlmöglichkeiten für jede Komponente
+                        \item Teillösung kann getestet werden
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Damenproblem}
+            \begin{itemize}
+                \item[]
+                    Auf einem Schachbrett der Größe $n \cdot n$ sollen $n$ Damen so positioniert werden, dass sie sich 
+                    gegenseitig nicht schlagen können. Wie viele Möglichkeiten gibt es, $n$ Damen so aufzustellen, dass keine
+                    Damen eine andere schlägt.
+                \item[]
+                    \begin{minipage}{0.3\textwidth}
+                        \includegraphics[width=6cm]{damenproblem.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.6\textwidth}
+                        \begin{itemize}
+                            \item $n=8:$ 4 Milliarden Positionierungen
+                            \item Optimierte Suche: In jeder Zeile/Spalte nur eine Dame
+                            \item Reduziert Problem auf 40.000 Positionierungen (ohne Diagonale)
+                        \end{itemize}
+                    \end{minipage}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    PLACE-QUEENS(Q,r) // Q Array, r Index der ersten leeren Zeile
+
+                    IF r == n
+                        return Q
+                    ELSE
+                        FOR j = 0 TO n - 1 // Mögliche Positionierungen
+                            legal = true;
+                            FOR i = 0 TO r - 1  // Evaluation der mgl. Bedrohungen
+                                IF (Q[i] == j) OR (Q[i==j + r - i]) OR (Q[i] == j - r + i)
+                                    legal = false;
+                            IF legal == true
+                                Q[r] = j;
+                                PLACE-QUEENS(Q, r + 1)
+                    \end{minted}
+                \item[] \includegraphics[width=12cm]{damenSuchbaum.PNG}
+            \end{itemize}
+
+        \item \textbf{Allgemeiner Backtracking-Algorithmus}
+            \begin{itemize}
+                \item[]
+                    \begin{minted}[autogobble]{c}
+                    BACKTRACKING(A, s)
+
+                    IF alle Komponenten richtig gesetzt
+                        return true;
+                    ELSE
+                        WHILE auf aktueller Stufe gibt es Wahlmöglichkeiten
+                            wähle einen neuen Teillösungsschritt
+                            Teste Lösungsschritt gegen vorliegende Einschränkungen
+                            IF keine Einschränkung THEN
+                                setze die Komponente
+                            ELSE
+                                Auswahl(Komponente) rückgängig machen
+                            BACKTRACKING(A, s + 1)
+                    \end{minted}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Metaheuristiken}
+    \begin{itemize}
+        \item \textbf{Optimierungsproblem}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=7cm]{optimierungsproblem.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \begin{itemize}
+                            \item Lösungsstrategien:
+                                \begin{itemize}
+                                    \item Exakte Methode
+                                    \item Approximationsmethode
+                                    \item Heuristische Methode
+                                \end{itemize}
+                            \item Einschränkungen
+                                \begin{itemize}
+                                    \item Antwortzeit
+                                    \item Problemgröße
+                                \end{itemize}
+                            \item[] $\Rightarrow$ exkludieren oft exakte Methoden
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+        
+        \item \textbf{Heuristik}
+            \begin{itemize}
+                \item Technik um Suche zur Lösung zu führen
+                \item Metaheuristik (Higher-Level-Strategie)
+                    \begin{itemize}
+                        \item soll z.B. Hängenbleiben bei lokalem Maxima verhindern
+                    \end{itemize}
+                \item \textit{Leiten einer Suche}
+                    \begin{enumerate}
+                        \item Finde eine Lösung (z.B. mit Greedy-Algorithmus)
+                        \item Überprüfe die Qualität der Lösung
+                        \item Versuche eine bessere Lösung zu finden
+                            \begin{itemize}
+                                \item Herausfinden in welcher Richtung bessere Lösung evtl. liegt
+                                \item ggf. Wiederholung dieses Prozesses
+                            \end{itemize}
+                    \end{enumerate}
+                \item \textit{Finden einer besseren Lösung}
+                    \begin{itemize}
+                        \item Modifikation der Lösung durch erlaubte Operationen
+                        \item Dadurch erhalten wir Nachbarschaftslösungen
+                        \item[] $\Rightarrow$ Suche nach besseren Lösungen in der Nachbarschaft
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Rucksackproblem}
+            \begin{itemize}
+                \item[] \includegraphics[width=12cm]{rucksack1.PNG}
+                \item Rucksack hat eine Kapazität von 101, 9 verschiedene Gegenstände
+                \item Ziel: Höchster Wert der Gegenstände im Rucksack
+                \item Beispiellösung: 3 + 5 (Wert 73, Größe 70)
+                \item Nachbarschaftslösungen: 
+                    \begin{itemize}
+                        \item 2,3 und 5: Wert 105, Größe 96
+                        \item 1,3 und 5: Wert 152, Größe 155 (problematisch)
+                        \item 3: Wert 47, Größe 48
+                    \end{itemize}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=7cm]{nachbarschaft.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \textbf{Nachbarschaft:}
+                        \begin{itemize}
+                            \item Suchraum $S$ kann sehr groß sein
+                            \item Einschränkung des Suchraums in der Nähe des Punktes
+                            \item Distanzfunktion $d: S x S \rightarrow \mathbb{R}$
+                            \item Nachbarschaft: $N(x) = \{y \in S: d(x,y) \leq \epsilon\}$
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Zufällige Suche}
+            \begin{itemize}
+                \item \textit{Idee und Ablauf}
+                    \begin{itemize}
+                        \item Suche nach globalem Optimum
+                        \item Anwenden der Technik auf \textbf{aktuelle} Lösung im Suchraum
+                        \item Wahl einer neuen zufälligen Lösung in jeder Iteration
+                        \item Falls die neue Lösung besseren Wert liefert $\Rightarrow$ neue \textbf{aktuelle} Lösung
+                        \item Terminierung, falls keine weiteren Verbesserungen oder Zeit vorbei
+                    \end{itemize}
+                \item \textit{Code}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            RANDOM-SEARCH
+
+                            best <- irgendeine initiale zufällige Lösung
+                            REPEAT
+                                S <- zufällige Lösung
+                                IF (Quality(S) > Qualityy(best)) THEN
+                                    best <- S
+                            UNTIL best ist die ideale Lösung oder Zeit ist vorbei
+                            return best
+                            \end{minted}
+                    \end{itemize}
+                \item \textit{Nachteile}
+                    \begin{itemize}
+                        \item Potentiell lange Laufzeit
+                        \item Laufzeit abhängig von der initialien Konfiguration
+                    \end{itemize}
+                \item \textit{Vorteile}
+                    \begin{itemize}
+                        \item Algorithmus \textbf{kann} beim globalen Optimum terminieren
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Bergsteigeralgorithmus}
+            \begin{itemize}
+                \item \textit{Idee und Ablauf}
+                    \begin{itemize}
+                        \item Nutzung einer iterativen Verbesserungstechnik
+                        \item Anwenden der Technik auf \textbf{aktuelle} Lösung im Suchraum
+                        \item Auswahl einer neuen Lösung aus Nachbarschaft in jeder Iteration
+                        \item Falls diese besseren Wert liefert, überschreiben der \textbf{aktuellen} Lösung
+                        \item Falls nicht, Wahl einer anderen Lösung aus Nachbarschaft
+                        \item Terminierung, falls keine weiteren Verbesserungen oder Zeit vorbei
+                    \end{itemize}
+                \item \textit{Code}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            HILL-CLIMBER
+                            T <- Distribution von möglichen Zeitintervallen
+                            S <- irgendeine initiale zufällige Lösung
+                            best <- S
+                            REPEAT
+                                time <- zufälliger Zeitpunkt in der Zukunft aus T
+                                REPEAT
+                                    wähle R aus der Nachbarschaft von S
+                                    IF Quality(R) > Quality(S) THEN
+                                        S <- R
+                                UNTIL S ist ideale Lösung oder time ist erreicht oder totale Zeit erreicht
+                                IF Quality(S) > Quality(best) THEN
+                                    best <- S
+                                S <- irgendeine zufällige Lösung
+                            UNTIL best ist die ideale Lösung oder totale Zeit erreicht
+                            return best
+                            \end{minted}
+                    \end{itemize}
+                \item \textit{Nachteile}
+                    \begin{itemize}
+                        \item Algorithmus terminiert in der Regel bei lokalem Optimum
+                        \item Keine Auskunft, inwiefern sich lokale Lösung von Globaler unterscheidet
+                        \item Optimum abhängig von Initialkonfiguration
+                    \end{itemize}
+                \item \textit{Vorteile}
+                    \begin{itemize}
+                        \item Einfach anzuwenden
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Iterative lokale Suche}
+            \begin{itemize}
+                \item \textit{Idee und Ablauf}
+                    \begin{itemize}
+                        \item Suche nach anderen lokalen Optima bei Fund eines lokalen Optimas
+                        \item Lösungen nur in der Nähe der \string"Homebase\string"
+                        \item Entscheidung, ob neue oder alte Lösung
+                        \item Bergsteigeralgo zu Beginn, danach aber großen Sprung um anderes Optimum zu finden
+                    \end{itemize}
+
+                \item \textit{Code}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble]{c}
+                            ITERATIVE-LOCAL-SEARCH
+                            T <- Distribution von möglichen Zeitintervallen
+                            S <- irgendeine initiale zufällige Lösung
+                            H <- S      // Wahl des Homebasepunktes
+                            best <- S
+                            REPEAT
+                                time <- zufälliger Zeitpunkt in der Zukunft aus T
+                                REPEAT
+                                    wähle R aus der Nachbarschaft von S
+                                    IF Quality(R) > Quality(S) THEN
+                                        S <- R
+                                UNTIL S ist ideale Lösung oder time ist erreicht oder totale Zeit erreicht
+                                IF Quality(S) > Quality(best) THEN
+                                    best <- S
+                                H <- NewHomeBase(H,S)
+                                S <- Perturb(H)
+                            UNTIL best ist die ideale Lösung oder totale Zeit erreicht
+                            return best
+                            \end{minted}
+                        \item Perturb:
+                            \begin{itemize}
+                                \item ausreichend weiter Sprung (außerhalb der Nachbarschaft)
+                                \item Aber nicht soweit, dass es eine zufällige Wahl ist
+                            \end{itemize}
+                        \item NewHomeBase:
+                            \begin{itemize}
+                                \item wählt die neue Startlösung aus
+                                \item Annahme neuer Lösungen nur, wenn die Qualität besser ist
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Simulated Annealing}
+            \begin{itemize}
+                \item \textit{Idee und Ablauf}
+                    \begin{itemize}
+                        \item Wenn neue Lösung besser, dann wird diese immer gewählt
+                        \item Wenn neue Lösung schlechter, wird diese mit gewisser Wahrscheinlichkeit gewählt \\
+                                $Pr(R,S,t) = e \frac{Quality(R)-Quality(S)}{t}$
+                        \item Der Bruch ist negativ, da $R$ schlechter ist als $S$
+                    \end{itemize}
+
+                \item \textit{Code}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            SIMULATED-ANNEALING
+                            t <- Temperatur, initial eine hohe Zahl
+                            S <- irgendeine initiale zufällige Lösung
+                            best <- S
+                            REPEAT
+                                wähle R aus der Nachbarschaft von S
+                                IF Quality(R) > Quality(S) oder zufälliges
+                                            |$ Z \in [0,1] < e \frac{Quality(R)-Quality(S)}{t}$| THEN
+                                        S <- R
+                                dekrementiere t
+                                IF Quality(S) > Quality(best) THEN
+                                    best <- S 
+                            UNTIL best ist die ideale Lösung oder Temperatur |$\leq$| 0
+                            return best
+                            \end{minted}
+                    \end{itemize}
+
+                \item \textit{Tabu-Search}
+                    \begin{itemize}
+                        \item \textit{Idee und Ablauf}
+                            \begin{itemize}
+                                \item Speichert alle bisherigen Lösungen und Liste und nimmt diese nicht nochmal
+                                \item Kann sich jedoch von der optimalen Lösung entfernen
+                                \item Tabu List hat maximale Grö\ss e, falls voll, werden älteste Lösungen gelöscht
+                            \end{itemize}
+                        
+                        \item \textit{Code}
+                            \begin{itemize}
+                                \item[]
+                                    \begin{minted}[autogobble,escapeinside=||]{c}
+                                    TABU-SEARCH
+                                    l <- maximale Größe der Tabu List
+                                    n <- Anzahl der zu betrachtenden Nachbarschaftslösungen
+                                    S <- irgendeine initiale zufällige Lösung
+                                    best <- S
+                                    L <- { } Tabu List der Länge l
+                                    Füge S in L ein
+                                    REPEAT
+                                        IF Length(L) > l THEN
+                                            Entferne ältestes Element aus L
+                                        wähle R aus Nachbarschaft von S
+                                        FOR n - 1 mal DO
+                                            Wähle W aus Nachbarschaft von S
+                                            IF W |$\notin$| L und (Quality(W) > Quality(R)) oder R |$\in$| L) THEN
+                                                R <- W
+                                        IF R |$\notin$| L THEN
+                                            S <- R
+                                            Füge R in L ein
+                                        IF Quality(S) > Quality(best) THEN
+                                            best <- S
+                                    UNTIL best ist die ideale Lösung oder totale Zeit erreicht
+                                    return best
+                                    \end{minted}
+                            \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Populationsbasierte Methode}
+            \begin{itemize}
+                \item Bisher: Immer nur Betrachtung einer einzigen Lösung
+                \item Hier: Betrachtung einer Stichprobe von möglichen Lösungen
+                \item Bei der Bewertung der Qualität spielt die Stichprobe die Hauptrolle
+                \item z.B. Evolutionärer Algorithmus
+            \end{itemize}
+        
+        \item \textbf{Evolutionärer Algorithmus}
+            \begin{itemize}
+                \item \textit{Idee und Ablauf}
+                    \begin{itemize}
+                        \item Algorithmus aus der Klasse der Evolutionary Computation
+                        \item \textit{generational Algorithmus:} Aktualisierung der gesamten Stichprobe pro Iteration
+                        \item \textit{steady-state Algorithmus:} Aktualisierung einzelner Kandidaten der Probe pro Iteration
+                        \item \textit{Resampling-Technik:} Generierung neuer Strichproben basierend auf vorherigen Resultaten
+                    \end{itemize}
+
+                \item \textit{Abstrakter Code (Allgemeiner Breed und Join)}
+                    \begin{itemize}
+                        \item[] 
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            ABSTRACT-EVOLUTIONARY-ALGORITHM
+                            P <- generiere initiale Population
+                            best <- |$\boxdot$| // leere Menge
+                            REPEAT
+                                AssesFitness(P)
+                                FOR jedes individuelle |$P_i \in P$| DO
+                                    IF best = |$\boxdot$| oder Fitness(|$P_i$|) > Fitness(best) THEN
+                                        best <- |$P_i$|
+                                P <- Join(P, Breed(P))
+                            UNTIL best ist die ideale Lösung oder totale Zeit erreicht
+                            return best
+                            \end{minted}
+                        \item \textit{Breed:} Erstellung neuer Stichprobe mithilfe Fitnessinformation
+                        \item \textit{Join:} Fügt neue Population der Menge hinzu
+                    \end{itemize}
+
+                \item \textit{Initialisierung der Population}
+                    \begin{itemize}
+                        \item Initialisierung durch zufälliges Wählen der Elemente
+                        \item Beeinflussung der Zufälligkeit bei Vorteilen möglich
+                        \item Diversität der Population (alle Elemente in Population einzigartig)
+                        \item Falls neue zufällige Wahl eines Individuums
+                            \begin{itemize}
+                                \item Entweder Vergleich mit allen bisherigen Individuen ($O(n^2)$)
+                                \item Oder besser: Nutzen eines Hashtables zur Überprüfung auf Einzigartigkeit ($O(n)$)
+                            \end{itemize}
+                    \end{itemize}
+
+                \item \textit{Evolutionsstrategien - Ideen}
+                    \begin{itemize}
+                        \item Generiere Population zufällig
+                        \item Beurteile Qualität jedes Individuums
+                        \item Lösche alle bis auf die $\mu$ besten Individuen
+                        \item Generie $\frac{\lambda}{\mu}$-viele Nachfahren pro bestes Individuum
+                        \item Join Funktion: Die Nachfahren ersetzen die Individuen
+                    \end{itemize}
+                
+                \item \textit{Algorithmus der Evolutionsstrategie}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minted}[autogobble,escapeinside=||]{c}
+                            |($\mu, \lambda$|)-EVOLUTION-STRATEGY
+
+                            |$\mu$| <- Anzahl der Eltern (initiale Lösung)
+                            |$\lambda$| <- Anzahl der Kinder
+                            P <- {}
+                            FOR |$\lambda$|-oft DO
+                                P <- {neues zufälliges Individuum}
+                            best <- |$\boxdot$|
+                            REPEAT
+                                FOR jedes individuelle |$P_i \in P$| DO
+                                    AssesFitness(|$P_i$|)
+                                    IF best = |$\boxdot$| oder Fitness(|$P_i$|) > Fitness(best) THEN
+                                        best <- |$P_i$|
+                                Q <- die |$\mu$| Individueen deren Fitness() am Größten ist
+                                P <- {}
+                                FOR jedes Element |$Q_j \in Q$| DO
+                                    FOR |$\frac{\lambda}{\mu}$|-oft DO
+                                        P <- P |$\cup$| {MUTATE(|$Q_j$|)}
+                            UNTIL best ist die ideale Lösung oder totale Zeit erreicht
+                            return best
+                            \end{minted}
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
 \end{document}
