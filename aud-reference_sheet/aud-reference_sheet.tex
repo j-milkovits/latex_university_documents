@@ -3542,4 +3542,168 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\subsection{Amortisierte Analyse}
+    \begin{itemize}
+        \item \textbf{Kosten von Operationen}
+            \begin{itemize}
+                \item Bisher: Betrachtung von Algorithmen, die Folge von Operationen auf Datenstrukturen ausführen
+                \item Abschätzung der Kosten von $n$ Operationen im Worst-Case
+                \item Dies liefert die obere Schranke für die Gesamtkosten der Operationenfolge
+                \item Nun: \textbf{Amortisierte Analyse}: Genauere Abschätzung des Worst Case
+                \item Voraussetzung: Nicht alle Operationen in der Operationenfolge gleich teuer
+                \item z.B. eventuell abhängig vom aktuellen Zustand der Datenstruktur
+                \item Amortisierte Analyse garantiert die mittlere Performanz jeder Operation im Worst-Case
+            \end{itemize}
+
+        \item \textbf{Beispiel Binärzähler}
+            \begin{itemize}
+                \item \textit{Eigenschaften}
+                    \begin{itemize}
+                        \item $k$-Bit Binärzähler hier als Array
+                        \item Codierung der Zahl als $x=\sum^{k-1}_{i=0}2^i b_i$
+                        \item Initialer Array für $x = 0$:
+                        \item[] \includegraphics[width=9cm]{bitzähler.png}
+                    \end{itemize}
+                \item \textit{Inkrementieren eines Binärzählers}
+                    \begin{itemize}
+                        \item Erhöhe $x$ um 1 
+                        \item Beispiel: $x=3$
+                        \item \texttt{INCREMENT} kostet 3, da sich drei Bitpositionen ändern
+                        \item \includegraphics[width=9cm]{increment.PNG}
+                    \end{itemize}
+                \item \textit{Teuerste INCREMENT-Operation}
+                    \begin{itemize}
+                        \item \texttt{INCREMENT} flippt $k-1$ Bits von 1 zu 0 und $1$ Bit von 0 auf 1
+                        \item Kosten nicht konstant, stark abhängig von Datenstruktur
+                        \item \includegraphics[width=9cm]{incrementEXP.PNG}
+                    \end{itemize}
+                \item \textit{Traditionelle Worst-Case Analyse}
+                    \begin{itemize}
+                        \item Worst-Case Kosten von $n$ \texttt{INCREMENT}-Operationen auf $k$-Bit Binärzähler
+                        \item Anfangswert $x = 0$
+                        \item Schlimmster Kostenfall: $INCREMENT$-Operation hat $k$ Bitflips
+                        \item $n$-mal inkrementieren sorgt für Kosten: $T(n) \leq n \cdot k \in O(kn)$
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Aggregat Methode - Beispiel Binärzähler}
+            \begin{itemize}
+                \item \textit{Eigenschaften}
+                    \begin{itemize}
+                        \item Methode für Amortisierte Analyse
+                        \item Sequenz von $n$-Operationen kostet Zeit $T(n)$
+                        \item Durchschnittliche Kosten pro Operation $\frac{T(n)}{n}$
+                        \item Ziel: $T(n)$ genau berechnen, \textbf{ohne} jedes Mal Worst-Case anzunehmen
+                        \item Ansatz: Aufsummation der \textbf{tatsächlich} anfallenden Kosten aller Operationen
+                    \end{itemize}
+                \item \textit{Durchführung}
+                    \begin{itemize}
+                        \item[]
+                            \begin{minipage}{0.4\textwidth}
+                                \includegraphics[width=7cm]{aggregat1.PNG}
+                            \end{minipage}
+                            \begin{minipage}{0.5\textwidth}
+                                \includegraphics[width=7cm]{aggregat2.PNG}
+                            \end{minipage}
+                        \item[]
+                            \begin{minipage}{0.4\textwidth}
+                                \includegraphics[width=7cm]{aggregat3.PNG}
+                            \end{minipage}
+                            \begin{minipage}{0.5\textwidth}
+                                \begin{itemize}
+                                    \item Bisher noch kein Worst-Case
+                                    \item Nächste Operation hätte max. Kosten
+                                    \item Jede 2. Operation minimale Kosten
+                                    \item In jeder Operation ändert sich $b_0$
+                                    \item In jeder 2. ändert sich $b_1$ etc
+                                \end{itemize}
+                            \end{minipage}
+                    \end{itemize}
+                \item \textit{Genauere Kostenanalyse}
+                    \begin{itemize}
+                        \item Nun in der Lage $T(n)$ genau auszurechnen
+                        \item Bei $n$ Operationen ändert sich das Bit $b_i$ genau $\left \lfloor \frac{n}{2^i} \right \rfloor$-mal
+                        \item Bits $b_i$ mit $i > log_2~n$ ändern sich nie
+                        \item Über alle $k$ Bits aufsummieren liefert: 
+                        \item[] $T(n)= \sum^{k-1}_{i=0} \left \lfloor \frac{n}{2^i} \right \rfloor = n \sum^{k-1}_{i=0} \frac{1}{2^i} 
+                                < n \sum^{\infty}_{i=0} \frac{1}{2^i} \leq 2n \in O(n)$
+                        \item Obere Schranke: $T(n) \leq 2n$
+                        \item Kosten jeder \texttt{INCREMENT}-Operation im Durchschnitt: $\frac{2n}{n} = 2 \in O(1)$
+                                
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Account Methode - Beispiel Binärzähler}
+            \begin{itemize}
+                \item \textit{Eigenschaften}
+                    \begin{itemize}
+                        \item Besteuerung einer Operationen, so dass sie Kosten anderer Operationen mittragen
+                        \item Zuweisung von höherer Kosten (Amortisierte Kosten), als ihre tatsächlichen Kosten sind
+                        \item \textbf{Guthaben}: Differenz zwischen amortisierten und tatsächlichen Kosten
+                        \item Nutzung dieses Guthabens für Operationen bei denen amortisiert < tatsächlich
+                        \item Guthaben darf nicht negativ werden:
+                        \item[] Summe amortisierte Kosten > Summe tatsächliche Kosten
+                    \end{itemize}
+
+                \item \textit{Wahl der Amortisierten Kosten - Binärzähler}
+                    \begin{itemize}
+                        \item Setzen eines Bits von 0 $\rightarrow$ 1 zahlt 2 Einheiten ein / Bezeichnung $f_i$
+                        \item Setzen eines Bits von 1 $\rightarrow$ 0 zahlt 0 Einheiten ein / Bezeichnung $e_i$
+                        \item Tatsächliche Kosten $t_i$: Anzahl der Bitflips bei der $i-ten$ \texttt{INCREMENT}-Operation
+                        \item[] $t_i = e_i + f_i$
+                        \item Amortisierte Kosten betragen: $a_i = 0 \cdot e_i + 2 \cdot f_i$ 
+                    \end{itemize}
+
+                \item \textit{Kostenbeispiel}
+                    \begin{itemize}
+                        \item Jede Bitflip Operation kostet zusätzlich 1 Einheit
+                        \item Setzen Bit 0 $\rightarrow$ 1: Zahlt 2 ein, kostet aber 1 $\rightarrow$ +1 Guthaben
+                        \item Setzen Bit 1 $\rightarrow$ 0: Zahlt 0 ein, kostet aber 1 $\rightarrow$ -1 Guthaben
+                        \item[] \includegraphics[width=9cm]{guthaben.PNG}
+                    \end{itemize}
+                
+                \item \textit{Obere Schranken der Kosten}
+                    \begin{itemize}
+                        \item Guthaben auf dem Konto entspricht der Anzahl der auf 1 gesetzten Bits
+                        \item Kosten: $T(n) \sum^n_{i=1} t_i \leq v\sum^n_{i=1} a_i$
+                        \item Nun Abschätzung dieser Formel zum Erhalten einer oberen Schranke
+                        \item Beobachtung: Bei jeder \texttt{INCREMENT} höchstens ein neues Bit von 0 auf 1
+                        \item Für alle $i$ gilt damit $f_i \leq 1$
+                        \item Amortisierte Kosten jeder Operation höchstens $2 \cdot f_i \leq 2$
+                        \item Insgesamt: $T(n) = \sum^n_{i=1} t_i \leq \sum^n_{i=1} a_i \leq 2n \in O(n)$
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Potential-Methode - Beispiel Binärzähler}
+            \begin{itemize}
+                \item \textit{Eigenschaften}
+                    \begin{itemize}
+                        \item Betrachtung welchen Einfluss die Operationen auf die Datenstruktur haben
+                        \item Potentialfunktion $\phi(i)$: Hängt vom aktuellen Zustand der Datenstruktur nach $i$-ter Operation ab
+                        \item Ausgangspotential sollte vor jeglicher Operation nicht negativ sein $\phi(0) \geq 0$
+                    \end{itemize}
+
+                \item \textit{Amortisierte Kosten}
+                    \begin{itemize}
+                        \item Amortisierte Kosten der $i$-ten Operation: (Summe tatsächliche Kosten + Potentialänderung)
+                        \item[] $a_i = t_i + \phi(i) - \phi(i-1)$
+                        \item Summe der amortisierten Kosten:
+                        \item[] $\sum^n_{i=1} a_i = \sum^n_{i=1} (t_i + \phi(i) - \phi(i - 1)) = \sum^n_{i=1} t_i + \phi(n) - \phi(0)$
+                        \item Wenn für jedes $i$ gilt $\phi(i) \geq \phi(0)$:
+                        \item[] Summe der amor. Kosten ist gültige obere Schranke an Summe der tatsächlichen Kosten 
+                    \end{itemize}
+
+                \item \textit{Potential-Methode anhand des Binärzählers}
+                    \begin{itemize}
+                        \item $\phi(i)$: Anzahl der 1-en im Array nach $i$-ter \texttt{INCREMENT}-Operation
+                        \item[] $\rightarrow$ $\phi(i)$ nie negativ und $\phi(0) = 0$
+                        \item Angenommen $i$-te Operation setzt $e_i$ Bits von 1 auf 0, dann hat diese Operation Kosten $t_i \leq e_i + 1$
+                        \item Neues Potential: $\phi(i) \leq \phi(i-1) - e_i + 1 \Leftrightarrow \phi(i) - \phi(i-1) \leq e_i$
+                        \item Amortisierte Kosten der $i$-ten \texttt{INCREMENT}-Operation:
+                        \item[] $a_i = t_i + \phi(i) - \phi(i-1) \leq e_i + 1 + 1 - e_i = 2$
+                        \item Insgesamt: $T(n) = \sum^n_{i=1} t_i \leq \sum^n_{i=1} a_i \leq 2n \in O(n)$ 
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
 \end{document}
