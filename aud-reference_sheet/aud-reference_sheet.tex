@@ -18,8 +18,8 @@
 
 \section{Einleitung}
 \subsection{Probleme in der Informatik}
-\begin{itemize}
-    \item Problem im Sinne der Informatik
+\begin{itemize} 
+    \item \textit{Problem im Sinne der Informatik}
 	    \begin{itemize}
           	\item Enthält eine Beschreibung der Eingabe 
           	\item Enthält eine Beschreibung der Ausgabe
@@ -27,7 +27,7 @@
           	\item z.B.: Finde den kürzesten Weg zwischen zwei Orten
 	    \end{itemize}
 	
-    \item Probleminstanzen
+    \item \textit{Probleminstanzen}
         \begin{itemize}
           	\item Probleminstanz ist eine konkrete Eingabenbelegung, für die entsprechende Ausgabe gewünscht ist
           	\item z.B.: Was ist der kürzeste Weg vom Audimax in die Mensa?
@@ -37,49 +37,49 @@
 
 \subsection{Definitionen für Algorithmen}
 \begin{itemize}
-    \item Begriff des Algorithmus
+    \item \textit{Begriff des Algorithmus}
         \begin{itemize}
         	\item Endliche Folge von Rechenschritten, der eine Ausgabe in eine Eingabe verwandelt 
         \end{itemize}
         
-    \item Anforderungen an Algorithmen
+    \item \textit{Anforderungen an Algorithmen}
         \begin{itemize}
             \item Spezifizierung der Eingabe und Ausgabe 
               \begin{itemize}
-                    \item Anzahl und Typen aller Elemente ist definiert
+                    \item[] Anzahl und Typen aller Elemente ist definiert
               \end{itemize}
           \item Eindeutigkeit
               \begin{itemize}
-                    \item Jeder Einzelschritt ist klar definiert und ausführbar 
-                    \item Die Reihenfolge der Einzelschritte ist festgelegt
+                    \item[] Jeder Einzelschritt ist klar definiert und ausführbar 
+                    \item[] Die Reihenfolge der Einzelschritte ist festgelegt
               \end{itemize}
-            \item Eindlichkeit
+            \item Endlichkeit
               \begin{itemize}
-                    \item Notation hat eine endliche Länge
+                    \item[] Notation hat eine endliche Länge
               \end{itemize}
         \end{itemize}
 
-    \item Eigenschaften von Algorithmen
+    \item \textit{Eigenschaften von Algorithmen}
         \begin{itemize}
 	    	\item Determiniertheit
 	    		\begin{itemize}
-	    			\item Für gleiche Eingabe stets die gleiche Ausgabe (andere mögliche Zwischenzustände)
+	    			\item[] Für gleiche Eingabe stets die gleiche Ausgabe (andere mögliche Zwischenzustände)
 	    		\end{itemize}
 	    	\item Determinismus
 	    		\begin{itemize}
-	    			\item Für gleiche Eingabe stets identische Ausführung und Ausgabe
+	    			\item[] Für gleiche Eingabe stets identische Ausführung und Ausgabe
 	    		\end{itemize}
 	    	\item Terminierung
 	    		\begin{itemize}
-	    			\item Algorithmus läuft für jede Eingabe nur endlich lange
+	    			\item[] Algorithmus läuft für jede Eingabe nur endlich lange
 	    		\end{itemize}
 	    	\item Korrektheit
 	    		\begin{itemize}
-	    			\item Algorithmus berechnet stets die spezifizierte Ausgabe (falls dieser terminiert)
+	    			\item[] Algorithmus berechnet stets die spezifizierte Ausgabe (falls dieser terminiert)
 	    		\end{itemize}
 	    	\item Effizienz
 	    		\begin{itemize}
-	    			\item Sparsamkeit im Ressourcenverbrauch (Zeit, Speicher, Energie,...)
+	    			\item[] Sparsamkeit im Ressourcenverbrauch (Zeit, Speicher, Energie,...)
 	    		\end{itemize}
 	    \end{itemize}
 \end{itemize}
@@ -137,7 +137,7 @@
             \end{itemize}
     \end{itemize}    
 
-    \pagebreak
+    
 
 \subsection{Analyse von Algorithmen - Teil 1} 
     \begin{itemize}
@@ -217,21 +217,21 @@
         
         \item \textbf{Gründe für die Nutzung der theoretischen Betrachtung statt der Messung der Laufzeit }
             \begin{itemize}
-                \item Vergleichbarkeit
+                \item \textit{Vergleichbarkeit}
                     \begin{itemize}
                         \item Laufzeit abhängig von konkreter Implementierung und System
                         \item Theoretische Betrachung ist frei von Abhängigkeiten und Seiteneffekten
                         \item Theoretische Betrachtung lässt direkte Vergleichbarkeit zu
                     \end{itemize}
                 
-                \item Aufwand
+                \item \textit{Aufwand}
                     \begin{itemize}
                         \item Wieviele Testreihen?
                         \item In welcher Umgebung?
                         \item Messen führt in der Ausführung zu hohem, praktischen Aufwand
                     \end{itemize}
                 
-                \item Komplexitätsfunktion
+                \item \textit{Komplexitätsfunktion}
                     \begin{itemize}
                         \item Wachstumsverhalten ausreichend
                         \item Praktische Evaluation mit Zeiten nur für Auswahl von Systemen mögliche
@@ -280,6 +280,8 @@
                         \end{itemize}
                     \end{minipage}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{$O$-Notation}
             \begin{itemize}
@@ -332,6 +334,8 @@
                     \end{itemize}
             \end{itemize}
         
+\pagebreak
+
         \item \textbf{$\Omega$-Notation}
             \begin{itemize}
                 \item $\Omega$-Notation beschränkt eine Funktion asymptotisch von unten
@@ -361,7 +365,9 @@
                 \item[] \includegraphics[width=12cm]{komplexitätsklassenDauer.PNG}
             \end{itemize}
         
-        \item Asymptotische Notationen in Gleichungen
+\pagebreak
+
+        \item \textbf{Asymptotische Notationen in Gleichungen}
             \begin{itemize}
                 \item $2n^2 + 3n + 1 = 2n^2 + \Theta(n)$
                 \item $\Theta(n)$ fungiert hier als Platzhalter für eine beliebige Funktion $f(n)$ aus $\Theta(n)$
@@ -420,20 +426,20 @@
 
         \item \textbf{Korrektheit von \texttt{Insertion Sort}}
             \begin{itemize}
-                \item Initialisierung:
+                \item \textit{Initialisierung:}
                     \begin{itemize}
                         \item   Beginn mit \texttt{j=1}, also Teilfeld \texttt{A[0...j-1]} besteht nur aus einem Element \texttt{A[0]}. \\
                                 Dies ist auch das ursprüngliche Element und Teilfeld ist sortiert.
                     \end{itemize}
 
-                \item Fortsetzung:
+                \item \textit{Fortsetzung:}
                     \begin{itemize}
                         \item   Zu zeigen ist, dass die Invariante bei jeder Iteration erhalten bleibt. Ausführungsblock der \texttt{for}-Schleife
                                 sorgt dafür, dass \texttt{A[j-1], A[j-2]},... je um Stelle nach rechts geschoben werden bis \texttt{A[j]} korrekt eingefügt wurde. 
                                 Teilfeld \texttt{A[0...j]} besteht aus ursprünglichen Elementen und ist sortiert. Inkrementieren von j erhält die Invariante.
                     \end{itemize}
 
-                \item Terminierung: 
+                \item \textit{Terminierung: }
                     \begin{itemize}
                         \item   Abbruchbedingung der \texttt{for}-Schleife, wenn \texttt{j > A.length - 1}. Jede Iteration erhöht j.
                                 Dann bei Abbruch ist \texttt{j = n } und einsetzen in Invariante liefert das Teilfeld \texttt{A[0...n-1]}
@@ -462,25 +468,25 @@
                     \end{itemize}
                     \end{minipage}
 
-                \item Warum $n$ in Zeile 1?
+                \item \textit{Warum $n$ in Zeile 1?}
                     \begin{itemize}
                         \item Die Überprüfung der Fortführungsbedingung beinhaltet auch die letze Überprüfung 
                         \item Quasi die Überprüfung, durch die die Schleife abbricht
                     \end{itemize}
 
-                \item Warum $\sum^{n-1}_{j=1}$ in Zeile 5?
+                \item \textit{Warum $\sum^{n-1}_{j=1}$ in Zeile 5?}
                     \begin{itemize}
                         \item Aufsummierung aller einzelnen $t_j$ über die Anzahl der Schleifendurchläufe
                         \item Diese ist allerdings $n-1$ und nicht $n$, da die Abbruchüberprüfung dort auch enthalten ist
                     \end{itemize}
                 
-                \item Warum $t_j-1$ in Zeile 6?
+                \item \textit{Warum $t_j-1$ in Zeile 6?}
                     \begin{itemize}
                         \item Selbes Argument wie oben, bei $t_j$ ist die Abbruchüberprüfung enthalten
                         \item Deswegen wird die \texttt{while}-Schleife nur $t_j-1$-mal ausgeführt
                     \end{itemize}
                 
-                \item \texttt{Best Case}
+                \item \textit{\texttt{Best Case}}
                     \begin{itemize}
                         \item zu sortierendes Feld ist bereits sortiert 
                         \item $t_j$ wird dadurch zu 1, da die \texttt{While}-Schleife immer nur einmal prüft (Abbruch)
@@ -488,14 +494,14 @@
                         \item Durch Umformen ergibt sich, dass die Laufzeit eine lineare Funktion in $n$ ist
                     \end{itemize}
                 
-                \item \texttt{Worst Case}
+                \item \textit{\texttt{Worst Case}}
                     \begin{itemize}
                         \item zu sortierendes Feld ist umgekehrt sortiert 
                         \item $t_j$ wird dadurch zu $j+1$, da die \texttt{While}-Schleife immer die gesamte Länge prüft
                         \item Durch Umformen ergibt sich, dass die Laufzeit eine quadratische Funktion in $n$ ist ($n^2$)
                     \end{itemize}
                 
-                \item \texttt{Average Case} 
+                \item \textit{\texttt{Average Case} }
                     \begin{itemize}
                         \item im Mittel gut gemischt 
                         \item $t_j$ wird dadurch zu $j/2$
@@ -533,19 +539,19 @@
 
         \item \textbf{Analyse von \texttt{Bubble Sort}}
             \begin{itemize}
-                \item Anzahl der Vergleiche:
+                \item \textit{Anzahl der Vergleiche:}
                     \begin{itemize}
                         \item Es werden stets alle Elemente der Teilfolge miteinander verglichen
                         \item Unabhängig von der Vorsortierung sind \texttt{Worst} und \texttt{Best Case} identisch
                     \end{itemize}
                 
-                \item Anzahl der Vertauschungen:
+                \item \textit{Anzahl der Vertauschungen:}
                     \begin{itemize}
                         \item \texttt{Best Case}: 0 Vertauschungen
                         \item \texttt{Worst Case}: $\frac{n^2-n}{2}$ Vertauschungen
                     \end{itemize}
                 
-                \item Komplexität:
+                \item \textit{Komplexität:}
                     \begin{itemize}
                         \item \texttt{Best Case}: $\Theta(n)$
                         \item \texttt{Average Case}: $\Theta(n^2)$
@@ -555,7 +561,7 @@
         
     \end{itemize}
 
-\pagebreak
+
 
 \subsection{Selection Sort}
     \begin{itemize}
@@ -580,22 +586,24 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \subsection{Divide-And-Conquer-Ansatz}
     \begin{itemize}
         \item Anderer Ansatz im Gegensatz zu z.B. \texttt{InsertionSort} (inkrementelle Herangehensweise)
         \item Laufzeit ist im schlechtesten Fall immer noch besser als \texttt{InsertionSort}
         \item Prinzip: Zerlege das Problem und löse es direkt oder zerlege es weiter
-        \item \textbf{Divide:} 
+        \item \textit{Divide:} 
             \begin{itemize}
                 \item Teile das Problem in mehrere Teilprobleme auf
                 \item Teilprobleme sind Instanzen des gleichen Problems 
             \end{itemize}
-        \item \textbf{Conquer:} 
+        \item \textit{Conquer:} 
             \begin{itemize}
                 \item Beherrsche die Teilprobleme rekursiv
                 \item Falls Teilprobleme klein genug, löse sie auf direktem Weg
             \end{itemize}
-        \item \textbf{Combine:} 
+        \item \textit{Combine:}
             \begin{itemize}
                 \item Vereine die Lösungen der Teilprobleme zu Lösung des ursprünglichen Problems
             \end{itemize}
@@ -605,9 +613,9 @@
     \begin{itemize}
         \item \textbf{Idee} 
             \begin{itemize}
-                \item \textbf{Divide:} Teile die Folge aus $n$ Elementen in zwei Teilfolgen von je $\frac{n}{2}$ Elemente auf
-                \item \textbf{Conquer:} Sortiere die zwei Teilfolgen rekursiv mithilfe von \texttt{MergeSort}
-                \item \textbf{Combine:} Vereinige die zwei sortierten Teilfolgen, um die sortierte Lösung zu erzeugen
+                \item \textit{Divide:} Teile die Folge aus $n$ Elementen in zwei Teilfolgen von je $\frac{n}{2}$ Elemente auf
+                \item \textit{Conquer:} Sortiere die zwei Teilfolgen rekursiv mithilfe von \texttt{MergeSort}
+                \item \textit{Combine:} Vereinige die zwei sortierten Teilfolgen, um die sortierte Lösung zu erzeugen
             \end{itemize}
         \item \textbf{Code} 
             \begin{itemize}
@@ -645,9 +653,11 @@
                     \end{minted}
             \end{itemize}
         
+\pagebreak
+
         \item \textbf{Korrektheit von MergeSort}
             \begin{itemize}
-                \item Schleifeninvariante
+                \item \textit{Schleifeninvariante}
                     \begin{itemize}
                         \item[]
                             Zu Beginn jeder Iteration der \texttt{for}-Schleife (Letztes \texttt{for} in Methode \texttt{MERGE}) enthält
@@ -655,14 +665,14 @@
                             in sortierter Reihenfolge. Weiter sind \texttt{L[i]} und \texttt{R[i]} die kleinsten Elemente ihrer Arrays, die noch nicht
                             zurück kopiert wurden.
                     \end{itemize}
-                \item Initialisierung
+                \item \textit{Initialisierung}
                     \begin{itemize}
                         \item[]
                             Vor der ersten Iteration gilt \texttt{k=p}. Daher ist \texttt{A[p...k-1]} leer und enthält 0 kleinste Elemente von 
                             \texttt{L} und \texttt{R}. Wegen \texttt{i=j=0} sind \texttt{L[i]} und \texttt{R[i]} die kleinsten Elemente ihrer 
                             Arrays, die noch nicht zurück kopiert wurden.
                     \end{itemize}
-                \item Fortsetzung
+                \item \textit{Fortsetzung}
                     \begin{itemize}
                         \item[]
                             Müssen zeigen, dass Schleifeninvariante erhalten bleibt. Dafür nehmen wir an, dass \texttt{L[i] $\leq$ R[j]}. Dann ist 
@@ -672,7 +682,7 @@
                             stellt die Schleifeninvariante für die nächste Iteration wieder her. Wenn \texttt{L[i]>R[j]} dann analoges Argument 
                             in der \texttt{ELSE}-Anweisung. 
                     \end{itemize}
-                \item Terminierung 
+                \item \textit{Terminierung}
                     \begin{itemize}
                         \item[]
                             Beim Abbruch gilt \texttt{k=r+1}. Durch die Schleifeninvariante enthält \texttt{A[p...r]} die kleinste Elemente von 
@@ -697,7 +707,7 @@
                         \]
                 \item Lösen der Rekursionsgleichung mithilfe eines Rekursionsbaums
                     \begin{itemize}
-                        \item[] \includegraphics[width=12cm]{mergeSortBaum.PNG}
+                        \item[] \includegraphics[width=9cm]{mergeSortBaum.PNG}
                         \item Verwenden der Konstante $c$ statt $\Theta(1)$
                         \item $cn$ stellt den Aufwand an der ersten Ebene dar 
                         \item Der addierte Aufwand jeder Stufe (aller Knoten) ist auch $cn$
@@ -715,13 +725,13 @@
     \begin{itemize}
         \item \textbf{Idee}
             \begin{itemize}
-                \item \textbf{Pivotelement}:
+                \item \textit{Pivotelement:}
                     \begin{itemize}
                         \item[]
                             Wahl eines Pivotelement \texttt{x} aus dem Array
                     \end{itemize}
 
-                \item \textbf{Divide:}
+                \item \textit{Divide:}
                     \begin{itemize}
                         \item[]
                             Zerlege den Array \texttt{A[p...r]} in zwei Teilarrays \texttt{A[p...q-1]} und \texttt{A[q+1...r]},
@@ -730,14 +740,14 @@
                             als Teil vom \texttt{Partition} Algorithmus.
                     \end{itemize}
 
-                \item \textbf{Conquer:}
+                \item \textit{Conquer:}
                     \begin{itemize}
                         \item[]
                             Sortieren beider Teilarrays \texttt{A[p...q-1]} und \texttt{A[q+1...r]} durch rekursiven Aufruf von
                             Quicksort.
                     \end{itemize}
                 
-                \item \textbf{Combine:}
+                \item \textit{Combine:}
                     \begin{itemize}
                         \item[]
                             Da die Teilarrays bereits sortiert sind, ist keine weitere Arbeit nötig um diese zu vereinigen.
@@ -772,7 +782,7 @@
 
         \item \textbf{Korrektheit von Quicksort}
             \begin{itemize}
-                \item Schleifeninvariante:
+                \item \textit{Schleifeninvariante:}
                     \begin{itemize}
                         \item[]
                             Zu Beginn jeder Iteration der \texttt{for}-Schleife gilt für den Arrayindex $k$ folgendes:
@@ -783,7 +793,7 @@
                             \end{enumerate}
                     \end{itemize}  
                 
-                \item Initialisierung:
+                \item \textit{Initialisierung:}
                     \begin{itemize}
                         \item[]
                             Vor der ersten Iteration gilt $i = p - 1$ und $j = p$. Da es keine Werte zwischen $p$ und $j$
@@ -791,7 +801,7 @@
                             trivial erfüllt. Die Zuweisung in \texttt{x = A[r]} sorgt für die Erfüllung der dritten Eigenschaft.
                     \end{itemize}
                 
-                \item Fortsetzung:
+                \item \textit{Fortsetzung:}
                     \begin{itemize}
                         \item[]
                             Zwei mögliche Fälle durch \texttt{IF A[j] $\leq$ x}. Wenn \texttt{A[j] > x}, dann inkrementiert die 
@@ -803,7 +813,7 @@
                             Invariante gerade größer als $x$ ist.
                     \end{itemize}
 
-                \item Terminierung:
+                \item \textit{Terminierung:}
                     \begin{itemize}
                         \item[]
                             Bei der Terminierung gilt, dass $j = r$. Daher gilt, dass jeder Eintrag des Arrays zu einer der drei 
@@ -813,14 +823,14 @@
 
         \item \textbf{Performanz von Quicksort}
             \begin{itemize}
-                \item Abhängig von der \textbf{Balanciertheit} der Teilarrays 
+                \item \textit{Abhängig von der \textbf{Balanciertheit} der Teilarrays} 
                     \begin{itemize}
                         \item Definition Balanciert: ungefähr gleiche Anzahl an Elementen
                         \item Teilarrays balanciert: Laufzeit asymptotisch so schnell wie \texttt{MergeSort}
                         \item Teilarrays unbalanciert: Laufzeit kann so langsam wie \texttt{InsertionSort} laufen
                     \end{itemize}
 
-                \item Zerlegung im \textbf{schlechtesten Fall}
+                \item \textit{Zerlegung im \textbf{schlechtesten Fall}}
                     \begin{itemize}
                         \item Partition zerlegt Problem in ein Teilproblem mit $n-1$ Elementen und eins mit $0$ Elementen
                         \item Unbalancierte Zerlegung zieht sich durch gesamte Rekursion
@@ -833,7 +843,7 @@
                             \end{itemize}
                     \end{itemize}
 
-                \item Zerlegung im \textbf{besten Fall}
+                \item \textit{Zerlegung im \textbf{besten Fall}}
                     \begin{itemize}
                         \item Problem wird so balanciert wie möglich zerlegt 
                         \item Zwei Teilprobleme mit maximaler Größe von $\frac{n}{2}$
@@ -874,6 +884,8 @@
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Subsitutionsmethode}
             \begin{itemize}
                 \item Idee: Erraten einer Schranke und Nutzen von Induktion zum Beweis der Korrektheit
@@ -884,13 +896,13 @@
                     \end{enumerate}
                 \item \textbf{Beispiel}
                     \begin{itemize}
-                        \item Betrachten von \texttt{MergeSort}:
+                        \item \textit{Betrachten von \texttt{MergeSort}:}
                             \begin{itemize}
                                 \item $T(1) \leq c$
                                 \item $T(n) \leq T(\left \lfloor \frac{n}{2} \right \rfloor) + T(\left \lceil \frac{n}{2} \right \rceil) + cn$
                             \end{itemize}
 
-                        \item Ziel:
+                        \item \textit{Ziel:}
                             \begin{itemize}
                                 \item[]
                                     Obere Abschätzung $T(n) \leq g(n)$ mit $g(n)$ ist eine Funktion, die durch eine 
@@ -900,7 +912,7 @@
                                     zeigen es für $n$. 
                             \end{itemize}
 
-                        \item Induktion:
+                        \item \textit{Induktion:}
                             \begin{itemize}
                                 \item $lg$ steht hier für $log_2$
                                 \item $n = 1$: $T(1) \leq c$
@@ -909,14 +921,14 @@
                                 \item[] {\makebox[1cm][l]{}} $T(2) = 4c * 2~lg(2) = 8c$
                             \end{itemize}
 
-                        \item Hilfsbehauptungen:
+                        \item \textit{Hilfsbehauptungen:}
                             \begin{itemize}
                                 \item (1): $\left \lfloor \frac{n}{2} \right \rfloor + \left \lceil \frac{n}{2} \right \rceil = n$
                                 \item (2): $\left \lfloor \frac{n}{2} \right \rfloor \leq \frac{n}{2} \leq \frac{2}{3}n$
                                 \item (3): $log_c(\frac{a}{b}) = log_c(a) - log_c(b)$
                                 \item (4): $log_c(a*b) = log_c(a) + log_c(b)$
                             \end{itemize}
-                        \item Induktionsschritt:
+                        \item \textit{Induktionsschritt:}
                             \begin{itemize}
                                 \item Annahme: $n > 2$ und sei Behauptung wahr für alle $n' < n$.
                                 \item[]
@@ -934,6 +946,8 @@
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Rekursionsbaum}
             \begin{itemize}
                 \item Idee: Stellen das Ineinander-Einsetzen als Baum dar und Analyse der Kosten
@@ -950,26 +964,29 @@
                 \item Rekursionsbaum ist nützlich um Lösung für Subsitutionsmethode zu erraten 
                 \item \textbf{Beispiel:} $T(n) = 3T(\left \lfloor \frac{n}{4} \right \rfloor) + \Theta(n^2)$
                     \begin{itemize}
-                        \item $\Rightarrow T(n) = 3T(\frac{n}{4}) + cn^2$ ($c>0$)
-                        \item Je Abstieg verringert sich die Größe des Problems um den Faktor 4. 
-                        \item Erreichen der Randbedingung ist vonnöten, die Frage ist wann dies geschieht.
-                        \item Größe Teilproblem bei Level $i$: $\frac{n}{4^i}$
-                        \item Erreichen Teilproblem der Größe 1, wenn $\frac{n}{4^i}=1$, d.h. wenn $i=log_4(n)$ \\
-                            $\Rightarrow$ Baum hat also $log_4n + 1$ Ebenen
-                        \item Kosten pro Ebene:
+                        \item \textit{Vorüberlegungen:}
+                            \begin{itemize}
+                                \item $\Rightarrow T(n) = 3T(\frac{n}{4}) + cn^2$ ($c>0$)
+                                \item Je Abstieg verringert sich die Größe des Problems um den Faktor 4. 
+                                \item Erreichen der Randbedingung ist vonnöten, die Frage ist wann dies geschieht.
+                                \item Größe Teilproblem bei Level $i$: $\frac{n}{4^i}$
+                                \item Erreichen Teilproblem der Größe 1, wenn $\frac{n}{4^i}=1$, d.h. wenn $i=log_4(n)$ \\
+                                    $\Rightarrow$ Baum hat also $log_4n + 1$ Ebenen
+                            \end{itemize}
+                        \item \textit{Kosten pro Ebene:}
                             \begin{itemize}
                                 \item Jede Ebene hat 3-mal soviele Knoten wie darüber liegende
                                 \item Anzahl der Knoten in Tiefe $i$ ist $3^i$
                                 \item Kosten $c(\frac{n}{4^i})^2~,~i=0...log_4n-1$
                                 \item Anzahl $\cdot$ Kosten = $3^i \cdot c(\frac{n}{4^i})^2 = (\frac{3}{16})^i \cdot cn^2$
                             \end{itemize}
-                        \item Unterste Ebene:
+                        \item \textit{Unterste Ebene:}
                             \begin{itemize}
                                 \item $3^{log_4(n)} = n  {log_4(3)}$ Knoten
                                 \item Jeder Knoten trägt $T(1)$ Kosten bei 
                                 \item Kosten unten: $n^{log_4(3)} \cdot T(1) = \Theta(n^{log_4(3)})$
                             \end{itemize}
-                        \item Addiere alle Kosten aller Ebenen:
+                        \item \textit{Addiere alle Kosten aller Ebenen:}
                             \begin{itemize}
                                 \item {\makebox[0.75cm][l]{$T(n)$}} $= cn^2 + \frac{3}{16}cn^2 + (\frac{3}{16})^2cn^2+...+ (\frac{3}{16})^{log_4n-1}cn^2 + \Theta(n^{log_4(3)})$
                                 \item[] {\makebox[0.75cm][l]{}} $= \sum^{log_4n-1}_{i=0} (\frac{3}{16})^icn^2+ \Theta(n^{log_4^3})$
@@ -981,7 +998,7 @@
                                 \item[] {\makebox[0.75cm][l]{}} $= \frac{1}{1-\frac{3}{16}} \cdot cn^2 + \Theta(n^{log_43})$ 
                                 \item[] {\makebox[0.75cm][l]{}} $ = \frac{16}{13} \cdot cn^2 + Theta(n^{log_43}) = O(n^2)$
                             \end{itemize}
-                        \item Jetzt \textbf{Subsitutionsmethode:}
+                        \item \textit{Jetzt \textbf{Subsitutionsmethode:}}
                             \begin{itemize}
                                 \item Zu zeigen: $\exists d > 0: T(n) \leq dn^2$
                                 \item Induktionsanfang:
@@ -1000,7 +1017,7 @@
 
         \item \textbf{Mastertheorem}
             \begin{itemize}
-                \item Idee:
+                \item \textit{Idee:}
                     \begin{itemize}
                         \item[] 
                             Seien $a \geq 1$ und $b > 1$ Konstanten. Sei $f(n)$ eine positive Funktion und $T(n)$ 
@@ -1016,7 +1033,7 @@
                             \end{enumerate}
                     \end{itemize}
                 
-                \item Erklärung:
+                \item \textit{Erklärung:}
                     \begin{itemize}
                         \item In jedem der 3 Fälle wird die Funktion $f(n)$ mit $n^{log_b(a)}$ verglichen
                             \begin{enumerate}
@@ -1027,7 +1044,7 @@
                         \item (polynomial größer/kleiner: um Faktor $n^\epsilon$ asymptotisch größer/kleiner)
                     \end{itemize}
 
-                \item Nicht abgedeckte Fälle:
+                \item \textit{Nicht abgedeckte Fälle:}
                     \begin{itemize}
                         \item Wenn einer dieser Fälle eintritt, kann das Mastertheorem nicht angewendet werden
                             \begin{enumerate}
@@ -1038,9 +1055,9 @@
                             \end{enumerate}
                     \end{itemize}
 
-                \item \textbf{Beispiel:}
+                \item \textit{Beispiel:}
                     \begin{itemize}
-                        \item $T(n) = 9T(\frac{n}{3}) + n$
+                        \item \textit{$T(n) = 9T(\frac{n}{3}) + n$}
                             \begin{itemize}
                                 \item $a=9, b=3, f(n)=n$
                                 \item $log_b(a) = log_3(9) = 2$
@@ -1050,7 +1067,7 @@
                                 \item \textbf{1. Fall} $\Rightarrow$ $T(n) = \Theta(n^2)$ 
                             \end{itemize}
 
-                        \item $T(n) = T(\frac{2n}{3}) + 1$
+                        \item \textit{$T(n) = T(\frac{2n}{3}) + 1$}
                             \begin{itemize}
                                 \item $a=1, b= \frac{3}{2}, f(n) = 1$
                                 \item $log_{\frac{3}{2}} 1 = 0$
@@ -1060,7 +1077,7 @@
                                 \item \textbf{2.Fall} $\Rightarrow$ $T(n) = \Theta(1 * lg(n)) = \Theta(lg(n))$   
                             \end{itemize}
 
-                        \item $T(n) = 3(T\frac{n}{4}) + n~lg(n)$
+                        \item \textit{$T(n) = 3(T\frac{n}{4}) + n~lg(n)$}
                             \begin{itemize}
                                 \item $a=3,b=4,f(n)= n~lg(n)$
                                 \item $n^{log_b(a)} = n^{log_4(3)} \leq n^{0.793}$
@@ -1076,7 +1093,7 @@
 
     \end{itemize}
 
-\pagebreak
+
 
 \section{Grundlegende Datenstrukturen}
 \subsection{Stacks}
@@ -1118,6 +1135,8 @@
                 \item \texttt{push(k)} führt dazu, dass \texttt{s.Top} sich eins nach rechts bewegt
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Stacks als Array - Methoden, falls maximale Größe bekannt}
         \item[] \includegraphics[width=12cm]{arrayMethods1}
 
@@ -1144,6 +1163,8 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \subsection{Verkettete Listen}
     \begin{itemize}
         \item \textbf{Aufbau}
@@ -1159,7 +1180,7 @@
 
         \item \textbf{Elementare Operationen auf Listen}
             \begin{itemize}
-                \item Suche nach Element
+                \item \textit{Suche nach Element}
                     \begin{itemize}
                         \item Laufzeit beträgt im Worst Case $\Theta(n)$
                         \item[] $\Rightarrow$ Keine Überprüfung, ob Wert bereits in Liste, sonst $\Theta(n)$
@@ -1174,7 +1195,7 @@
                             \end{minted}
                     \end{itemize}
 
-                \item Einfügen eines Elements am Kopf der Liste 
+                \item \textit{Einfügen eines Elements am Kopf der Liste} 
                     \begin{itemize}
                         \item Laufzeit beträgt $\Theta(1)$, da Einfügen am Kopf 
                         \item Code:
@@ -1189,7 +1210,7 @@
                             \end{minted}
                     \end{itemize}
 
-                \item Löschen eines Elements aus Liste
+                \item \textit{Löschen eines Elements aus Liste}
                     \begin{itemize}
                         \item Laufzeit beträgt $\Theta(1)$, da hier Pointer auf Objekt gegeben
                         \item[] Löschen eines Wertes $k$ mithilfe von Suche beträgt $\Omega(n)$
@@ -1254,6 +1275,8 @@
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Queues als (virtuelles) zyklisches Array}
             \begin{itemize}
                 \item[] Bekannt: Maximale Elemente gleichzeitig in Queue
@@ -1268,6 +1291,8 @@
                 \item Methoden für zyklisches Array
                 \item[] \includegraphics[width=12cm]{queueZyklischM.PNG}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Queues durch einfach verkettete Listen}
             \begin{itemize}
@@ -1340,7 +1365,7 @@
                         \end{minipage}
                 \end{itemize}
 
-                \pagebreak
+\pagebreak
 
             \item \textbf{Traversieren von Bäumen}
                 \begin{itemize}
@@ -1407,11 +1432,11 @@
                     \item[] \includegraphics[width=12cm]{bestimmbarkeitBaum.PNG} 
                 \end{itemize}
 
-                \pagebreak
+\pagebreak
 
             \item \textbf{Abstrakter Datentyp Baum}
                 \begin{itemize}
-                    \item Abstrakter Aufbau:
+                    \item \textit{Abstrakter Aufbau:}
                         \begin{itemize}
                             \item \texttt{new T()}
                                 \begin{itemize}
@@ -1434,7 +1459,7 @@
                                 \end{itemize}
                         \end{itemize}
 
-                    \item Suche nach Elementen
+                    \item \textit{Suche nach Elementen:}
                         \begin{itemize}
                             \item Laufzeit = $\Theta(n)$ (Jeder Knoten maximal einmal, jeder Knoten im schlechtesten Fall)
                             \item Starte mit \texttt{search(T.root,k)}
@@ -1450,7 +1475,7 @@
                                 \end{minted}
                         \end{itemize}
 
-                    \item Einfügen von Elementen
+                    \item \textit{Einfügen von Elementen:}
                         \begin{itemize}
                             \item Laufzeit = $\Theta(1)$ 
                             \item Hier wird als Wurzel eingefügt (Achtung: Erzeugt linkslastigen Baum)
@@ -1465,11 +1490,12 @@
                                 \end{minted}
                         \end{itemize}
 
-                    \item Löschen von Elementen
+                    \item \textit{Löschen von Elementen:}
                         \begin{itemize}
                             \item Laufzeit = $\Theta(h)$ (Höhe des Baumes, $h=n$ möglich)
                             \item Hier: Ersetze $x$ durch Halbblatt ganz rechts
                             \item[] \includegraphics[width=12cm]{löschenBaum.PNG}
+\pagebreak 
                             \item \texttt{Connect}-Algorithmus:
                             \item[]
                                 \begin{minipage}[t]{0.35\textwidth}
@@ -1528,6 +1554,8 @@
                         \end{itemize}
                 \end{itemize}
     \end{itemize}
+
+\pagebreak
 
 \subsection{Binäre Suchbäume}
     \begin{itemize}
@@ -1614,14 +1642,14 @@
 
         \item \textbf{Löschen im BST}
             \begin{itemize}
-                \item Verschiedene Fälle:
+                \item \textit{Verschiedene Fälle:}
                     \begin{itemize}
                         \item[] \includegraphics[width=9cm]{binärerSuchbaumLöschen1.PNG}
                         \item[] \includegraphics[width=9cm]{binärerSuchbaumLöschen2.PNG} 
                         \item[] \includegraphics[width=9cm]{binärerSuchbaumLöschen3.PNG} 
                     \end{itemize}
 
-                \item Code (Transplantation)
+                \item \textit{Code}
                 \item[]
                     \begin{minipage}{0.45\textwidth}
                             \begin{minted}[autogobble]{c}
@@ -1664,19 +1692,19 @@
 
         \item \textbf{Höhe eines BST}
             \begin{itemize}
-                \item Best Case:
+                \item \textit{Best Case:}
                     \begin{itemize}
                         \item Vollständiger Baum (Alle Blätter gleiche Tiefe)
                         \item $h = O(log_2 n)$
                         \item Laufzeit = $O(log_2 n)$
                     \end{itemize}
-                \item Worst Case:
+                \item \textit{Worst Case:}
                     \begin{itemize}
                         \item Degenerierter Baum (lineare Liste)
                         \item $h = n - 1$
                         \item Laufzeit = $\Theta(n)$
                     \end{itemize}
-                \item Durchschnittliche Höhe:
+                \item \textit{Durchschnittliche Höhe:}
                     \begin{itemize}
                         \item Erwartete Höhe: $\Theta(log_2 n)$
                     \end{itemize}
@@ -1689,6 +1717,7 @@
                 \item[] \includegraphics[width=12cm]{suchbaumSuchindex.PNG}
             \end{itemize}
     \end{itemize}
+\pagebreak
 
 \section{Advanced Data Structures}
 \subsection{Rot-Schwarz-Bäume}
@@ -1748,6 +1777,7 @@
                                 T.root.color = black;                       // Setzen der Wurzel auf Schwarz
                             \end{minted}
                     \end{itemize}
+\pagebreak
                 \item Hilfsmethode \texttt{rotateLeft}
                     \begin{itemize}
                         \item[] 
@@ -1800,18 +1830,20 @@
                 \item[] \includegraphics[width=8cm]{avlbaum.PNG}
             \end{itemize}
         
+\pagebreak
+
         \item \textbf{AVL vs. Rot-Schwarz}
             \begin{itemize}
-                \item AVL:
+                \item \textit{AVL:}
                     \begin{itemize}
                         \item Einfügen und Löschen verletzen in der Regel öfter die Baum-Bedingung
                         \item Aufwendiger zum Rebalancieren
                     \end{itemize}
-                \item Rot-Schwarz:
+                \item \textit{Rot-Schwarz:}
                     \begin{itemize}
                         \item Suchen dauert evtl. länger
                     \end{itemize}
-                \item Konklusion:
+                \item \textit{Konklusion:}
                     \begin{itemize}
                         \item AVL geeigneter, wenn mehr Such-Operationen und weniger Einfügen und Löschen
                     \end{itemize}
@@ -1888,9 +1920,9 @@
                                 zigZag(T,z);
                     \end{minted}
                 \item[]
-                \item[] \includegraphics[width=9cm]{zigzag.PNG}
-                \item[] \includegraphics[width=9cm]{zigzig.PNG}
-                \item[] \includegraphics[width=9cm]{zig.PNG}
+                \item[] \includegraphics[width=8cm]{zigzag.PNG}
+                \item[] \includegraphics[width=8cm]{zigzig.PNG}
+                \item[] \includegraphics[width=8cm]{zig.PNG}
             \end{itemize}
         
         \item \textbf{Suchen}
@@ -1941,6 +1973,8 @@
             \begin{itemize}
                 \item[] \includegraphics[width=8cm]{heapArr.PNG}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Einfügen}
             \begin{itemize}
@@ -2063,6 +2097,8 @@
                     return nil;
                     \end{minted}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Einfügen}
             \begin{itemize}
@@ -2228,7 +2264,7 @@
             \begin{itemize}
                 \item[]
                     \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=7cm]{hashtableIdee.PNG}
+                        \includegraphics[width=5cm]{hashtableIdee.PNG}
                     \end{minipage}
                     \begin{minipage}{0.5\textwidth}
                         \begin{itemize}
@@ -2242,7 +2278,7 @@
                 \item[]
                 \item[]
                     \begin{minipage}{0.4\textwidth}
-                        \includegraphics[width=7cm]{hashtableLinkedList.PNG}
+                        \includegraphics[width=5cm]{hashtableLinkedList.PNG}
                     \end{minipage}
                     \begin{minipage}{0.5\textwidth}
                         \begin{itemize}
@@ -2254,6 +2290,7 @@
                             \item[] $\Rightarrow$ $\frac{n}{T.length}$ Einträge pro Liste
                         \end{itemize}
                     \end{minipage}
+                \item[]
             \end{itemize}
 
         \item \textbf{Hash-Funktionen}
@@ -2266,10 +2303,12 @@
                 \item Krypthographische Hash-Funktionen:
                     \begin{itemize}
                         \item MD5, SHA-1, SHA-2, SHA-3
-                        \item $h(x) = MD5(x) mod T.length$
+                        \item $h(x) = MD5(x)~mod~T.length$
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+        
         \item \textbf{Hashtables vs. Bäume}
             \begin{itemize}
                 \item Hashtables:
@@ -2330,6 +2369,8 @@
                 \item[2.] Schreibe für jedes Element in jede Bit-Position $H_0(x_i),...,H_{k-1}(x_i)$ eine 1 
                 \item[] \includegraphics[width=12cm]{bloomCreate.PNG} 
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Suche}
             \begin{itemize}
@@ -2452,6 +2493,8 @@
                 \item Nach Algorithmus steht in $v$ die kürzeste Distanz von $s$ nach $v$
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Kürzeste Pfade ausgeben}
             \begin{itemize}
                 \item[]
@@ -2557,6 +2600,8 @@
                     \end{itemize}
             \end{itemize}
         
+\pagebreak
+
         \item \textbf{Starke Zusammenhangskomponenten}
             \begin{itemize}
                 \item Knotenmenge $C \subseteq V$, so dass
@@ -2677,6 +2722,8 @@
         
     \end{itemize}
 
+\pagebreak
+
 \subsection{Kürzeste Wege in (gerichteten) Graphen}
     \begin{itemize}
         \item \textbf{Definition}
@@ -2727,6 +2774,8 @@
                     s.dist = 0;
                     \end{minted}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{TopoSort für dag}
             \begin{itemize}
@@ -2794,6 +2843,8 @@
                         $|f| = \sum_{v\in V} f(s,v) = \sum_{v\in V} f(v,s)$
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Transformationen}
             \begin{itemize}
                 \item[] \includegraphics[width=12cm]{flussTrans1.PNG}
@@ -2837,6 +2888,7 @@
                 \item Laufzeit: $O(|E| \cdot u \cdot |f^*|)$ \\
                         ($O(|V| \cdot |E|^2)$ Mit Verbesserung nach Edmonds-Karp) \\
                         (wobei $f^*$ maximaler Fluss und Fluss um bis zu $\frac{1}{u}$ pro Iteration wächst)
+\pagebreak
                 \item Beispiel:
                 \item[] \includegraphics[width=12cm]{fordbsp1.PNG}
                 \item[] \includegraphics[width=12cm]{fordbsp2.PNG}
@@ -2868,6 +2920,7 @@
                         \item maximaler Erlös: $r_n = p_{i_1} + p_{i_2} + ... + p_{i_k}$
                         \item z.B.: $r_4 = 10$ (siehe oben)
                     \end{itemize}
+\pagebreak
                 \item \textit{Rekursive Top-Down Implementierung:}
                     \begin{itemize}
                         \item[]
@@ -2924,6 +2977,7 @@
                             return q
                             \end{minted}
                     \end{itemize}
+\pagebreak
                 \item \textit{Bottom-Up Ansatz:}
                     \begin{itemize}
                         \item Laufzeit: $\Theta(n^2)$
@@ -2966,6 +3020,7 @@
                             \item[] \includegraphics[width=9cm]{fibBaum.PNG}
                             \item[] Gleiche Teilprobleme werden wieder mehrmals gelöst  
                     \end{itemize}
+\pagebreak
                 \item \textit{Rekursiver Algorithmus mit Memoisation}
                     \begin{itemize}
                         \item Wieder Abspeichern von Teilproblemen um Laufzeit einzusparen
@@ -3036,7 +3091,7 @@
                                 \includegraphics[width=4cm]{aktivProblem2.PNG}
                             \end{minipage}
                     \end{itemize}
-                
+\pagebreak
                 \item \textit{Ansatz mittels dynamischer Programmierung}
                     \begin{itemize}
                         \item Menge von Aktivitäten, die starten nachdem $a_i$ endet und enden, bevor $a_j$ startet \\
@@ -3099,6 +3154,8 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\pagebreak
 
 \subsection{Backtracking}
     \begin{itemize}
@@ -3178,6 +3235,8 @@
                     \end{minted}
             \end{itemize}
     \end{itemize}
+
+\pagebreak
 
 \subsection{Metaheuristiken}
     \begin{itemize}
@@ -3326,6 +3385,7 @@
                             return best
                             \end{minted}
                     \end{itemize}
+\pagebreak
                 \item \textit{Nachteile}
                     \begin{itemize}
                         \item Algorithmus terminiert in der Regel bei lokalem Optimum
@@ -3383,6 +3443,8 @@
                             \end{itemize}
                     \end{itemize}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Simulated Annealing}
             \begin{itemize}
@@ -3455,6 +3517,8 @@
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Populationsbasierte Methode}
             \begin{itemize}
                 \item Bisher: Immer nur Betrachtung einer einzigen Lösung
@@ -3513,7 +3577,9 @@
                         \item Generie $\frac{\lambda}{\mu}$-viele Nachfahren pro bestes Individuum
                         \item Join Funktion: Die Nachfahren ersetzen die Individuen
                     \end{itemize}
-                
+    
+\pagebreak
+
                 \item \textit{Algorithmus der Evolutionsstrategie}
                     \begin{itemize}
                         \item[]
@@ -3542,6 +3608,8 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\pagebreak
 
 \subsection{Amortisierte Analyse}
     \begin{itemize}
@@ -3586,6 +3654,8 @@
                         \item $n$-mal inkrementieren sorgt für Kosten: $T(n) \leq n \cdot k \in O(kn)$
                     \end{itemize}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Aggregat Methode - Beispiel Binärzähler}
             \begin{itemize}
@@ -3634,6 +3704,8 @@
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Account Methode - Beispiel Binärzähler}
             \begin{itemize}
                 \item \textit{Eigenschaften}
@@ -3675,6 +3747,8 @@
                     \end{itemize}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Potential-Methode - Beispiel Binärzähler}
             \begin{itemize}
                 \item \textit{Eigenschaften}
@@ -3706,6 +3780,8 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\pagebreak
 
 \section{NP}
     \begin{itemize}
@@ -3763,6 +3839,8 @@
                     \end{itemize}
                 \end{itemize}
 
+\pagebreak
+
             \item \textbf{Entscheidungsproblem vs Optimierungsproblem}
                 \begin{itemize}
                     \item Optimierungsproblem: Lösung nimmt bestimmten Wert an
@@ -3811,6 +3889,8 @@
                         \end{itemize}
                 \end{itemize}
 
+\pagebreak
+
             \item \textbf{Reduktionen}
                 \begin{itemize}
                     \item \textit{Reduktionsidee}
@@ -3846,6 +3926,8 @@
                             \item[] \includegraphics[width=7cm]{reduktion2.PNG}
                         \end{itemize}
                 \end{itemize}
+
+\pagebreak
 
             \item \textbf{Travelling-Salesman Problem}
                 \begin{itemize}
