@@ -410,6 +410,10 @@
                 \item[b)] \textbf{monoton fallend}, wenn $a_{n+1} \leq a_n$ für alle $n \in \mathbb{N}$ gilt.
                 \item[c)] \textbf{monoton}, wenn sie monoton wachsend oder monoton fallend ist. 
             \end{itemize} \vspace{-0cm} \\
+    \midrule
+    5.3.18& Folge $(a_n)$ in $\mathbb{K}$ heißt \textbf{Cauchy-Folge}, wenn für jedes $\epsilon > 0$ ein Index
+            $n_0 \in \mathbb{N}$ existiert, so dass\hfill \break
+            \centerline{$|a_n - a_m| < \epsilon$, für alle $n,m \geq n_0$} \\
 
     \bottomrule
     
@@ -426,7 +430,11 @@
             Ist die reelle Folge $(a_n)$ nach oben (nach unten) beschränkt und monoton wachsend (fallend), so ist $(a_n)$ \textbf{konvergent}
             und es gilt: \hfill \break
             \centerline{$lim_{n \rightarrow \infty} a_n = sup_{n \in \mathbb{N}}a_n$ (bzw. $lim_{n \rightarrow \infty} a_n = inf_{n \in \mathbb{N}}a_n$) } \\
-
+    \midrule
+    5.3.19& Jede konvergente Folge in $\mathbb{K}$ ist eine \textbf{Cauchy-Folge}. \\
+    \midrule
+    5.3.20& \textbf{Cauchy-Kriterium} \hfill \break
+            Eine Folge in $\mathbb{K}$ konvergiert genau dann, wenn sie eine Cauchy-Folge ist. \\
     \bottomrule
 \end{tabularx}
 \end{table}
@@ -438,7 +446,184 @@
     \toprule
 
           & Monotonieverhalten, deswegen hier nur in $\mathbb{R}$ und nicht in $\mathbb{C}$ (keine Ordnung) \\
+        \midrule
+          & Beide hier gesehenen Konvergenzkriterien funktionieren ohne vorherige Behauptung über den Grenzwert \\  
           
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Beispiele}
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+    5.3.16& Betrachtung einer rekursiv defininierten Folge \hfill \break
+            \centerline{$a_0 := \sqrt[3]{6}$ und $a_{n+1} = \sqrt[3]{6 + a_n}, n \in \mathbb{N}$} 
+            Damit folgt: $a_1 = \sqrt[3]{6+\sqrt[3]{6}}$, $a_2 = \sqrt[3]{6+\sqrt[3]{6+\sqrt[3]{6}}}$ \hfill \break
+            Solche Folgen entstehen oft bei iterativen Näherungsverfahren. \hfill \break
+            Behauptung: $(a_n)$ nach oben beschränkt und monoton wachsend $\Rightarrow$ Konvergenz \hfill \break
+            Beweis: Induktion  \\
+
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\subsubsection{Teilfolgen und Häufungswerte}
+\noindent
+\textbf{Definitionen}
+\begin{table}[H]  
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+    
+    5.3.22& Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Ein $a \in \mathbb{K}$ heißt Häufungswert der Folge, falls für jedes
+            $\epsilon > 0$ die Menge $\{n \in \mathbb{N}: |a_n -a| < \epsilon\}$ unendlich viele Elemente hat. \\
+    \midrule
+    5.3.23& Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Ist $\{n_1,n_2,n_3,...\} \subseteq \mathbb{N}$ eine unendliche Menge 
+            von Indizes mit $n_1 < n_2 < n_3 ...$, so heißt die Folge $(a_{n_k}))_{k \in \mathbb{N}}$ eine Teilfolge von $(a_n)$. \\
+
+    \bottomrule
+    
+\end{tabularx}
+\end{table}
+
+\noindent 
+\textbf{Sätze}
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+    5.3.24& Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Dann gilt \hfill \break
+            \begin{itemize}
+                \item[a)] Ein $\alpha \in \mathbb{K}$ ist genau dann ein Häufungswert von $(a_n)$, wenn eine Teilfolge $(a_{n_k})$ von
+                            $(a_n)$ existiert, die gegen $\alpha$ konvergiert.
+                \item[b)] Ist $(a_n)$ konvergenz mit Grenzwert $\alpha$, so konvergiert auch jede Teilfolge von $(a_n)$ gegen a.
+                \item[c)] Ist $(a_n)$ konvergenz, so hat $(a_n)$ genau einen Häufungswert, nämlich den Grenzwert 
+                            $lim_{n \rightarrow \infty} a_n$.
+            \end{itemize} \\
+
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Bemerkungen}
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+      & Jeder Grenzwert ist auch Häufungswert. \\
+      \midrule
+      & Häufungswert von $((-1)^n)_{n \in \mathbb{N}}$: 1, -1 (aber keine Grenzwerte) \\
+      \midrule
+      & Häfungswert von $(i^n)$: 1, i, -1, -i \\
+      \midrule
+      & Keine Teilfolgen: \hfill \break
+        $(a_0, a_0, a_2, a_2,..)$ (keine doppelten Elemente) \hfill \break
+        $(a_2, a_3, a_0,..)$ (nicht umsortieren) \\
+
+
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Asymptotik}
+\noindent
+\textbf{Definitionen}
+\begin{table}[H]  
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+    
+    5.4.1 & \begin{itemize}
+                \item[a)] Wir bezeichnen mit $F_+ := \{(a_n)$ Folge in $\mathbb{R}: a_n > 0$ für alle $n \in \mathbb{N} \}$
+                \item[b)] Es sei $(b_n) \in \mathbb{F_+}$. Dann definieren wir die Landau-Symbole durch \hfill \break
+                    \begin{itemize}
+                        \item $O(b_n) := \{(a_n) \in \mathbb{F_+} : \frac{a_n}{b_n}_{n \in \mathbb{N}}\}$ ($b_n$ größer gleich $a_n$)
+                        \item $o(b_n) := \{(a_n) \in \mathbb{F_+}: lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 0\}$ ($b_n$ echt größer als $a_n$)
+                    \end{itemize}   
+            \end{itemize} \\
+
+    \bottomrule
+    
+\end{tabularx}
+\end{table}
+
+\noindent 
+\textbf{Sätze}
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+    5.4.5 & Es seien $(a_n), (b_n), (c_n), (d_n) \in \mathbb{F_+}$ und $\alpha, \beta \in \mathbb{R_+}$. Dann gilt: \hfill \break
+            \begin{itemize}
+                \item[a)] Sind $a_n, b_n \in O(c_n)$, so ist auch $\alpha a_n + \beta b_n \in O(c_n)$
+                \item[b)] Gilt $a_n \in O(b_n)$ und $c_n \in O(d_n)$, so ist $a_n c_n \in O(b_n d_n)$
+                \item[c)] Aus $a_n \in O(b_n)$ und $b_n \in O(c_n)$ folgt $a_n \in O(c_n)$
+                \item[d)] $a_n \in O(b_n)$ genau dann, wenn $\frac{1}{b_n} \in O(\frac{1}{a_n})$
+                \item[e)] Diese Aussagen gelten auch alle mit Klein-O anstatt Gro\ss-O 
+            \end{itemize} \\
+
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Bemerkungen}
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+    5.4.2 & \begin{itemize}
+                \item[a)] $=$-Zeichen wird hier nicht bekannten mathematischen Sinne verwendet
+                \item[] $\Rightarrow$ Kompromiss Notation $a_n \in O(b_n)$ 
+                \item[b)] Es gilt immer $o(b_n) \subseteq O(b_n)$. 
+                \item[c)] $(\frac{a_n}{b_n})_{n \in \mathbb{N}}$ konvergent $\Rightarrow$ $a_n \in O(b_n)$
+                \item[d)] $a_n \in O(b_n)$: Folge $a_n$ wächst höchstens so schnell wie ein Vielfaches von $b_n$  
+            \end{itemize} \\
+    \midrule
+          & Exponentielle Algorithmen sind viel schlechter als polynomiale. \\
+    \midrule
+          & \includegraphics[width=7cm]{landau.PNG} \\
+
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Reihen}
+\noindent
+\textbf{Definitionen}
+\begin{table}[H]  
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+    
+    & \\
+
+    \bottomrule
+    
+\end{tabularx}
+\end{table}
+
+\noindent 
+\textbf{Sätze}
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+    & \\
+
+    \bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent
+\textbf{Bemerkungen}
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{X m{16cm}}
+    \toprule
+
+    & \\
+
     \bottomrule
 \end{tabularx}
 \end{table}
@@ -454,4 +639,8 @@
     \bottomrule
 \end{tabularx}
 \end{table}
+\subsection{Absolute Konvergenz}
+\subsection{Das Cauchy-Produkt}
+
+
 \end{document}
