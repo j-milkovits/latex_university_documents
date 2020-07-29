@@ -1175,4 +1175,232 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\section{Mikroarchitekturen von Rechnersystemen}
+\subsection{Begrifflichkeiten und Grundlagen}
+    \begin{itemize}
+        \item \textbf{Drei Phasen der Befehlsausführung}
+            \begin{itemize}
+                \item Befehle, als auch Daten stehen im Speicher
+                \item \textit{Befehlsholphase:} Prozessor liest die Befehle aus dem Speicher
+                \item \textit{Befehlsdekodierung:} Dekodierung des Befehls, nachdem dieser in ein Register geholt wurde
+                \item \textit{Befehlsausführung:} Ausführung des Befehls, danach Holen des nächsten Befehls
+            \end{itemize}
+
+        \item \textbf{Takt/Taktfrequenz}
+            \begin{itemize}
+                \item Gemeinsame Zeitbasis der Komponenten eines Rechnersystems: Takt
+                \item Beim Takt handelt es sich um ein Rechtecksignal
+                \item Dient der Synchronisation der Komponenten eines Rechnersystems
+                \item Taktfrequenz: $f = \frac{1}{T}$
+                \item Je höher Taktfrequenz, desto schneller werden Daten verarbeitet
+                \item Leistungssteigerung durch Erhöhen der Taktfrequenz (CMOS: $P = U^2 \cdot f \cdot C_l$)
+            \end{itemize}
+
+        \item \textbf{Terminologie}
+            \begin{itemize}
+                \item \textit{ISA}: instruction set architecture (Menge der verfügbaren Befehle)
+                \item \textit{RISC}: reduced instruction set computer (kleine ISA)
+                \item \textit{CISC}: complex instruction set computer (aufwendige ISA)
+                \item \textit{SIMD}: single instruction multiple data (paralleles Arbeiten)
+                \item \textit{VLIW}: verly long instruction word (static multi-issue)
+                \item \textit{$\mu$arch}: microarchitecture (Hardware, die ISA abarbeitet - ISA Implementierung)
+                    \begin{itemize}
+                        \item \textit{IPC}: Anzahl der Befehle pro Zyklus
+                        \item \textit{ILP}: Pipelining für Parallelismus
+                        \item Sprungvorhersagen,... etc
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Analyse der Rechenleistung}
+    \begin{itemize}
+        \item \textbf{Mikroarchitektur}
+            \begin{itemize}
+                \item \textit{Mikroarchitektur:} Hardware-Implementierung einer Architektur
+                \item \textit{Datenpfad:} Verbindet funktionale Blöcke (Speicher/Prozessor)
+                \item \textit{Kontrollpfad:} Steuersignale/Steuerwerk
+                \item \textit{Eintakt-Implementierung:} Jeder Befehl wird in einem Takt ausgeführt
+                \item \textit{Mehrtakt-Implementierung:} Jeder Befehl wird in Teilschritte zerlegt
+                \item \textit{Pipeline-Implementierung:} Teilschritte + Parallele Ausführung der Teilschritte
+            \end{itemize}
+        \item \textbf{Rechenleistung eines Prozessors}
+            \begin{itemize}
+                \item Ausführungszeit eines Programms
+                \item[] $\Rightarrow$ $Ausfuehrungszeit$ = (\#$Instruktionen$) $\cdot$ ($\frac{Takte}{Instruktion}$) $\cdot$ ($\frac{Sekunden}{Takt})$
+                \item \texttt{CPI}: Takte/Instruktion
+                \item \texttt{Taktperiode}: Sekunden/Takt
+                \item \texttt{IPC}: 1/CPI = Instruktionen/Takt
+            \end{itemize}
+        \item \textbf{Mikroarchitektur ARM}
+            \begin{itemize}
+                \item \textit{Befehlsmenge:} (ldr, add, sub etc)
+                \item \textit{Architekturzustand:} Sichtbare Daten auf Ebene der Architektur
+                \item Sichtbare Daten bestimmen den Zustand (Program Counter, 16 Register, etc)
+            \end{itemize}
+        \item \textbf{Elemente des Architekturzustands}
+            \begin{itemize}
+                \item[] \includegraphics[width=10cm]{architekturzustand.PNG}
+                \item \textit{Register File}
+                    \begin{itemize}
+                        \item A1,A2,.. - \textit{Registeradresse} (4 Bit $\rightarrow$ 16 Möglichkeiten)
+                        \item RD1,RD2,.. - \textit{Register Data} (Ausgabedaten)
+                        \item WD3 - \textit{Write Data 3} (Eingabedaten)
+                    \end{itemize}
+                \item \textit{Status}
+                    \begin{itemize}
+                        \item Gibt Flags an mit 4 Bits (Sign, Zero, Overvlow, Carry)
+                    \end{itemize}
+                \item \textit{Program Counter (PC)}
+                \item \textit{Instruction Memory}
+                    \begin{itemize}
+                        \item A - \textit{Adressen}
+                        \item RD - \textit{Read Data} (Instruktionen)
+                    \end{itemize}
+                \item \textit{Data Memory}
+                    \begin{itemize}
+                        \item WE - \textit{Write Enable} (Benötigt für Schreibprozesse - Steuersignal)
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Von-Neumann-/Harvard-Architektur}
+            \begin{itemize}
+                \item Von-Neumann: gemeinsamer Speicher für Befehle und Daten
+                \item Harvard-Architektur: Befehlsspeicher und Datenspeicher sind getrennt
+                \item Verhalten des Speichers: Asynchrones Lesen möglich, jedoch nur Synchrones Schreiben
+            \end{itemize}
+
+        \item \textbf{Vorgehensweise und Bitfelder eines Befehls}
+            \begin{itemize}
+                \item Hier: Befehl \texttt{ldr}
+                \item Allgemein: \texttt{ldr Rd, [Rn, imm12]} (imm12: intermediate value - 12 Bit)
+                \item[] \includegraphics[width=10cm]{befehlsBitfeld.PNG}
+                \item 32 Bit Länge -> z.B.: E13A0110 (In Hexa)
+                \item \textbf{Rd}: Adresse register destination
+                \item Ganz hinten entweder Register oder Direktwert (festgelegt durch \textbf{I})
+                \item Vorne: Conditions für die Ausführung (möglich für \textit{jeden} Befehl)
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Eintakt-Prozessor}
+    \begin{itemize}
+        \item \textbf{Phasen der Befehlsausführung}
+            \begin{itemize}
+                \item[] \includegraphics[width=6cm]{phasenBefehl.PNG}
+            \end{itemize}
+
+        \item \textbf{Ablauf der Befehlsausführung anhand eines Eintaktprozessors}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{1. Befehl holen} \\
+                        \includegraphics[width=7cm]{ep1.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{2.Lesen der Quelloperanden vom Registerfeld} \\
+                        \includegraphics[width=7cm]{ep2.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{3. Erweiterung Direktwert (32 Bit)} \\
+                        \includegraphics[width=7cm]{ep3.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{4. Berechnung der Speicheradresse} \\
+                        \includegraphics[width=7cm]{ep4.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{5. Lesen aus Speicher und Schreiber in Register} \\
+                        \includegraphics[width=7cm]{ep5.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{6. Berechnung der nächsten Befehladresse} \\
+                        \includegraphics[width=7cm]{ep6.PNG}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Befehl str}
+            \begin{itemize}
+                \item \texttt{STR Rd, [Rn, imm12]} (Rd hier Quellregister nicht Ziel - Rd nach Speicher schreiben)
+                \item Erweiterung des Datenpfades zur Realisierung von \texttt{str}
+                \item Schreibe DAtum vom registerfeld in den Datenspeicher
+                \item[] \includegraphics[width=10cm]{estr.PNG}
+            \end{itemize}
+
+        \item \textbf{Arithmetische und logische Befehle}
+            \begin{itemize}
+                \item \texttt{ADD Rd, Rn, imm8}
+                \item[] \includegraphics[width=8cm]{ep8.PNG}
+                \item \textbf{\textit{immediate Src2} (Src2 hier als Direktwert)}
+                \item[] $\Rightarrow$ Steuersignal \textit{ImmSrc} regelt um wieviele Bits erweitert wird
+                \item[] $\Rightarrow$ 0: Erweiterung um 24 Bit (ALU-Befehle) | 1: Erweiterung um 20 Bit (ldr,str Befehle)
+                \item[] $\Rightarrow$ Erweiterung um Multiplexer 
+                \item[] $\Rightarrow$ Schreibe ALUResult in Registerfeld statt Speicher (je nach Multiplexer)
+                \item[] \includegraphics[width=10cm]{ep7.PNG}
+                \item \textbf{\textit{Register Src2} (Src2 hier als Register)}
+                \item[] $\Rightarrow$ Multiplexer vor Register File und nach Extend
+                \item[] \includegraphics[width=10cm]{ep9.PNG}
+            \end{itemize}
+
+        \item \textbf{Arithmetisch Logische Einheit}
+            \begin{itemize}
+                \item[] 
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=8cm]{alu.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=6cm]{aluC.PNG}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Sprungbefehl b}
+            \begin{itemize}
+                \item Berechnen der Sprungadresse
+                \item BTA = (ExtImm) + (PC + 8)
+                \item ExtImm = Imm24 << 2 inkl. Vorzeichenerweiterung+
+                \item[] \includegraphics[width=10cm]{ep10.PNG}
+            \end{itemize}
+
+        \item \textbf{ExtImm}
+            \begin{itemize}
+                \item Unterschiedliche Funktionen werden benötigt
+                \item Erweiterung der Werte auf 32 Bit wird benötigt
+                \item[] \includegraphics[width=8cm]{ep11.PNG}
+                \item[] 6\{Instr$_{23}$\} $\rightarrow$ Erstes Bit 6x (Sprungbefehl)  
+            \end{itemize}
+
+        \item \textbf{Kontrolleinheit}
+            \begin{itemize}
+                \item[] \includegraphics[width=10cm]{ep12.PNG}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=7cm]{ep13.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \includegraphics[width=7cm]{ep14.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        Beispiel: \textit{add r1,r2,r3} (1110 $\rightarrow$ always) \\
+                        \includegraphics[width=7cm]{ep15.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        Beispiel: \textit{andeq r5,r6,47} \\
+                        \includegraphics[width=7cm]{ep16.PNG}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Condition Field}
+            \begin{itemize}
+                \item Verwendung dieser Codes für jeden Befehl als Condition möglich
+                \item[] \includegraphics[width=7cm]{conditionfield.PNG}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Mehrtakt-Prozessor}
+
+\subsection{Pipeline-Prozessor}
+
+\subsection{Ausnahmebehandlung}
 \end{document}
