@@ -181,7 +181,6 @@
     \end{itemize}
 
 \section{Einführung in die maschinennahe Programmierung}
-
 \subsection{Begrifflichkeiten und Grundlagen}
     \begin{itemize}
         \item \textbf{Allgemein}
@@ -1399,6 +1398,140 @@
     \end{itemize}
 
 \subsection{Mehrtakt-Prozessor}
+    \begin{itemize}
+        \item \textbf{Zustandselemente im Mehrtakt-Prozessor}
+            \begin{itemize}
+                \item Ersetze getrennte Instruktions- und Datenspeicher (Harvard-Architektur)
+                \item durch einen gemeinsamen Speicher (Von-Neumann-Architektur)
+                \item[] \includegraphics[width=8cm]{mp1.PNG}
+            \end{itemize}
+
+        \item \textbf{Ablauf der Befehlsausführung anhand eines Mehrtaktprozessors}
+            \begin{itemize}
+                \item Register werden hier zum Zwischenspeichern von Werten genutzt
+                \item[] $\Rightarrow$ Damit Wert aufgrund von Takt nicht verloren geht
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \textit{1. Hole Instruktion (Bsp. ldr)} \\
+                        \includegraphics[width=7cm]{mp2.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \textit{2. Lese Quelle aus Register/Auswertung Direktwert} \\
+                        \includegraphics[width=7cm]{mp3.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \textit{3. Berechne Speicheradresse (Basis + Offset)} \\
+                        \includegraphics[width=7cm]{mp4.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \textit{4. Lese Daten aus Speicher} \\
+                        \includegraphics[width=7cm]{mp5.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \textit{5. Schreibe Daten in Register} \\
+                        \includegraphics[width=7cm]{mp6.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \textit{6. Berechne Adresse nächster Befehl} \\
+                        \includegraphics[width=7cm]{mp7.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \textit{7. Behandlung von r15} \\
+                        \includegraphics[width=7cm]{mp8.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \textit{Erweiterung für str} \\
+                        \includegraphics[width=7cm]{mp9.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \textit{Arithmetische/logische Befehle} \\
+                        \includegraphics[width=7cm]{mp10.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \textit{Sprungbefehl b} \\
+                        \includegraphics[width=7cm]{mp11.PNG}
+                    \end{minipage}
+            \end{itemize}
+        
+        \item \textbf{Datenpfad und Kontrolleinheit}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.6\textwidth}
+                        \includegraphics[width=10cm]{mp12.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.3\textwidth}
+                        \includegraphics[width=5cm]{mp13.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Kontrolleinheit - Detail} \\
+                        \includegraphics[width=7cm]{mp14.PNG}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Entwicklung des Steuerwerks}
+            \begin{itemize}
+                \item Setzen gewisser Steuersignale beim Holen eines Befehls ist notwendig
+                \item Steuersignale sind solange 1, wie sie in Zuständen dediziert auf 1 gesetzt sind
+                \item[]
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=8cm]{mp15.png}
+                    \end{minipage}
+                    \begin{minipage}{0.3\textwidth}
+                        \includegraphics[width=5cm]{mp16.PNG}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{1. Fetch} \\
+                        \includegraphics[width=8cm]{mp17.png}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{2. Decode ldr} \\
+                        \includegraphics[width=8cm]{mp18.png}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{3. Execute} \\
+                        \includegraphics[width=8cm]{mp20.png}
+                    \end{minipage}
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[width=6cm]{mp19.png}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=8cm]{mp21.png}
+                    \end{minipage}
+                \item \textit{Fetch} und \textit{Decode} sind für alle Befehle gleich
+                \item \textit{S4:MemWB} schreibt das Ergebnis, danach wird zum nächsten Befehl übergegangen
+                \item 5 versch. Phasen (könnten z.B. 5 Takte sein $\rightarrow$ Überlagern mit Pipelining)
+            \end{itemize}
+
+        \item \textbf{Eintakt- vs Mehrtaktprozessor}
+            \begin{itemize}
+                \item \textit{Gemeinsamkeiten}
+                    \begin{itemize}
+                        \item \textbf{Datenpfad}: verbindet funktionale Blöcke
+                        \item \textbf{Kontrollpfad}: Steuersignale/Steuerwerk
+                    \end{itemize}
+                \item \textit{Eintakt-Prozessor}
+                    \begin{itemize}
+                        \item[+] einfach
+                        \item[-] Taktfrequenz wird durch langsamste Instruktion bestimmt
+                        \item[-] Drei ALUs und zwei Speicher  
+                    \end{itemize}
+                \item \textit{Mehrtakt-Prozessor}
+                    \begin{itemize}
+                        \item[+] höhere Taktfrequenz
+                        \item[+] einfache Instruktionen laufen schneller
+                        \item[+] bessere Wiederverwendung von Hardware in versch. Takten
+                        \item[-] aufwendigere Ablaufsteuerung   
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
 
 \subsection{Pipeline-Prozessor}
 
