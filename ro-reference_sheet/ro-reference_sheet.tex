@@ -1534,6 +1534,111 @@
     \end{itemize}
 
 \subsection{Pipeline-Prozessor}
+    \begin{itemize}
+        \item \textbf{Befehlsausführung}
+            \begin{itemize}
+                \item \textit{5 Phasen bei ARM}
+                    \begin{itemize}
+                        \item Instruction Fetch
+                        \item Instruction Decode, Read Register
+                        \item Execute ALU
+                        \item Memory Read/Write
+                        \item Write Register
+                    \end{itemize}
+                \item Idee: Pipelining dieser Befehlsausführung (siehe unten)
+                \item[] \includegraphics[width=10cm]{pipelineIdee.PNG}
+            \end{itemize}
 
-\subsection{Ausnahmebehandlung}
+        \item \textbf{Abstrakte Darstellung}
+            \begin{itemize}
+                \item Vereinfachte Darstellung des Datenpfads der Mikroarchitektur
+                \item[] \includegraphics[width=12cm]{pipelineAbstrakt.PNG}
+                \item \textit{IM}: Instruction Memory
+                \item \textit{RF}: Register Field
+                \item \textit{DM}: Data Memory
+                \item Hinterer Teil grau: lesen / vorderer Teil grau: schreiben 
+            \end{itemize}
+
+        \item \textbf{Datenpfad}
+            \begin{itemize}
+                \item Einführung von Registern $\rightarrow$ Führt zur Überlappung der Befehlsphasen
+                \item[] \includegraphics[width=12cm]{pipelineDaten.PNG}
+                \item Führung der Zieladresse über Register (da diese sonst verloren geht)
+                \item[] \includegraphics[width=12cm]{pipelineZiel.PNG}
+                \item Optimierung der Program Counter Logik
+                \item[] \includegraphics[width=12cm]{pipelineProgram.png}
+                \item Kontrolleinheit (blau: Kontrollpfad)
+                \item[] \includegraphics[width=12cm]{pipelineControl.png}  
+            \end{itemize}
+    \end{itemize}
+\subsection{Ausnahmebehandlung - Hazards}
+    \begin{itemize}
+        \item \textbf{Information}
+            \begin{itemize}
+                \item Treten auf wenn Instruktion auf Ergebnis vorhergehender wartet, dieses aber noch nicht vorhanden ist
+                \item \textit{Data Hazard:} z.B. neuer Wert von Register noch nicht in Registerfeld eingetragen
+                \item \textit{Control Hazard:} Unklar, welche Instruktion als nächstes ausgeführt wird (Sprünge) 
+            \end{itemize}
+        
+        \item \textbf{Data Hazard}
+            \begin{itemize}
+                \item Hier: \textit{Read-After-Write Hazard (Raw)} (r1 muss vor Lesen geschrieben werden)
+                \item[] \includegraphics[width=10cm]{datahazard.PNG}
+                \item \textit{Möglichkeiten:}
+                    \begin{itemize}
+                        \item Plane Wartezeiten von Anfang an ein (Einfügen von \textit{nops} (no operations) zur Compilezeit)
+                        \item Stelle Maschinencode zur Compile-Zeit um (\textit{scheduling/reordering})
+                        \item Leite Daten zur Laufzeit schneller über Abkürzungen weiter (\textit{bypassing/forwarding})
+                        \item Halte Prozessor zur Laufzeit an bis Daten da sind (\textit{stalling})
+                    \end{itemize}
+                \item \textit{Einfügen von nops}
+                    \begin{itemize}
+                        \item[] \includegraphics[width=10cm]{hazardNops.png}
+                    \end{itemize}
+                \item \textit{Bypassing/Forwarding}
+                    \begin{itemize}
+                        \item Früheres Einfügen in anderen Pipelinevorgang
+                        \item Benötigt Erweitern der Datenpfade
+                        \item[]
+                            \begin{minipage}{0.45\textwidth}
+                                \includegraphics[width=8cm]{hazardBy.PNG}
+                            \end{minipage}
+                            \begin{minipage}{0.45\textwidth}
+                                \includegraphics[width=8cm]{hazardData.png}
+                            \end{minipage}
+                    \end{itemize}
+                \item \textit{Stall}
+                    \begin{itemize}
+                        \item Wird z.B. bei \texttt{ldr} benötigt
+                        \item[] \includegraphics[width=10cm]{dataLdr.PNG}
+                        \item Lösung: Pipeline-Stall
+                        \item Nachteil: Mehr Cycles / Benötigt auch Anpassung der Datenpfade
+                        \item[]
+                            \begin{minipage}{0.45\textwidth}
+                                \includegraphics[width=8cm]{dataStall.PNG}
+                            \end{minipage}
+                            \begin{minipage}{0.45\textwidth}
+                                \includegraphics[width=8cm]{dataStallData.png}
+                            \end{minipage}
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Control Hazards}
+            \begin{itemize}
+                \item \string"Leerung\string" der Instruktionen bei Sprungbefehl
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Leerung der anderen Instruktionen bei Sprung} \\
+                        \includegraphics[width=7cm]{hazardControl1.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Optimierung (frühere Feststellung des Sprungs)} \\
+                        \includegraphics[width=7cm]{hazardControl2.PNG}
+                    \end{minipage}
+                \item Anpassung der Datenpfade
+                \item[] \includegraphics[width=10cm]{hazardControl3.PNG}
+            \end{itemize}
+    \end{itemize}
+
+
 \end{document}
