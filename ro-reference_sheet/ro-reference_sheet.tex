@@ -1640,5 +1640,241 @@
             \end{itemize}
     \end{itemize}
 
+\section{Gleitkommazahlen/Gleitkommarechenwerte}
 
+\subsection{Gleitkommazahlen}
+    \begin{itemize}
+        \item \textbf{Zahlendarstellung in Rechnersystemen}
+            \begin{itemize}
+                \item Unterscheidung zwischen ganzen Zahlen und reellen Zahlen
+                \item[] \includegraphics[width=8cm]{zahlendarstellung.png}
+            \end{itemize}
+
+        \item \textbf{Darstellung reeller Zahlen}
+            \begin{itemize}
+                \item \textit{Festkommadarstellung}
+                    \begin{itemize}
+                        \item Weglassen des Kommas bei der internen Zahlenbildung
+                        \item Definierung zu Programmbeginn, bleibt daraufhin fest
+                    \end{itemize}
+                \item \textit{Gleitkommadarstellung}
+                    \begin{itemize}
+                        \item Kommastelle ist Bestandteil der Zahl und kann sich verändern
+                        \item Standardisiert nach ANSI/IEEE 754 (Keine Angabe des Kommas notwendig)
+                        \item Weltweit durchgesetzt - Grundlage für weltweiten Datenaustausch/Rechenwerke
+                    \end{itemize}
+                \item \textit{Formate Gleitkommadarstellung}
+                    \begin{itemize}
+                        \item Hinten: Mantisse | s: Vorzeichenbit
+                        \item[] \includegraphics[width=10cm]{gleitkommaFormate.PNG}
+                        \item Besonderheiten: Null kann durch Normalisierung nicht dargestellt werden
+                        \item[] \includegraphics[width=8cm]{gleitkomma0.PNG} 
+                    \end{itemize}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Code-Analyse}
+    \begin{itemize}
+        \item \textit{Beispiel 1:}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[height=5cm]{bsp1Code.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[height=7cm]{bsp1Ass.PNG}
+                    \end{minipage}
+                \item \textit{s-Register}: Single Register (Precision) (32 Bit Register)
+                \item \textit{d-Register}: Double Register (Precision) (64 Bit Register)
+                \item Speicherung der Konstanten im Dezimalsystem:
+                    \begin{itemize}
+                        \item[] p = 5.4 $\rightarrow$ 1085066445 $\rightarrow$ 0100 0000 1010 1100 1100 1100 1100 1101 (Umrechnung)
+                    \end{itemize}
+                \item Neue Befehle und Register:
+                    \begin{itemize}
+                        \item[] vldr.32, vadd.f32, s14, s15, d7,..
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textit{Beispiel 2:}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[height=5cm]{bsp2Code.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.4\textwidth}
+                        \includegraphics[height=7cm]{bsp2Ass.PNG}
+                    \end{minipage}
+                \item Speicherung der Konstanten im Dezimalsystem - je 2 32 Bit pro 64 Bit Zahl:
+                    \begin{itemize}
+                        \item[] p = 5.4 $\rightarrow$ -1717986918\_1075157401
+                        \item[] q = 12.6 $\rightarrow$ 858993459\_1076441907
+                    \end{itemize}
+                \item Neue Befehle und Register:
+                    \begin{itemize}
+                        \item[] strd, vldr.64, vadd.f64, d6, d7, ...
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textit{CPU-Informationen unter Linux}
+            \begin{itemize}
+                \item \texttt{cat /proc/cpuinfo}
+                \item \textit{features:} vfp, neon, vfpv3, vfpv4 für Gleitkommazahlen
+                \item[] \includegraphics[width=7cm]{cpuinfo.png}
+            \end{itemize}
+        
+    \end{itemize}
+
+\subsection{Studium der Datenblätter/Handbücher}
+
+    \begin{itemize}
+        \item \textbf{Suche}
+            \begin{itemize}
+                \item Suche im Internet nach Datenblättern
+                \item Fund: Datenblätter/Handbücher zum Programmiermodell
+                \item Fund: Datenblätter/Handbücher zur Hardware-Architektur
+            \end{itemize} 
+
+        \item \textbf{Handbuch zum Programmiermodell}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.3\textwidth}
+                        \textit{Registersatz} \\
+                        \includegraphics[height=4cm]{registersatz2.png}
+                    \end{minipage}
+                    \begin{minipage}{0.6\textwidth}
+                        \textit{Befehle} \\
+                        \includegraphics[height=4cm]{befehle.png}
+                    \end{minipage}
+                \item[] \textit{Bemerkungen}
+                    \begin{itemize}
+                        \item Zwei Möglichkeiten Gleitkommazahlen zu verarbeiten
+                        \item \textit{Funktionseinheit NEON}
+                        \item \textit{Funktionseinheit VFP}
+                        \item Beide Funktionseinheiten verwenden selbe Register
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Mögliche Realisierung einer Gleitkommaeinheit}
+            \begin{itemize}
+                \item Auslagerung in sog. Gleitkomma-Coprozessoren (heutzutage in einem Chip)
+                \item Diese besitzen iooft separate Instruktions-Pipelines 
+                    \begin{itemize}
+                        \item Multiplikations und Additions Pipeline (FMAC)
+                        \item Divisions und Quadratwurzel Pipeline (DS)
+                    \end{itemize}
+                \item Pipelines können auch unabhängig voneinander operieren
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{FMAC-Pipeline} \\
+                        \includegraphics[width=7cm]{fmac.png}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{DS-Pipeline} \\
+                        \includegraphics[width=7cm]{ds.png}
+                    \end{minipage}
+                \item \textit{Analyse der Assembler-Köpfe}
+                    \begin{itemize}
+                        \item Wahl welcher Übersetzung (NEON: \texttt{gcc -mfpu=neon xyz.c})
+                        \item[] \includegraphics[width=6cm]{neon.png}
+                    \end{itemize}
+            \end{itemize}
+
+    \end{itemize}
+
+\subsection{SIMD}
+
+    \begin{itemize}
+        \item \textbf{Informationen}
+            \begin{itemize}
+                \item \textit{SIMD}: Single Instruction Multiple Data
+                \item Integration dedizierter Funktionseinheiten in Prozessor zur Beschleunigung von Berechnungen
+                \item Für Ganzzahl und Gleitkommazahlen
+                \item Beschleunigt z.B. Signalverarbeitung, Video Encodierung, Bildverarbeitung,..
+                \item Bei ARM: \textit{NEON}
+            \end{itemize}
+
+        \item \textbf{NEON}
+            \begin{itemize}
+                \item SIMD-Einheit in den ARM Cortex-A Serie Prozessoren
+                \item NEON führt \textit{\string"Packed SIMD\string"} aus
+                    \begin{itemize}
+                        \item Register werden als Vektoren von Elementen desselben Datentyps betrachtet
+                        \item Verschiedene Datentypen sind jedoch möglich
+                        \item gleichzeitige Ausführung der Befehle in sog. \string"lanes\string"
+                    \end{itemize}
+                \item \textit{NEON Register}
+                    \begin{itemize}
+                        \item \textit{AArch32} hat 32 x 64 Bit NEON Register (D0 - D31)
+                        \item Diese können auch als 16 x 128 Bit Register gesehen werden (Q0 - Q15)
+                        \item[] \includegraphics[width=6cm]{neonRegister.png}
+                    \end{itemize}
+                \item \textit{NEON Befehle}
+                    \begin{itemize}
+                        \item Format: V\{<mod>\}<op>\{<shape>\}\{<cond>\}\{.<dt>\}\{<dest>\}, src1, src2
+                        \item Modifier (mod): z.B. Q: der Befehl nutzt Saturations-Arithmetik
+                    \end{itemize}
+                \item \textit{Saturations-Arithmetik}
+                    \begin{itemize}
+                        \item Resultate werden auf einen festen Bereich zwischen minimalen und maximalen Wert begrenzt
+                        \item Kleiner als Minimum $\rightarrow$ Minimum / Grö\ss er als Maximum $\rightarrow$ Maximum
+                    \end{itemize}
+                \item \textit{Beispiel I}
+                    \begin{itemize}
+                        \item[] \includegraphics[width=8cm]{neonBsp1.png}
+                        \item[] Beide Ausgangsregister 64 Bit, Zielregister 128 Bit (z.B. Multiplikation)
+                    \end{itemize}
+                \item \textit{Beispiel II}
+                    \begin{itemize}
+                        \item[] \includegraphics[width=8cm]{neonBsp2.png}
+                        \item[] Ein Ausgangsregister 128 Bit, das Andere 64 Bit, Zielregister 128 Bit
+                    \end{itemize}
+                \item \textit{Beispiel III}
+                    \begin{itemize}
+                        \item[] \includegraphics[width=8cm]{neonBsp3.png}
+                        \item[] Beide Ausgangsregister, Zielregister 64 Bit (z.B. Multiplikation)
+                    \end{itemize}
+                \item \textit{Beispielcode}
+                    \begin{itemize}
+                        \item \texttt{VMULL.S16 Q2, D8, D9}
+                    \end{itemize}
+                \item \textit{NEON-Programmierung}
+                    \begin{itemize}
+                        \item NEON optimized libraries
+                        \item Vectorizing compilers (gcc)
+                        \item NEON intrinsics
+                        \item NEON assembly
+                    \end{itemize}
+            \end{itemize} 
+
+        \item \textbf{Klassifikation von Flynn}
+            \begin{itemize}
+                \item Aufteilung in sog. \textit{Instruction Streams} und \textit{Data Streams}
+                \item Grobe Klassifikation - Aber stark etablierte Begriffe
+                \item Verschiedene Aspekte werden nicht oder nur groß erfasst (Pipelining, Wortbreite, Speicher,..)
+                \item \textit{Instruction Stream}
+                    \begin{itemize}
+                        \item SI - Single Instruction
+                        \item MI - Multiple Instruction
+                    \end{itemize}
+                \item \textit{Data Straem}
+                    \begin{itemize}
+                        \item SD - Single Data
+                        \item MD - Multiple Data
+                    \end{itemize}
+                \item \textit{Kombinationen}
+                    \begin{itemize}
+                        \item \textit{SISD} - Von-Neumann-Rechner
+                        \item \textit{SIMD} - Feldrechner, Vektorrechner
+                        \item \textit{MIMD} - Multiprozessorsysteme
+                        \item \textit{MISD} - Keine Anwendung
+                    \end{itemize}
+                \item \textit{Veranschaulichung}
+                    \begin{itemize}
+                        \item[] \includegraphics[width=7cm]{flynn.png}
+                    \end{itemize}
+    
+            \end{itemize}
+    \end{itemize}
+    
 \end{document}
