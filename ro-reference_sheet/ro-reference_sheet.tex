@@ -1876,5 +1876,395 @@
     
             \end{itemize}
     \end{itemize}
-    
+
+\section{Speicher}
+\subsection{Speicher}
+
+    \begin{itemize}
+        \item \textbf{Bisheriges Modell}
+            \begin{itemize}
+                \item Drei Phasen der Befehlsausführung
+                \item Prozessor mit Registern
+                \item Speicher (var1: .word 5)
+                \item Hier besteht der Speicher nur aus einem linearen Feld aus Bytes
+                \item Die CPU kann auf jede Speicherzelle in konstanter Zeit zugreifen
+                \item[] $\Rightarrow$ Einfaches Modell, welches die Realität nicht abbildet
+            \end{itemize}
+        
+        \item \textbf{Speicherhierarchie}
+            \begin{itemize}
+                \item Lesen und Schreiben in einen Speicher dauert gewisse Zeit
+                \item[] $\Rightarrow$ Relativ lang im Vergleich zur Taktfrequenz
+                \item Von-Neumann: Daten, Befehle etc müssen alle nacheinander aus dem Speicher geholt werden
+                \item Harvard: Obiges kann auch parallel ausgeführt werden
+                \item Einführung von Pipelinestufen möglich
+                \item \textit{Speicherhierarchie-Pyramide}:
+                \item[] \includegraphics[width=8cm]{speicherpyramide.PNG} 
+            \end{itemize}
+
+        \item \textbf{Eigenschaften von Speichern}
+            \begin{itemize}
+                \item \textit{Kosten und Zugriffszeit}
+                    \begin{itemize}
+                        \item \textit{Kosten:} Messung in Dollar/Bit oder Dollar/MByte
+                        \item \textit{Zugriffszeit:} durchschn. Zeit um Wort aus Speicher zu lesen
+                        \item \textit{Zykluszeit:} minimale Zeit zwischen zwei Speicherzugriffen
+                        \item Das Busprotokoll ist hierfür auch von Relevanz
+                        \item \textit{Bandbreite:} Maximale Datenmenge, die pro Sekunde übertragen werden kann (Byte/sec)
+                    \end{itemize}
+                \item \textit{Geschwindigkeit und Kapazität}
+                \item \textit{Zugriffsverfahren}
+                    \begin{itemize}
+                        \item Zwei verschiedene Zugriffsverfahren
+                        \item \textit{Random Access Zugriff}
+                            \begin{itemize}
+                                \item Register
+                                \item Cache-Speicher
+                                \item Hauptspeicher
+                            \end{itemize}
+                        \item \textit{Serieller Zugriff}
+                            \begin{itemize}
+                                \item Festplatte
+                                \item Optische Daten
+                                \item Magnetband
+                            \end{itemize}
+                    \end{itemize}
+                \item \textit{Änderbarkeit}
+                    \begin{itemize}
+                        \item \textit{Read-Only:} Nur Lesen möglich, kein Überschrieben (ROM)
+                        \item \textit{Read-Write:} Inhalt kann während des Betriebs geändert werden (RAM)
+                        \item \textit{Read-Mostly:} (PROM-Halbleiterspeicher, z.B. für BIOS)
+                    \end{itemize}
+                \item \textit{Permanenz}
+                    \begin{itemize}
+                        \item \textit{Flüchtige Speicher:} Inhalt geht bei Stromausfall verloren (Register, Hauptspeicher)
+                            \begin{itemize}
+                                \item dynamische Speicher: Periodische Erneuerung der Spannung gegen Informationsverlust
+                                \item statischer Speicher: Kein Refreshing wie beim dynamischen notwendig
+                            \end{itemize}
+                        \item \textit{Nicht flüchtige Speicher:} Inhalt bleibt erhalten (ROM, PROM, Festplatte)
+                    \end{itemize}
+            \end{itemize}
+        
+        \item \textbf{Speichertechnologien - Random-Access-Memory}
+            \begin{itemize}
+                \item \textit{Statisches RAM} (SRAM)
+                \item \textit{Dynamisches RAM} (DRAM)
+                \item SRAM schneller und deutlich teurer als DRAM
+                \item SRAM $\Rightarrow$ Cache / DRAM $\Rightarrow$ Hauptspeicher
+                \item Verteilung meist: 12MB SRAM / 8GB+ DRAM
+                \item[]
+                    \begin{minipage}{0.4\textwidth}
+                        \item \textit{Organisation des Speichers}
+                        \item[] \includegraphics[width=7cm]{speicherOrga.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \begin{itemize}
+                            \item Cellarray mit Rows und Columns
+                            \item Wordline: 32 Bit Wort z.B.
+                            \item Storage Cell: speichert 1 Bit (0/1)
+                            \item Auswahl über Zeilenadresse + Bitline
+                            \item Amplifier: Verstärkung geringer Spannungen
+                            \item Ausgabe: Diskrete 0 oder 1
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Statisches RAM}
+            \begin{itemize}
+                \item Speichert Informationen solange, wie Spannungsversorgung angeschaltet ist
+                \item Bistabile Schaltung (zwei stabile Zustände) (wird nicht so in der Klausur abgefragt)
+                \item 6T Zelle wegen 6 Transistoren
+                \item[] \includegraphics[width=5cm]{staticRam1.png}
+            \end{itemize}
+
+        \item \textbf{Dynamisches RAM}
+            \begin{itemize}
+                \item Speichert Informationen in einem Kondensator
+                \item Bezeichnung als 1T-Zelle
+                \item Refresh-Zyklus notwendig, da Kondensator sich entleert
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \includegraphics[width=7cm]{dynamicRam1.PNG}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \includegraphics[width=7cm]{dynamicRam2.PNG}
+                    \end{minipage}
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Speicherorganisation}
+    \begin{itemize}
+        \item \textbf{Bezeichnungen}
+            \begin{itemize}
+                \item Eigenschaften eines RAM-Chips werden durch zwei Grö\ss en gegeben
+                    \begin{itemize}
+                        \item \textit{Anzahl adressierbarer Plätze}
+                        \item \textit{Breite in Bit jedes adressierbaren Platzes}
+                    \end{itemize}
+                \item \textit{Bsp: 256K x 1 SRAM}
+                    \begin{itemize}
+                        \item 256K Einträge mit 1 Bit Breite
+                        \item 256K = $2^18$ $\rightarrow$ 18 Adresseingänge + 1 Bit Dateneingang/ausgang
+                    \end{itemize}
+                \item \textit{Bsp: 32K x 8 SRAM}
+                    \begin{itemize}
+                        \item 32K Einträge mit 8 Bit Breite
+                        \item 32K = $2^15$ $\rightarrow$ 15 Adresseingänge + 8 Bit Dateneingang/ausgang
+                        \item[] \includegraphics[width=7cm]{32kx8.png}
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Abstrakte Darstellung eines 128 Bit 16x8 DRAM Chips}
+            \begin{itemize}
+                \item[] \includegraphics[width=8cm]{dram.png}
+                \item[] 16 Felder, 8 Bit Dateneingang/ausgang 
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Auswahl der Reihe - RAS (Row Adress Strobe)} \\
+                        \includegraphics[width=7cm]{ras.png}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Auswahl der Spalte - CAS (Column Adress Strobe)}
+                        \includegraphics[width=7cm]{cas.png}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Verschaltung mehrerer Speichermodule}
+            \begin{itemize}
+                \item[] \includegraphics[width=10cm]{speichermodule.png}
+            \end{itemize}
+
+        \item \textbf{Verbindung von CPU und Speicher}
+            \begin{itemize}
+                \item[] \includegraphics[width=10cm]{verbindung.png}
+            \end{itemize}
+    \end{itemize}
+\subsection{Lokalität}
+
+    \begin{itemize}
+        \item \textbf{Informationen}
+            \begin{itemize}
+                \item Lokalität ist wichtig für eine funktionierende Speicherhierarchie
+                \item \textit{Lokalitätsprinzip:}
+                \item[] Bei Programmausführung wird nur auf einen geringen Teil des Adressraumes zugegriffen
+                \item[] \includegraphics[width=8cm]{lokalität1.png} 
+            \end{itemize}
+
+        \item \textbf{Formen der Lokalität}
+            \begin{itemize}
+                \item \textit{zeitliche (temporale) Lokalität}
+                    \begin{itemize}
+                        \item Nach Zugriff auf Daten wird mit großer Wahrscheinlichkeit bald wieder darauf zugegriffen
+                        \item Bsp.: Schleifen
+                    \end{itemize}
+                \item \textit{räumliche Lokalität}
+                    \begin{itemize}
+                        \item Sukzessiver Zugriff auf Daten, die in der Nähe liegen
+                        \item Bsp.: sequentielle Instruktionsfolgen (ohne Sprünge)
+                        \item Bsp.: Reihungen, Matrizen
+                    \end{itemize}
+            \end{itemize}
+
+        \item \textbf{Vorteile}
+            \begin{itemize}
+                \item Gut geschriebene Programme haben eine gute Lokalität
+                \item Hat hohe Auswirkung auf die Performanz (bessere Lokalität $\rightarrow$ schneller)
+                \item Lokalität der Daten / Lokalität der Befehle
+            \end{itemize}
+
+        \item \textbf{Beispiel 1 - Summe eines Vektors}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \begin{minted}[autogobble]{c}
+                        int sumvec (int v[N])
+                        {
+                            ...
+                            int i, sum = 0;
+
+                            for (i = 0; i < N; i++)
+                                sum += v[i];
+                            return sum;
+                            ...
+                        }
+                        \end{minted}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=7cm]{lokalitätbsp1.png}
+                        \begin{itemize}
+                            \item Gute räumliche Lokalität
+                            \item Schlechte zeitliche Lokalität (1x Zugriff)
+                            \item (i allerdings gute zeitliche Lokalität)
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Beispiel 2 - Summe eines Arrays}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \begin{minted}[autogobble]{c}
+                        int sumvec (int v[N])
+                        {
+                            ...
+                            int sumarrayrows(int a[M][N])
+                            {
+                                int i,j,sum = 0;
+                                for (i = 0; i < M; i++)
+                                    for (j = 0; j < N; j++)
+                                        sum += a[i][j];
+                                return sum;
+                            }
+                            ...
+                        }
+                        \end{minted}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=7cm]{lokalitätbsp2.png}
+                        \begin{itemize}
+                            \item Gute räumliche Lokalität
+                            \item Schlechte zeitliche Lokalität (1x Zugriff)
+                            \item (i allerdings gute zeitliche Lokalität)
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Beispiel 3 - Summe eines Arrays}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.35\textwidth}
+                        \begin{minted}[autogobble]{c}
+                        int sumvec (int v[N])
+                        {
+                            ...
+                            int sumarrayrows(int a[M][N])
+                            {
+                                int i,j,sum = 0;
+                                for (i = 0; i < N; i++)
+                                    for (j = 0; j < M; j++)
+                                        sum += a[i][j];
+                                return sum;
+                            }
+                            ...
+                        }
+                        \end{minted}
+                    \end{minipage}
+                    \begin{minipage}{0.5\textwidth}
+                        \includegraphics[width=7cm]{lokalitätbsp3.png}
+                        \begin{itemize}
+                            \item Schlechte räumliche Lokalität (Springen im Speicher)
+                            \item Schlechte zeitliche Lokalität (1x Zugriff)
+                            \item (i allerdings gute zeitliche Lokalität)
+                        \end{itemize}
+                    \end{minipage}
+            \end{itemize}
+
+        \item \textbf{Lokalität der Befehle}
+            \begin{itemize}
+                \item Befehle sind auch im Speicher abgelegt, hier auch gute Lokalität möglich
+                \item Für die for Schleifen der Beispiele gilt gute räumliche Lokalität
+                \item Schleifenkörper wiederholt ausgeführt $\rightarrow$ gute zeitliche Lokalität
+            \end{itemize}
+
+        \item \textbf{Beispiel 4/5 - Zeilenweises/Spaltenweises Schreiben in ein Array}
+            \begin{itemize}
+                \item[]
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Zeilenweises Schreiben eines Arrays}
+                        \begin{minted}[autogobble]{c}
+                        int main()
+                        {
+                            register long i,j;
+                            static long matrix[DIM][DIM];
+
+                            for (i = 0; i < DIM; i++)
+                                for (j = 0; j < DIM; j++)
+                                    matrix[i][j] = 0;
+
+                            return 0;
+                        }
+                        \end{minted}
+                    \end{minipage}
+                    \begin{minipage}{0.45\textwidth}
+                        \textit{Spaltenweises Schreiben eines Arrays}
+                        \begin{minted}[autogobble]{c}
+                        int main()
+                        {
+                            register long i,j;
+                            static long matrix[DIM][DIM];
+
+                            for (j = 0; j < DIM; j++)
+                                for (i = 0; i < DIM; i++)
+                                    matrix[i][j] = 0;
+
+                            return 0;
+                        }
+                        \end{minted}
+                    \end{minipage}
+                \item[] $\Rightarrow$ Zeilenweises Schreiben um Einiges schneller als spaltenweises
+            \end{itemize}
+
+        
+    \end{itemize}
+
+\subsection{Prinzip des Caches}
+
+    \begin{itemize}
+        \item \textbf{Informationen}
+            \begin{itemize}
+                \item Kleiner, schneller Speicher (SRAM)
+                \item Prozess einen Cache zu benutzen: \textit{caching}
+                \item Schneller, kleinerer Speicher auf Level $k$ fungiert als Cache für langsameren, schnelleren Speicher auf Level $k+1$
+                \item Wird mehrfach angewendet (siehe Speicherhierarchie)
+            \end{itemize}
+
+        \item \textbf{Prinzip des Cachings}
+            \begin{itemize}
+                \item[] \includegraphics[width=10cm]{caching.png}
+                \item Laden ganzer Wordlines $\rightarrow$ Lokalität sehr wichtig
+            \end{itemize}
+
+        \item \textbf{Cache Hits}
+            \begin{itemize}
+                \item Programm benötigt Daten vom Objekt $d$
+                \item[] $\Rightarrow$ Überprüfen, ob $d$ in einem der Blöcke auf Level $k$ gespeichert ist
+                \item Wenn $d$ gefunden wird $\Rightarrow$ \textbf{Cache Hit}
+                \item $k$ schneller als $k+1$ $\Rightarrow$ Geschwindigkeitsvorteil
+                \item (Auch Geschwindigkeitsunterschiede zwischen L1, L2, L3 (Speicherpyramide))
+            \end{itemize}
+
+        \item \textbf{Cache Misses}
+            \begin{itemize}
+                \item Programm benötigt Daten vom Objekt $d$
+                \item[] $\Rightarrow$ Überprüfen, ob $d$ in einem der Blöcke auf Level $k$ gespeichert ist
+                \item Wenn $d$ nicht gefunden wird $\Rightarrow$ \textbf{Cache Miss}
+                \item Cache auf Level $k$ holt dann Block mit $d$ von Cache auf Level $k+1$
+                \item Falls Cache auf Level $k$ bereits voll $\Rightarrow$ Überschreiben (Ersetzung)
+                \item Unterschiedliche Strategien für Blockersetzung (Zufall, Least-Recently-Used (LRU))
+            \end{itemize}
+
+        \item \textbf{Blick auf Speicherhierarchie}
+            \begin{itemize}
+                \item[] Blöcke und Latenz werden nach unten hin größer
+                \item[] \includegraphics[width=8cm]{cachingSpeicher.png} 
+            \end{itemize}
+    \end{itemize}
+
+\subsection{Cachehierarchie ARM / Intel Core i7 }
+
+    \begin{itemize}
+        \item[]
+            \begin{minipage}{0.4\textwidth}
+                \textit{Speicheraufbau} \\
+                \includegraphics[width=7cm]{speicheraufbau.png}
+            \end{minipage}
+            \begin{minipage}{0.45\textwidth}
+                \begin{itemize}
+                    \item Jeder Kern hat eigenen Registersatz
+                    \item d-Cache: Datencache
+                    \item i-Cache: Instruktionscache
+                \end{itemize}
+            \end{minipage}
+    \end{itemize}
 \end{document}
