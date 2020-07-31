@@ -139,6 +139,8 @@
             
     \end{itemize}
 
+\pagebreak
+
 \subsection{Streifzug durch die Geschichte}
 
     \begin{itemize}
@@ -262,7 +264,7 @@
 
     \end{itemize}
 
-\pagebreak
+
 
 \subsection{Phasen der Übersetzung}
 
@@ -311,7 +313,7 @@
         
         \end{itemize}
 
-\pagebreak
+
 
 \subsection{Ausführung eines Programms im Rechnersystem}
         
@@ -333,6 +335,7 @@
                     \item[] \includegraphics[width=9cm]{ausführung3.PNG} 
                 \end{itemize}
         \end{itemize}
+
 
 \pagebreak
 
@@ -416,6 +419,8 @@
             \end{itemize}
     \end{itemize}
 
+
+
 \subsection{Adressierung des Speichers, Lesen und Schreiben auf Speicher}
     \begin{itemize}
         \item \textbf{Allgemeine Verwendung von Registerspeicher}
@@ -425,6 +430,8 @@
                 \item Speichern von häufig verwendeten Daten in Registern (Schleifenvariable)
             \end{itemize}
         
+\pagebreak
+
         \item \textbf{Wort- und Byte-Adressierung von Daten im Speicher }
             \begin{itemize}
                 \item Byte-adressiert: (ARM)
@@ -630,6 +637,8 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \subsection{Nutzung des Hauptspeichers}
     \begin{itemize}
         \item \textbf{Erklärung anhand eines Codebeispiels}
@@ -738,6 +747,7 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
 
 \subsection{Unterprogramme}
     \begin{itemize}
@@ -752,7 +762,7 @@
             \begin{itemize}
                 \item[]
                     \begin{minipage}{0.25\textwidth}
-                        \includegraphics[width=5cm]{makrotechnik.PNG}
+                        \includegraphics[width=3cm]{makrotechnik.PNG}
                     \end{minipage}
                     \begin{minipage}{0.65\textwidth}
                         \begin{itemize}
@@ -781,6 +791,8 @@
                         \end{itemize}
                     \end{minipage}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Funktions- und Prozeduraufruf}
             \begin{itemize}
@@ -845,6 +857,7 @@
             \end{itemize}
     \end{itemize}
         
+\pagebreak
 
 \subsection{Stack}
     \begin{itemize}
@@ -902,7 +915,7 @@
                             mov pc, lr          /* Rücksprung zum Aufrufer */
                             \end{minted}
                         \item[]
-                        \item[] \includegraphics[width = 12cm]{stackGrafik.png}
+                        \item[] \includegraphics[width = 8cm]{stackGrafik.png}
                     \end{itemize}
 
                 \item Verwendung des Stacks auch bei Unterprogrammaufrufen
@@ -932,7 +945,7 @@
     \begin{itemize}
         \item \textbf{Graphische Betrachtung}
             \begin{itemize}
-                \item[] \includegraphics[width=12cm]{rekursion.PNG}
+                \item[] \includegraphics[width=8cm]{rekursion.PNG}
                 \item[] 
                 \item Inkarnation: Ablauf eines Unterprogrammes
                 \item Zwei verschiedene Rückkehradressen:
@@ -942,6 +955,8 @@
                         \item \textbf{RA\_2} ist immer diesselbe Adresse, da immer selber Code
                     \end{itemize} 
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Code: Fakultätsberechnung}
             \begin{itemize}
@@ -993,6 +1008,8 @@
                     \end{itemize}
             \end{itemize}
     \end{itemize}
+
+\pagebreak
 
 \subsection{Compilieren, Assemblieren und Linken}
     \begin{itemize}
@@ -1066,6 +1083,7 @@
                                 \item 2. Lauf: Erzeugen der Codes
                             \end{itemize}
                     \end{itemize}
+\pagebreak
                 \item Probleme beim 2. Schritt (Erzeugen des Objektdatei)
                     \begin{itemize}
                         \item 1. Fall:
@@ -1175,6 +1193,8 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \section{Mikroarchitekturen von Rechnersystemen}
 \subsection{Begrifflichkeiten und Grundlagen}
     \begin{itemize}
@@ -1231,6 +1251,7 @@
                 \item \texttt{Taktperiode}: Sekunden/Takt
                 \item \texttt{IPC}: 1/CPI = Instruktionen/Takt
             \end{itemize}
+\pagebreak
         \item \textbf{Mikroarchitektur ARM}
             \begin{itemize}
                 \item \textit{Befehlsmenge:} (ldr, add, sub etc)
@@ -1327,6 +1348,8 @@
                 \item[] \includegraphics[width=10cm]{estr.PNG}
             \end{itemize}
 
+\pagebreak
+        
         \item \textbf{Arithmetische und logische Befehle}
             \begin{itemize}
                 \item \texttt{ADD Rd, Rn, imm8}
@@ -1456,7 +1479,7 @@
                         \includegraphics[width=7cm]{mp11.PNG}
                     \end{minipage}
             \end{itemize}
-        
+\pagebreak
         \item \textbf{Datenpfad und Kontrolleinheit}
             \begin{itemize}
                 \item[]
@@ -1533,6 +1556,8 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \subsection{Pipeline-Prozessor}
     \begin{itemize}
         \item \textbf{Befehlsausführung}
@@ -1559,6 +1584,8 @@
                 \item Hinterer Teil grau: lesen / vorderer Teil grau: schreiben 
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Datenpfad}
             \begin{itemize}
                 \item Einführung von Registern $\rightarrow$ Führt zur Überlappung der Befehlsphasen
@@ -1571,6 +1598,9 @@
                 \item[] \includegraphics[width=12cm]{pipelineControl.png}  
             \end{itemize}
     \end{itemize}
+
+\pagebreak
+
 \subsection{Ausnahmebehandlung - Hazards}
     \begin{itemize}
         \item \textbf{Information}
@@ -1640,6 +1670,8 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \section{Gleitkommazahlen/Gleitkommarechenwerte}
 
 \subsection{Gleitkommazahlen}
@@ -1673,16 +1705,18 @@
             \end{itemize}
     \end{itemize}
 
+\pagebreak
+
 \subsection{Code-Analyse}
     \begin{itemize}
         \item \textit{Beispiel 1:}
             \begin{itemize}
                 \item[]
                     \begin{minipage}{0.5\textwidth}
-                        \includegraphics[height=5cm]{bsp1Code.PNG}
+                        \includegraphics[height=4.5cm]{bsp1Code.PNG}
                     \end{minipage}
                     \begin{minipage}{0.4\textwidth}
-                        \includegraphics[height=7cm]{bsp1Ass.PNG}
+                        \includegraphics[height=6.5cm]{bsp1Ass.PNG}
                     \end{minipage}
                 \item \textit{s-Register}: Single Register (Precision) (32 Bit Register)
                 \item \textit{d-Register}: Double Register (Precision) (64 Bit Register)
@@ -1700,10 +1734,10 @@
             \begin{itemize}
                 \item[]
                     \begin{minipage}{0.5\textwidth}
-                        \includegraphics[height=5cm]{bsp2Code.PNG}
+                        \includegraphics[height=4.5cm]{bsp2Code.PNG}
                     \end{minipage}
                     \begin{minipage}{0.4\textwidth}
-                        \includegraphics[height=7cm]{bsp2Ass.PNG}
+                        \includegraphics[height=6.5cm]{bsp2Ass.PNG}
                     \end{minipage}
                 \item Speicherung der Konstanten im Dezimalsystem - je 2 32 Bit pro 64 Bit Zahl:
                     \begin{itemize}
@@ -1824,6 +1858,7 @@
                         \item[] \includegraphics[width=8cm]{neonBsp1.png}
                         \item[] Beide Ausgangsregister 64 Bit, Zielregister 128 Bit (z.B. Multiplikation)
                     \end{itemize}
+\pagebreak
                 \item \textit{Beispiel II}
                     \begin{itemize}
                         \item[] \includegraphics[width=8cm]{neonBsp2.png}
@@ -1978,6 +2013,8 @@
                 \item[] \includegraphics[width=5cm]{staticRam1.png}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Dynamisches RAM}
             \begin{itemize}
                 \item Speichert Informationen in einem Kondensator
@@ -2014,6 +2051,8 @@
                         \item[] \includegraphics[width=7cm]{32kx8.png}
                     \end{itemize}
             \end{itemize}
+
+\pagebreak
 
         \item \textbf{Abstrakte Darstellung eines 128 Bit 16x8 DRAM Chips}
             \begin{itemize}
@@ -2130,6 +2169,8 @@
                     \end{minipage}
             \end{itemize}
 
+\pagebreak
+
         \item \textbf{Beispiel 3 - Summe eines Arrays}
             \begin{itemize}
                 \item[]
@@ -2207,6 +2248,8 @@
 
         
     \end{itemize}
+
+\pagebreak
 
 \subsection{Prinzip des Caches}
 
