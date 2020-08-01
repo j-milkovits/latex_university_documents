@@ -930,4 +930,310 @@
 \end{tabularx}
 \end{table}
 
+\subsection{Stetigkeit reeller Funktionen}
+\subsubsection{Der Grenzwertbegriff für Funktionen}
+
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.1 & Es sei $D \subseteq \mathbb{R}$ eine Menge, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0 \in \mathbb{R}$
+                \begin{itemize}
+                    \item[a)] Wir nennen $x_0$ einen \textbf{Häufungspunkt} von $D$, falls es eine Folge $(a_n)$ in $D$ mit
+                                $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gibt, die gegen $x_0$ konvergiert.
+                    \item[b)] Ist $x_0$ ein Häufungspunkt von $D$, so sagen wir, dass $f$ für $x$ gegen $x_0$ den Grenzwert 
+                                $y$ hat, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und für die
+                                $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gilt, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                                \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_0} f(x) = y$.
+                    \item[c)] Ist $x_0$ ein Häufungspunkt von $D_+ := \{ x \in D : x > x_0\}$, so hat $f$ für $x$ gegen $x_0$
+                                den \textbf{rechtsseitigen Grenzwert} $y$, wenn für jede Folge $(a_n)$ in $D_+$, die gegen
+                                $x_0$ konvergiert, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                                \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_{0+}} f(x) = y$.
+                    \item[d)] Ist $x_0$ ein Häufungspunkt von $D_- := \{ x \in D : x < x_0\}$, so hat $f$ für $x$ gegen $x_0$
+                                den \textbf{linksseitigen Grenzwert} $y$, wenn für jede Folge $(a_n)$ in $D_-$, die gegen
+                                $x_0$ konvergiert, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                                \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_{0-}} f(x) = y$.
+                \end{itemize} \\
+        \midrule
+        5.7.7 & \textbf{Divergenz}
+                \begin{itemize}
+                    \item[a)] Es seien $D \subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0$ ein
+                                Häufungspunkt von $D$. Wir schreiben $lim_{x \rightarrow x_0}f(x) = \infty (-\infty)$, wenn
+                                für jedes Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und für die $a_n \neq x_0$ für 
+                                alle $n \in \mathbb{N}$ gilt, die Folge $(f(a_n))$ bestimmt gegen $\infty (-\infty)$ divergiert.
+                    \item[b)] Es sei $D \subset \mathbb{R}$ \textbf{nicht} nach oben (unten) \textbf{beschränkt}, 
+                                $f : D \rightarrow \mathbb{R}$ eine Funktion und $y \in \mathbb{R} \cup \{\infty,-\infty\}$. 
+                                Wir sagen $lim_{x \rightarrow \infty} f(x) = y$ (bzw. $lim_{x \rightarrow -\infty} f(x) = y$),
+                                wenn für jede Folge $(a_n)$ in $D$, die bestimmt gegen $\infty (-\infty)$ divergiert,
+                                $lim_{n \rightarrow \infty} f(a_n) = y$ gilt.
+                \end{itemize} \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.4 & Es sei $D \subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0 \in \mathbb{R}$. 
+                Existieren $lim_{x \rightarrow x_{0-}}f(x)$ und $lim_{x \rightarrow x_{0+}}f(x)$ und sind die beiden Werte gleich
+                so existiert auch $lim_{x \rightarrow x_0} f(x)$ und es gilt \hfill \break
+                \centerline{$lim_{x \rightarrow x_0} f(x) = lim_{x \rightarrow x_{0-}} = lim_{x \rightarrow x_{0+}}$}.  \\
+        \midrule
+        5.7.6 & Es sei $D \subseteq \mathbb{R}$ und $x_0$ ein Häufungspunkt von $D$. Desweiteren seien drei Funktion $f,g,h:
+                D \rightarrow \mathbb{R}$ gegeben, so dass die Grenzwerte $lim_{x \rightarrow x_0} f(x)$ und
+                $lim_{x \rightarrow x_0} g(x)$ existieren. Dann gilt:
+                \begin{itemize}
+                    \item[a)] Die Grenzwerte für $x$ gegen $x_0$ von $f+g$, $fg$ und $|f|$ exisiteren und es gilt:
+                        \begin{itemize}
+                            \item $lim_{x \rightarrow x_0} (f(x) + g(x)) = lim_{x \rightarrow x_0} f(x) + lim_{x \rightarrow x_0} g(x)$
+                            \item $lim_{x \rightarrow x_0} (f(x) \cdot g(x)) = lim_{x \rightarrow x_0} f(x) \cdot lim_{x \rightarrow x_0} g(x)$
+                            \item $lim_{x \rightarrow x_0} |f(x)| = |lim_{x \rightarrow x_0} f(x)|$
+                        \end{itemize}
+                    \item[b)] Gilt $f(x) \leq g(x)$ für alle $x \in D \textbackslash \{x_0\}$, so ist $lim_{x \rightarrow x_0} f(x)
+                                \leq lim_{x \rightarrow x_0}g(x)$
+                    \item[c)] Ist $lim_{x \rightarrow x_0} f(x) = lim_{x \rightarrow x_0} g(x)$ und es gilt 
+                                $f(x) \leq h(x) \leq g(x)$ für alle $x \in D \textbackslash \{x_0\}$, so gilt auch
+                                $lim_{x \rightarrow x_0} h(x) = lim_{x \rightarrow x_0}f(x) = lim_{x \rightarrow x_0}g(x)$.
+                                (Sandwich-Theorem)
+                    \item[d)] Ist $y := lim_{x \rightarrow x_0} g(x) \neq 0$, so existiert $\delta > 0$, so dass
+                                $|g(x)| \geq \frac{|y|}{2}$ für alle $x \in (D \cap (x_0 - \delta, x_0 + \delta)) \textbackslash \{x_0\}$
+                                ist. Wir können also die Funktion $\frac{f}{g}: (D \cap (x_0 - \delta, x_0 + \delta)) \textbackslash \{x_0\}
+                                \rightarrow \mathbb{R}$ mit $\frac{f}{g}(x) := \frac{f(x)}{g(x)}$ definieren. Für diese existiert dann
+                                der Limes für $x$ gegen $x_0$ mit $lim_{x \rightarrow x_0} \frac{f(x)}{g(x)} = 
+                                \frac{lim_{x \rightarrow x_0}f(x)}{lim_{x \rightarrow x_0}g(x)}$.
+                \end{itemize} \\
+            
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.1 & $x_0$ HP von $D$ bedeutet, dass $x_0$ aus $D$ $\textbackslash$ \{$x_o$\} annäherbar \hfill \break
+                Bsp.: HP von $(0,1]$: $[0,1]$ \\
+        \midrule
+        5.7.4 & Es gilt nicht $lim_{x \rightarrow x_0}f(x) = f(x_0)$. \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Beispiele}
+    \begin{table}[h]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.8 & $lim_{x \rightarrow \infty} \frac{1}{x} = 0$ \hfill \break
+                $lim_{x \rightarrow 0+} \frac{1}{x} = \infty$ \hfill \break
+                $lim_{x \rightarrow 0-} \frac{1}{x} = -\infty$ \hfill \break
+                $lim_{x \rightarrow \infty} x = \infty$ \\
+        \midrule
+        5.7.8 & Exponentialfunktion: $E(x) = e^x = \sum^{\infty}_{n=0} \frac{x^n}{n!}$ \hfill \break
+                Grenzwerte: \hfill \break
+                $lim_{x \rightarrow \infty} e^x = \infty$ \hfill \break
+                $lim_{x \rightarrow -\infty} e^x = 0$ \\
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsubsection{Stetigkeit}
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.9 & Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt
+                \textbf{stetig} in $x_0$, falls für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge $(f(a_n))$ 
+                konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break 
+                Weiter heißt $f$ stetig auf $D$, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
+                Schließlich setzen wir noch $C(D) := \{f:D \rightarrow \mathbb{R}: f$ stetig auf $D\}$. 
+                (Menge aller stetigen Funktionen auf D) \\
+        \midrule
+        5.7.18& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ heißt
+                \begin{itemize}
+                    \item[a)] \textbf{monoton wachsend}, falls für alle $x,y \in D$ gilt $x \leq y \Rightarrow f(x) \leq f(y)$
+                    \item[b)] \textbf{monoton fallend}, falls für alle $x,y \in D$ gilt $x \leq y \Rightarrow f(x) \geq f(y)$
+                    \item[c)] \textbf{streng monoton wachsend}, falls für alle $x,y \in D$ gilt $x < y \Rightarrow f(x) < f(y)$
+                    \item[d)] \textbf{streng monoton fallend}, falls für alle $x,y \in D$ gilt $x < y \Rightarrow f(x) > f(y)$
+                    \item[e)] \textbf{(streng) monoton}, wenn sie (streng) monoton wachsend oder (streng) monoton fallend ist 
+                \end{itemize} \\
+        \midrule
+        5.7.22& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt \textbf{Lipschitz-stetig}, falls
+                es ein $L > 0$ gibt mit $|f(x) - f(y)| \leq L|x-y|$ für alle $x,y \in D$. \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.12& Es sei $D \subseteq \mathbb{R}$ und $f : D \rightarrow \mathbb{R}$ eine Funktion. Ist $x_0 \in D$ ein Häufungspunkt
+                von D,so ist $f$ in $x_0$ genau dann \textbf{stetig}, wenn $lim_{x \rightarrow x_0} f(x) = f(x_0)$ gilt. \\
+        \midrule
+        5.7.15& Es sei $D \subseteq \mathbb{R}$ und $f,g : D \rightarrow \mathbb{R}$ seien stetig in $x_0 \in D$. Dann sind die
+                Funktionen $f+g$, $fg$ und $|f|$ stetig in $x_0$. \hfill \break
+                Ist $x_0 \in D^* := \{ x \in D: g(x) \neq 0\}$, so ist die Funktion $\frac{f}{q}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$.\\
+        \midrule
+        5.7.16& Es seien $D,E \subseteq \mathbb{R}$ und $f: D \rightarrow E$, sowie $g: E \rightarrow \mathbb{R}$ Funktionen. Ist $f$ 
+                stetig in $x_0 \in D$ und $g$ stetig in $f(x_0)$, so ist $g \circ f: D \rightarrow \mathbb{R}$ stetig in $x_0$. \\ 
+        \midrule
+        5.7.20& Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f: D \rightarrow \mathbb{R}$ ist in $x_0$ genau dann
+                \textbf{stetig}, wenn es für jedes $\epsilon > 0$ ein $\delta > 0$ gibt, so dass \hfill \break
+                \centerline{$|f(x) - f(y)| < \epsilon$ für alle $x \in D$ mit $|x-x_0|<\delta$ gilt.} \\
+        \midrule
+        5.7.23& Ist $D \subseteq \mathbb{R}$ und $f:D \rightarrow \mathbb{R}$ \textbf{Lipschitz-stetig} so ist $f$ \textbf{stetig} auf $D$.
+                Die Umkehrung dieser Aussage ist falsch. (Lipschitz-Stetigkeit ist damit ein strengerer Begriff als Stetigkeit) \\
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.9 & Stetigkeit: Kleines Wackeln an Parametern $\rightarrow$ auch nur kleines Wackeln am Funktionswert \\
+        \midrule
+        5.7.12& Stetigkeit: Grenzübergang austauschbar mit Funktionsauswertung \\
+        \midrule
+        5.7.15& Jede Polynomfunktion ist auf ganz $\mathbb{R}$ stetig. \\
+        \midrule
+        5.7.19& Exponentialfunktion ist streng monoton wachsend. \\
+        \midrule
+        5.7.23& Lipschitz-Stetigkeit bedeutet anschaulich, dass die Steigung des Graphen beschränkt bleibt. \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsubsection{Eigenschaften stetiger Funktionen}
+
+        \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.27& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ hei\ss t beschränkt, falls die Menge
+                $f(D)$ (Bild der Funktion) beschränkt ist, d.h. falls ein $C \geq 0$ existiert, so dass $|f(x)| \leq C$ für alle $x \in D$ gilt. \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.7.25& \textbf{Zwischenwertsatz} \hfill \break
+                Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$. Ist $y_0$ eine reelle Zahl zwischen $f(a)$ und $f(b)$,
+                so gibt es ein $x_0 \in [a,b]$ mit $f(x_0) = y_0$. \hfill \break
+                \includegraphics[width=5cm]{zws.png} \\
+        \midrule
+        5.7.26& \textbf{Nullstellensatz von Bolzano} \hfill \break
+                Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$ erfülle $f(a)f(b) < 0$ (Existenz einer Nullstelle /
+                Einer der beiden Werte 0).
+                Dann gibt es ein $x_0 \in (a,b)$ mit $f(x_0) = 0$. \\
+        \midrule
+        5.7.28& Es sei $K \subseteq \mathbb{R}$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass
+                $f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$ gilt. Insbesondere ist $f$ \textbf{beschränkt}. (Jede stetige Funktion auf 
+                kompakter Menge ist beschränkt)\\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsection{Stetigkeit von Funktionen mehrerer Variablen}
+        \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.8.1 & Es seien $V$ und $W$ normierte $\mathbb{R}$-Vektorräume, $D \subseteq V$ und $f: D \rightarrow W$ eine Funktion.
+                \begin{itemize}
+                    \item[a)] Wir nennen $x_0 \in D$ \textbf{Häufungspunkt} von $D$, falls es eine Folge $(a_n)$ in $D$ mit 
+                                $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gibt, die gegen $x_0$ konvergiert.
+                    \item[b)] Sei $x_0$ ein Häufungspunkt von $D$. Dann ist $lim_{x \rightarrow x_0} f(x) = y$, falls für jede 
+                                Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und $a_n \neq x_0$ für alle $n \in \mathbb{N}$
+                                erfüllt, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                \end{itemize} \\
+        \midrule
+        5.3.8 & Es seien $V,W$ zwei normierte $\mathbb{R}$-Vektorräumen, $D \subseteq V$ und $x_0 \in D$. Eine Funktion $f: D\rightarrow W$
+                heißt \textbf{stetig} in $x_0$, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge
+                $(f(a_n))$ konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break
+                Weiter heißt \textbf{f stetig auf D}, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
+                Au\ss erdem setzen wir wieder $C(D;W) := \{f: D\rightarrow W: f$ stetig auf $D$\}. \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.8.4 & Es sei $D \subseteq \mathbb{R^d}$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R^p}$ genau dann in $x_0$
+                \textbf{stetig}, wenn alle Koordinatenfunktionen $f_1, f_2, \dots, f_p : D \rightarrow \mathbb{R}$ in $x_0$ stetig sind. \\
+        \midrule
+        5.8.5 &  Es seien $D \subseteq \mathbb{R^d}$, $x_0 \in D$ und $f,g : D \rightarrow \mathbb{R}$ stetig in $x_0$, sowie
+                $h : f(D) \rightarrow \mathbb{R}$ stetig in $f(x_0)$. Dann sind auch $f+g$, $fg$ und $h \circ f$ als Funktionen
+                von $D$ nach $\mathbb{R}$ stetig in $x_0$. \hfill \break
+                Ist au\ss erdem $x_0 \in D^* := \{x \in D: g(x) \neq 0\}$, so ist auch $\frac{f}{g}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$. \\
+        \midrule
+        5.8.8 & Es sei $K \subseteq \mathbb{R^d}$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
+                \centerline{$f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$}
+                gilt. Insbesondere ist $f$ \textbf{beschränkt}. \\
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.8.2 & Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Beispiele}
+    \begin{table}[h]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        & \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
 \end{document}
