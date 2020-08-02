@@ -1209,6 +1209,16 @@
         5.8.8 & Es sei $K \subseteq \mathbb{R^d}$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
                 \centerline{$f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$}
                 gilt. Insbesondere ist $f$ \textbf{beschränkt}. \\
+        \midrule
+        5.8.10& Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R^d}$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R^d}$. Dann gibt es zwei Konstanten
+                $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_x$ für alle $x \in \mathbb{R^d}$ gilt. \\
+        \midrule
+        5.8.11& \begin{itemize}
+                    \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R^d}$, so gibt es Konstanten $0 < c \leq C$, so dass
+                                $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R^d}$ gilt.
+                    \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R^d}$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
+                                jeder anderen Norm und der Grenzwert ist derselbe. 
+                \end{itemize} \\
         \bottomrule
     \end{tabularx}
     \end{table}
@@ -1220,6 +1230,442 @@
         \toprule
 
         5.8.2 & Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
+        \midrule
+        5.8.11& Gilt $c||x|| \leq |||x||| \leq C||x||$ so hei\ss en die Normen $||\cdot||,|||\cdot|||$ äquivalent. \hfill \break
+                Je zwei Normen im $\mathbb{R^d}$ sind äquivalent. \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsection{Potenzreihen}
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.9.1 & Es sei $(a_n)$ eine Folge $\mathbb{K}$. Eine Reihe der Form $\sum^{\infty}_{n=0} a_n x^n = a_0 + a_1x+a_2x^2+ \dots$ 
+                heißt \textbf{Potenzreihe}. \\
+        \midrule
+        5.9.4 & Es sei $\sum^{\infty}_{n=0} a_nx^n$ eine Potenzreihe die die Voraussetzungen von 5.9.3 erfüllt und $\rho$ wie in diesem Satz 
+                definiert. Dann heißt die Zahl: \hfill \break
+                \centerline{$r:=    \begin{cases}
+                                    0 & \text{falls in obigem Satz a) gilt} \\
+                                    \infty & \text{falls in obigem Satz b) gilt} \\
+                                    \frac{1}{\rho} & \text{falls in obigem Satz c) gilt}
+                                    \end{cases}$ }
+                der \textbf{Konvergenzradius} der Reihe. \\
+        \midrule
+        5.9.6 & Es sei $(a_n)$ eine Folge in $\mathbb{K}$, $n_0 \in \mathbb{N}$ und $x_o \in \mathbb{K}$. Dann nennt man eine Reihe der Form \hfill \break
+                \centerline{$\sum^{\infty}_{n=n_0}a_n(x-x_0)^n$}
+                \textbf{Potenzreihe}. Der Punkt $x_0$ wird \textbf{Entwicklungspunkt} der Potenzreihe genannt. \hfill \break
+                (Hier ist das Konvergenzgebiet nun um $x_0$ statt um 0 (allgemeiner)) \hfill \break
+                (Alle Sätze und Definitionen gelten hier genauso) \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+    5.9.3 & \textbf{Satz von Hadamard} \hfill \break
+            Es sei $(a_n)$ eine Folge in $\mathbb{K}$, so dass der Grenzwert $\rho := lim_{n \rightarrow \infty} \sqrt[n]{|a_n|}$ existiert
+            oder die Folge $(\sqrt[n]{|a_n|})$ unbeschränkt ist. Dann gelten die folgenden Konvergenzaussagen für die Potenzreihe 
+            $\sum^{\infty}_{n=0} a_n x^n$:
+            \begin{itemize}
+                \item[a)] Ist die Folge $\sqrt[n]{|a_n|}$ unbeschränkt, so konvergiert die Potenzreihe nur für \textbf{$x = 0$}.
+                \item[b)] Ist $\rho = 0$, so konvergiert die Potenzreihe für alle $x \in \mathbb{K}$ absolut. 
+                \item[c)] Ist $\rho \in (0, \infty)$, so ist die Potenzreihe für alle $x \in \mathbb{K}$ mit $|x|< \frac{1}{\rho}$
+                            \textbf{absolut konvergenz} und für alle $x \in \mathbb{K}$ mit $|x > \frac{1}{\rho}$ \textbf{divergent}.
+            \end{itemize} \\
+    \midrule
+    5.9.10& \textbf{Quotientenkriterium} \hfill \break
+            Es sei $(a_n)$ eine Folge in $\mathbb{K}$ mit $a_n \neq 0$ für alle $n \in \mathbb{N}$, so dass $\sigma := lim_{n \rightarrow \infty}
+            |\frac{a_{n+1}}{a_n}|$ existiert. Dann gilt für den Konvergenzradius r von $\sum^{\infty}_{n=0} a_n x^n$: \hfill \break
+            \centerline{$r =    \begin{cases}
+                                \frac{1}{\sigma}, & \text{falls } \sigma \in (0,\infty) \\
+                                \infty, & \text{falls } \sigma = 0.
+                                \end{cases}$} \\
+    \midrule
+    5.9.13& \textbf{Cauchy-Produkt von Potenzreihen} \hfill \break
+            Es seien $\sum^{\infty}_{n=0}a_n x^n$ und $\sum^{\infty}_{n=0} b_n x^n$ Potenzreihen in $\mathbb{K}$ mit Konvergenzradien $r_1, r_2 >0$.
+            Dann hat die Potenzreihe \hfill \break
+            \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n$} 
+            mindestens den Konvergenzradius $R := min\{r_1,r_2\}$ und es gilt für alle $x \in \mathbb{K}$ mit $|x| < r$ \hfill \break
+            \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n = (\sum^{\infty}_{n=0}a_n x^n) (\sum^{\infty}_{n=0}b_n x^n)$.} \\
+    \midrule
+    5.9.14& Es sei $\sum^{\infty}_{n=0}a_nx^n$ eine Potenzreihe in $\mathbb{K}$ mit Konvergenzradius $r > 0$. Dann ist die dadurch gegebene Funktion
+            $f: \{x \in \mathbb{K}: |x| < r\} \rightarrow \mathbb{K}$ mit $f(x) = \sum^{\infty}_{n=0}a_nx^n$ stetig auf $\{x \in \mathbb{K}: |x| < r\}$. \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+              & Offensichtlich konvergieren alle Potenzreihen für $x = 0$. \\
+        \midrule
+        5.9.3 & Keine Aussage bei $|x|=\frac{1}{\rho}$ möglich. \\
+        \midrule
+        5.9.3 & Konvergenzbereich entweder $\{0\}$ oder $\mathbb{K}$ oder Kreis in $\mathbb{C}$ bzw. Intervall in $\mathbb{R}$ \\
+        \midrule
+        5.9.6 & Konvergenzradius nun entweder $0$, $\infty$ oder $r = (lim_{n \rightarrow \infty} \sqrt[n]{|a_n|})^{-1}$. \\
+        \midrule
+        5.9.14& $E: \mathbb{C} \rightarrow \mathbb{C}$ mit $E(x) = e^x$ stetig auf $\mathbb{C}$. \hfill \break
+                Daraus folgt: $E(\mathbb{R}) = \{e^x: x \in \mathbb{R}\} = (0, \infty)$ \\ 
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Beispiele}
+    \begin{table}[h]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.9.2 & \textbf{Geometrische Reihe} \hfill \break 
+                Konvergiert für $|x| < 1$ mit $\sum^{\infty}_{n=0} x^n = \frac{1}{1-x}$. \\
+        \midrule
+        5.9.2 & \textbf{Exponentialfunktion} \hfill \break
+                $e^z = \sum^{\infty}_{n=0} \frac{z^n}{n!}$ konvergiert für alle $z \in \mathbb{C}$ \\ 
+        \midrule
+        5.9.5 & \begin{itemize}
+                    \item[a)] $a_n = 1$, $\sum^{\infty}_{n=0} x^n$ \hfill \break
+                                Dann gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} 1 = 1$, also $r = \frac{1}{\rho} = 1$. \hfill \break
+                                Am Rand: Für $x=1$: $\sum^{\infty}_{n=0} 1^n$ divergent. (-1 auch divergent) \hfill \break
+                                Konvergenzbereich: $(-1,1)$
+                    \item[b)] $a_n = \frac{1}{n}$, $\sum^{\infty}_{n=1} \frac{x^n}{n}$ \hfill \break
+                                Konvergenzradius 1, da: $lim_{n \rightarrow \infty} \sqrt[n]{\frac{1}{n}} = lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}}
+                                = \frac{1}{lim_{n \rightarrow \infty} \sqrt[n]{n}} = 1$. \hfill \break
+                                Am Rand: Für $x=1$: $\sum^{\infty}_{n=1} \frac{1}{n}$: divergent (harmonische Reihe) \hfill \break
+                                Für $x=-1$: $\sum^{\infty}_{n=1} \frac{(-1)^n}{n}$: konvergent (alternierende harmonische Reihe) \hfill \break
+                                Konvergenzbereich: $[-1,1)$
+                \end{itemize} \\
+        \midrule
+        5.9.6 & $a_n := \frac{(-4)^n}{n}$, $x_0 = 1$, $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(x-1)^n$ \hfill \break
+                Es gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} \sqrt[n]{|\frac{(-4)^n}{n}|} =
+                lim_{n \rightarrow \infty} \frac{4}{\sqrt[n]{n}} = \frac{4}{1} = 4$ \hfill \break 
+                Konvergenzradius: $r = \frac{1}{\rho} = \frac{1}{4}$ \hfill \break
+                Konvergenz in $(1- \frac{1}{4}, 1 + \frac{1}{4}) = ()\frac{3}{4}, \frac{5}{4})$ \hfill \break
+                Randpunkte: \hfill \break
+                $x = \frac{5}{4}:$ $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(\frac{5}{4}-1)^n = \sum^{\infty}_{n=1} \frac{(-4)^n}{n} \cdot \frac{1}{4^n}
+                = \sum^{\infty}_{n=1} \frac{(-1)^n}{n}$ konvergent (alt. harmonische Reihe)
+                $x = \frac{3}{4}:$ $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(\frac{3}{4}-1)^n = \sum^{\infty}_{n=1} \frac{(-4)^n}{n} \cdot \frac{1}{(-4)^n}
+                = \sum^{\infty}_{n=1} \frac{1}{n}$ divergent (harmonische Reihe) \hfill \break
+                Konvergenzgebiet: $(\frac{3}{4}, \frac{5}{4}]$\\
+        \midrule
+        5.9.11& \begin{itemize}
+                    \item[a)] $a_n = \frac{n^n}{n!}$, $\sum^{\infty}_{n=0} \frac{n^n}{n!}x^n$ \hfill \break
+                                Quotientenkriterium:  \hfill \break
+                                $\sigma := lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| = lim_{n \rightarrow \infty} 
+                                |\frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n}| = lim_{n \rightarrow \infty} | \frac{(n+1) \cdot (n+1)^n}{(n+1) n}| =
+                                lim_{n \rightarrow \infty}(\frac{n+1}{n})^n = lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n = e$  \hfill \break
+                                Konvergenzradius: $r = \frac{1}{\sigma} = \frac{1}{e}$ \hfill \break
+                    \item[b)] $\sum^{\infty}_{n=0} \frac{1}{2^n} x^{3n}$ Achtung Falle! Wegen $3^n$ kein Hadamard und 5.9.10 anwendbar. \hfill \break
+                                Substitution $y = x^3$. $\rightarrow \sum^{\infty}_{n=0} \frac{1}{2^n} y^{n}$ \hfill \break
+                                Konvergenzradius: 2, da $lim_{n \rightarrow \infty} \sqrt[n]{|\frac{1}{2^n}|} = \frac{1}{2}$. \hfill \break
+                                Also Konvergenz für $y = x^3 \in (-2,2)$, Divergenz außerhalb $[-2,2]$ \hfill \break
+                                $\rightarrow$ Konvergenz für $x \in (-\sqrt[3]{2},\sqrt[3]{2})$, Divergenz außerhalb $[-\sqrt[3]{2},\sqrt[3]{2}]$ \hfill \break
+                                Konvergenzradius der ursprünglichen Reihe ist $\sqrt[3]{2}$. 
+                \end{itemize} \\
+        \midrule
+        5.9.16& $lim_{x \rightarrow 0} \frac{e^x -1}{x}$ \hfill \break
+                Für alle $x \in \mathbb{R}$ gilt: \hfill \break
+                \centerline{$\frac{e^x-1}{x} = \frac{1}{x} (\sum^{\infty}_{n=0} \frac{x^n}{n!}-1) = \frac{1}{x} \sum^{\infty}_{n=1} \frac{x^n}{n!}
+                = \sum^{\infty}_{n=1} \frac{x^(n-1)}{n!} = \sum^{\infty}_{n=0} \frac{x^n}{(n+1)!}$} 
+                Konvergenzradius: Unendlich (Quotientenkriterium) $\rightarrow$ Auf $\mathbb{R}$ und in Null stetig \hfill \break
+                Damit gilt: $lim_{n \rightarrow \infty} \frac{e^x-1}{x} = lim_{n \rightarrow \infty} \sum^{\infty}_{n=0} \frac{x^n}{(n+1)!} =
+                \sum^{\infty}_{n=0} \frac{0^n}{(n+1)!} = 1$. \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsection{Wichtige Funktionen}
+\subsubsection{Exponentialfunktion und Logarithmus}
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.2& Die Umkehrfunktion von $E: \mathbb{R} \rightarrow (0, \infty)$ wird mit $ln := E^{-1}: (0,\infty) \rightarrow \mathbb{R}$
+                bezeichnet und heißt \textbf{natürlicher Logarithmus}. \\
+        \midrule
+        5.10.4& Für alle $a \in (0, \infty)$ und alle $x \in \mathbb{R}$ definieren wir die \textbf{allgemeine Potenz} durch $a^x := e^{x\cdot ln(a)}$ \\   
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.1& Die Exponentialfunktion $E: \mathbb{R} \rightarrow (0,\infty)$ ist \textbf{bijektiv} \\
+        \midrule
+        5.10.3& \begin{itemize}
+                    \item[a)] Die Funktion $ln$ ist auf $(0, \infty)$ stetig und wöchst streng monoton.
+                    \item[b)] Es gilt $ln(1) = 0$ und $ln(e) = 1$.
+                    \item[c)] $lim_{x \rightarrow \infty} ln(x) = \infty$ und $lim_{x \rightarrow 0+} ln(x) = -\infty$.
+                    \item[d)] Für alle $x, y \in (0, \infty)$ und $q \in \mathbb{Q}$ gilt:
+                                \begin{itemize}
+                                    \item $ln(xy) = ln(x) + ln(y)$
+                                    \item $ln(\frac{x}{y}) = ln(x) - ln(y)$
+                                    \item $ln(x^q) = q ln(x)$
+                                \end{itemize} 
+                \end{itemize} \\
+        \midrule
+        5.10.5& Es sei $a \in (0,\infty)$. Dann ist die Funktion $x \rightarrow a^x$ stetig auf $\mathbb{R}$ und es gelten die bekannten
+                Rechenregeln für Potenzen wie beispielsweise $a^{x+y}=a^xa^y$, $a^{-1}=\frac{1}{a}$, $(a^x)^y=a^{xy}$ \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsubsection{Trigonometrische Funktionen}
+
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.6& $sin(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n+1)!} z^(2n+1)$, $z \in \mathbb{C}$ (\textbf{Sinus}) \hfill \break
+                $cos(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n)!}z^{2n}$, $z \in \mathbb{C}$ (\textbf{Cosinus}) \\
+        \midrule
+        5.10.9& Eine Funktion $f: \mathbb{R} \rightarrow \mathbb{R}$ oder $f: \mathbb{C} \rightarrow \mathbb{C}$ heißt: 
+                \begin{itemize}[topsep=-0.5cm]
+                    \item[a)] ungerade, falls $f(-x) = -f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
+                    \item[b)] gerade, falls $f(-x) = f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
+                    \item[c)] periodisch mit Periode $L \in \mathbb{R}$, bzw. $\mathbb{C}$, wenn $f(x+L) = f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
+                \end{itemize} \vspace{-0cm}\\
+        \midrule
+        5.10.14&Die Funktion $tan: \mathbb{C} \textbackslash \{\frac{pi}{2}+k\pi:k \in \mathbb{Z}\} \rightarrow \mathbb{C}$ mit \hfill \break
+                \centerline{$tan(z) \frac{sin(z)}{cos(z)}$}
+                heißt \textbf{Tangens}. \\
+        \midrule
+        5.10.15&\begin{itemize}
+                    \item[] arcsin: $[-1,1] \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcussinus})
+                    \item[] arcsin: $[-1,1] \rightarrow [0, \infty]$ (\textbf{Arcuscosinus})
+                    \item[] arcsin: $\mathbb{R} \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcustangens})
+                \end{itemize} \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.8& \textbf{Trigonometrischer Pythagoras}\hfill \break
+                $sin^2(x) + cos^2(x) = 1$, für alle $x \in \mathbb{R}$ \\
+        \midrule
+        5.10.10&Der Cosinus ist \textbf{gerade} und der Sinus ist \textbf{ungerade}. \\
+        \midrule
+        5.10.11&\textbf{Eulersche Formel} \hfill \break
+                Für alle $z \in \mathbb{C}$ gilt $e^{iz} = cos(z)+sin(z)i$. \hfill \break
+                Insbesondere gilt für alle $x \in \mathbb{R}$ damit $Re(e^{ix}) = cos(x)$ und $Im(e^{ix})=sin(x)$. \\
+        \midrule
+        5.10.12&Für alle $x,y \in \mathbb{R}$ gilt 
+                \begin{itemize}
+                    \item[a)] $|sin(x)| \leq 1$ und $|cos(x)| \leq 1$
+                    \item[b)] Additionstheoreme:
+                                \begin{itemize}
+                                    \item[] $sin(x+y) = sin(x)cos(y)+sin(y)cos(x)$
+                                    \item[] $cos(x+y) = cos(x)cos(y)+sin(x)sin(y)$ 
+                                \end{itemize}
+                    \item[c)] Rechenregeln für verschobene Funktionen:
+                                \begin{itemize}
+                                    \item[] $sin(x + \frac{\pi}{2}) = cos(x)$
+                                    \item[] $sin(x + \pi) = -sin(x)$
+                                    \item[] $sin(x+2\pi) = sin(x)$
+                                    \item[] $cos(x + \frac{\pi}{2}) = -sin(x)$
+                                    \item[] $cos(x+\pi) = -cos(x)$
+                                    \item[] $cos(x+2\pi) = cos(x)$
+                                    \item[] Sinus und Cosinus sind periodisch mit Periode $2\pi$      
+                                \end{itemize}
+                \end{itemize} \\
+        \midrule
+        5.10.13&Es ist
+                \begin{itemize}
+                    \item[] $sin(z) = 0 \Leftrightarrow z = k\pi$ für ein $k \in \mathbb{Z}$
+                    \item[] $cos(z) = 0 \Leftrightarrow z = \frac{\pi}{2}+k\pi$ für ein $k \in \mathbb{Z}$ 
+                \end{itemize} \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.6& Alle Winkel in der Mathematik werden im Bogenmaß angegeben. \hfill \break
+                \includegraphics[width=6cm]{sincos.png} \hfill \break
+                (Sin: $\frac{\sqrt{0}}{2},\frac{\sqrt{1}}{2},\frac{\sqrt{2}}{2},\frac{\sqrt{3}}{2},\frac{\sqrt{4}}{2})$\\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsubsection{Die Polardarstellung komplexer Zahlen}
+
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.17&Es sei $Z = x + yi \in \mathbb{C} \textbackslash \{0\}$ mit $x,y \in \mathbb{R}$. Dann heißt $r:= \sqrt{x^2+y^2}$ der \textbf{Betrag}
+                von $z$ und der Winkel $\phi$, der zwischen $z$ und der positiven reellen Achse eingeschlossen wird das \textbf{Argument} von $z$.
+                Beide Werte zusammen $(r,\phi)$ zusammen sind die \textbf{Polarkoordinaten} von $z$.\\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.19&Es seien $z=re^{i\phi}$, $w=se^{i\psi} \in \mathbb{C} \textbackslash \{0\}$ mit Polarkoordinaten $(r,\phi)$, bzw. $(s,\phi)$
+                gegeben. Dann hat $z \cdot w$ die Polarkoordinaten $(rs, \phi + \psi)$ und $\frac{z}{w}$ die Polarkoordinaten
+                $(\frac{r}{s}, \phi - \psi)$. \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.17& Argument im Intervall $(-\pi, \pi]$ oder $[0, 2\pi)$ um Eindeutigkeit zu garantieren. \\
+        \midrule
+        5.10.18& Argument: $(-\pi, \pi)$ $\rightarrow$ Umrechnung von Komplex zu Polarkoordinaten
+                \begin{itemize}
+                    \item[] $x = r~cos(\phi)$
+                    \item[] $y= r~sin(\phi)$ 
+                    \item[] $r = \sqrt{x^2+y^2}$
+                    \item[] $\phi = \begin{cases}
+                                    arctan\frac{y}{x}, & x > 0 \\
+                                    arctan\frac{y}{x}+\pi, & x<0 \text{ und } y \geq 0 \\
+                                    arctan\frac{y}{x}-\pi, & x<0 \text{ und } y < 0 \\
+                                    \frac{\pi}{2}, & x=0 \text{ und } y > 0 \\
+                                    -\frac{\pi}{2}, & x=0 \text{ und } y < 0 \\
+                                    \end{cases}$   
+                \end{itemize} \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Beispiele}
+    \begin{table}[h]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.20&Wir berechnen $(1+i)^{2001}$. \hfill \break
+                $(1+i)^{2001} = (\sqrt{2}e^{i\frac{\pi}{4}})^{2011} = \sqrt{2}^{2011} e^{i2011\cdot \frac{\pi}{4}} =
+                \sqrt{2} \cdot 2^{1005} e^{i(2008+3)\frac{\pi}{4}} = \sqrt{2} \dot 2^1005 e^{i502\pi}e^{i\frac{3\pi}{4}}= 
+                2^{1005} \cdot \sqrt{2} e^{i\frac{3\pi}{4}} = 2^{1005} (-1+i)$ ($e^{i502\pi} =1$)\\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+\subsubsection{Hyperbolische Funktionen}
+
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        5.10.22&\begin{itemize}
+                    \item[] $sinh(z) := \frac{e^z-e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Sinus hyperbolicus})
+                    \item[] $cosh(z) := \frac{e^z+e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Cosinus hyperbolicus})
+                    \item[] $tanh(z) := \frac{sinh(z)}{cosh(z)}$, $z \in \mathbb{C} \textbackslash \{(k\pi + \frac{\pi}{2}i: k \in \mathbb{Z})\}$ (\textbf{Tangens hyperbolicus})
+                \end{itemize} \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+\section{Analysis - Teil II: Differential- und Integralrechnung}
+\subsection{Differenzierbarkeit von Funktionen in einer Variablen}
+\subsubsection{Der Ableitungsbegriff}
+
+    \noindent
+    \textbf{Definitionen}
+    \begin{table}[H]  
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        6.1.1 & Für ganzes Kapitel gilt: $I \subseteq \mathbb{R}$ als Intervall.
+                \begin{itemize}
+                    \item[a)] Es sei $x_0 \in I$. Eine Funktion $f: I \rightarrow \mathbb{R}$ heißt differenzierbar in $x_0$, wenn der Grenzwert 
+                                \centerline{$lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0}$}
+                                in $\mathbb{R}$ existiert. In diesem Fall heißt dieser Grenzwert die \textbf{Ableitung} von $f$ in $x_0$ und wird 
+                                mit \textbf{$f'(x_0)$} bezeichnet.
+                    \item[b)] Eine Funktion $f: I \rightarrow \mathbb{R}$ heißt \textbf{differenzierbar} auf $I$, falls sie in allen Punkten
+                                $x_0 \in I$ differenzierbar ist. In diesem Fall wird $x \rightarrow f'(x)$  für $x \in I$ eine Funktion 
+                                $f': I \rightarrow \mathbb{R}$ definiert. Diese Funktion heißt die \textbf{Ableitung} oder auch 
+                                \textbf{Ableitungsfunktion} von $f$ auf $I$.
+                \end{itemize} \\
+
+        \bottomrule
+
+    \end{tabularx}
+    \end{table}
+
+    \noindent 
+    \textbf{Sätze}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        & \\
+
+        \bottomrule
+    \end{tabularx}
+    \end{table}
+
+    \noindent
+    \textbf{Bemerkungen}
+    \begin{table}[H]
+    \begin{tabularx}{\textwidth}{X m{16cm}}
+        \toprule
+
+        & \\
 
         \bottomrule
     \end{tabularx}
@@ -1236,4 +1682,5 @@
         \bottomrule
     \end{tabularx}
     \end{table}
+
 \end{document}
