@@ -810,7 +810,7 @@
                             mit \hfill \break
                             \centerline{$||a_n - a_m||_V < \epsilon$ für alle $n,m \geq n_0$}
                 \item[c)] Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $V$ heißt \textbf{konvergent} mit Reihenwert $s \in V$, wenn die
-                            Folge der Partialsummen $s_k := \sum^{\infty}_{n=0} a_n$, $k \in \mathbb{N}$, in $V$ gegen $s$ konvergiert. \hfill \break
+                            Folge der Partialsummen $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$, in $V$ gegen $s$ konvergiert. \hfill \break
                             Konvergiert die Reihe $\sum^{\infty}_{n=0} ||a_n||_V$ in $\mathbb{R}$ so heißt die Reihe
                             $\sum^{\infty}_{n=0}a_n$ \textbf{absolut konvergent}. \hfill \break
                             Ist die Reihe nicht konvergent, so nennt man sie \textbf{divergent}.
@@ -861,8 +861,8 @@
 \begin{tabularx}{\textwidth}{X m{16cm}}
     \toprule
 
-    5.6.5 & Es sei $(a_n)_{n \in \mathbb{N}} = ((a_{n,1}, a_{n,2}, \dots, a_{n,d})^T)_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R^d}$
-            mit der 2-Norm. Dann ist $(a_n)$ in $\mathbb{R^d}$ genau dann \textbf{konvergent}, wenn für jedes $j \in \{1,2,\dots,d\}$ die
+    5.6.5 & Es sei $(a_n)_{n \in \mathbb{N}} = ((a_{n,1}, a_{n,2}, \dots, a_{n,d})^T)_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}^d$
+            mit der 2-Norm. Dann ist $(a_n)$ in $\mathbb{R}^d$ genau dann \textbf{konvergent}, wenn für jedes $j \in \{1,2,\dots,d\}$ die
             Koordinatenfolge $(a_{n,j})_{n \in \mathbb{N}}$ in $\mathbb{R}$ \textbf{konvergent} ist. In diesem Fall ist \hfill \break
             \centerline{$lim_{n \rightarrow \infty}\begin{pmatrix}a_{n,1}\\a_{n,2}\\\dots \\ a_{n,d}\end{pmatrix} =
                 \begin{pmatrix} lim_{n \rightarrow \infty} a_{n,1} \\ lim_{n \rightarrow \infty} a_{n,2} \\ \dots \\
@@ -902,7 +902,7 @@
     \toprule
 
           & Normierter Raum: $V$ = normierter Vektorraum mit Norm $||\cdot||_V$ (ermöglicht Abstandsmessung) \hfill \break
-            Hier als Vorstellung $\mathbb{R^3}$ mit Standard(2)-Norm (normaler Abstand im Raum) \\
+            Hier als Vorstellung $\mathbb{R}^3$ mit Standard(2)-Norm (normaler Abstand im Raum) \\
     \midrule
     5.6.1 & Genau dasselbe wie vorher, wir ersetzen nur den Betrag durch die jeweilige Norm \\
     \midrule
@@ -921,8 +921,8 @@
     5.6.17& Ist $(V,||\cdot||_V)$ ein endlichdimensionaler normierter Raum,so besitzt jede beschränkte Folge in 
             $V$ mindestens einen Häufungswert. (Unendliche viele Punkte in einer beschränkten Menge müssen irgendwo klumpen) \\
     \midrule
-    5.6.19& Standardvektorraum $\mathbb{R^d}$ ist für jedes $d \in \mathbb{N^*}$ mit jeder Norm ein \textbf{Banachraum}. \hfill \break
-            Wählt man au\ss erdem die durch das Skalarprodukt induzierte 2-Norm, so ist $(\mathbb{R^d}, ||\cdot||_2)$ ein \textbf{Hilbertraum}. \\
+    5.6.19& Standardvektorraum $\mathbb{R}^d$ ist für jedes $d \in \mathbb{N^*}$ mit jeder Norm ein \textbf{Banachraum}. \hfill \break
+            Wählt man au\ss erdem die durch das Skalarprodukt induzierte 2-Norm, so ist $(\mathbb{R}^d, ||\cdot||_2)$ ein \textbf{Hilbertraum}. \\
 
     \bottomrule
 \end{tabularx}
@@ -936,7 +936,7 @@
 \begin{tabularx}{\textwidth}{X m{16cm}}
     \toprule
 
-    5.6.3 & $V = \mathbb{R^3}$, 1-Norm: $||x||_1 = \sum^3_{j=1} |x_i|$, $a_n := (1, \frac{1}{n}, \frac{n-1}{n})^T$, $n \in \mathbb{N^*}$ \hfill \break
+    5.6.3 & $V = \mathbb{R}^3$, 1-Norm: $||x||_1 = \sum^3_{j=1} |x_i|$, $a_n := (1, \frac{1}{n}, \frac{n-1}{n})^T$, $n \in \mathbb{N^*}$ \hfill \break
             Hier gilt $lim_{n \rightarrow \infty} a_n = (1,0,1)^T$. Zeige: Abstand von $a_n$ zu Grenzwert belieblig klein: \hfill \break
             $||a_n - (1,0,1)^T|| = |0| + |\frac{1}{n}| + |\frac{n-1}{n}-1| = \frac{2}{n}$ (Abstand geht gegen 0) \hfill \break
             Sei $\epsilon > 0$. Dann existiert $n_0 \in \mathbb{N}$ mit $n_0 > \frac{2}{\epsilon}$. Für alle $n \geq n_0$ gilt: \hfill \break
@@ -1218,25 +1218,25 @@
     \begin{tabularx}{\textwidth}{X m{16cm}}
         \toprule
 
-        5.8.4 & Es sei $D \subseteq \mathbb{R^d}$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R^p}$ genau dann in $x_0$
+        5.8.4 & Es sei $D \subseteq \mathbb{R}^d$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R}^p$ genau dann in $x_0$
                 \textbf{stetig}, wenn alle Koordinatenfunktionen $f_1, f_2, \dots, f_p : D \rightarrow \mathbb{R}$ in $x_0$ stetig sind. \\
         \midrule
-        5.8.5 &  Es seien $D \subseteq \mathbb{R^d}$, $x_0 \in D$ und $f,g : D \rightarrow \mathbb{R}$ stetig in $x_0$, sowie
+        5.8.5 &  Es seien $D \subseteq \mathbb{R}^d$, $x_0 \in D$ und $f,g : D \rightarrow \mathbb{R}$ stetig in $x_0$, sowie
                 $h : f(D) \rightarrow \mathbb{R}$ stetig in $f(x_0)$. Dann sind auch $f+g$, $fg$ und $h \circ f$ als Funktionen
                 von $D$ nach $\mathbb{R}$ stetig in $x_0$. \hfill \break
                 Ist au\ss erdem $x_0 \in D^* := \{x \in D: g(x) \neq 0\}$, so ist auch $\frac{f}{g}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$. \\
         \midrule
-        5.8.8 & Es sei $K \subseteq \mathbb{R^d}$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
+        5.8.8 & Es sei $K \subseteq \mathbb{R}^d$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
                 \centerline{$f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$}
                 gilt. Insbesondere ist $f$ \textbf{beschränkt}. \\
         \midrule
-        5.8.10& Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R^d}$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R^d}$. Dann gibt es zwei Konstanten
-                $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_x$ für alle $x \in \mathbb{R^d}$ gilt. \\
+        5.8.10& Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R}^d$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R}^d$. Dann gibt es zwei Konstanten
+                $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_x$ für alle $x \in \mathbb{R}^d$ gilt. \\
         \midrule
         5.8.11& \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R^d}$, so gibt es Konstanten $0 < c \leq C$, so dass
-                                $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R^d}$ gilt.
-                    \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R^d}$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
+                    \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R}^d$, so gibt es Konstanten $0 < c \leq C$, so dass
+                                $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R}^d$ gilt.
+                    \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R}^d$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
                                 jeder anderen Norm und der Grenzwert ist derselbe. 
                 \end{itemize} \vspace{-0cm} \\
         \bottomrule
@@ -1252,7 +1252,7 @@
         5.8.2 & Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
         \midrule
         5.8.11& Gilt $c||x|| \leq |||x||| \leq C||x||$ so hei\ss en die Normen $||\cdot||,|||\cdot|||$ äquivalent. \hfill \break
-                Je zwei Normen im $\mathbb{R^d}$ sind äquivalent. \\
+                Je zwei Normen im $\mathbb{R}^d$ sind äquivalent. \\
 
         \bottomrule
     \end{tabularx}
@@ -2207,7 +2207,7 @@
                 von $\mathbb{R}^d$ bzw. $\mathbb{R}^p$ ist die Jakobi-Matrix $J_f(x_0)$. \\
         \midrule
         6.5.10& Ist $G \subseteq \mathbb{R}^d$ offen und $f: G\rightarrow \mathbb{R}^p$ in $x_0 \in G$ total differenzierbar, so gilt für jedes
-                $ v \in \mathbb{R^d} \textbackslash \{0\}$ \hfill \break
+                $ v \in \mathbb{R}^d \textbackslash \{0\}$ \hfill \break
                 \centerline{$ \partial_vf(x_0) = J_f(x_0)v $.} \\
         \midrule
         6.5.12& Ist $G \subseteq \mathbb{R}^d$ offen und $f: G\rightarrow \mathbb{R}^p$ in $x_0 \in G$ stetig partiell differenzierbar, so ist
@@ -3007,7 +3007,7 @@
         7.5.3 & \textbf{Satz von Picard-Lindelöff} \hfill \break
                 Es sei $I \subseteq \mathbb{R}$ ein Intervall, $f: I x \mathbb{R}^n \rightarrow \mathbb{R}^n$ stetig, $t_0 \in I$ und 
                 $y_0 \in \mathbb{R}^n$. Genügt dann $f$ einer Lipschitzbedingung, d.h. exisitiert ein $L > 0$ mit \hfill \break
-                \centerline{$ ||f(t,y_1) -f(t,y_2)|| \leq L||y_1 - y_2||$ für alle $t\in I$ und $y_1,y_2 \in \mathbb{R^n} $}
+                \centerline{$ ||f(t,y_1) -f(t,y_2)|| \leq L||y_1 - y_2||$ für alle $t\in I$ und $y_1,y_2 \in \mathbb{R}^n $}
                 dann existiert ein kompaktes Intervall $J$ mit $t_0 \in J \subseteq I$, sodass das Anfangswertproblem \hfill \break
                 \centerline{$   \begin{cases}
                                 y'(t) = f(t,y(t)), t\in I \\
