@@ -98,7 +98,7 @@
                 \item Durchführung:
                     \begin{itemize}
                         \item Eingabe: Sequenz von Schlüsselwerten $<a_1,a_2,...,a_n>$
-                        \item Engabe ist eine \textbf{Instanz} des Sortierproblems
+                        \item Eingabe ist eine \textbf{Instanz} des Sortierproblems
                         \item Ausgabe: Permutation $<a_1', a_2', ..., a_n'>$ derselben Folge mit Eigenschaft $a_1' \leq ... \leq a_n'$
                     \end{itemize}
                 \item Algorithmus \textbf{korrekt}, wenn dieser das Problem für alle Instanzen löst
@@ -207,7 +207,7 @@
             \begin{itemize}
                 \item Betrachtung der Laufzeit $T(n)$ für sehr gro\ss e Eingaben $n \in \mathbb{N}$
                 \item Komplexität ist unabhängig von konstanten Faktoren und Summanden
-                \item Nicht berücksichtigt: Rechnergeschwindigkeit / Initialisierungsauswände
+                \item Nicht berücksichtigt: Rechnergeschwindigkeit / Initialisierungsaufwände
                 \item Komplexitätsmessung via Funktionsklasse ausreichend
                     \begin{itemize}
                         \item Verhalten des Algorithmus für gro\ss e Problemgrö\ss en
@@ -234,7 +234,7 @@
                 \item \textit{Komplexitätsfunktion}
                     \begin{itemize}
                         \item Wachstumsverhalten ausreichend
-                        \item Praktische Evaluation mit Zeiten nur für Auswahl von Systemen mögliche
+                        \item Praktische Evaluation mit Zeiten nur für Auswahl von Systemen möglich
                         \item Theoretischer Vergleich (Funktionsklassen) hat ähnlichen Erkenntnisgewinn
                     \end{itemize}
             \end{itemize}
@@ -250,7 +250,7 @@
                 \item $\Theta(g)$ enthält alle $f$, die genauso schnell wachsen wie $g$
                 \item Schreibweise: $f \in \Theta(g)$ (korrekt), manchmal auch $f = \Theta(g)$
                 \item $g(n)$ ist eine asymptotisch scharfe Schranke von $f(n)$
-                \item $f(n)= \Omega(g(n))$ gilt, wenn $f(n) = O(g(n))$ und $f(n)=\Omega(g(n))$ erfüllt sind
+                \item $f(n)= \Theta(g(n))$ gilt, wenn $f(n) = O(g(n))$ und $f(n)=\Omega(g(n))$ erfüllt sind
                 \item[]
                 \item[] 
                     \begin{minipage}{0.3\textwidth}
@@ -715,7 +715,7 @@
                         \item Damit ergibt sich für die Laufzeit: $cn \cdot lg(n)+cn$
                         \item Für $\lim_{n \rightarrow \infty}$ wird diese zu $n \cdot lg(n)$
                         \item Laufzeit beträgt damit $\Theta(n \cdot lg(n))$
-                        \item Laufzeit von \texttt{MergaSort} ist in jedem Fall gleich
+                        \item Laufzeit von \texttt{MergeSort} ist in jedem Fall gleich
                     \end{itemize}
                 
             \end{itemize}
@@ -1027,7 +1027,7 @@
                             ($a$ und $b$ werden aus $f(n)$ gelesen):
                             \begin{enumerate}
                                 \item Gilt $f(n) = O(n^{log_b (a - \epsilon)})$ für eine Konstante $\epsilon > 0$, dann $T(n) = \Theta(n^{log_b (a)})$
-                                \item Gilt $f(n) = O(n^{log_b (a)})$, dann gilt $T(n) = \Theta(n^{log_b (a)} lg(n))$
+                                \item Gilt $f(n) = \Theta(n^{log_b (a)})$, dann gilt $T(n) = \Theta(n^{log_b (a)} lg(n))$
                                 \item Gilt $f(n) = \Omega(n^{log_b (a+\epsilon)})$ für eine Konstante $\epsilon > 0$ und $a~f(\frac{n}{b}) \leq c~f(n)$
                                       für eine \\ Konstante $c < 1$ und hinreichend großen $n$, dann ist $T(n) = \Theta(f(n))$
                             \end{enumerate}
