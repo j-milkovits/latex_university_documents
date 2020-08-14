@@ -1755,476 +1755,325 @@
 \section{Gewöhnliche Differentialgleichungen}
 \subsection{Problemstellung und Motivation}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
-
-        7.1.2 & Es sei $n \in \mathbb{N}$, $I \subseteq \mathbb{R}$ ein Intervall und $F: I~x~\mathbb{R}^n \rightarrow \mathbb{R}$ stetig.
-                Dann heißt die Gleichung \hfill \break
-                \centerline{$ y^{(n)}(t) = F(t,y(t), y'(t), y^n(t), \dots, y^{(n-1)}(t))$, $t\in I$} 
-                \textbf{gewöhnliche Differentialgleichung (DGL) der Ordnung n} \hfill \break
-                (Hängt $F$ nicht von der ersten Variable $t$ ab, so nennt man die DGL \textbf{autonom}) \\
+        BSP & 7.1.1 &   Wachstumsmodell: Zuwachs proportional dazu, wie groß die Population schon ist \hfill \break
+                        $y(t)$ Populationsgröße zum Zeitpunkt $ t \geq 0$: $y'(t) = \mu y(t)$, $t\geq0$ \hfill \break
+                        $\mu$ Proportionalitätskonstante (hier Wachstumsrate) \\
         \midrule
-        7.1.9 & Es seien $n \in \mathbb{N}$, $I \subseteq \mathbb{R}$ ein Intervall, $t_0 \in I$, $F:I ~x~ \mathbb{R}^n \rightarrow \mathbb{R}$
-                stetig, sowie $y_0, y_1, \dots, y_{n-1} \in \mathbb{R}$.
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Dann heißt \hfill \break
-                                \centerline{$ (AWP) \begin{cases}
-                                                    y^{(n)}(t) = F(t,y(t),y'(t), \dots, y^{(n-1)})(t), & t \in I \\
-                                                    y^{(j)}(t_0) = y_j, & j = 0,1,\dots, n-1
-                                                    \end{cases} $}
-                                ein \textbf{Anfangswertproblem} mit Anfangswerten $y_0,y_1, \dots, y_{n-1}$ 
-                    \item[b)] Jede Funktion $y: J \rightarrow \mathbb{R}$, die 
-                                \begin{itemize}
-                                    \item auf einem offenen Intervall $J \subseteq I$ mit $t_0 \in J$ definiert ist
-                                    \item auf $J$ $n$-mal stetig differenzierbar ist und
-                                    \item die $n+1$ Gleichungen in $(AWP)$ erfüllt
-                                \end{itemize}
-                              heißt \textbf{Lösung} des Anfangswertproblems.
-                    \item[c)] Ist die Lösung sogar auf dem ganzen Intervall $I$ eine Lösung der Gleichung so nennt man sie eine
-                                \textbf{globale Lösung}.
-                \end{itemize} \vspace{-0cm} \\
+        D   & 7.1.2 &   Es sei $n \in \mathbb{N}$, $I \subseteq \mathbb{R}$ ein Intervall und $F: I~x~\mathbb{R}^n \rightarrow \mathbb{R}$ stetig.
+                        Dann heißt die Gleichung \hfill \break
+                        \centerline{$ y^{(n)}(t) = F(t,y(t), y'(t), y^n(t), \dots, y^{(n-1)}(t))$, $t\in I$} 
+                        \textbf{gewöhnliche Differentialgleichung (DGL) der Ordnung n} \hfill \break
+                        (Hängt $F$ nicht von der ersten Variable $t$ ab, so nennt man die DGL \textbf{autonom}) \\
+        \midrule
+        B   &       &   Differentialgleichung: Zusammenhang zwischen Funktion und Ableitung bekannt \\
+        \midrule
+        BSP & 7.1.2 &   Beispiele für DGL:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] $y''(t) + 2 y'(t) + y(t) = sin(t)$ mit $n=2$ und $F(t,y(t), y'(t)) = sin(t) - 2y'(t) - y(t)$ 
+                            \item[b)] $y'(t) = t^2 + 1$ mit $n = 1$ und $F(t,y(t)) = t^2 +1$ 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 7.1.4 &   Fall von DGL der Ordnung $n$ immer auf Fall erster Ordnung ($n=1$) zurückspielbar. \hfill \break
+                        Also zuerst nur Gleichungen mit $n=1$ der Form $y'(t) = f(t,y(t)),$ $t\in I$ \hfill \break
+                        $f : I ~x~\mathbb{R} \rightarrow \mathbb{R}$ gegebene stetige Funktion und $y: I \rightarrow \mathbb{R}$ die gesuchte Funktion. \\
+        \midrule
+        B   & 7.1.4 &   Autonome DGL erster Ordnung: $y'(t) = f(y(t)),$ $t\in I$ \\
+        \midrule
+        B   & 7.1.4 &   Stetig differenzierbare Funktion $y: I \rightarrow \mathbb{R}$, die DGL erfüllt: \textbf{Lösung der DGL} \\
+        \midrule
+        B   & 7.1.6 &   DGLs im Allgemeinen mehrere Lösungen \hfill \break
+                        Anzahl der frei wählbaren Konstanten entspricht meist der Ordnung der Gleichung \\
+        \midrule
+        D   & 7.1.9 &   Es seien $n \in \mathbb{N}$, $I \subseteq \mathbb{R}$ ein Intervall, $t_0 \in I$, $F:I ~x~ \mathbb{R}^n \rightarrow \mathbb{R}$
+                        stetig, sowie $y_0, y_1, \dots, y_{n-1} \in \mathbb{R}$.
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Dann heißt \hfill \break
+                                        \centerline{$ (AWP) \begin{cases}
+                                                            y^{(n)}(t) = F(t,y(t),y'(t), \dots, y^{(n-1)})(t), & t \in I \\
+                                                            y^{(j)}(t_0) = y_j, & j = 0,1,\dots, n-1
+                                                            \end{cases} $}
+                                        ein \textbf{Anfangswertproblem} mit Anfangswerten $y_0,y_1, \dots, y_{n-1}$ 
+                            \item[b)] Jede Funktion $y: J \rightarrow \mathbb{R}$, die 
+                                        \begin{itemize}
+                                            \item auf einem offenen Intervall $J \subseteq I$ mit $t_0 \in J$ definiert ist
+                                            \item auf $J$ $n$-mal stetig differenzierbar ist und
+                                            \item die $n+1$ Gleichungen in $(AWP)$ erfüllt
+                                        \end{itemize}
+                                      heißt \textbf{Lösung} des Anfangswertproblems.
+                            \item[c)] Ist die Lösung sogar auf dem ganzen Intervall $I$ eine Lösung der Gleichung so nennt man sie eine
+                                        \textbf{globale Lösung}.
+                        \end{itemize} \vspace{-0cm} \\
 
         \bottomrule
 
     \end{longtable}
-    
-
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-              & Differentialgleichung: Zusammenhang zwischen Funktion und Ableitung bekannt \\
-        \midrule
-        7.1.4 & Fall von DGL der Ordnung $n$ immer auf Fall erster Ordnung ($n=1$) zurückspielbar. \hfill \break
-                Also zuerst nur Gleichungen mit $n=1$ der Form $y'(t) = f(t,y(t)),$ $t\in I$ \hfill \break
-                $f : I ~x~\mathbb{R} \rightarrow \mathbb{R}$ gegebene stetige Funktion und $y: I \rightarrow \mathbb{R}$ die gesuchte Funktion. \\
-        \midrule
-        7.1.4 & Autonome DGL erster Ordnung: $y'(t) = f(y(t)),$ $t\in I$ \\
-        \midrule
-        7.1.4 & Stetig differenzierbare Funktion $y: I \rightarrow \mathbb{R}$, die DGL erfüllt: \textbf{Lösung der DGL} \\
-        \midrule
-        7.1.6 & DGLs im Allgemeinen mehrere Lösungen \hfill \break
-                Anzahl der frei wählbaren Konstanten entspricht meist der Ordnung der Gleichung \\
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Beispiele}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.1.1 & Wachstumsmodell: Zuwachs proportional dazu, wie groß die Population schon ist \hfill \break
-                $y(t)$ Populationsgröße zum Zeitpunkt $ t \geq 0$: $y'(t) = \mu y(t)$, $t\geq0$ \hfill \break
-                $\mu$ Proportionalitätskonstante (hier Wachstumsrate) \\
-        \midrule
-        7.1.2 & Beispiele für DGL:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $y''(t) + 2 y'(t) + y(t) = sin(t)$ mit $n=2$ und $F(t,y(t), y'(t)) = sin(t) - 2y'(t) - y(t)$ 
-                    \item[b)] $y'(t) = t^2 + 1$ mit $n = 1$ und $F(t,y(t)) = t^2 +1$ 
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{longtable}
-    
-    
-
 
 \subsection{Elementare Lösungstechniken}
 \subsubsection{Getrennte Veränderliche}
 
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        7.2.2 & \textbf{Trennung der Variablen} \hfill \break
-                Auf einem Intervall $I \subseteq \mathbb{R}$ sei mit stetigen Funktionen $g: I \rightarrow \mathbb{R}$ und 
-                $h: \mathbb{R} \rightarrow \mathbb{R}$, sowie $t_0 \in I$ und $y_0 \in \mathbb{R}$ das Anfangswertproblem \hfill \break
-                \centerline{$   \begin{cases}
-                                    y'(t) = g(t) h(y(t)), t\in I \\
-                                    y(t_0) = y_0
-                                \end{cases}$}
-                gegeben. Ist $h(y_0) \neq 0$, so existiert ein offenes Intervall $J \subseteq I$ mit $t_0 \in J$, auf dem
-                das Anfangswertproblem genau eine Lösung besitzt. Diese ist gegeben durch \hfill \break
-                \centerline{$ y = H^{-1} \circ G$ mit $G(t) := \int^t_{t_0} g(\tau) d\tau$ und $H(y) := \int^y_{y_0} \frac{h}{h(\eta)}d\eta  $} \\
-
+        S   & 7.2.2 &   \textbf{Trennung der Variablen} \hfill \break
+                        Auf einem Intervall $I \subseteq \mathbb{R}$ sei mit stetigen Funktionen $g: I \rightarrow \mathbb{R}$ und 
+                        $h: \mathbb{R} \rightarrow \mathbb{R}$, sowie $t_0 \in I$ und $y_0 \in \mathbb{R}$ das Anfangswertproblem \hfill \break
+                        \centerline{$   \begin{cases}
+                                            y'(t) = g(t) h(y(t)), t\in I \\
+                                            y(t_0) = y_0
+                                        \end{cases}$}
+                        gegeben. Ist $h(y_0) \neq 0$, so existiert ein offenes Intervall $J \subseteq I$ mit $t_0 \in J$, auf dem
+                        das Anfangswertproblem genau eine Lösung besitzt. Diese ist gegeben durch \hfill \break
+                        \centerline{$ y = H^{-1} \circ G$ mit $G(t) := \int^t_{t_0} g(\tau) d\tau$ und $H(y) := \int^y_{y_0} \frac{h}{h(\eta)}d\eta  $} \\
+        \midrule
+        B   & 7.2.2 &   Verwendung dieser Methode, falls eine DGL der Form $y'(t) = f(t,y(t))$ zu lösen ist, bei der die rechte Seite $f$ von der
+                        Form $f(t,y) = g(t)h(y)$ ist. (Abhängigkeit zwischen $t$ und $y$ multiplikativ getrennt) \\
         \bottomrule
     \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.2.2 & Verwendung dieser Methode, falls eine DGL der Form $y'(t) = f(t,y(t))$ zu lösen ist, bei der die rechte Seite $f$ von der
-                Form $f(t,y) = g(t)h(y)$ ist. (Abhängigkeit zwischen $t$ und $y$ multiplikativ getrennt) \\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsubsection{Homogene Differentialgleichungen}
 
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-              & Homogene DGL: Rechte Seite hängt nur vom Quotienten $\frac{y}{t}$ ab, es existiert also eine Funktion $g: \mathbb{R} \rightarrow \mathbb{R}$
-                als $y'(t) = f(t,y(t)) = g(\frac{y(t)}{t})$ geschrieben werden kann. \hfill \break
-                Diese können durch Substitution gelöst werden, wir setzen $u(t) := \frac{y(t)}{t}$. \hfill \break
-                Nun schauen wir welche Gleichung von $u$ gelöst wird, wenn $y$ Lösung der Ausgangsgleichung ist. \hfill \break
-                \centerline{$ u'(t) = \frac{ty'(t)-y(t)}{t^2} = \frac{y'(t)}{t} - \frac{u(t)}{t} = \frac{1}{t} (g(\frac{y(t)}{t}) - u(t)
-                = \frac{1}{t}(g(u(t))-u(t)) $} 
-                Dieses $u$ erfüllt Gleichung die nach Methode der getrennten Veränderlichen gelöst werden kann.\\
-
+        B   &       &   Homogene DGL: Rechte Seite hängt nur vom Quotienten $\frac{y}{t}$ ab, es existiert also eine Funktion $g: \mathbb{R} \rightarrow \mathbb{R}$
+                        als $y'(t) = f(t,y(t)) = g(\frac{y(t)}{t})$ geschrieben werden kann. \hfill \break
+                        Diese können durch Substitution gelöst werden, wir setzen $u(t) := \frac{y(t)}{t}$. \hfill \break
+                        Nun schauen wir welche Gleichung von $u$ gelöst wird, wenn $y$ Lösung der Ausgangsgleichung ist. \hfill \break
+                        \centerline{$ u'(t) = \frac{ty'(t)-y(t)}{t^2} = \frac{y'(t)}{t} - \frac{u(t)}{t} = \frac{1}{t} (g(\frac{y(t)}{t}) - u(t)
+                        = \frac{1}{t}(g(u(t))-u(t)) $} 
+                        Dieses $u$ erfüllt Gleichung die nach Methode der getrennten Veränderlichen gelöst werden kann.\\
+        \midrule
+        BSP & 7.2.4 &   Anfangswertproblem: \hfill \break
+                        \centerline{$   \begin{cases}
+                                        y'(t) = \frac{y(t)}{t} - \frac{t^2}{y(t)^2}, t \in \mathbb{R} \\
+                                        y(1) = 1. 
+                                        \end{cases} $} 
+                        Die obige Substitution $u(t) = y(t)/t$ liefert hier: \hfill \break
+                        \centerline{$ u'(t)= \frac{y'(t)}{t} - \frac{u(t)}{t} = \frac{1}{t} (u(t) - \frac{1}{u(t)^2}-u(t)) = - \frac{1}{t} \frac{1}{u(t)^2} $} 
+                        Durch Methode der getrennten Veränderlichen finden wir: \hfill \break
+                        \centerline{$ u^2du=-\frac{1}{t}dt,$ also $\int u^2 du= -\int \frac{1}{t}dt$} 
+                        Das liefert nach Integration \hfill \break
+                        \centerline{$ \frac{u^3}{3} = -ln(t)+c,$ d.h. $ u(t) = \sqrt[3]{-3ln(t)+3c} $}
+                        was schließlich zu \hfill \break
+                        \centerline{$ y(t) = tu(t) = t \sqrt[3]{-3ln(t) +3c} $}
+                        führt. Mit dem Anfangswert bekommen wir wegen \hfill \break
+                        \centerline{$ 1 = y(1) = \sqrt[3]{3c} \Rightarrow 3c = 1 \Rightarrow c = \frac{1}{3} $}
+                        die Lösung \hfill \break
+                        \centerline{$ y(t) = t \sqrt[3]{1-3ln(t)} $}
+                        die man leicht in einer Probe verifiziert. \\
         \bottomrule
     \end{longtable}
-    
-
-    \noindent
-    \textbf{Beispiele}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.2.4 & Anfangswertproblem: \hfill \break
-                \centerline{$   \begin{cases}
-                                y'(t) = \frac{y(t)}{t} - \frac{t^2}{y(t)^2}, t \in \mathbb{R} \\
-                                y(1) = 1. 
-                                \end{cases} $} 
-                Die obige Substitution $u(t) = y(t)/t$ liefert hier: \hfill \break
-                \centerline{$ u'(t)= \frac{y'(t)}{t} - \frac{u(t)}{t} = \frac{1}{t} (u(t) - \frac{1}{u(t)^2}-u(t)) = - \frac{1}{t} \frac{1}{u(t)^2} $} 
-                Durch Methode der getrennten Veränderlichen finden wir: \hfill \break
-                \centerline{$ u^2du=-\frac{1}{t}dt,$ also $\int u^2 du= -\int \frac{1}{t}dt$} 
-                Das liefert nach Integration \hfill \break
-                \centerline{$ \frac{u^3}{3} = -ln(t)+c,$ d.h. $ u(t) = \sqrt[3]{-3ln(t)+3c} $}
-                was schließlich zu \hfill \break
-                \centerline{$ y(t) = tu(t) = t \sqrt[3]{-3ln(t) +3c} $}
-                führt. Mit dem Anfangswert bekommen wir wegen \hfill \break
-                \centerline{$ 1 = y(1) = \sqrt[3]{3c} \Rightarrow 3c = 1 \Rightarrow c = \frac{1}{3} $}
-                die Lösung \hfill \break
-                \centerline{$ y(t) = t \sqrt[3]{1-3ln(t)} $}
-                die man leicht in einer Probe verifiziert. \\
-
-        \bottomrule
-    \end{longtable}
-    
-    
-
 
 \subsubsection{Lineare Differentialgleichungen erster Ordnung}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        7.2.5 & Eine lineare DGL erster Ordnung hat die allgemeine Form \hfill \break
-                \centerline{$ y'(t) + a(t) y(t) = b(t), t \in I$}
-                wobei $a,b: I \rightarrow \mathbb{R}$ stetige Funktionen auf einem Intervall $I$ sind. \hfill \break
-                Ist $b= 0$, so nennt man die Gleichung homogen, sonst inhomogen. \\
-
-        \bottomrule
-
-    \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.2.6 & \textbf{Superpositionsprinzip} \hfill \break
-                Es seien $y_1, y_2: I \rightarrow \mathbb{R}$ zwei Lösungen der homogenen linearen Gleichung $y'(t) + a(t)y(t) = 0$.
-                Dann ist auch jede Linearkombination $y = \alpha y_1 + \beta y_2$ mit $\alpha, \beta \in \mathbb{R}$ eine Lösung dieser
-                Gleichung. \\
+        D   & 7.2.5 &   Eine lineare DGL erster Ordnung hat die allgemeine Form \hfill \break
+                        \centerline{$ y'(t) + a(t) y(t) = b(t), t \in I$}
+                        wobei $a,b: I \rightarrow \mathbb{R}$ stetige Funktionen auf einem Intervall $I$ sind. \hfill \break
+                        Ist $b= 0$, so nennt man die Gleichung homogen, sonst inhomogen. \\
         \midrule
-        7.2.8 & \textbf{Variation der Konstanten-Formel} \hfill \break
-                Es seien $I \subseteq \mathbb{R}$ ein Intervall, $a,b \in C(I)$ und $t_0 \in I$, sowie $y_0 \in \mathbb{R}$. Das lineare
-                Anfangswertproblem \hfill \break
-                \centerline{$   \begin{cases}
-                                y'(t) + a(t)y(t) = b(t), t \in I \\
-                                y(t_0) = y_0
-                                \end{cases} $}
-                besitzt genau eine globale Lösung, die durch \hfill \break
-                \centerline{$ y(t) = e^{-A(t)} y_0 + e^{-A(t)} \int^t_{t_0} b(s)e^{A(s)}ds$ mit $ A(t) = \int^t_{t_0} a(s) ds $}
-                gegeben ist. \\
-
+        S   & 7.2.6 &   \textbf{Superpositionsprinzip} \hfill \break
+                        Es seien $y_1, y_2: I \rightarrow \mathbb{R}$ zwei Lösungen der homogenen linearen Gleichung $y'(t) + a(t)y(t) = 0$.
+                        Dann ist auch jede Linearkombination $y = \alpha y_1 + \beta y_2$ mit $\alpha, \beta \in \mathbb{R}$ eine Lösung dieser
+                        Gleichung. \\
+        \midrule
+        S   & 7.2.8 &   \textbf{Variation der Konstanten-Formel} \hfill \break
+                        Es seien $I \subseteq \mathbb{R}$ ein Intervall, $a,b \in C(I)$ und $t_0 \in I$, sowie $y_0 \in \mathbb{R}$. Das lineare
+                        Anfangswertproblem \hfill \break
+                        \centerline{$   \begin{cases}
+                                        y'(t) + a(t)y(t) = b(t), t \in I \\
+                                        y(t_0) = y_0
+                                        \end{cases} $}
+                        besitzt genau eine globale Lösung, die durch \hfill \break
+                        \centerline{$ y(t) = e^{-A(t)} y_0 + e^{-A(t)} \int^t_{t_0} b(s)e^{A(s)}ds$ mit $ A(t) = \int^t_{t_0} a(s) ds $}
+                        gegeben ist. \\
         \bottomrule
+
     \end{longtable}
-    
 
 \subsection{Systeme von Differentialgleichungen}
 \subsubsection{Lineare Systeme}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        7.3.1 & E seien $I \subseteq  \mathbb{R}$ ein Intervall, $N \in \mathbb{N*}$ und für jede Wahl von $j,k \in \{1,2,\dots,N\}$ 
-            stetige Funktionen $a_{jk}: I \rightarrow \mathbb{R}$, sowie $b_j: I \rightarrow \mathbb{R}$ gegeben. 
-            \begin{itemize}[topsep=-0.5cm]
-                \item[a)] Dann heißt \hfill \break
-                            $\begin{cases}
-                                y'_1(t) = a_{11}(t)y_1(t) + a_{12}(t)y_2(t) + \dots + a_{1N}(t)y_N(t) + b_1(t) \\
-                                \dots \\
-                                y'_N(t) = a_{N1}(t)y_1(t) + a_{N2}(t) y_2(t) + \dots + a_{NN}(t)y_N(t) + b_N(t)
-                            \end{cases}$
-                            $t\in I$, ein \textbf{System von linearen gewöhnlichen DGL erster Ordnung.}
-                \item[b)] Das dazugehörige Anfangswertproblem ergibt sich, indem für ein $t_0 \in I$ und vorgegebene
-                            $y_{1,0},y_{2,0},\dots,y_{N,0} \in \mathbb{R}$ noch \hfill \break
-                            \centerline{$ y_1(t_0) = y_{1,0}, y_2(t_0) = y_{2,0}, \dots, y_N(t_0)=y_{N,0} $}
-                            gefordert wird.
-                \item[c)] Ist $b= 0$, so heißt das System homogen, sonst inhomogen.
-            \end{itemize} \vspace{-0cm} \\
+        D   & 7.3.1 &   E seien $I \subseteq  \mathbb{R}$ ein Intervall, $N \in \mathbb{N*}$ und für jede Wahl von $j,k \in \{1,2,\dots,N\}$ 
+                        stetige Funktionen $a_{jk}: I \rightarrow \mathbb{R}$, sowie $b_j: I \rightarrow \mathbb{R}$ gegeben. 
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Dann heißt \hfill \break
+                                        $\begin{cases}
+                                            y'_1(t) = a_{11}(t)y_1(t) + a_{12}(t)y_2(t) + \dots + a_{1N}(t)y_N(t) + b_1(t) \\
+                                            \dots \\
+                                            y'_N(t) = a_{N1}(t)y_1(t) + a_{N2}(t) y_2(t) + \dots + a_{NN}(t)y_N(t) + b_N(t)
+                                        \end{cases}$
+                                        $t\in I$, ein \textbf{System von linearen gewöhnlichen DGL erster Ordnung.}
+                            \item[b)] Das dazugehörige Anfangswertproblem ergibt sich, indem für ein $t_0 \in I$ und vorgegebene
+                                        $y_{1,0},y_{2,0},\dots,y_{N,0} \in \mathbb{R}$ noch \hfill \break
+                                        \centerline{$ y_1(t_0) = y_{1,0}, y_2(t_0) = y_{2,0}, \dots, y_N(t_0)=y_{N,0} $}
+                                        gefordert wird.
+                            \item[c)] Ist $b= 0$, so heißt das System homogen, sonst inhomogen.
+                        \end{itemize} \vspace{-0cm} \\
         \midrule
-        7.3.4 & Es sei $I \subseteq \mathbb{R}$ ein Intervall und $A:I \rightarrow \mathbb{R}^{NxN}$ stetig. Jede Basis des Lösungsraums aller
-                Lösungen von Gleichung (7.2) nennt man ein Fundamentalsystem dieser Gleichung. \\
-
+        B   & 7.3.1 &   Das Ganze lässt sich in Matrixschreibweise um Einiges übersichtlicher schreiben. \\
+        \midrule
+        S   & 7.3.3 &   Die Menge $L$ aller Lösungen der Gleichung (7.2) ist ein $N$-dimensionaler Untervektorraum von $C^1(I; \mathbb{R}^N)$. \\
+        \midrule
+        D   & 7.3.4 &   Es sei $I \subseteq \mathbb{R}$ ein Intervall und $A:I \rightarrow \mathbb{R}^{NxN}$ stetig. Jede Basis des Lösungsraums aller
+                        Lösungen von Gleichung (7.2) nennt man ein Fundamentalsystem dieser Gleichung. \\
+        \midrule
+        S   & 7.3.5 &   Es seien $y_1, y_2, \dots, y_N \in C^1 (I; \mathbb{R}^N)$ Lösungen der Gleichung (7.2). Dann sind die folgenden
+                        Aussagen äquivalent: 
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[i)] $y_1,y_2,\dots,y_N$ sind linear unabhängig in $C 1(I; \mathbb{R}^N)$, d.h. $\{y_1,y_2,\dots,y_N \}$ ist ein
+                                        Fundamentalsystem der Gleichung.
+                            \item[ii)] Für alle $t \in I$ ist die Menge $\{ y_1(t), y_2(t), \dots, y_N(t)\}$ linear unabhängig in $\mathbb{R}^N$.
+                            \item[iii)] Es gibt ein $t\in I$, für das die Menge $\{y_1,y_2,\dots,y_N \}$ linear unabhängig in $\mathbb{R}^N$ ist. 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 7.3.6 &   Es seien $I \subseteq \mathbb{R}$ ein Intervall, sowie $A: I \rightarrow \mathbb{R}^{NxN}$ und $b: I \rightarrow \mathbb{R}^N$
+                        stetige Funktionen. Ist $y_p:I \rightarrow \mathbb{R}^N$ eine Lösung der Gleichung (7.3), so ist jede Lösung dieser Gleichung 
+                        gegeben durch $y = y_p + y_h$, wobei $y_h$ eine Lösung des zugehörigen Systems (7.2) ist.\\
         \bottomrule
 
     \end{longtable}
-    
-
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.3.3 & Die Menge $L$ aller Lösungen der Gleichung (7.2) ist ein $N$-dimensionaler Untervektorraum von $C^1(I; \mathbb{R}^N)$. \\
-        \midrule
-        7.3.5 & Es seien $y_1, y_2, \dots, y_N \in C^1 (I; \mathbb{R}^N)$ Lösungen der Gleichung (7.2). Dann sind die folgenden
-                Aussagen äquivalent: 
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[i)] $y_1,y_2,\dots,y_N$ sind linear unabhängig in $C 1(I; \mathbb{R}^N)$, d.h. $\{y_1,y_2,\dots,y_N \}$ ist ein
-                                Fundamentalsystem der Gleichung.
-                    \item[ii)] Für alle $t \in I$ ist die Menge $\{ y_1(t), y_2(t), \dots, y_N(t)\}$ linear unabhängig in $\mathbb{R}^N$.
-                    \item[iii)] Es gibt ein $t\in I$, für das die Menge $\{y_1,y_2,\dots,y_N \}$ linear unabhängig in $\mathbb{R}^N$ ist. 
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        7.3.6 & Es seien $I \subseteq \mathbb{R}$ ein Intervall, sowie $A: I \rightarrow \mathbb{R}^{NxN}$ und $b: I \rightarrow \mathbb{R}^N$
-                stetige Funktionen. Ist $y_p:I \rightarrow \mathbb{R}^N$ eine Lösung der Gleichung (7.3), so ist jede Lösung dieser Gleichung 
-                gegeben durch $y = y_p + y_h$, wobei $y_h$ eine Lösung des zugehörigen Systems (7.2) ist.\\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.3.1 & Das Ganze lässt sich in Matrixschreibweise um Einiges übersichtlicher schreiben. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
 
 \subsubsection{Lineare Systeme mit konstanten Koeffizienten}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        7.3.8 & Es sei $A\in \mathbb{R}^{NxN}$. Dann heißt \hfill \break
-                \centerline{$ e^A := \sum^{\infty}_{n=0} \frac{A^n}{n!} $}
-                die \textbf{Matrix-Exponentialfunktion} von $A$. \hfill \break
-                (Reihe ist für jede Matrix konvergent)\\
-
+        D   & 7.3.8 &   Es sei $A\in \mathbb{R}^{NxN}$. Dann heißt \hfill \break
+                        \centerline{$ e^A := \sum^{\infty}_{n=0} \frac{A^n}{n!} $}
+                        die \textbf{Matrix-Exponentialfunktion} von $A$. \hfill \break
+                        (Reihe ist für jede Matrix konvergent)\\
+        \midrule
+        B   &       &   Konstante Koeffizienten: $y'(t) = Ay(t) + b(t)$, $t \in I$ \hfill \break
+                        Funktion $A$ ist in der DGL konstant durch eine feste Matrix gegeben. \\
+        \midrule
+        S   & 7.3.10&   Es seien $A,B \in \mathbb{R}^{NxN}$. Dann gelten die folgenden Aussagen über die Matrix-Exponentialfunktion:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Für die Nullmatrix $O$ gilt $e^O = I$.
+                            \item[b)] Kommutieren $A$ und $B$, d.h. gilt $AB = BA$, so ist $e^Ae^B = e^{A+B}$
+                            \item[c)] Die Matrix $e^A$ ist invertierbar mit $(e^A)^{-1} = e^{-A}.$
+                            \item[d)] Ist $A$ eine Diagonalmatrix mit Diagonaleinträgen $\lambda_1,\lambda_2, \dots,\lambda_N$, so ist
+                                        $e^A$ ebenfalls eine Diagonalmatrix mit den Diagonaleinträgen $e^{\lambda_1},e^{\lambda_2},\dots,e^{\lambda_N}$.
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 7.3.11&   Es sei $I \subseteq \mathbb{R}$ ein Intervall und $A \in \mathbb{R}^{NxN}$. Dann bilden die Spalten der Matrix $e^{tA}$
+                        ,$t\in I$, ein Fundamentalsystem der Gleichung $y'(t) = Ay(t), t\in I$. \\
+        \midrule
+        B   & 7.3.12&   Leitet man die gesamte Matrix $e^{tA}$ komponentenweise nach $t$ ab, so bedeutet obiger Satz die eingängige Matrixgleichheit
+                        \hfill \break \centerline{$ \frac{d}{dt}e^{tA} = A e^{tA} $} \\
+        \midrule
+        S   & 7.3.14&   Es sei $A \in \mathbb{R}^{NxN}$ diagonalisierbar mit Eigenwerten $\lambda_1, \lambda_2, \dots, \lambda_N$ und zugehörigen
+                        Eigenvektoren $v_1, v_2, \dots, v_N$. Dann ist \hfill \break
+                        \centerline{$ \{e^{t \lambda_1}v_1, e^{t \lambda_2}v_2, \dots, e^{t\lambda_N}v_N\} $}
+                        ein Fundamentalsystem der Gleichung $y'(t) = Ay(t).$ \\
+        \midrule
+        S   & 7.3.15&   Sei $A \in \mathbb{R}^{NxN}$, Dann kann man ein Fundamentalsystem für $y'(t) = Ay(t)$ folgendermaßen konstruieren. Sei 
+                        $\lambda$ ein Eigenwert von $A$, d.h. $det(A-\lambda I) = 0$, und $m$ die Vielfachheit der Nullstelle $\lambda$. Dann hat
+                        $(A- \lambda I)^m$ einen $m$-dimensionalen Kern. Sei $v_1,\dots, v_m$ eine Basis dieses Kerns. Sei \hfill \break
+                        \centerline{$ u_j(t) = \sum_{k=0}^{m-1} e^{t\lambda}  \frac{t^k}{k!} (A- \lambda I)^k v_j$}
+                        für $j = 1, \dots, m$. \hfill \break
+                        Wenn $\lambda$ reell ist, dann sind $u_1, \dots, u_m$ die Beiträge von $\lambda$ zum Fundamentalsystem. \hfill \break
+                        Wenn $\lambda$ komplex ist und $Im\lambda > 0$, dann sind $Reu_1, Imu_1,\dots,Reu_m, Imu_m$ die Beiträge von $\lambda$ zum
+                        Fundamentalsystgem, wobei der konjugierte Eigenwert $\bar{\lambda}$ keinen Beitrag liefert.\\
+        \midrule
+        S   & 7.3.16&   \textbf{Variation der Konstanten-Formel} \hfill \break
+                        Es seien $I \subseteq \mathbb{R}$ ein Intervall, $A \in \mathbb{R}^{NxN}$ eine Matrix und $b: I \rightarrow \mathbb{R}^N$ eine 
+                        stetige Funktion, sowie $t_0 \in I$ und $y_0 \in \mathbb{R}^N$. Dann hat das lineare Anfangswertproblem erster Ordnung mit
+                        konstanten Koeffizienten \hfill \break
+                        \centerline{$   \begin{cases}
+                                        y'(t) = Ay(t) +b(t), t \in I \\
+                                        y(t_0) = y_0
+                                        \end{cases} $}
+                        die eindeutige globale Lösung \hfill \break
+                        \centerline{$ y(t) = e^{(t-t_0)A}y_0 + e^{tA} \int^t_{t_0} e^{-sA}b(s) ds = e^{(t-t_0)A}y_0 + \int^t_{t_0} e^{(t-s)A}b(s) ds $}\\
         \bottomrule
 
     \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.3.10& Es seien $A,B \in \mathbb{R}^{NxN}$. Dann gelten die folgenden Aussagen über die Matrix-Exponentialfunktion:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Für die Nullmatrix $O$ gilt $e^O = I$.
-                    \item[b)] Kommutieren $A$ und $B$, d.h. gilt $AB = BA$, so ist $e^Ae^B = e^{A+B}$
-                    \item[c)] Die Matrix $e^A$ ist invertierbar mit $(e^A)^{-1} = e^{-A}.$
-                    \item[d)] Ist $A$ eine Diagonalmatrix mit Diagonaleinträgen $\lambda_1,\lambda_2, \dots,\lambda_N$, so ist
-                                $e^A$ ebenfalls eine Diagonalmatrix mit den Diagonaleinträgen $e^{\lambda_1},e^{\lambda_2},\dots,e^{\lambda_N}$.
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        7.3.11& Es sei $I \subseteq \mathbb{R}$ ein Intervall und $A \in \mathbb{R}^{NxN}$. Dann bilden die Spalten der Matrix $e^{tA}$
-                ,$t\in I$, ein Fundamentalsystem der Gleichung $y'(t) = Ay(t), t\in I$. \\
-        \midrule
-        7.3.14& Es sei $A \in \mathbb{R}^{NxN}$ diagonalisierbar mit Eigenwerten $\lambda_1, \lambda_2, \dots, \lambda_N$ und zugehörigen
-                Eigenvektoren $v_1, v_2, \dots, v_N$. Dann ist \hfill \break
-                \centerline{$ \{e^{t \lambda_1}v_1, e^{t \lambda_2}v_2, \dots, e^{t\lambda_N}v_N\} $}
-                ein Fundamentalsystem der Gleichung $y'(t) = Ay(t).$ \\
-        \midrule
-        7.3.15& Sei $A \in \mathbb{R}^{NxN}$, Dann kann man ein Fundamentalsystem für $y'(t) = Ay(t)$ folgendermaßen konstruieren. Sei 
-                $\lambda$ ein Eigenwert von $A$, d.h. $det(A-\lambda I) = 0$, und $m$ die Vielfachheit der Nullstelle $\lambda$. Dann hat
-                $(A- \lambda I)^m$ einen $m$-dimensionalen Kern. Sei $v_1,\dots, v_m$ eine Basis dieses Kerns. Sei \hfill \break
-                \centerline{$ u_j(t) = \sum_{k=0}^{m-1} e^{t\lambda}  \frac{t^k}{k!} (A- \lambda I)^k v_j$}
-                für $j = 1, \dots, m$. \hfill \break
-                Wenn $\lambda$ reell ist, dann sind $u_1, \dots, u_m$ die Beiträge von $\lambda$ zum Fundamentalsystem. \hfill \break
-                Wenn $\lambda$ komplex ist und $Im\lambda > 0$, dann sind $Reu_1, Imu_1,\dots,Reu_m, Imu_m$ die Beiträge von $\lambda$ zum
-                Fundamentalsystgem, wobei der konjugierte Eigenwert $\bar{\lambda}$ keinen Beitrag liefert.\\
-        \midrule
-        7.3.16& \textbf{Variation der Konstanten-Formel} \hfill \break
-                Es seien $I \subseteq \mathbb{R}$ ein Intervall, $A \in \mathbb{R}^{NxN}$ eine Matrix und $b: I \rightarrow \mathbb{R}^N$ eine 
-                stetige Funktion, sowie $t_0 \in I$ und $y_0 \in \mathbb{R}^N$. Dann hat das lineare Anfangswertproblem erster Ordnung mit
-                konstanten Koeffizienten \hfill \break
-                \centerline{$   \begin{cases}
-                                y'(t) = Ay(t) +b(t), t \in I \\
-                                y(t_0) = y_0
-                                \end{cases} $}
-                die eindeutige globale Lösung \hfill \break
-                \centerline{$ y(t) = e^{(t-t_0)A}y_0 + e^{tA} \int^t_{t_0} e^{-sA}b(s) ds = e^{(t-t_0)A}y_0 + \int^t_{t_0} e^{(t-s)A}b(s) ds $}\\
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-              & Konstante Koeffizienten: $y'(t) = Ay(t) + b(t)$, $t \in I$ \hfill \break
-                Funktion $A$ ist in der DGL konstant durch eine feste Matrix gegeben. \\
-        \midrule
-        7.3.12& Leitet man die gesamte Matrix $e^{tA}$ komponentenweise nach $t$ ab, so bedeutet obiger Satz die eingängige Matrixgleichheit
-                \hfill \break \centerline{$ \frac{d}{dt}e^{tA} = A e^{tA} $} \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
 
 \subsection{Differentialgleichungen höherer Ordnung}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
-
-        7.4.3 & \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Jede Basis des Raums aller Lösungen in Satz 7.4.2 a) nennt man ein Fundamentalsystem der homogenen Gleichung.
-                    \item[b)] Die Lösung $y_p$ der inhomogenen Gleichung im Satz 7.4.2 b) heißt spezielle Lösung oder auch
-                                \textbf{Partikulärlösung der Gleichung (7.8)}.
-                \end{itemize} \vspace{-0cm} \\
+        S   & 7.4.1 &   Es seien $n \in \mathbb{N}$ mit $n \geq 2$, $I \subseteq \mathbb{R}$ ein Intervall und $F: Ix \mathbb{R}^n \rightarrow \mathbb{R}$
+                        eine stetige Funktion. Dann ist $y: I \rightarrow \mathbb{R}$ genau dann eine Lösung der DGL in (7.6), wenn $v = (y,y',y''
+                        ,\dots, y^{(n-1)})^T:I \rightarrow \mathbb{R}^n$ eine Lösung des Systems $v'(t) = G(t,v(t))$ mit \hfill \break
+                        \centerline{$ G(t,v(t)) =   \begin{pmatrix}
+                                                    v_2(t) \\
+                                                    v_3(t) \\
+                                                    \dots \\
+                                                    v_n(t) \\
+                                                    F(t,v_1(t),v_2(t),\dots,v_n(t)) 
+                                                    \end{pmatrix}  $} 
+                        ist. \\
         \midrule
-        7.4.5 & Es sei \hfill \break
-                \centerline{$ y^{(n)}(t) + a_{n-1}y^{(n-1)}(t) + \dots + a_1y'(t)+a_0y(t)=0 $}
-                eine homogene lineare DGL der Ordnung $n$ mit konstanten Koeffizienten. Dann heißt \hfill \break
-                \centerline{$ \lambda^n + a_{n-1}\lambda^{n-1}+ \dots + a_y \lambda+a_0 = \lambda^n + \sum^{n-1}_{k=0} a_k \lambda^k $} 
-                \textbf{charakteristisches Polynom der DGL}. \\
-
+        S   & 7.4.2 &   Es seien $I \subseteq \mathbb{R}$ ein Intervall, $a_0,a_1, \dots, a_{n-1} \in \mathbb{R}$ und $g: I \rightarrow \mathbb{R}$ eine
+                        stetige Funktion. Dann gelten die folgenden Aussagen
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Ist $g=0$, so ist die Menge aller Lösungen der Gleichung ein Untervektorraum der Dimension $n$ von $C^n(I)$.
+                            \item[b)] Ist $y_p$ eine Lösung der Gleichung (7.8), so ist jede Lösung dieser Gleichung gegeben durch $y = y_p + y_h$, wobei
+                                        $y_h$ eine Lösung des zugehörigen homogenen Systems (d.h. mit $g=0$) ist.   
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 7.4.3 &   \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Jede Basis des Raums aller Lösungen in Satz 7.4.2 a) nennt man ein Fundamentalsystem der homogenen Gleichung.
+                            \item[b)] Die Lösung $y_p$ der inhomogenen Gleichung im Satz 7.4.2 b) heißt spezielle Lösung oder auch
+                                        \textbf{Partikulärlösung der Gleichung (7.8)}.
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 7.4.5 &   Es sei \hfill \break
+                        \centerline{$ y^{(n)}(t) + a_{n-1}y^{(n-1)}(t) + \dots + a_1y'(t)+a_0y(t)=0 $}
+                        eine homogene lineare DGL der Ordnung $n$ mit konstanten Koeffizienten. Dann heißt \hfill \break
+                        \centerline{$ \lambda^n + a_{n-1}\lambda^{n-1}+ \dots + a_y \lambda+a_0 = \lambda^n + \sum^{n-1}_{k=0} a_k \lambda^k $} 
+                        \textbf{charakteristisches Polynom der DGL}. \\
+        \midrule
+         S   & 7.4.6 &   Es seien $I \subseteq \mathbb{R}$ ein Intervall und $n \geq 2$. Mit $a_0,a_1,\dots,a_{n-1} \in \mathbb{R}$ sei die DGL \hfill \break
+                        \centerline{$ y^{(n)}(t) + a_{n-1} y^{(n-1)} (t) + \dots + a_1 y'(t) +a_0y(t) = 0, t\in I$}
+                        gegeben und es seien $\lambda_1,\lambda_2,\dots,\lambda_k$ paarweise verschiedene Nullstellen des zugehörigen charakteristischen
+                        Polynoms mit $Im(\lambda_i) \geq 0$, sowie $m_j$ die Vielfachheit der Nullstelle $\lambda_j$ für $j \in \{1,2,\dots,k\}$. \hfill \break
+                        Dann ist ein Fundamentalsystem für obige Gleichung gegeben durch \hfill \break
+                        \centerline{$ F = F_1 \cup \dots \cup F_k $,}
+                        wobei $F_j$ im Falle $\lambda_j = \lambda \in \mathbb{R}$ als \hfill \break
+                        \centerline{$ \{e^{\lambda t},te^{\lambda t},\dots,t^{m_j-1}e^{\lambda t} \} $}
+                        und im Falle $\lambda_j = \lambda + i\omega$ mit $\lambda, \omega\in \mathbb{R}$ und $\omega > 0$ als \hfill \break
+                        \centerline{$ \{ e^{\lambda t}cos(\omega t), e^{\lambda t}sin(\omega t), te^{\lambda t}sin(\omega t), \dots,
+                        t^{m_j-1}e^{\lambda t}cos(\omega t),  t^{m_j-1}e^{\lambda t}sin(\omega t)\} $}
+                        definiert ist. \\
         \bottomrule
 
     \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        7.4.1 & Es seien $n \in \mathbb{N}$ mit $n \geq 2$, $I \subseteq \mathbb{R}$ ein Intervall und $F: Ix \mathbb{R}^n \rightarrow \mathbb{R}$
-                eine stetige Funktion. Dann ist $y: I \rightarrow \mathbb{R}$ genau dann eine Lösung der DGL in (7.6), wenn $v = (y,y',y''
-                ,\dots, y^{(n-1)})^T:I \rightarrow \mathbb{R}^n$ eine Lösung des Systems $v'(t) = G(t,v(t))$ mit \hfill \break
-                \centerline{$ G(t,v(t)) =   \begin{pmatrix}
-                                            v_2(t) \\
-                                            v_3(t) \\
-                                            \dots \\
-                                            v_n(t) \\
-                                            F(t,v_1(t),v_2(t),\dots,v_n(t)) 
-                                            \end{pmatrix}  $} 
-                ist. \\
-        \midrule
-        7.4.2 & Es seien $I \subseteq \mathbb{R}$ ein Intervall, $a_0,a_1, \dots, a_{n-1} \in \mathbb{R}$ und $g: I \rightarrow \mathbb{R}$ eine
-                stetige Funktion. Dann gelten die folgenden Aussagen
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Ist $g=0$, so ist die Menge aller Lösungen der Gleichung ein Untervektorraum der Dimension $n$ von $C^n(I)$.
-                    \item[b)] Ist $y_p$ eine Lösung der Gleichung (7.8), so ist jede Lösung dieser Gleichung gegeben durch $y = y_p + y_h$, wobei
-                                $y_h$ eine Lösung des zugehörigen homogenen Systems (d.h. mit $g=0$) ist.   
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        7.4.6 & Es seien $I \subseteq \mathbb{R}$ ein Intervall und $n \geq 2$. Mit $a_0,a_1,\dots,a_{n-1} \in \mathbb{R}$ sei die DGL \hfill \break
-                \centerline{$ y^{(n)}(t) + a_{n-1} y^{(n-1)} (t) + \dots + a_1 y'(t) +a_0y(t) = 0, t\in I$}
-                gegeben und es seien $\lambda_1,\lambda_2,\dots,\lambda_k$ paarweise verschiedene Nullstellen des zugehörigen charakteristischen
-                Polynoms mit $Im(\lambda_i) \geq 0$, sowie $m_j$ die Vielfachheit der Nullstelle $\lambda_j$ für $j \in \{1,2,\dots,k\}$. \hfill \break
-                Dann ist ein Fundamentalsystem für obige Gleichung gegeben durch \hfill \break
-                \centerline{$ F = F_1 \cup \dots \cup F_k $,}
-                wobei $F_j$ im Falle $\lambda_j = \lambda \in \mathbb{R}$ als \hfill \break
-                \centerline{$ \{e^{\lambda t},te^{\lambda t},\dots,t^{m_j-1}e^{\lambda t} \} $}
-                und im Falle $\lambda_j = \lambda + i\omega$ mit $\lambda, \omega\in \mathbb{R}$ und $\omega > 0$ als \hfill \break
-                \centerline{$ \{ e^{\lambda t}cos(\omega t), e^{\lambda t}sin(\omega t), te^{\lambda t}sin(\omega t), \dots,
-                t^{m_j-1}e^{\lambda t}cos(\omega t),  t^{m_j-1}e^{\lambda t}sin(\omega t)\} $}
-                definiert ist. \\
-
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
 
 \subsection{Existenz- und Eindeutigkeitsresultate}
 
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        7.5.1 & \textbf{Satz von Peano} \hfill \break
-                Es sei $I \subseteq \mathbb{R}$ ein Intervall und $f: I x \mathbb{R}^n \rightarrow \mathbb{R}^n$ stetig. Dann hat
-                für jedes $t_0 \in I$ und $y_0 \in \mathbb{R}^n$ das Anfangswertproblem \hfill \break
-                \centerline{$   \begin{cases}
-                                y'(t) = f(t,y(t)), t\in I \\
-                                y(t) = y_0 
-                                \end{cases} $} 
-                eine Lösung, d.h. es gibt ein offenes Intervall $J \subseteq I$ mit $t_0 \in J$ und eine Funktion $y \in C^1(J;\mathbb{R}^n)$, 
-                die das Anfangswertproblem auf $J$ löst. \\
+        S   & 7.5.1 &   \textbf{Satz von Peano} \hfill \break
+                        Es sei $I \subseteq \mathbb{R}$ ein Intervall und $f: I x \mathbb{R}^n \rightarrow \mathbb{R}^n$ stetig. Dann hat
+                        für jedes $t_0 \in I$ und $y_0 \in \mathbb{R}^n$ das Anfangswertproblem \hfill \break
+                        \centerline{$   \begin{cases}
+                                        y'(t) = f(t,y(t)), t\in I \\
+                                        y(t) = y_0 
+                                        \end{cases} $} 
+                        eine Lösung, d.h. es gibt ein offenes Intervall $J \subseteq I$ mit $t_0 \in J$ und eine Funktion $y \in C^1(J;\mathbb{R}^n)$, 
+                        die das Anfangswertproblem auf $J$ löst. \\
         \midrule
-        7.5.3 & \textbf{Satz von Picard-Lindelöff} \hfill \break
-                Es sei $I \subseteq \mathbb{R}$ ein Intervall, $f: I x \mathbb{R}^n \rightarrow \mathbb{R}^n$ stetig, $t_0 \in I$ und 
-                $y_0 \in \mathbb{R}^n$. Genügt dann $f$ einer Lipschitzbedingung, d.h. exisitiert ein $L > 0$ mit \hfill \break
-                \centerline{$ ||f(t,y_1) -f(t,y_2)|| \leq L||y_1 - y_2||$ für alle $t\in I$ und $y_1,y_2 \in \mathbb{R}^n $}
-                dann existiert ein kompaktes Intervall $J$ mit $t_0 \in J \subseteq I$, sodass das Anfangswertproblem \hfill \break
-                \centerline{$   \begin{cases}
-                                y'(t) = f(t,y(t)), t\in I \\
-                                y(t) = y_0 
-                                \end{cases} $}
-                eindeutig lösbar ist. \\
+        S   & 7.5.3 &   \textbf{Satz von Picard-Lindelöff} \hfill \break
+                        Es sei $I \subseteq \mathbb{R}$ ein Intervall, $f: I x \mathbb{R}^n \rightarrow \mathbb{R}^n$ stetig, $t_0 \in I$ und 
+                        $y_0 \in \mathbb{R}^n$. Genügt dann $f$ einer Lipschitzbedingung, d.h. exisitiert ein $L > 0$ mit \hfill \break
+                        \centerline{$ ||f(t,y_1) -f(t,y_2)|| \leq L||y_1 - y_2||$ für alle $t\in I$ und $y_1,y_2 \in \mathbb{R}^n $}
+                        dann existiert ein kompaktes Intervall $J$ mit $t_0 \in J \subseteq I$, sodass das Anfangswertproblem \hfill \break
+                        \centerline{$   \begin{cases}
+                                        y'(t) = f(t,y(t)), t\in I \\
+                                        y(t) = y_0 
+                                        \end{cases} $}
+                        eindeutig lösbar ist. \\
         \bottomrule
     \end{longtable}
     
