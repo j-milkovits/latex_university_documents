@@ -777,132 +777,90 @@
     \end{longtable}
 
 \subsubsection{Stetigkeit}
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+
+\begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.7.9 & Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt
-                \textbf{stetig} in $x_0$, falls für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge $(f(a_n))$ 
-                konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break 
-                Weiter heißt $f$ stetig auf $D$, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
-                Schließlich setzen wir noch $C(D) := \{f:D \rightarrow \mathbb{R}: f$ stetig auf $D\}$. 
-                (Menge aller stetigen Funktionen auf D) \\
+        D   & 5.7.9 &   Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt
+                        \textbf{stetig} in $x_0$, falls für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge $(f(a_n))$ 
+                        konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break 
+                        Weiter heißt $f$ stetig auf $D$, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
+                        Schließlich setzen wir noch $C(D) := \{f:D \rightarrow \mathbb{R}: f$ stetig auf $D\}$. 
+                        (Menge aller stetigen Funktionen auf D) \\
         \midrule
-        5.7.18& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ heißt
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] \textbf{monoton wachsend}, falls für alle $x,y \in D$ gilt $x \leq y \Rightarrow f(x) \leq f(y)$
-                    \item[b)] \textbf{monoton fallend}, falls für alle $x,y \in D$ gilt $x \leq y \Rightarrow f(x) \geq f(y)$
-                    \item[c)] \textbf{streng monoton wachsend}, falls für alle $x,y \in D$ gilt $x < y \Rightarrow f(x) < f(y)$
-                    \item[d)] \textbf{streng monoton fallend}, falls für alle $x,y \in D$ gilt $x < y \Rightarrow f(x) > f(y)$
-                    \item[e)] \textbf{(streng) monoton}, wenn sie (streng) monoton wachsend oder (streng) monoton fallend ist 
-                \end{itemize} \vspace{-0cm} \\
+        B   & 5.7.9 &   Stetigkeit: Kleines Wackeln an Parametern $\rightarrow$ auch nur kleines Wackeln am Funktionswert \\
         \midrule
-        5.7.22& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt \textbf{Lipschitz-stetig}, falls
-                es ein $L > 0$ gibt mit $|f(x) - f(y)| \leq L|x-y|$ für alle $x,y \in D$. \\
-
+        S   & 5.7.12&   Es sei $D \subseteq \mathbb{R}$ und $f : D \rightarrow \mathbb{R}$ eine Funktion. Ist $x_0 \in D$ ein Häufungspunkt
+                        von D,so ist $f$ in $x_0$ genau dann \textbf{stetig}, wenn $lim_{x \rightarrow x_0} f(x) = f(x_0)$ gilt. \\
+        \midrule
+        B   & 5.7.12&   Stetigkeit: Grenzübergang austauschbar mit Funktionsauswertung \\
+        \midrule
+        S   & 5.7.15&   Es sei $D \subseteq \mathbb{R}$ und $f,g : D \rightarrow \mathbb{R}$ seien stetig in $x_0 \in D$. Dann sind die
+                        Funktionen $f+g$, $fg$ und $|f|$ stetig in $x_0$. \hfill \break
+                        Ist $x_0 \in D^* := \{ x \in D: g(x) \neq 0\}$, so ist die Funktion $\frac{f}{q}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$.\\
+        \midrule
+        B   & 5.7.15&   Jede Polynomfunktion ist auf ganz $\mathbb{R}$ stetig. \\
+        \midrule
+        S   & 5.7.16&   Es seien $D,E \subseteq \mathbb{R}$ und $f: D \rightarrow E$, sowie $g: E \rightarrow \mathbb{R}$ Funktionen. Ist $f$ 
+                        stetig in $x_0 \in D$ und $g$ stetig in $f(x_0)$, so ist $g \circ f: D \rightarrow \mathbb{R}$ stetig in $x_0$. \\ 
+        \midrule
+        D   & 5.7.18&   Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ heißt
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] \textbf{monoton wachsend}, falls für alle $x,y \in D$ gilt $x \leq y \Rightarrow f(x) \leq f(y)$
+                            \item[b)] \textbf{monoton fallend}, falls für alle $x,y \in D$ gilt $x \leq y \Rightarrow f(x) \geq f(y)$
+                            \item[c)] \textbf{streng monoton wachsend}, falls für alle $x,y \in D$ gilt $x < y \Rightarrow f(x) < f(y)$
+                            \item[d)] \textbf{streng monoton fallend}, falls für alle $x,y \in D$ gilt $x < y \Rightarrow f(x) > f(y)$
+                            \item[e)] \textbf{(streng) monoton}, wenn sie (streng) monoton wachsend oder (streng) monoton fallend ist 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.7.19&   Exponentialfunktion ist streng monoton wachsend. \\
+        \midrule
+        S   & 5.7.20&   Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f: D \rightarrow \mathbb{R}$ ist in $x_0$ genau dann
+                        \textbf{stetig}, wenn es für jedes $\epsilon > 0$ ein $\delta > 0$ gibt, so dass \hfill \break
+                        \centerline{$|f(x) - f(y)| < \epsilon$ für alle $x \in D$ mit $|x-x_0|<\delta$ gilt.} \\
+        \midrule
+        D   & 5.7.22&   Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt \textbf{Lipschitz-stetig}, falls
+                        es ein $L > 0$ gibt mit $|f(x) - f(y)| \leq L|x-y|$ für alle $x,y \in D$. \\
+        \midrule
+        S   & 5.7.23&   Ist $D \subseteq \mathbb{R}$ und $f:D \rightarrow \mathbb{R}$ \textbf{Lipschitz-stetig} so ist $f$ \textbf{stetig} auf $D$.
+                        Die Umkehrung dieser Aussage ist falsch. (Lipschitz-Stetigkeit ist damit ein strengerer Begriff als Stetigkeit) \\
+        \midrule
+        B   & 5.7.23&   Lipschitz-Stetigkeit bedeutet anschaulich, dass die Steigung des Graphen beschränkt bleibt. \\
         \bottomrule
 
     \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.7.12& Es sei $D \subseteq \mathbb{R}$ und $f : D \rightarrow \mathbb{R}$ eine Funktion. Ist $x_0 \in D$ ein Häufungspunkt
-                von D,so ist $f$ in $x_0$ genau dann \textbf{stetig}, wenn $lim_{x \rightarrow x_0} f(x) = f(x_0)$ gilt. \\
-        \midrule
-        5.7.15& Es sei $D \subseteq \mathbb{R}$ und $f,g : D \rightarrow \mathbb{R}$ seien stetig in $x_0 \in D$. Dann sind die
-                Funktionen $f+g$, $fg$ und $|f|$ stetig in $x_0$. \hfill \break
-                Ist $x_0 \in D^* := \{ x \in D: g(x) \neq 0\}$, so ist die Funktion $\frac{f}{q}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$.\\
-        \midrule
-        5.7.16& Es seien $D,E \subseteq \mathbb{R}$ und $f: D \rightarrow E$, sowie $g: E \rightarrow \mathbb{R}$ Funktionen. Ist $f$ 
-                stetig in $x_0 \in D$ und $g$ stetig in $f(x_0)$, so ist $g \circ f: D \rightarrow \mathbb{R}$ stetig in $x_0$. \\ 
-        \midrule
-        5.7.20& Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f: D \rightarrow \mathbb{R}$ ist in $x_0$ genau dann
-                \textbf{stetig}, wenn es für jedes $\epsilon > 0$ ein $\delta > 0$ gibt, so dass \hfill \break
-                \centerline{$|f(x) - f(y)| < \epsilon$ für alle $x \in D$ mit $|x-x_0|<\delta$ gilt.} \\
-        \midrule
-        5.7.23& Ist $D \subseteq \mathbb{R}$ und $f:D \rightarrow \mathbb{R}$ \textbf{Lipschitz-stetig} so ist $f$ \textbf{stetig} auf $D$.
-                Die Umkehrung dieser Aussage ist falsch. (Lipschitz-Stetigkeit ist damit ein strengerer Begriff als Stetigkeit) \\
-        \bottomrule
-    \end{longtable}
-    
-
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.7.9 & Stetigkeit: Kleines Wackeln an Parametern $\rightarrow$ auch nur kleines Wackeln am Funktionswert \\
-        \midrule
-        5.7.12& Stetigkeit: Grenzübergang austauschbar mit Funktionsauswertung \\
-        \midrule
-        5.7.15& Jede Polynomfunktion ist auf ganz $\mathbb{R}$ stetig. \\
-        \midrule
-        5.7.19& Exponentialfunktion ist streng monoton wachsend. \\
-        \midrule
-        5.7.23& Lipschitz-Stetigkeit bedeutet anschaulich, dass die Steigung des Graphen beschränkt bleibt. \\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsubsection{Eigenschaften stetiger Funktionen}
 
-        \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
-
-        5.7.27& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ hei\ss t beschränkt, falls die Menge
-                $f(D)$ (Bild der Funktion) beschränkt ist, d.h. falls ein $C \geq 0$ existiert, so dass $|f(x)| \leq C$ für alle $x \in D$ gilt. \\
-
+        S   & 5.7.25&   \textbf{Zwischenwertsatz} \hfill \break
+                        Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$. Ist $y_0$ eine reelle Zahl zwischen $f(a)$ und $f(b)$,
+                        so gibt es ein $x_0 \in [a,b]$ mit $f(x_0) = y_0$. \hfill \break
+                        \includegraphics[width=5cm]{zws.png} \\
+        \midrule
+        S   & 5.7.26&   \textbf{Nullstellensatz von Bolzano} \hfill \break
+                        Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$ erfülle $f(a)f(b) < 0$ (Existenz einer Nullstelle /
+                        Einer der beiden Werte 0).
+                        Dann gibt es ein $x_0 \in (a,b)$ mit $f(x_0) = 0$. \\
+        \midrule
+        D   & 5.7.27&   Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ hei\ss t beschränkt, falls die Menge
+                        $f(D)$ (Bild der Funktion) beschränkt ist, d.h. falls ein $C \geq 0$ existiert, so dass $|f(x)| \leq C$ für alle $x \in D$ gilt. \\
+        \midrule
+        S   & 5.7.28&   Es sei $K \subseteq \mathbb{R}$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass
+                        $f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$ gilt. Insbesondere ist $f$ \textbf{beschränkt}. (Jede stetige Funktion auf 
+                        kompakter Menge ist beschränkt)\\
         \bottomrule
 
     \end{longtable}
-    
 
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.7.25& \textbf{Zwischenwertsatz} \hfill \break
-                Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$. Ist $y_0$ eine reelle Zahl zwischen $f(a)$ und $f(b)$,
-                so gibt es ein $x_0 \in [a,b]$ mit $f(x_0) = y_0$. \hfill \break
-                \includegraphics[width=5cm]{zws.png} \\
-        \midrule
-        5.7.26& \textbf{Nullstellensatz von Bolzano} \hfill \break
-                Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$ erfülle $f(a)f(b) < 0$ (Existenz einer Nullstelle /
-                Einer der beiden Werte 0).
-                Dann gibt es ein $x_0 \in (a,b)$ mit $f(x_0) = 0$. \\
-        \midrule
-        5.7.28& Es sei $K \subseteq \mathbb{R}$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass
-                $f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$ gilt. Insbesondere ist $f$ \textbf{beschränkt}. (Jede stetige Funktion auf 
-                kompakter Menge ist beschränkt)\\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsection{Stetigkeit von Funktionen mehrerer Variablen}
-        \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.8.1 & Es seien $V$ und $W$ normierte $\mathbb{R}$-Vektorräume, $D \subseteq V$ und $f: D \rightarrow W$ eine Funktion.
+        D   & 5.8.1 &   Es seien $V$ und $W$ normierte $\mathbb{R}$-Vektorräume, $D \subseteq V$ und $f: D \rightarrow W$ eine Funktion.
                 \begin{itemize}[topsep=-0.5cm]
                     \item[a)] Wir nennen $x_0 \in D$ \textbf{Häufungspunkt} von $D$, falls es eine Folge $(a_n)$ in $D$ mit 
                                 $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gibt, die gegen $x_0$ konvergiert.
@@ -911,540 +869,358 @@
                                 erfüllt, die Folge $(f(a_n))$ gegen $y$ konvergiert.
                 \end{itemize} \vspace{-0cm} \\
         \midrule
-        5.3.8 & Es seien $V,W$ zwei normierte $\mathbb{R}$-Vektorräumen, $D \subseteq V$ und $x_0 \in D$. Eine Funktion $f: D\rightarrow W$
+        B   & 5.8.2 &   Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
+        \midrule
+        S   & 5.8.4 &   Es sei $D \subseteq \mathbb{R}^d$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R}^p$ genau dann in $x_0$
+                        \textbf{stetig}, wenn alle Koordinatenfunktionen $f_1, f_2, \dots, f_p : D \rightarrow \mathbb{R}$ in $x_0$ stetig sind. \\
+        \midrule
+        S   & 5.8.5 &   Es seien $D \subseteq \mathbb{R}^d$, $x_0 \in D$ und $f,g : D \rightarrow \mathbb{R}$ stetig in $x_0$, sowie
+                        $h : f(D) \rightarrow \mathbb{R}$ stetig in $f(x_0)$. Dann sind auch $f+g$, $fg$ und $h \circ f$ als Funktionen
+                        von $D$ nach $\mathbb{R}$ stetig in $x_0$. \hfill \break
+                        Ist au\ss erdem $x_0 \in D^* := \{x \in D: g(x) \neq 0\}$, so ist auch $\frac{f}{g}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$. \\
+        \midrule
+        D   & 5.3.8 &   Es seien $V,W$ zwei normierte $\mathbb{R}$-Vektorräumen, $D \subseteq V$ und $x_0 \in D$. Eine Funktion $f: D\rightarrow W$
                 heißt \textbf{stetig} in $x_0$, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge
                 $(f(a_n))$ konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break
                 Weiter heißt \textbf{f stetig auf D}, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
                 Au\ss erdem setzen wir wieder $C(D;W) := \{f: D\rightarrow W: f$ stetig auf $D$\}. \\
-
+        \midrule
+        S   & 5.8.8 &   Es sei $K \subseteq \mathbb{R}^d$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
+                        \centerline{$f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$}
+                        gilt. Insbesondere ist $f$ \textbf{beschränkt}. \\
+        \midrule
+        S   & 5.8.10&   Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R}^d$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R}^d$. Dann gibt es zwei Konstanten
+                        $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_x$ für alle $x \in \mathbb{R}^d$ gilt. \\
+        \midrule
+        S   & 5.8.11&   \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R}^d$, so gibt es Konstanten $0 < c \leq C$, so dass
+                                        $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R}^d$ gilt.
+                            \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R}^d$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
+                                        jeder anderen Norm und der Grenzwert ist derselbe. 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.8.11&   Gilt $c||x|| \leq |||x||| \leq C||x||$ so hei\ss en die Normen $||\cdot||,|||\cdot|||$ äquivalent. \hfill \break
+                        Je zwei Normen im $\mathbb{R}^d$ sind äquivalent. \\
         \bottomrule
 
     \end{longtable}
-    
-
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.8.4 & Es sei $D \subseteq \mathbb{R}^d$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R}^p$ genau dann in $x_0$
-                \textbf{stetig}, wenn alle Koordinatenfunktionen $f_1, f_2, \dots, f_p : D \rightarrow \mathbb{R}$ in $x_0$ stetig sind. \\
-        \midrule
-        5.8.5 &  Es seien $D \subseteq \mathbb{R}^d$, $x_0 \in D$ und $f,g : D \rightarrow \mathbb{R}$ stetig in $x_0$, sowie
-                $h : f(D) \rightarrow \mathbb{R}$ stetig in $f(x_0)$. Dann sind auch $f+g$, $fg$ und $h \circ f$ als Funktionen
-                von $D$ nach $\mathbb{R}$ stetig in $x_0$. \hfill \break
-                Ist au\ss erdem $x_0 \in D^* := \{x \in D: g(x) \neq 0\}$, so ist auch $\frac{f}{g}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$. \\
-        \midrule
-        5.8.8 & Es sei $K \subseteq \mathbb{R}^d$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
-                \centerline{$f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$}
-                gilt. Insbesondere ist $f$ \textbf{beschränkt}. \\
-        \midrule
-        5.8.10& Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R}^d$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R}^d$. Dann gibt es zwei Konstanten
-                $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_x$ für alle $x \in \mathbb{R}^d$ gilt. \\
-        \midrule
-        5.8.11& \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R}^d$, so gibt es Konstanten $0 < c \leq C$, so dass
-                                $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R}^d$ gilt.
-                    \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R}^d$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
-                                jeder anderen Norm und der Grenzwert ist derselbe. 
-                \end{itemize} \vspace{-0cm} \\
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.8.2 & Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
-        \midrule
-        5.8.11& Gilt $c||x|| \leq |||x||| \leq C||x||$ so hei\ss en die Normen $||\cdot||,|||\cdot|||$ äquivalent. \hfill \break
-                Je zwei Normen im $\mathbb{R}^d$ sind äquivalent. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
 
 \subsection{Potenzreihen}
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.9.1 & Es sei $(a_n)$ eine Folge $\mathbb{K}$. Eine Reihe der Form $\sum^{\infty}_{n=0} a_n x^n = a_0 + a_1x+a_2x^2+ \dots$ 
-                heißt \textbf{Potenzreihe}. \\
+        D   & 5.9.1 &   Es sei $(a_n)$ eine Folge $\mathbb{K}$. Eine Reihe der Form $\sum^{\infty}_{n=0} a_n x^n = a_0 + a_1x+a_2x^2+ \dots$ 
+                        heißt \textbf{Potenzreihe}. \\
         \midrule
-        5.9.4 & Es sei $\sum^{\infty}_{n=0} a_nx^n$ eine Potenzreihe die die Voraussetzungen von 5.9.3 erfüllt und $\rho$ wie in diesem Satz 
-                definiert. Dann heißt die Zahl: \hfill \break
-                \centerline{$r:=    \begin{cases}
-                                    0 & \text{falls in obigem Satz a) gilt} \\
-                                    \infty & \text{falls in obigem Satz b) gilt} \\
-                                    \frac{1}{\rho} & \text{falls in obigem Satz c) gilt}
-                                    \end{cases}$ }
-                der \textbf{Konvergenzradius} der Reihe. \\
+        B   &       &   Offensichtlich konvergieren alle Potenzreihen für $x = 0$. \\
         \midrule
-        5.9.6 & Es sei $(a_n)$ eine Folge in $\mathbb{K}$, $n_0 \in \mathbb{N}$ und $x_o \in \mathbb{K}$. Dann nennt man eine Reihe der Form \hfill \break
-                \centerline{$\sum^{\infty}_{n=n_0}a_n(x-x_0)^n$}
-                \textbf{Potenzreihe}. Der Punkt $x_0$ wird \textbf{Entwicklungspunkt} der Potenzreihe genannt. \hfill \break
-                (Hier ist das Konvergenzgebiet nun um $x_0$ statt um 0 (allgemeiner)) \hfill \break
-                (Alle Sätze und Definitionen gelten hier genauso) \\
-
+        BSP & 5.9.2 &   \textbf{Geometrische Reihe} \hfill \break 
+                        Konvergiert für $|x| < 1$ mit $\sum^{\infty}_{n=0} x^n = \frac{1}{1-x}$. \\
+        \midrule
+        BSP & 5.9.2 &   \textbf{Exponentialfunktion} \hfill \break
+                        $e^z = \sum^{\infty}_{n=0} \frac{z^n}{n!}$ konvergiert für alle $z \in \mathbb{C}$ \\ 
+        \midrule
+        S   & 5.9.3 &   \textbf{Satz von Hadamard} \hfill \break
+                        Es sei $(a_n)$ eine Folge in $\mathbb{K}$, so dass der Grenzwert $\rho := lim_{n \rightarrow \infty} \sqrt[n]{|a_n|}$ existiert
+                        oder die Folge $(\sqrt[n]{|a_n|})$ unbeschränkt ist. Dann gelten die folgenden Konvergenzaussagen für die Potenzreihe 
+                        $\sum^{\infty}_{n=0} a_n x^n$:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Ist die Folge $\sqrt[n]{|a_n|}$ unbeschränkt, so konvergiert die Potenzreihe nur für \textbf{$x = 0$}.
+                            \item[b)] Ist $\rho = 0$, so konvergiert die Potenzreihe für alle $x \in \mathbb{K}$ absolut. 
+                            \item[c)] Ist $\rho \in (0, \infty)$, so ist die Potenzreihe für alle $x \in \mathbb{K}$ mit $|x|< \frac{1}{\rho}$
+                                        \textbf{absolut konvergenz} und für alle $x \in \mathbb{K}$ mit $|x > \frac{1}{\rho}$ \textbf{divergent}.
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.9.3 &   Keine Aussage bei $|x|=\frac{1}{\rho}$ möglich. \\
+        \midrule
+        B   & 5.9.3 &   Konvergenzbereich entweder $\{0\}$ oder $\mathbb{K}$ oder Kreis in $\mathbb{C}$ bzw. Intervall in $\mathbb{R}$ \\
+        \midrule
+        D   & 5.9.4 &   Es sei $\sum^{\infty}_{n=0} a_nx^n$ eine Potenzreihe die die Voraussetzungen von 5.9.3 erfüllt und $\rho$ wie in diesem Satz 
+                        definiert. Dann heißt die Zahl: \hfill \break
+                        \centerline{$r:=    \begin{cases}
+                                            0 & \text{falls in obigem Satz a) gilt} \\
+                                            \infty & \text{falls in obigem Satz b) gilt} \\
+                                            \frac{1}{\rho} & \text{falls in obigem Satz c) gilt}
+                                            \end{cases}$ }
+                        der \textbf{Konvergenzradius} der Reihe. \\
+        \midrule
+        BSP & 5.9.5 &   \begin{itemize}[topsep=-0.5cm]
+            \item[a)] $a_n = 1$, $\sum^{\infty}_{n=0} x^n$ \hfill \break
+                        Dann gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} 1 = 1$, also $r = \frac{1}{\rho} = 1$. \hfill \break
+                        Am Rand: Für $x=1$: $\sum^{\infty}_{n=0} 1^n$ divergent. (-1 auch divergent) \hfill \break
+                        Konvergenzbereich: $(-1,1)$
+            \item[b)] $a_n = \frac{1}{n}$, $\sum^{\infty}_{n=1} \frac{x^n}{n}$ \hfill \break
+                        Konvergenzradius 1, da: $lim_{n \rightarrow \infty} \sqrt[n]{\frac{1}{n}} = lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}}
+                        = \frac{1}{lim_{n \rightarrow \infty} \sqrt[n]{n}} = 1$. \hfill \break
+                        Am Rand: Für $x=1$: $\sum^{\infty}_{n=1} \frac{1}{n}$: divergent (harmonische Reihe) \hfill \break
+                        Für $x=-1$: $\sum^{\infty}_{n=1} \frac{(-1)^n}{n}$: konvergent (alternierende harmonische Reihe) \hfill \break
+                        Konvergenzbereich: $[-1,1)$
+        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 5.9.6 &   Es sei $(a_n)$ eine Folge in $\mathbb{K}$, $n_0 \in \mathbb{N}$ und $x_o \in \mathbb{K}$. Dann nennt man eine Reihe der Form \hfill \break
+                        \centerline{$\sum^{\infty}_{n=n_0}a_n(x-x_0)^n$}
+                        \textbf{Potenzreihe}. Der Punkt $x_0$ wird \textbf{Entwicklungspunkt} der Potenzreihe genannt. \hfill \break
+                        (Hier ist das Konvergenzgebiet nun um $x_0$ statt um 0 (allgemeiner)) \hfill \break
+                        (Alle Sätze und Definitionen gelten hier genauso) \\
+        \midrule
+        B   & 5.9.6 &   Konvergenzradius nun entweder $0$, $\infty$ oder $r = (lim_{n \rightarrow \infty} \sqrt[n]{|a_n|})^{-1}$. \\
+        \midrule
+        BSP & 5.9.6 &   $a_n := \frac{(-4)^n}{n}$, $x_0 = 1$, $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(x-1)^n$ \hfill \break
+                        Es gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} \sqrt[n]{|\frac{(-4)^n}{n}|} =
+                        lim_{n \rightarrow \infty} \frac{4}{\sqrt[n]{n}} = \frac{4}{1} = 4$ \hfill \break 
+                        Konvergenzradius: $r = \frac{1}{\rho} = \frac{1}{4}$ \hfill \break
+                        Konvergenz in $(1- \frac{1}{4}, 1 + \frac{1}{4}) = ()\frac{3}{4}, \frac{5}{4})$ \hfill \break
+                        Randpunkte: \hfill \break
+                        $x = \frac{5}{4}:$ $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(\frac{5}{4}-1)^n = \sum^{\infty}_{n=1} \frac{(-4)^n}{n} \cdot \frac{1}{4^n}
+                        = \sum^{\infty}_{n=1} \frac{(-1)^n}{n}$ konvergent (alt. harmonische Reihe)
+                        $x = \frac{3}{4}:$ $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(\frac{3}{4}-1)^n = \sum^{\infty}_{n=1} \frac{(-4)^n}{n} \cdot \frac{1}{(-4)^n}
+                        = \sum^{\infty}_{n=1} \frac{1}{n}$ divergent (harmonische Reihe) \hfill \break
+                        Konvergenzgebiet: $(\frac{3}{4}, \frac{5}{4}]$\\
+        \midrule
+        S   & 5.9.10&   \textbf{Quotientenkriterium} \hfill \break
+                    Es sei $(a_n)$ eine Folge in $\mathbb{K}$ mit $a_n \neq 0$ für alle $n \in \mathbb{N}$, so dass $\sigma := lim_{n \rightarrow \infty}
+                    |\frac{a_{n+1}}{a_n}|$ existiert. Dann gilt für den Konvergenzradius r von $\sum^{\infty}_{n=0} a_n x^n$: \hfill \break
+                    \centerline{$r =    \begin{cases}
+                                        \frac{1}{\sigma}, & \text{falls } \sigma \in (0,\infty) \\
+                                        \infty, & \text{falls } \sigma = 0.
+                                        \end{cases}$} \\
+        \midrule
+        BSP & 5.9.11&   \begin{itemize}[topsep=-0.5cm]
+            \item[a)] $a_n = \frac{n^n}{n!}$, $\sum^{\infty}_{n=0} \frac{n^n}{n!}x^n$ \hfill \break
+                        Quotientenkriterium:  \hfill \break
+                        $\sigma := lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| = lim_{n \rightarrow \infty} 
+                        |\frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n}| = lim_{n \rightarrow \infty} | \frac{(n+1) \cdot (n+1)^n}{(n+1) n}| =
+                        lim_{n \rightarrow \infty}(\frac{n+1}{n})^n = lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n = e$  \hfill \break
+                        Konvergenzradius: $r = \frac{1}{\sigma} = \frac{1}{e}$ \hfill \break
+            \item[b)] $\sum^{\infty}_{n=0} \frac{1}{2^n} x^{3n}$ Achtung Falle! Wegen $3^n$ kein Hadamard und 5.9.10 anwendbar. \hfill \break
+                        Substitution $y = x^3$. $\rightarrow \sum^{\infty}_{n=0} \frac{1}{2^n} y^{n}$ \hfill \break
+                        Konvergenzradius: 2, da $lim_{n \rightarrow \infty} \sqrt[n]{|\frac{1}{2^n}|} = \frac{1}{2}$. \hfill \break
+                        Also Konvergenz für $y = x^3 \in (-2,2)$, Divergenz außerhalb $[-2,2]$ \hfill \break
+                        $\rightarrow$ Konvergenz für $x \in (-\sqrt[3]{2},\sqrt[3]{2})$, Divergenz außerhalb $[-\sqrt[3]{2},\sqrt[3]{2}]$ \hfill \break
+                        Konvergenzradius der ursprünglichen Reihe ist $\sqrt[3]{2}$. 
+        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 5.9.13&   \textbf{Cauchy-Produkt von Potenzreihen} \hfill \break
+        Es seien $\sum^{\infty}_{n=0}a_n x^n$ und $\sum^{\infty}_{n=0} b_n x^n$ Potenzreihen in $\mathbb{K}$ mit Konvergenzradien $r_1, r_2 >0$.
+        Dann hat die Potenzreihe \hfill \break
+        \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n$} 
+        mindestens den Konvergenzradius $R := min\{r_1,r_2\}$ und es gilt für alle $x \in \mathbb{K}$ mit $|x| < r$ \hfill \break
+        \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n = (\sum^{\infty}_{n=0}a_n x^n) (\sum^{\infty}_{n=0}b_n x^n)$.} \\
+        \midrule
+        S   & 5.9.14&   Es sei $\sum^{\infty}_{n=0}a_nx^n$ eine Potenzreihe in $\mathbb{K}$ mit Konvergenzradius $r > 0$. Dann ist die dadurch gegebene Funktion
+                    $f: \{x \in \mathbb{K}: |x| < r\} \rightarrow \mathbb{K}$ mit $f(x) = \sum^{\infty}_{n=0}a_nx^n$ stetig auf $\{x \in \mathbb{K}: |x| < r\}$. \\
+        \midrule
+        B   & 5.9.14&   $E: \mathbb{C} \rightarrow \mathbb{C}$ mit $E(x) = e^x$ stetig auf $\mathbb{C}$. \hfill \break
+                        Daraus folgt: $E(\mathbb{R}) = \{e^x: x \in \mathbb{R}\} = (0, \infty)$ \\ 
+        \midrule
+        BSP & 5.9.16&   $lim_{x \rightarrow 0} \frac{e^x -1}{x}$ \hfill \break
+                        Für alle $x \in \mathbb{R}$ gilt: \hfill \break
+                        \centerline{$\frac{e^x-1}{x} = \frac{1}{x} (\sum^{\infty}_{n=0} \frac{x^n}{n!}-1) = \frac{1}{x} \sum^{\infty}_{n=1} \frac{x^n}{n!}
+                        = \sum^{\infty}_{n=1} \frac{x^(n-1)}{n!} = \sum^{\infty}_{n=0} \frac{x^n}{(n+1)!}$} 
+                        Konvergenzradius: Unendlich (Quotientenkriterium) $\rightarrow$ Auf $\mathbb{R}$ und in Null stetig \hfill \break
+                        Damit gilt: $lim_{n \rightarrow \infty} \frac{e^x-1}{x} = lim_{n \rightarrow \infty} \sum^{\infty}_{n=0} \frac{x^n}{(n+1)!} =
+                        \sum^{\infty}_{n=0} \frac{0^n}{(n+1)!} = 1$. \\
         \bottomrule
+        
 
     \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-    5.9.3 & \textbf{Satz von Hadamard} \hfill \break
-            Es sei $(a_n)$ eine Folge in $\mathbb{K}$, so dass der Grenzwert $\rho := lim_{n \rightarrow \infty} \sqrt[n]{|a_n|}$ existiert
-            oder die Folge $(\sqrt[n]{|a_n|})$ unbeschränkt ist. Dann gelten die folgenden Konvergenzaussagen für die Potenzreihe 
-            $\sum^{\infty}_{n=0} a_n x^n$:
-            \begin{itemize}[topsep=-0.5cm]
-                \item[a)] Ist die Folge $\sqrt[n]{|a_n|}$ unbeschränkt, so konvergiert die Potenzreihe nur für \textbf{$x = 0$}.
-                \item[b)] Ist $\rho = 0$, so konvergiert die Potenzreihe für alle $x \in \mathbb{K}$ absolut. 
-                \item[c)] Ist $\rho \in (0, \infty)$, so ist die Potenzreihe für alle $x \in \mathbb{K}$ mit $|x|< \frac{1}{\rho}$
-                            \textbf{absolut konvergenz} und für alle $x \in \mathbb{K}$ mit $|x > \frac{1}{\rho}$ \textbf{divergent}.
-            \end{itemize} \vspace{-0cm} \\
-    \midrule
-    5.9.10& \textbf{Quotientenkriterium} \hfill \break
-            Es sei $(a_n)$ eine Folge in $\mathbb{K}$ mit $a_n \neq 0$ für alle $n \in \mathbb{N}$, so dass $\sigma := lim_{n \rightarrow \infty}
-            |\frac{a_{n+1}}{a_n}|$ existiert. Dann gilt für den Konvergenzradius r von $\sum^{\infty}_{n=0} a_n x^n$: \hfill \break
-            \centerline{$r =    \begin{cases}
-                                \frac{1}{\sigma}, & \text{falls } \sigma \in (0,\infty) \\
-                                \infty, & \text{falls } \sigma = 0.
-                                \end{cases}$} \\
-    \midrule
-    5.9.13& \textbf{Cauchy-Produkt von Potenzreihen} \hfill \break
-            Es seien $\sum^{\infty}_{n=0}a_n x^n$ und $\sum^{\infty}_{n=0} b_n x^n$ Potenzreihen in $\mathbb{K}$ mit Konvergenzradien $r_1, r_2 >0$.
-            Dann hat die Potenzreihe \hfill \break
-            \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n$} 
-            mindestens den Konvergenzradius $R := min\{r_1,r_2\}$ und es gilt für alle $x \in \mathbb{K}$ mit $|x| < r$ \hfill \break
-            \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n = (\sum^{\infty}_{n=0}a_n x^n) (\sum^{\infty}_{n=0}b_n x^n)$.} \\
-    \midrule
-    5.9.14& Es sei $\sum^{\infty}_{n=0}a_nx^n$ eine Potenzreihe in $\mathbb{K}$ mit Konvergenzradius $r > 0$. Dann ist die dadurch gegebene Funktion
-            $f: \{x \in \mathbb{K}: |x| < r\} \rightarrow \mathbb{K}$ mit $f(x) = \sum^{\infty}_{n=0}a_nx^n$ stetig auf $\{x \in \mathbb{K}: |x| < r\}$. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-              & Offensichtlich konvergieren alle Potenzreihen für $x = 0$. \\
-        \midrule
-        5.9.3 & Keine Aussage bei $|x|=\frac{1}{\rho}$ möglich. \\
-        \midrule
-        5.9.3 & Konvergenzbereich entweder $\{0\}$ oder $\mathbb{K}$ oder Kreis in $\mathbb{C}$ bzw. Intervall in $\mathbb{R}$ \\
-        \midrule
-        5.9.6 & Konvergenzradius nun entweder $0$, $\infty$ oder $r = (lim_{n \rightarrow \infty} \sqrt[n]{|a_n|})^{-1}$. \\
-        \midrule
-        5.9.14& $E: \mathbb{C} \rightarrow \mathbb{C}$ mit $E(x) = e^x$ stetig auf $\mathbb{C}$. \hfill \break
-                Daraus folgt: $E(\mathbb{R}) = \{e^x: x \in \mathbb{R}\} = (0, \infty)$ \\ 
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
-
-    \noindent
-    \textbf{Beispiele}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.9.2 & \textbf{Geometrische Reihe} \hfill \break 
-                Konvergiert für $|x| < 1$ mit $\sum^{\infty}_{n=0} x^n = \frac{1}{1-x}$. \\
-        \midrule
-        5.9.2 & \textbf{Exponentialfunktion} \hfill \break
-                $e^z = \sum^{\infty}_{n=0} \frac{z^n}{n!}$ konvergiert für alle $z \in \mathbb{C}$ \\ 
-        \midrule
-        5.9.5 & \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $a_n = 1$, $\sum^{\infty}_{n=0} x^n$ \hfill \break
-                                Dann gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} 1 = 1$, also $r = \frac{1}{\rho} = 1$. \hfill \break
-                                Am Rand: Für $x=1$: $\sum^{\infty}_{n=0} 1^n$ divergent. (-1 auch divergent) \hfill \break
-                                Konvergenzbereich: $(-1,1)$
-                    \item[b)] $a_n = \frac{1}{n}$, $\sum^{\infty}_{n=1} \frac{x^n}{n}$ \hfill \break
-                                Konvergenzradius 1, da: $lim_{n \rightarrow \infty} \sqrt[n]{\frac{1}{n}} = lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}}
-                                = \frac{1}{lim_{n \rightarrow \infty} \sqrt[n]{n}} = 1$. \hfill \break
-                                Am Rand: Für $x=1$: $\sum^{\infty}_{n=1} \frac{1}{n}$: divergent (harmonische Reihe) \hfill \break
-                                Für $x=-1$: $\sum^{\infty}_{n=1} \frac{(-1)^n}{n}$: konvergent (alternierende harmonische Reihe) \hfill \break
-                                Konvergenzbereich: $[-1,1)$
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.9.6 & $a_n := \frac{(-4)^n}{n}$, $x_0 = 1$, $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(x-1)^n$ \hfill \break
-                Es gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} \sqrt[n]{|\frac{(-4)^n}{n}|} =
-                lim_{n \rightarrow \infty} \frac{4}{\sqrt[n]{n}} = \frac{4}{1} = 4$ \hfill \break 
-                Konvergenzradius: $r = \frac{1}{\rho} = \frac{1}{4}$ \hfill \break
-                Konvergenz in $(1- \frac{1}{4}, 1 + \frac{1}{4}) = ()\frac{3}{4}, \frac{5}{4})$ \hfill \break
-                Randpunkte: \hfill \break
-                $x = \frac{5}{4}:$ $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(\frac{5}{4}-1)^n = \sum^{\infty}_{n=1} \frac{(-4)^n}{n} \cdot \frac{1}{4^n}
-                = \sum^{\infty}_{n=1} \frac{(-1)^n}{n}$ konvergent (alt. harmonische Reihe)
-                $x = \frac{3}{4}:$ $\sum^{\infty}_{n=1} \frac{(-4)^n}{n}(\frac{3}{4}-1)^n = \sum^{\infty}_{n=1} \frac{(-4)^n}{n} \cdot \frac{1}{(-4)^n}
-                = \sum^{\infty}_{n=1} \frac{1}{n}$ divergent (harmonische Reihe) \hfill \break
-                Konvergenzgebiet: $(\frac{3}{4}, \frac{5}{4}]$\\
-        \midrule
-        5.9.11& \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $a_n = \frac{n^n}{n!}$, $\sum^{\infty}_{n=0} \frac{n^n}{n!}x^n$ \hfill \break
-                                Quotientenkriterium:  \hfill \break
-                                $\sigma := lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| = lim_{n \rightarrow \infty} 
-                                |\frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n}| = lim_{n \rightarrow \infty} | \frac{(n+1) \cdot (n+1)^n}{(n+1) n}| =
-                                lim_{n \rightarrow \infty}(\frac{n+1}{n})^n = lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n = e$  \hfill \break
-                                Konvergenzradius: $r = \frac{1}{\sigma} = \frac{1}{e}$ \hfill \break
-                    \item[b)] $\sum^{\infty}_{n=0} \frac{1}{2^n} x^{3n}$ Achtung Falle! Wegen $3^n$ kein Hadamard und 5.9.10 anwendbar. \hfill \break
-                                Substitution $y = x^3$. $\rightarrow \sum^{\infty}_{n=0} \frac{1}{2^n} y^{n}$ \hfill \break
-                                Konvergenzradius: 2, da $lim_{n \rightarrow \infty} \sqrt[n]{|\frac{1}{2^n}|} = \frac{1}{2}$. \hfill \break
-                                Also Konvergenz für $y = x^3 \in (-2,2)$, Divergenz außerhalb $[-2,2]$ \hfill \break
-                                $\rightarrow$ Konvergenz für $x \in (-\sqrt[3]{2},\sqrt[3]{2})$, Divergenz außerhalb $[-\sqrt[3]{2},\sqrt[3]{2}]$ \hfill \break
-                                Konvergenzradius der ursprünglichen Reihe ist $\sqrt[3]{2}$. 
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.9.16& $lim_{x \rightarrow 0} \frac{e^x -1}{x}$ \hfill \break
-                Für alle $x \in \mathbb{R}$ gilt: \hfill \break
-                \centerline{$\frac{e^x-1}{x} = \frac{1}{x} (\sum^{\infty}_{n=0} \frac{x^n}{n!}-1) = \frac{1}{x} \sum^{\infty}_{n=1} \frac{x^n}{n!}
-                = \sum^{\infty}_{n=1} \frac{x^(n-1)}{n!} = \sum^{\infty}_{n=0} \frac{x^n}{(n+1)!}$} 
-                Konvergenzradius: Unendlich (Quotientenkriterium) $\rightarrow$ Auf $\mathbb{R}$ und in Null stetig \hfill \break
-                Damit gilt: $lim_{n \rightarrow \infty} \frac{e^x-1}{x} = lim_{n \rightarrow \infty} \sum^{\infty}_{n=0} \frac{x^n}{(n+1)!} =
-                \sum^{\infty}_{n=0} \frac{0^n}{(n+1)!} = 1$. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
 
 \subsection{Wichtige Funktionen}
 \subsubsection{Exponentialfunktion und Logarithmus}
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
 
-        5.10.2& Die Umkehrfunktion von $E: \mathbb{R} \rightarrow (0, \infty)$ wird mit $ln := E^{-1}: (0,\infty) \rightarrow \mathbb{R}$
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
+        \toprule
+        S   & 5.10.1 &   Die Exponentialfunktion $E: \mathbb{R} \rightarrow (0,\infty)$ ist \textbf{bijektiv} \\
+        \midrule
+        D   & 5.10.2 &  Die Umkehrfunktion von $E: \mathbb{R} \rightarrow (0, \infty)$ wird mit $ln := E^{-1}: (0,\infty) \rightarrow \mathbb{R}$
                 bezeichnet und heißt \textbf{natürlicher Logarithmus}. \\
         \midrule
-        5.10.4& Für alle $a \in (0, \infty)$ und alle $x \in \mathbb{R}$ definieren wir die \textbf{allgemeine Potenz} durch $a^x := e^{x\cdot ln(a)}$ \\   
-
+        S   & 5.10.3 &  \begin{itemize}[topsep=-0.5cm]
+            \item[a)] Die Funktion $ln$ ist auf $(0, \infty)$ stetig und wächst streng monoton.
+            \item[b)] Es gilt $ln(1) = 0$ und $ln(e) = 1$.
+            \item[c)] $lim_{x \rightarrow \infty} ln(x) = \infty$ und $lim_{x \rightarrow 0+} ln(x) = -\infty$.
+            \item[d)] Für alle $x, y \in (0, \infty)$ und $q \in \mathbb{Q}$ gilt:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item $ln(xy) = ln(x) + ln(y)$
+                            \item $ln(\frac{x}{y}) = ln(x) - ln(y)$
+                            \item $ln(x^q) = q ln(x)$
+                        \end{itemize} \vspace{-0cm} 
+        \end{itemize} \\
+        \midrule
+        D   & 5.10.4 &  Für alle $a \in (0, \infty)$ und alle $x \in \mathbb{R}$ definieren wir die \textbf{allgemeine Potenz} durch $a^x := e^{x\cdot ln(a)}$ \\   
+        \midrule
+        S   & 5.10.5 &  Es sei $a \in (0,\infty)$. Dann ist die Funktion $x \rightarrow a^x$ stetig auf $\mathbb{R}$ und es gelten die bekannten
+                        Rechenregeln für Potenzen wie beispielsweise $a^{x+y}=a^xa^y$, $a^{-1}=\frac{1}{a}$, $(a^x)^y=a^{xy}$ \\
         \bottomrule
 
     \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.10.1& Die Exponentialfunktion $E: \mathbb{R} \rightarrow (0,\infty)$ ist \textbf{bijektiv} \\
-        \midrule
-        5.10.3& \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Die Funktion $ln$ ist auf $(0, \infty)$ stetig und wöchst streng monoton.
-                    \item[b)] Es gilt $ln(1) = 0$ und $ln(e) = 1$.
-                    \item[c)] $lim_{x \rightarrow \infty} ln(x) = \infty$ und $lim_{x \rightarrow 0+} ln(x) = -\infty$.
-                    \item[d)] Für alle $x, y \in (0, \infty)$ und $q \in \mathbb{Q}$ gilt:
-                                \begin{itemize}[topsep=-0.5cm]
-                                    \item $ln(xy) = ln(x) + ln(y)$
-                                    \item $ln(\frac{x}{y}) = ln(x) - ln(y)$
-                                    \item $ln(x^q) = q ln(x)$
-                                \end{itemize} \vspace{-0cm} 
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.10.5& Es sei $a \in (0,\infty)$. Dann ist die Funktion $x \rightarrow a^x$ stetig auf $\mathbb{R}$ und es gelten die bekannten
-                Rechenregeln für Potenzen wie beispielsweise $a^{x+y}=a^xa^y$, $a^{-1}=\frac{1}{a}$, $(a^x)^y=a^{xy}$ \\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsubsection{Trigonometrische Funktionen}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.10.6& $sin(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n+1)!} z^(2n+1)$, $z \in \mathbb{C}$ (\textbf{Sinus}) \hfill \break
-                $cos(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n)!}z^{2n}$, $z \in \mathbb{C}$ (\textbf{Cosinus}) \\
+        D   & 5.10.6&   $sin(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n+1)!} z^(2n+1)$, $z \in \mathbb{C}$ (\textbf{Sinus}) \hfill \break
+                        $cos(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n)!}z^{2n}$, $z \in \mathbb{C}$ (\textbf{Cosinus}) \\
         \midrule
-        5.10.9& Eine Funktion $f: \mathbb{R} \rightarrow \mathbb{R}$ oder $f: \mathbb{C} \rightarrow \mathbb{C}$ heißt: 
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] ungerade, falls $f(-x) = -f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
-                    \item[b)] gerade, falls $f(-x) = f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
-                    \item[c)] periodisch mit Periode $L \in \mathbb{R}$, bzw. $\mathbb{C}$, wenn $f(x+L) = f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
-                \end{itemize} \vspace{-0cm}\\
+        B   & 5.10.6 &  Alle Winkel in der Mathematik werden im Bogenmaß angegeben. \hfill \break
+                        \includegraphics[width=6cm]{sincos.png} \hfill \break
+                        (Sin: $\frac{\sqrt{0}}{2},\frac{\sqrt{1}}{2},\frac{\sqrt{2}}{2},\frac{\sqrt{3}}{2},\frac{\sqrt{4}}{2})$\\
         \midrule
-        5.10.14&Die Funktion $tan: \mathbb{C} \textbackslash \{\frac{pi}{2}+k\pi:k \in \mathbb{Z}\} \rightarrow \mathbb{C}$ mit \hfill \break
-                \centerline{$tan(z) \frac{sin(z)}{cos(z)}$}
-                heißt \textbf{Tangens}. \\
+        S   & 5.10.8&   \textbf{Trigonometrischer Pythagoras}\hfill \break
+                        $sin^2(x) + cos^2(x) = 1$, für alle $x \in \mathbb{R}$ \\
         \midrule
-        5.10.15&\begin{itemize}[topsep=-0.5cm]
-                    \item[] arcsin: $[-1,1] \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcussinus})
-                    \item[] arcsin: $[-1,1] \rightarrow [0, \infty]$ (\textbf{Arcuscosinus})
-                    \item[] arcsin: $\mathbb{R} \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcustangens})
-                \end{itemize} \vspace{-0cm} \\
+        D   & 5.10.9&   Eine Funktion $f: \mathbb{R} \rightarrow \mathbb{R}$ oder $f: \mathbb{C} \rightarrow \mathbb{C}$ heißt: 
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] ungerade, falls $f(-x) = -f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
+                            \item[b)] gerade, falls $f(-x) = f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
+                            \item[c)] periodisch mit Periode $L \in \mathbb{R}$, bzw. $\mathbb{C}$, wenn $f(x+L) = f(x)$ für alle $x \in \mathbb{R}$ bzw. $\mathbb{C}$ gilt.
+                        \end{itemize} \vspace{-0cm}\\
+        \midrule
+        S   & 5.10.10&  Der Cosinus ist \textbf{gerade} und der Sinus ist \textbf{ungerade}. \\
+        \midrule
+        S   & 5.10.11&  \textbf{Eulersche Formel} \hfill \break
+                        Für alle $z \in \mathbb{C}$ gilt $e^{iz} = cos(z)+sin(z)i$. \hfill \break
+                        Insbesondere gilt für alle $x \in \mathbb{R}$ damit $Re(e^{ix}) = cos(x)$ und $Im(e^{ix})=sin(x)$. \\
+        \midrule
+        S   & 5.10.12&  Für alle $x,y \in \mathbb{R}$ gilt 
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] $|sin(x)| \leq 1$ und $|cos(x)| \leq 1$
+                            \item[b)] Additionstheoreme:
+                                        \begin{itemize}[topsep=-0.5cm]
+                                            \item[] $sin(x+y) = sin(x)cos(y)+sin(y)cos(x)$
+                                            \item[] $cos(x+y) = cos(x)cos(y)+sin(x)sin(y)$ 
+                                        \end{itemize}
+                            \item[c)] Rechenregeln für verschobene Funktionen:
+                                        \begin{itemize}[topsep=-0.5cm]
+                                            \item[] $sin(x + \frac{\pi}{2}) = cos(x)$
+                                            \item[] $sin(x + \pi) = -sin(x)$
+                                            \item[] $sin(x+2\pi) = sin(x)$
+                                            \item[] $cos(x + \frac{\pi}{2}) = -sin(x)$
+                                            \item[] $cos(x+\pi) = -cos(x)$
+                                            \item[] $cos(x+2\pi) = cos(x)$
+                                            \item[] Sinus und Cosinus sind periodisch mit Periode $2\pi$      
+                                        \end{itemize} \vspace{-0cm}
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 5.10.13&  Es ist
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[] $sin(z) = 0 \Leftrightarrow z = k\pi$ für ein $k \in \mathbb{Z}$
+                            \item[] $cos(z) = 0 \Leftrightarrow z = \frac{\pi}{2}+k\pi$ für ein $k \in \mathbb{Z}$ 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 5.10.14&  Die Funktion $tan: \mathbb{C} \textbackslash \{\frac{pi}{2}+k\pi:k \in \mathbb{Z}\} \rightarrow \mathbb{C}$ mit \hfill \break
+                        \centerline{$tan(z) \frac{sin(z)}{cos(z)}$}
+                        heißt \textbf{Tangens}. \\
+        \midrule
+        D   & 5.10.15&  \begin{itemize}[topsep=-0.5cm]
+                            \item[] arcsin: $[-1,1] \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcussinus})
+                            \item[] arcsin: $[-1,1] \rightarrow [0, \infty]$ (\textbf{Arcuscosinus})
+                            \item[] arcsin: $\mathbb{R} \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcustangens})
+                        \end{itemize} \vspace{-0cm} \\
 
         \bottomrule
 
     \end{longtable}
-    
-
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.10.8& \textbf{Trigonometrischer Pythagoras}\hfill \break
-                $sin^2(x) + cos^2(x) = 1$, für alle $x \in \mathbb{R}$ \\
-        \midrule
-        5.10.10&Der Cosinus ist \textbf{gerade} und der Sinus ist \textbf{ungerade}. \\
-        \midrule
-        5.10.11&\textbf{Eulersche Formel} \hfill \break
-                Für alle $z \in \mathbb{C}$ gilt $e^{iz} = cos(z)+sin(z)i$. \hfill \break
-                Insbesondere gilt für alle $x \in \mathbb{R}$ damit $Re(e^{ix}) = cos(x)$ und $Im(e^{ix})=sin(x)$. \\
-        \midrule
-        5.10.12&Für alle $x,y \in \mathbb{R}$ gilt 
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $|sin(x)| \leq 1$ und $|cos(x)| \leq 1$
-                    \item[b)] Additionstheoreme:
-                                \begin{itemize}[topsep=-0.5cm]
-                                    \item[] $sin(x+y) = sin(x)cos(y)+sin(y)cos(x)$
-                                    \item[] $cos(x+y) = cos(x)cos(y)+sin(x)sin(y)$ 
-                                \end{itemize}
-                    \item[c)] Rechenregeln für verschobene Funktionen:
-                                \begin{itemize}[topsep=-0.5cm]
-                                    \item[] $sin(x + \frac{\pi}{2}) = cos(x)$
-                                    \item[] $sin(x + \pi) = -sin(x)$
-                                    \item[] $sin(x+2\pi) = sin(x)$
-                                    \item[] $cos(x + \frac{\pi}{2}) = -sin(x)$
-                                    \item[] $cos(x+\pi) = -cos(x)$
-                                    \item[] $cos(x+2\pi) = cos(x)$
-                                    \item[] Sinus und Cosinus sind periodisch mit Periode $2\pi$      
-                                \end{itemize} \vspace{-0cm}
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.10.13&Es ist
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[] $sin(z) = 0 \Leftrightarrow z = k\pi$ für ein $k \in \mathbb{Z}$
-                    \item[] $cos(z) = 0 \Leftrightarrow z = \frac{\pi}{2}+k\pi$ für ein $k \in \mathbb{Z}$ 
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.10.6& Alle Winkel in der Mathematik werden im Bogenmaß angegeben. \hfill \break
-                \includegraphics[width=6cm]{sincos.png} \hfill \break
-                (Sin: $\frac{\sqrt{0}}{2},\frac{\sqrt{1}}{2},\frac{\sqrt{2}}{2},\frac{\sqrt{3}}{2},\frac{\sqrt{4}}{2})$\\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsubsection{Die Polardarstellung komplexer Zahlen}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
-
-        5.10.17&Es sei $Z = x + yi \in \mathbb{C} \textbackslash \{0\}$ mit $x,y \in \mathbb{R}$. Dann heißt $r:= \sqrt{x^2+y^2}$ der \textbf{Betrag}
-                von $z$ und der Winkel $\phi$, der zwischen $z$ und der positiven reellen Achse eingeschlossen wird das \textbf{Argument} von $z$.
-                Beide Werte zusammen $(r,\phi)$ zusammen sind die \textbf{Polarkoordinaten} von $z$.\\
-
-        \bottomrule
-
-    \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.10.19&Es seien $z=re^{i\phi}$, $w=se^{i\psi} \in \mathbb{C} \textbackslash \{0\}$ mit Polarkoordinaten $(r,\phi)$, bzw. $(s,\phi)$
-                gegeben. Dann hat $z \cdot w$ die Polarkoordinaten $(rs, \phi + \psi)$ und $\frac{z}{w}$ die Polarkoordinaten
-                $(\frac{r}{s}, \phi - \psi)$. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.10.17& Argument im Intervall $(-\pi, \pi]$ oder $[0, 2\pi)$ um Eindeutigkeit zu garantieren. \\
+        B   & 5.10.17&  Argument im Intervall $(-\pi, \pi]$ oder $[0, 2\pi)$ um Eindeutigkeit zu garantieren. \\
         \midrule
-        5.10.18& Argument: $(-\pi, \pi)$ $\rightarrow$ Umrechnung von Komplex zu Polarkoordinaten
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[] $x = r~cos(\phi)$
-                    \item[] $y= r~sin(\phi)$ 
-                    \item[] $r = \sqrt{x^2+y^2}$
-                    \item[] $\phi = \begin{cases}
-                                    arctan\frac{y}{x}, & x > 0 \\
-                                    arctan\frac{y}{x}+\pi, & x<0 \text{ und } y \geq 0 \\
-                                    arctan\frac{y}{x}-\pi, & x<0 \text{ und } y < 0 \\
-                                    \frac{\pi}{2}, & x=0 \text{ und } y > 0 \\
-                                    -\frac{\pi}{2}, & x=0 \text{ und } y < 0 \\
-                                    \end{cases}$   
-                \end{itemize}\\
+        B   & 5.10.18&  Argument: $(-\pi, \pi)$ $\rightarrow$ Umrechnung von Komplex zu Polarkoordinaten
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[] $x = r~cos(\phi)$
+                            \item[] $y= r~sin(\phi)$ 
+                            \item[] $r = \sqrt{x^2+y^2}$
+                            \item[] $\phi = \begin{cases}
+                                            arctan\frac{y}{x}, & x > 0 \\
+                                            arctan\frac{y}{x}+\pi, & x<0 \text{ und } y \geq 0 \\
+                                            arctan\frac{y}{x}-\pi, & x<0 \text{ und } y < 0 \\
+                                            \frac{\pi}{2}, & x=0 \text{ und } y > 0 \\
+                                            -\frac{\pi}{2}, & x=0 \text{ und } y < 0 \\
+                                            \end{cases}$   
+                        \end{itemize}\\
+        \midrule
+        S   & 5.10.19&  Es seien $z=re^{i\phi}$, $w=se^{i\psi} \in \mathbb{C} \textbackslash \{0\}$ mit Polarkoordinaten $(r,\phi)$, bzw. $(s,\phi)$
+                        gegeben. Dann hat $z \cdot w$ die Polarkoordinaten $(rs, \phi + \psi)$ und $\frac{z}{w}$ die Polarkoordinaten
+                        $(\frac{r}{s}, \phi - \psi)$. \\
+        \midrule
+        BSP & 5.10.20&  Wir berechnen $(1+i)^{2001}$. \hfill \break
+                        $(1+i)^{2001} = (\sqrt{2}e^{i\frac{\pi}{4}})^{2011} = \sqrt{2}^{2011} e^{i2011\cdot \frac{\pi}{4}} =
+                        \sqrt{2} \cdot 2^{1005} e^{i(2008+3)\frac{\pi}{4}} = \sqrt{2} \dot 2^1005 e^{i502\pi}e^{i\frac{3\pi}{4}}= 
+                        2^{1005} \cdot \sqrt{2} e^{i\frac{3\pi}{4}} = 2^{1005} (-1+i)$ ($e^{i502\pi} =1$)\\
+        \midrule
+        D   & 5.10.17&  Es sei $Z = x + yi \in \mathbb{C} \textbackslash \{0\}$ mit $x,y \in \mathbb{R}$. Dann heißt $r:= \sqrt{x^2+y^2}$ der \textbf{Betrag}
+                        von $z$ und der Winkel $\phi$, der zwischen $z$ und der positiven reellen Achse eingeschlossen wird das \textbf{Argument} von $z$.
+                        Beide Werte zusammen $(r,\phi)$ zusammen sind die \textbf{Polarkoordinaten} von $z$.\\
 
         \bottomrule
+
     \end{longtable}
-    
-
-    \noindent
-    \textbf{Beispiele}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.10.20&Wir berechnen $(1+i)^{2001}$. \hfill \break
-                $(1+i)^{2001} = (\sqrt{2}e^{i\frac{\pi}{4}})^{2011} = \sqrt{2}^{2011} e^{i2011\cdot \frac{\pi}{4}} =
-                \sqrt{2} \cdot 2^{1005} e^{i(2008+3)\frac{\pi}{4}} = \sqrt{2} \dot 2^1005 e^{i502\pi}e^{i\frac{3\pi}{4}}= 
-                2^{1005} \cdot \sqrt{2} e^{i\frac{3\pi}{4}} = 2^{1005} (-1+i)$ ($e^{i502\pi} =1$)\\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsubsection{Hyperbolische Funktionen}
-
-    \noindent
-    \textbf{Definitionen}
       
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.10.22&\begin{itemize}[topsep=-0.5cm]
-                    \item[] $sinh(z) := \frac{e^z-e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Sinus hyperbolicus})
-                    \item[] $cosh(z) := \frac{e^z+e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Cosinus hyperbolicus})
-                    \item[] $tanh(z) := \frac{sinh(z)}{cosh(z)}$, $z \in \mathbb{C} \textbackslash \{(k\pi + \frac{\pi}{2}i: k \in \mathbb{Z})\}$ (\textbf{Tangens hyperbolicus})
-                \end{itemize} \vspace{-0cm} \\
+        D   & 5.10.22&  \begin{itemize}[topsep=-0.5cm]
+                            \item[] $sinh(z) := \frac{e^z-e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Sinus hyperbolicus})
+                            \item[] $cosh(z) := \frac{e^z+e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Cosinus hyperbolicus})
+                            \item[] $tanh(z) := \frac{sinh(z)}{cosh(z)}$, $z \in \mathbb{C} \textbackslash \{(k\pi + \frac{\pi}{2}i: k \in \mathbb{Z})\}$ (\textbf{Tangens hyperbolicus})
+                        \end{itemize} \vspace{-0cm} \\
 
         \bottomrule
 
     \end{longtable}
-    
-
-    
 
 \section{Analysis - Teil II: Differential- und Integralrechnung}
 \subsection{Differenzierbarkeit von Funktionen in einer Variablen}
 \subsubsection{Der Ableitungsbegriff}
 
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        6.1.1 & Für ganzes Kapitel gilt: $I \subseteq \mathbb{R}$ als Intervall.
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Es sei $x_0 \in I$. Eine Funktion $f: I \rightarrow \mathbb{R}$ heißt differenzierbar in $x_0$, wenn der Grenzwert 
-                                \centerline{$lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0}$}
-                                in $\mathbb{R}$ existiert. In diesem Fall heißt dieser Grenzwert die \textbf{Ableitung} von $f$ in $x_0$ und wird 
-                                mit \textbf{$f'(x_0)$} bezeichnet.
-                    \item[b)] Eine Funktion $f: I \rightarrow \mathbb{R}$ heißt \textbf{differenzierbar} auf $I$, falls sie in allen Punkten
-                                $x_0 \in I$ differenzierbar ist. In diesem Fall wird $x \rightarrow f'(x)$  für $x \in I$ eine Funktion 
-                                $f': I \rightarrow \mathbb{R}$ definiert. Diese Funktion heißt die \textbf{Ableitung} oder auch 
-                                \textbf{Ableitungsfunktion} von $f$ auf $I$.
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-
-    \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        6.1.4 & Es sei $f: I \rightarrow \mathbb{R}$ in $x_0 \in I$ differenzierbar. Dann ist $f$ \textbf{stetig} in $x_0$. \hfill \break
-                (Jede differenzierbare Funktion ist stetig) \\
+        D   & 6.1.1 &   Für ganzes Kapitel gilt: $I \subseteq \mathbb{R}$ als Intervall.
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Es sei $x_0 \in I$. Eine Funktion $f: I \rightarrow \mathbb{R}$ heißt differenzierbar in $x_0$, wenn der Grenzwert 
+                                        \centerline{$lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0}$}
+                                        in $\mathbb{R}$ existiert. In diesem Fall heißt dieser Grenzwert die \textbf{Ableitung} von $f$ in $x_0$ und wird 
+                                        mit \textbf{$f'(x_0)$} bezeichnet.
+                            \item[b)] Eine Funktion $f: I \rightarrow \mathbb{R}$ heißt \textbf{differenzierbar} auf $I$, falls sie in allen Punkten
+                                        $x_0 \in I$ differenzierbar ist. In diesem Fall wird $x \rightarrow f'(x)$  für $x \in I$ eine Funktion 
+                                        $f': I \rightarrow \mathbb{R}$ definiert. Diese Funktion heißt die \textbf{Ableitung} oder auch 
+                                        \textbf{Ableitungsfunktion} von $f$ auf $I$.
+                        \end{itemize} \vspace{-0cm} \\
+        B   & 6.1.1 &   Der Grenzwert in 6.1.1 existiert genau dann, wenn der Grenzwert $lim_{h \rightarrow 0} \frac{f(_x0 + h)-f(x_0)}{h}$
+                        existiert. Die Werte stimmen dann überein. Je nach Situation den einen oder anderen verwenden. \\
         \midrule
-        6.1.7 & Eine Funktion $f: I \rightarrow \mathbb{R}$ ist in $x_0 \in I$ genau dann \textbf{differenzierbar} mit $f'(x_0)=a$
-                , wenn \hfill \break
-                \centerline{$f(x) = f(x_0) + a(x-x_0)+r(x)$, $x \in I$}
-                ist und für die Funktion $r: I \rightarrow \mathbb{R}$ gilt \hfill \break
-                \centerline{$lim_{x \rightarrow x_0}\frac{|r(x)|}{|x-x_0|} = 0$}. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        6.1.1 & Der Grenzwert in 6.1.1 existiert genau dann, wenn der Grenzwert $lim_{h \rightarrow 0} \frac{f(_x0 + h)-f(x_0)}{h}$
-                existiert. Die Werte stimmen dann überein. Je nach Situation den einen oder anderen verwenden. \\
+        BSP & 6.1.3 &   $f(x) = c$ $\rightarrow$ $lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0} = lim_{x \rightarrow x_0}
+                        \frac{0}{x-x_0} = 0$ (Ableitung konstanter Funktionen ist 0) \\
         \midrule
-        6.1.6 & Die Exponentialfunktion ist auf $\mathbb{R}$ differenzierbar und es gilt $E'(x) = e^x = E(x)$. \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Beispiele}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        6.1.3 & $f(x) = c$ $\rightarrow$ $lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0} = lim_{x \rightarrow x_0}
-                                \frac{0}{x-x_0} = 0$ (Ableitung konstanter Funktionen ist 0) \\
+        S   & 6.1.4 &   Es sei $f: I \rightarrow \mathbb{R}$ in $x_0 \in I$ differenzierbar. Dann ist $f$ \textbf{stetig} in $x_0$. \hfill \break
+                        (Jede differenzierbare Funktion ist stetig) \\
         \midrule
-        6.1.6 & $f(x) = x^2$, $x \in \mathbb{R}$ \hfill \break
-                Für jedes $x_0 \in \mathbb{R}$ gilt: \hfill \break
-                \centerline{$\frac{f(x)-f(x_0)}{x-x_0}= \frac{x^2-x_0^2}{x-x_0} = \frac{(x-x_0)(x+x_0)}{x-x_0} = x+x_0$}
-                Daraus folgt: \hfill \break
-                \centerline{$lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0} = lim_{x \rightarrow x_0}(x+x_0) = 2x_0$}
-                Damit ist $f$ auf $\mathbb{R}$ differenzierbar und es gilt $f'(x) = 2x$, $x \in \mathbb{R}$. \\
+        B   & 6.1.6 &   Die Exponentialfunktion ist auf $\mathbb{R}$ differenzierbar und es gilt $E'(x) = e^x = E(x)$. \\
+        \midrule
+        BSP & 6.1.6 &   $f(x) = x^2$, $x \in \mathbb{R}$ \hfill \break
+                        Für jedes $x_0 \in \mathbb{R}$ gilt: \hfill \break
+                        \centerline{$\frac{f(x)-f(x_0)}{x-x_0}= \frac{x^2-x_0^2}{x-x_0} = \frac{(x-x_0)(x+x_0)}{x-x_0} = x+x_0$}
+                        Daraus folgt: \hfill \break
+                        \centerline{$lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0} = lim_{x \rightarrow x_0}(x+x_0) = 2x_0$}
+                        Damit ist $f$ auf $\mathbb{R}$ differenzierbar und es gilt $f'(x) = 2x$, $x \in \mathbb{R}$. \\
+        \midrule
+        S   & 6.1.7 &   Eine Funktion $f: I \rightarrow \mathbb{R}$ ist in $x_0 \in I$ genau dann \textbf{differenzierbar} mit $f'(x_0)=a$
+                        , wenn \hfill \break
+                        \centerline{$f(x) = f(x_0) + a(x-x_0)+r(x)$, $x \in I$}
+                        ist und für die Funktion $r: I \rightarrow \mathbb{R}$ gilt \hfill \break
+                        \centerline{$lim_{x \rightarrow x_0}\frac{|r(x)|}{|x-x_0|} = 0$}. \\
+        
         \bottomrule
-    \end{longtable}
-    
 
-    
+    \end{longtable}
 
 \subsubsection{Ableitungsregeln}
 
