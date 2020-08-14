@@ -22,674 +22,457 @@
 \begin{comment}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
         & \\
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
         & \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
         & \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
         & \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 \end{comment}
 
 \section{Analysis Teil I - Konvergenz und Stetigkeit}
 \subsection{Die reellen Zahlen}
-    \noindent
-    \textbf{Definitionen} 
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        5.1.1 & Die \textbf{Menge der reellen Zahlen} ist der kleinste angeordnete Körper, 
-                der $\mathbb{Z}$ enthält und das Vollständigskeitsaxiom 
-                \textit{"Jede nichtleere Teilmenge, die eine obere Schranke besitzt, hat ein Suprenum."}
-                erfüllt. \\
+        D   & 5.1.1 &   Die \textbf{Menge der reellen Zahlen} ist der kleinste angeordnete Körper, 
+                        der $\mathbb{Z}$ enthält und das Vollständigskeitsaxiom 
+                        \textit{"Jede nichtleere Teilmenge, die eine obere Schranke besitzt, hat ein Suprenum."}
+                        erfüllt. \\
         \midrule
-        5.1.3 & Eine Teilmenge $M \subseteq \mathbb{R}$ heißt:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] nach \textbf{oben (unten) beschränkt}, wenn sie eine obere (untere) Schranke besitzt.
-                    \item[b)] \textbf{beschränkt}, wenn sie nach oben und unten beschränkt ist. 
-                \end{itemize} \vspace{-0cm} \\
+        B   &       &   Ein Körper mit Totalordnung $\leq$ heißt \textbf{angeordneter Körper}, falls gilt:
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item $\forall a,b,c \in K: a \leq b \Rightarrow a + c \leq b + c$
+                                \item $\forall a,b,c \in K: (a \leq b$ und $0 \leq c) \Rightarrow ac \leq bc$
+                            \end{itemize} \vspace{-0cm} \\
         \midrule
-        5.1.5 & Die Funktion $|\cdot|: \mathbb{R} \rightarrow \mathbb{R}$ mit \hfill \break
-                \centerline{    
-                    $|x| =  \begin{cases}
-                    x & \text{falls x $\geq$ 0} \\
-                    -x & \text{falls x < 0}
-                \end{cases}$
-                } \hfill \break
-                heißt \textbf{Betragsfunktion} und $|x|$ heißt Betrag von $x$. \\
+        D   & 5.1.3 &   Eine Teilmenge $M \subseteq \mathbb{R}$ heißt:
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item[a)] nach \textbf{oben (unten) beschränkt}, wenn sie eine obere (untere) Schranke besitzt.
+                                \item[b)] \textbf{beschränkt}, wenn sie nach oben und unten beschränkt ist. 
+                            \end{itemize} \vspace{-0cm} \\
         \midrule
-        5.1.8 & \textbf{Intervalle:} \hfill \break 
-                Es seien zwei Zahlen $a,b \in \mathbb{R}$ mit $a < b$ gegeben. Dann heißen:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item $(a,b):= \{x \in \mathbb{R}: a < x < b\}$ offenes Intervall
-                    \item $[a,b]:= \{x \in \mathbb{R}: a \leq x \leq b\}$ abgeschlossenes Intervall
-                    \item $(a,b]:= \{x \in \mathbb{R}: a < x \leq b\}$ halboffenes Intervall
-                    \item $[a,b):= \{x \in \mathbb{R}: a \leq x < b\}$ halboffenes Intervall
-                \end{itemize} \vspace{-0cm} \hfill \break
-                \textbf{Halbstrahlen:}
-                \begin{itemize}[topsep=-0.5cm]
-                    \item $[a,\infty) := \{x \in \mathbb{R} : a \leq x\}$
-                    \item $(a, \infty) := \{x \in \mathbb{R} : a < x\}$
-                    \item $(-\infty, a] := \{x \in \mathbb{R}: x \leq a\}$
-                    \item $(-\infty,a) := \{x \in \mathbb{R} : x < a\}$
-                    \item $(-\infty,\infty):= \mathbb{R}$
-                \end{itemize} \vspace{-0cm} \\
+        S   & 5.1.4 &   Jede nach unten beschränkte, nichtleere Teilmenge von $\mathbb{R}$ besitzt ein Infimum. \linebreak
+                        (Umkehrung Vollständigkeitsaxiom) \\
+        \midrule
+        D   & 5.1.5 &   Die Funktion $|\cdot|: \mathbb{R} \rightarrow \mathbb{R}$ mit \hfill \break
+                        \centerline{    
+                            $|x| =  \begin{cases}
+                            x & \text{falls x $\geq$ 0} \\
+                            -x & \text{falls x < 0}
+                        \end{cases}$
+                        } \hfill \break
+                        heißt \textbf{Betragsfunktion} und $|x|$ heißt Betrag von $x$. \\
+        \midrule
+        S   & 5.1.6 &   \textbf{Rechenregeln Betragsfunktion:} \hfill \break
+                        Für alle $x,y \in \mathbb{R}$ gilt: 
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] $|x| \geq 0$
+                            \item[b)] $|x| = |-x|$
+                            \item[c)] $\pm x \leq |x|$
+                            \item[d)] $|xy| = |x| \cdot |y|$
+                            \item[e)] $|x| = 0$ genau dann, wenn $x = 0$
+                            \item[f)] $|x+y| \leq |x| + |y|$ (Dreiecksungleichung)  
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 5.1.8 &   \textbf{Intervalle:} \hfill \break 
+                        Es seien zwei Zahlen $a,b \in \mathbb{R}$ mit $a < b$ gegeben. Dann heißen:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item $(a,b):= \{x \in \mathbb{R}: a < x < b\}$ offenes Intervall
+                            \item $[a,b]:= \{x \in \mathbb{R}: a \leq x \leq b\}$ abgeschlossenes Intervall
+                            \item $(a,b]:= \{x \in \mathbb{R}: a < x \leq b\}$ halboffenes Intervall
+                            \item $[a,b):= \{x \in \mathbb{R}: a \leq x < b\}$ halboffenes Intervall
+                        \end{itemize} \vspace{-0cm} \hfill \break
+                        \textbf{Halbstrahlen:}
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item $[a,\infty) := \{x \in \mathbb{R} : a \leq x\}$
+                            \item $(a, \infty) := \{x \in \mathbb{R} : a < x\}$
+                            \item $(-\infty, a] := \{x \in \mathbb{R}: x \leq a\}$
+                            \item $(-\infty,a) := \{x \in \mathbb{R} : x < a\}$
+                            \item $(-\infty,\infty):= \mathbb{R}$
+                        \end{itemize} \vspace{-0cm} \\
         \bottomrule
         
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.1.4 & Jede nach unten beschränkte, nichtleere Teilmenge von $\mathbb{R}$ besitzt ein Infimum. \linebreak
-                (Umkehrung Vollständigkeitsaxiom) \\
-        \midrule
-        5.1.6 & \textbf{Rechenregeln Betragsfunktion:} \hfill \break
-                Für alle $x,y \in \mathbb{R}$ gilt: 
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $|x| \geq 0$
-                    \item[b)] $|x| = |-x|$
-                    \item[c)] $\pm x \leq |x|$
-                    \item[d)] $|xy| = |x| \cdot |y|$
-                    \item[e)] $|x| = 0$ genau dann, wenn $x = 0$
-                    \item[f)] $|x+y| \leq |x| + |y|$ (Dreiecksungleichung)  
-                \end{itemize} \vspace{-0cm} \\
-
-        
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-            &   Ein Körper mit Totalordnung $\leq$ heißt \textbf{angeordneter Körper}, falls gilt:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item $\forall a,b,c \in K: a \leq b \Rightarrow a + c \leq b + c$
-                    \item $\forall a,b,c \in K: (a \leq b$ und $0 \leq c) \Rightarrow ac \leq bc$
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \pagebreak
+    \end{longtable}
 
 \subsection{Wurzeln, Fakultäten und Binomialkoeffizienten}
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        5.2.1 & \textbf{Ganzzahlige Potenzen:} \hfill \break
-                Für jedes $x\in \mathbb{R}$ und jedes $n \in \mathbb{N^*}$ ist
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $x^n := x \cdot x \cdot x ... \cdot x$ ($n$-mal $x$)
-                    \item[b)] $x^{-n} := \frac{1}{x^n}$, falls $x\neq 0$
-                    \item[c)] $x^0 := 1$  
-                \end{itemize} \vspace{-0cm} \\
+        D   & 5.2.1 &   \textbf{Ganzzahlige Potenzen:} \hfill \break
+                        Für jedes $x\in \mathbb{R}$ und jedes $n \in \mathbb{N^*}$ ist
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] $x^n := x \cdot x \cdot x ... \cdot x$ ($n$-mal $x$)
+                            \item[b)] $x^{-n} := \frac{1}{x^n}$, falls $x\neq 0$
+                            \item[c)] $x^0 := 1$  
+                        \end{itemize} \vspace{-0cm} \\
         \midrule
-        5.2.3 & Es seien $a \in \mathbb{R_+}$ und $n \in \mathbb{N^*}$. Die \textbf{eindeutige Zahl} $x^n \in \mathbb{R_+}$ mit 
-                $x^n = a$ heißt $n$-te \textbf{Wurzel} von $a$ und man schreibt $x = \sqrt[n]{a}$. Für den wichtigsten Fall $n = 2$ 
-                gibt es die Konvention $\sqrt{a} := \sqrt[2]{a}$. \\
+        S   & 5.2.2 &   \textbf{Existenz der Wurzel:} \hfill \break 
+                        Für jedes $a \in R_+$ und alle $n \in N^*$ gibt es genau ein $w \in R_+$ mit $x^n = a$. \\
         \midrule
-        5.2.5 & Aus der Eindeutigkeit der $n$-ten Wurzel (5.2.4) folgt: \hfill \break
-                Für jedes $x \in \mathbb{R_+}$ und jedes $q = \frac{n}{m} \in \mathbb{Q}$ mit $n \in \mathbb{Z}$ und 
-                $m \in \mathbb{N^*}$ ist die \textbf{rationale Potenz} definiert durch: \hfill \break
-                \centerline{$x^q = x^{\frac{n}{m}} := (\sqrt[x]{x})^n$.} \\
+        D   & 5.2.3 &   Es seien $a \in \mathbb{R_+}$ und $n \in \mathbb{N^*}$. Die \textbf{eindeutige Zahl} $x^n \in \mathbb{R_+}$ mit 
+                        $x^n = a$ heißt $n$-te \textbf{Wurzel} von $a$ und man schreibt $x = \sqrt[n]{a}$. Für den wichtigsten Fall $n = 2$ 
+                        gibt es die Konvention $\sqrt{a} := \sqrt[2]{a}$. \\
         \midrule
-        5.2.7 & Es sei $n \in \mathbb{N^*}$. Dann wird die Zahl $n! := 1 \cdot 2 \cdot ... \cdot n$ als $n$ \textbf{Fakultät} bezeichnet. \hfill \break
-                Weiterhin definieren wir $0! := 1$. \hfill \break
-                Es seien $n,k \in \mathbb{N}$ mit $k \leq n$. Dann heißt $\binom{n}{k} := \frac{n!}{k!(n-k)!}$ \textbf{Binomialkoeffizient} 
-                \string"$n$ über $k$\string". \\
+        S   & 5.2.4 &   Es seien $q \in \mathbb{Q}$ und $m,ü \in \mathbb{Z}$, sowie $n,r \in \mathbb{N^*}$ so, dass
+                        $q = \frac{m}{n} = \frac{p}{r}$. \hfill \break
+                        Dann gilt für jedes $x \in \mathbb{R_+}$: $(\sqrt[n]{x})^m = (\sqrt[r]{m})^p$. \\
+        \midrule
+        D   & 5.2.5 &   Aus der Eindeutigkeit der $n$-ten Wurzel (5.2.4) folgt: \hfill \break
+                        Für jedes $x \in \mathbb{R_+}$ und jedes $q = \frac{n}{m} \in \mathbb{Q}$ mit $n \in \mathbb{Z}$ und 
+                        $m \in \mathbb{N^*}$ ist die \textbf{rationale Potenz} definiert durch: \hfill \break
+                        \centerline{$x^q = x^{\frac{n}{m}} := (\sqrt[x]{x})^n$.} \\
+        \midrule
+        B   & 5.2.6 &   \textbf{Rechenregeln für Potenzen (auch rational)} \hfill \break
+                        $\forall x,y \in \mathbb{R_+} \textbackslash \{0\}$ und $\forall p,q \in \mathbb{Q}$ gilt: 
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item $x^p x^q = x^{p+q}$
+                            \item $x^py^p = (xy)^p$
+                            \item $(x^p)^q = x^{pq}$
+                            \item $\frac{x^p}{x^q} = x^{p-q}$
+                            \item $\frac{x^p}{y^p} = (\frac{x}{y})^p$
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 5.2.7 &   Es sei $n \in \mathbb{N^*}$. Dann wird die Zahl $n! := 1 \cdot 2 \cdot ... \cdot n$ als $n$ \textbf{Fakultät} bezeichnet. \hfill \break
+                        Weiterhin definieren wir $0! := 1$. \hfill \break
+                        Es seien $n,k \in \mathbb{N}$ mit $k \leq n$. Dann heißt $\binom{n}{k} := \frac{n!}{k!(n-k)!}$ \textbf{Binomialkoeffizient} 
+                        \string"$n$ über $k$\string". \\
+        \midrule
+        B   & 5.2.8 &   \textbf{Fakultät und Binomialkoeffizient} \hfill \break
+                        $n!$ ist die Anzahl der möglichen Reihenfolgen von $n$ unterschiedlichen Dingen. \hfill \break
+                        $\binom{n}{k}$ ist die Anzahl der Möglichkeiten aus $n$ unterscheidbaren Dingen genau $k$ auszuwählen. \\
+        \midrule
+        S   & 5.2.9 &   Es seien $n,k \in \mathbb{N}$ mit $k \leq n$ und $a,b \in \mathbb{R}$. Dann gilt:
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item[a)] $\binom{n}{0} = \binom{n}{n} = 1$ und $\binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}$
+                                \item[b)] $a^{n+1} - b^{n+1} = (a-b) \sum^n_{k=0}a^{n-k}b^k$
+                                \item[c)] $(a+b)^n = \sum^n_{k=0} \binom{n}{k} a^{n-k}b^k$ (Binomialformel)  
+                            \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   &       &   Zugriff auf \textbf{Binomialkoeffizienten} für binomische Formeln durch Pascal'sches Dreieck \\
         \bottomrule
         
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.2.2 & \textbf{Existenz der Wurzel:} \hfill \break 
-                Für jedes $a \in R_+$ und alle $n \in N^*$ gibt es genau ein $w \in R_+$ mit $x^n = a$. \\
-        \midrule
-        5.2.4 & Es seien $q \in \mathbb{Q}$ und $m,ü \in \mathbb{Z}$, sowie $n,r \in \mathbb{N^*}$ so, dass
-                $q = \frac{m}{n} = \frac{p}{r}$. \hfill \break
-                Dann gilt für jedes $x \in \mathbb{R_+}$: $(\sqrt[n]{x})^m = (\sqrt[r]{m})^p$. \\
-        \midrule
-        5.2.9 & Es seien $n,k \in \mathbb{N}$ mit $k \leq n$ und $a,b \in \mathbb{R}$. Dann gilt:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $\binom{n}{0} = \binom{n}{n} = 1$ und $\binom{n}{k} + \binom{n}{k-1} = \binom{n+1}{k}$
-                    \item[b)] $a^{n+1} - b^{n+1} = (a-b) \sum^n_{k=0}a^{n-k}b^k$
-                    \item[c)] $(a+b)^n = \sum^n_{k=0} \binom{n}{k} a^{n-k}b^k$ (Binomialformel)  
-                \end{itemize} \vspace{-0cm} \\
-        
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.2.6 & \textbf{Rechenregeln für Potenzen (auch rational)} \hfill \break
-                $\forall x,y \in \mathbb{R_+} \textbackslash \{0\}$ und $\forall p,q \in \mathbb{Q}$ gilt: 
-                \begin{itemize}[topsep=-0.5cm]
-                    \item $x^p x^q = x^{p+q}$
-                    \item $x^py^p = (xy)^p$
-                    \item $(x^p)^q = x^{pq}$
-                    \item $\frac{x^p}{x^q} = x^{p-q}$
-                    \item $\frac{x^p}{y^p} = (\frac{x}{y})^p$
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.2.8 & \textbf{Fakultät und Binomialkoeffizient} \hfill \break
-                $n!$ ist die Anzahl der möglichen Reihenfolgen von $n$ unterschiedlichen Dingen. \hfill \break
-                $\binom{n}{k}$ ist die Anzahl der Möglichkeiten aus $n$ unterscheidbaren Dingen genau $k$ auszuwählen. \\
-        \midrule
-            & Zugriff auf \textbf{Binomialkoeffizienten} für binomische Formeln durch Pascal'sches Dreieck \\
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-\pagebreak
+    \end{longtable}
 
 \subsection{Konvergenz von Folgen}
 \subsubsection{Der Konvergenzbegriff und wichtige Beispiele}
-
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        5.3.1 & Es sei $(a_n)$ eine Folge in $\mathbb{K}$ und $a \in \mathbb{K}$. Die Folge $(a_n)$ heißt \textbf{konvergent} gegen $a$,
-                falls für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ exisitert mit \hfill \break
-                \centerline{$|a_n-a| < \epsilon$ für alle $n \geq n_0$.}
-                In diesem Fall heißt $a$ der \textbf{Grenzwert} oder Limes von $(a_n)$ und wir schreiben: \hfill \break
-                \centerline{$lim_{a \rightarrow \infty} = a$ oder $a_n \rightarrow a (n \rightarrow \infty)$.} 
-                Ist $(a_n)$ eine Folge $\mathbb{K}$, die gegen kein $a \in \mathbb{K}$ konvergiert, so heißt diese \textbf{divergent}. \\
+        D   & 5.3.1 &   Es sei $(a_n)$ eine Folge in $\mathbb{K}$ und $a \in \mathbb{K}$. Die Folge $(a_n)$ heißt \textbf{konvergent} gegen $a$,
+                        falls für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ exisitert mit \hfill \break
+                        \centerline{$|a_n-a| < \epsilon$ für alle $n \geq n_0$.}
+                        In diesem Fall heißt $a$ der \textbf{Grenzwert} oder Limes von $(a_n)$ und wir schreiben: \hfill \break
+                        \centerline{$lim_{a \rightarrow \infty} = a$ oder $a_n \rightarrow a (n \rightarrow \infty)$.} 
+                        Ist $(a_n)$ eine Folge $\mathbb{K}$, die gegen kein $a \in \mathbb{K}$ konvergiert, so heißt diese \textbf{divergent}. \\
         \midrule
-        5.3.4 & Eine Folge $(a_n)$ in $\mathbb{K}$ heißt \textbf{beschränkt}, wenn die Menge $\{a_n: n \in \mathbb{N}\} = \{a_0,a_1,a_2,...\}$
-                beschränkt in $\mathbb{K}$ ist. \hfill \break
-                Ist $\mathbb{K} = \mathbb{R}$, so setzen wir weiter \hfill \break
-                \centerline{$sup_{n \in \mathbb{N}}a_n := sup^{\infty}_{n=0}a_n := sup\{a_n: n \in \mathbb{N}\}$} 
-                \centerline{$inf_{n \in \mathbb{N}}a_n := inf^{\infty}_{n=0}a_n := inf\{a_n: n \in \mathbb{N}\}$} \\
+        BSP & 5.3.1 &   Folge $(a_n) = (\frac{1}{n})_{n\geq 1} = (1, \frac{1}{2}, \frac{1}{3},...)$ \hfill \break
+                        Sei $\epsilon > 0$. Dann $\frac{1}{\epsilon} < n_0$ für ein $n_0 \in \mathbb{N}$ (beliebiges $n$ immer größer). \hfill \break 
+                        Für alle $n \geq n_0$ gilt dann: \hfill \break
+                        \centerline{$|a_n - a| = |a_n - 0| = |a_n| = \frac{1}{n} \leq \frac{1}{n_0} < \epsilon$}
+                        $\Rightarrow$ Konvergenz gegen 0 \\
         \midrule
-        5.3.13& \textbf{Bestimmte Divergenz:} \hfill \break
-                Eine Folge $(a_n)$ in $\mathbb{R}$ \textbf{divergiert bestimmt nach $\infty (- \infty)$} und wir schreiben
-                $lim_{n \rightarrow \infty} a_n = \infty (-\infty)$, wenn es für jedes $C \geq 0$ ein $n_0 \in \mathbb{N}$ gibt, so dass
-                $a_n \geq C (a_n \leq -C)$ für alle $n \leq n_0$ gilt. \\
-
-
-        \bottomrule
-        
-    \end{tabularx}
-    \end{table}
-
-    \noindent 
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.3.5 & Jede \textbf{konvergente Folge} in $\mathbb{K}$ ist \textbf{beschränkt}. \hfill \break
-                Die Umkehrung dieses Satzes ist \textbf{falsch}. Es gibt beschränkte Folgen, die nicht konvergieren. \\
+        B   &       &   Sei $X$ eine Menge. Eine \textbf{Folge} in $X$ ist eine Abbildung $a: \mathbb{N} \rightarrow X$. \hfill \break
+                        (Für $X = \mathbb{R}$ reelle Folge, $X = \mathbb{C}$ komplexe Folge) \hfill \break
+                        Schreibweise: $a_n$ statt $a(n)$. ($n$-tes Folgeglied) \hfill \break
+                        Ganze Folge: $(a_n)_{n \in \mathbb{N}}$ oder $(a_n)$ oder $(a_n)_{n>0}$ \\
         \midrule
-        5.3.7 & \textbf{Grenzwertsätze} \hfill \break
-                Es seien $(a_n), (b_n)$ und $(c_n)$ Folgen in $\mathbb{K}$. Dann gilt:
-                \begin{itemize}
-                    \item[a)] Ist $lim_{n\rightarrow \infty} a_n = a$, so gilt $lim_{n \rightarrow \infty} |a_n| = |a|$
-                    \item[b)] Gilt $lim_{n \rightarrow \infty} a_n = a$ und $lim_{n \rightarrow \infty} b_n = b$ so gilt:
+        B   &       &   Folgen haben maximal einen (eindeutiger) Grenzwert \\
+        \midrule
+        B   &       &   Bezeichnung von Folgen, für die der Grenzwert 0 ist: \textbf{\string"Nullfolge\string"} \\
+        \midrule
+        D   & 5.3.4 &   Eine Folge $(a_n)$ in $\mathbb{K}$ heißt \textbf{beschränkt}, wenn die Menge $\{a_n: n \in \mathbb{N}\} = \{a_0,a_1,a_2,...\}$
+                        beschränkt in $\mathbb{K}$ ist. \hfill \break
+                        Ist $\mathbb{K} = \mathbb{R}$, so setzen wir weiter \hfill \break
+                        \centerline{$sup_{n \in \mathbb{N}}a_n := sup^{\infty}_{n=0}a_n := sup\{a_n: n \in \mathbb{N}\}$} 
+                        \centerline{$inf_{n \in \mathbb{N}}a_n := inf^{\infty}_{n=0}a_n := inf\{a_n: n \in \mathbb{N}\}$} \\
+        \midrule
+        S   & 5.3.5 &   Jede \textbf{konvergente Folge} in $\mathbb{K}$ ist \textbf{beschränkt}. \hfill \break
+                        Die Umkehrung dieses Satzes ist \textbf{falsch}. Es gibt beschränkte Folgen, die nicht konvergieren. \\
+        \midrule
+        S   & 5.3.7 &   \textbf{Grenzwertsätze} \hfill \break
+                        Es seien $(a_n), (b_n)$ und $(c_n)$ Folgen in $\mathbb{K}$. Dann gilt:
+                        \begin{itemize}
+                            \item[a)] Ist $lim_{n\rightarrow \infty} a_n = a$, so gilt $lim_{n \rightarrow \infty} |a_n| = |a|$
+                            \item[b)] Gilt $lim_{n \rightarrow \infty} a_n = a$ und $lim_{n \rightarrow \infty} b_n = b$ so gilt:
+                                \begin{itemize}[topsep=-0.5cm]
+                                    \item[i)] $lim_{n \rightarrow \infty}(a_n + b_n) = a + b$
+                                    \item[ii)] $lim_{n \rightarrow \infty} (a_n \cdot b_n) = a \cdot b$
+                                    \item[iii)] $lim_{n \rightarrow \infty} (\alpha a_n) = \alpha a$ für alle $\alpha \in \mathbb{K}$
+                                    \item[iv)] Ist zusätzlich $b_n \neq 0$ für alle $n \in \mathbb{N}$ und $b \neq 0$, 
+                                                so ist $lim_{n \rightarrow \infty} \frac{a_n}{b_n} = \frac{a}{b}$
+                                \end{itemize}
+                        \end{itemize} \vspace{-0cm}
+                        Ist $\mathbb{K} = \mathbb{R}$, so gilt außerdem:
                         \begin{itemize}[topsep=-0.5cm]
-                            \item[i)] $lim_{n \rightarrow \infty}(a_n + b_n) = a + b$
-                            \item[ii)] $lim_{n \rightarrow \infty} (a_n \cdot b_n) = a \cdot b$
-                            \item[iii)] $lim_{n \rightarrow \infty} (\alpha a_n) = \alpha a$ für alle $\alpha \in \mathbb{K}$
-                            \item[iv)] Ist zusätzlich $b_n \neq 0$ für alle $n \in \mathbb{N}$ und $b \neq 0$, 
-                                        so ist $lim_{n \rightarrow \infty} \frac{a_n}{b_n} = \frac{a}{b}$
-                        \end{itemize}
-                \end{itemize} \vspace{-0cm}
-                Ist $\mathbb{K} = \mathbb{R}$, so gilt außerdem:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[c)] Ist $a_n \leq b_n$ für alle $n \in \mathbb{N}$ und $lim_{n \rightarrow \infty} a_n = a$ sowie 
-                                $lim_{n \rightarrow \infty} b_n = b$, so folgt $a \leq b$
-                    \item[d)] Ist $a_n \leq c_n \leq b_n$ für alle $n \in \mathbb{N}$ und sind $(a_n)$ und $(b_n)$ konvergent mit
-                                $lim_{n \rightarrow \infty} a_n = lim_{n \rightarrow \infty} b_n = a$, so ist auf die Folge $(c_n)$
-                                konvergent und es gilt $lim_{n \rightarrow \infty} c_n = a$ \hfill \break
-                                \textbf{(Sandwich-Theorem)} 
-                \end{itemize} \vspace{-0cm} \\
-
-
+                            \item[c)] Ist $a_n \leq b_n$ für alle $n \in \mathbb{N}$ und $lim_{n \rightarrow \infty} a_n = a$ sowie 
+                                        $lim_{n \rightarrow \infty} b_n = b$, so folgt $a \leq b$
+                            \item[d)] Ist $a_n \leq c_n \leq b_n$ für alle $n \in \mathbb{N}$ und sind $(a_n)$ und $(b_n)$ konvergent mit
+                                        $lim_{n \rightarrow \infty} a_n = lim_{n \rightarrow \infty} b_n = a$, so ist auf die Folge $(c_n)$
+                                        konvergent und es gilt $lim_{n \rightarrow \infty} c_n = a$ \hfill \break
+                                        \textbf{(Sandwich-Theorem)} 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.3.7 &   c) ist falsch mit $<$, nur richtig mit $\leq$ \\
+        \midrule
+        BSP & 5.3.9 &   Sei $p \in \mathbb{N^*}$ fest gewählt und $a_n = \frac{1}{n^p}$ für $n \in \mathbb{N^*}$. Dann gilt für alle
+                        $n \in \mathbb{N^*}$ die Ungleichung $n \leq n^p$ und damit \hfill \break
+                        \centerline{$0 \leq a_n = \frac{1}{n^p} \leq \frac{1}n{}$.}
+                        Da sowohl die Folge, die konstant Null ist, als auch die Folge $\frac{1}{n}$ gegen Null konvergiert,
+                        ist damit nach Satz $5.3.7(d)$ auch die Folge $(a_n)$ konvergent und ebenfalls eine Nullfolge. \\
+        \midrule
+        BSP & 5.3.9 &   Wir untersuchen \hfill \break
+                        \centerline{$a_n = \frac{n^2 + 2n + 3}{n^2 + 3}$, $n \in \mathbb{N}$.}
+                        Dazu kürzen wir durch Bruch durch die \textbf{höchste auftretende Potenz}: \hfill \break
+                        \centerline{$a_n = \frac{n^2 + 2n + 3}{n^2 + 3} = \frac{1 + \frac{2}{n} + \frac{3}{n^2}}{1 + \frac{3}{n^2}} \rightarrow 
+                        \frac{1+0+0}{1+0} = 1$ $(n \rightarrow \infty)$.} 
+                        Dieses Verfahren ist bei allen "Polynom in $n$ geteilt durch Polynom in $n$" gut anwendbar. \\
+        \midrule
+        B   & 5.3.10&   \textbf{Wichtige konvergente Folgen}
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item[a)] Ist $(a_n)$ eine konvergente Folge in $\mathbb{R}$ mit Grenzwert $a$ und gilt $a \geq 0$ für alle $n \in \mathbb{N}$
+                                            so ist für jedes $p \in \mathbb{N^*}$ auch $lim_{n \rightarrow \infty} \sqrt[p]{a_n} = \sqrt[p]{a}$.
+                                \item[b)] Die Folge $(q^n)_{n \in \mathbb{N}}$ mit $q \in \mathbb{R}$ konvergiert genau dann, wenn $q \in (-1,1]$ ist
+                                            und es gilt: \hfill \break
+                                            $lim_{n \rightarrow \infty} q^n =   \begin{cases}
+                                                                                1 & \text{falls $q = 1$} \\
+                                                                                0 & \text{falls $-1 < q < 1$}
+                                                                                \end{cases}$ \hfill \break
+                                            Ist $q \in \mathbb{C}$ mit $|q| < 1$, so gilt ebenfalls $lim_{n \rightarrow \infty} q^n = 0$.
+                                \item[c)] $lim_{n \rightarrow \infty} \sqrt[n]{c} = 1$ für jedes $c \in \mathbb{R_+}$.
+                                \item[d)] $lim_{n \rightarrow \infty} \sqrt[n]{n} = 1$.
+                                \item[e)] $lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n := e$ ($n \geq 1$). \hfill \break
+                                            Beachte hier: Beide $n$ gleichzeitig wachsen lassen, keine trägen oder eiligere $n$.
+                            \end{itemize} \vspace{-0cm} \\
+        \midrule
+        BSP & 5.3.12&   $a_n := \sqrt{n + 1} - \sqrt{n}$, $n \in \mathbb{N}$ (Differenz von zwei divergenten Folgen) \hfill \break
+                        Trick: Erweiterung mit der Summe von Wurzeln bei Differenzen von Wurzeln \hfill \break
+                        \centerline{$\sqrt{n + 1} - \sqrt{n} = \frac{\sqrt{n + 1} - \sqrt{n} \sqrt{n + 1} + \sqrt{n}}{\sqrt{n + 1} + \sqrt{n}} 
+                        = \frac{(n+1)-n}{\sqrt{n + 1} + \sqrt{n}} = \frac{1}{\sqrt{n + 1} + \sqrt{n}} \leq \frac{1}{2\sqrt{n}} = 
+                        \frac{1}{2}\sqrt{\frac{1}{n}}$ }
+                        Sandwich: $lim_{n \rightarrow \infty}(\sqrt{n + 1} - \sqrt{n}) = 0$. \\
+        \midrule
+        BSP & 5.3.12&   \textbf{Geometrische Summenformel:} \hfill \break
+                        \centerline{$a_n := \sum^n_{k=0} q^k = 1 + q + q^2 + ... + q^n$, $n \in \mathbb{N}$}
+                        $lim_{n \rightarrow \infty} a_n = \frac{1}{1-q}$, $|q| < 1$. \\
+        \midrule
+        D   & 5.3.13&   \textbf{Bestimmte Divergenz:} \hfill \break
+                        Eine Folge $(a_n)$ in $\mathbb{R}$ \textbf{divergiert bestimmt nach $\infty (- \infty)$} und wir schreiben
+                        $lim_{n \rightarrow \infty} a_n = \infty (-\infty)$, wenn es für jedes $C \geq 0$ ein $n_0 \in \mathbb{N}$ gibt, so dass
+                        $a_n \geq C (a_n \leq -C)$ für alle $n \leq n_0$ gilt. \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
-
-\pagebreak
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-            & Sei $X$ eine Menge. Eine \textbf{Folge} in $X$ ist eine Abbildung $a: \mathbb{N} \rightarrow X$. \hfill \break
-                (Für $X = \mathbb{R}$ reelle Folge, $X = \mathbb{C}$ komplexe Folge) \hfill \break
-                Schreibweise: $a_n$ statt $a(n)$. ($n$-tes Folgeglied) \hfill \break
-                Ganze Folge: $(a_n)_{n \in \mathbb{N}}$ oder $(a_n)$ oder $(a_n)_{n>0}$ \\
-        \midrule
-            & Folgen haben maximal einen (eindeutiger) Grenzwert \\
-        \midrule
-            & Bezeichnung von Folgen, für die der Grenzwert 0 ist: \textbf{\string"Nullfolge\string"} \\
-        \midrule
-        5.3.7 & c) ist falsch mit $<$, nur richtig mit $\leq$ \\
-        \midrule
-        5.3.10& \textbf{Wichtige konvergente Folgen}
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Ist $(a_n)$ eine konvergente Folge in $\mathbb{R}$ mit Grenzwert $a$ und gilt $a \geq 0$ für alle $n \in \mathbb{N}$
-                                so ist für jedes $p \in \mathbb{N^*}$ auch $lim_{n \rightarrow \infty} \sqrt[p]{a_n} = \sqrt[p]{a}$.
-                    \item[b)] Die Folge $(q^n)_{n \in \mathbb{N}}$ mit $q \in \mathbb{R}$ konvergiert genau dann, wenn $q \in (-1,1]$ ist
-                                und es gilt: \hfill \break
-                                $lim_{n \rightarrow \infty} q^n =   \begin{cases}
-                                                                    1 & \text{falls $q = 1$} \\
-                                                                    0 & \text{falls $-1 < q < 1$}
-                                                                    \end{cases}$ \hfill \break
-                                Ist $q \in \mathbb{C}$ mit $|q| < 1$, so gilt ebenfalls $lim_{n \rightarrow \infty} q^n = 0$.
-                    \item[c)] $lim_{n \rightarrow \infty} \sqrt[n]{c} = 1$ für jedes $c \in \mathbb{R_+}$.
-                    \item[d)] $lim_{n \rightarrow \infty} \sqrt[n]{n} = 1$.
-                    \item[e)] $lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n := e$ ($n \geq 1$). \hfill \break
-                                Beachte hier: Beide $n$ gleichzeitig wachsen lassen, keine trägen oder eiligere $n$.
-                \end{itemize} \vspace{-0cm} \\
         
-        
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.3.1 & Folge $(a_n) = (\frac{1}{n})_{n\geq 1} = (1, \frac{1}{2}, \frac{1}{3},...)$ \hfill \break
-                Sei $\epsilon > 0$. Dann $\frac{1}{\epsilon} < n_0$ für ein $n_0 \in \mathbb{N}$ (beliebiges $n$ immer größer). \hfill \break 
-                Für alle $n \geq n_0$ gilt dann: \hfill \break
-                \centerline{$|a_n - a| = |a_n - 0| = |a_n| = \frac{1}{n} \leq \frac{1}{n_0} < \epsilon$}
-                $\Rightarrow$ Konvergenz gegen 0 \\
-        \midrule
-        5.3.9 & Sei $p \in \mathbb{N^*}$ fest gewählt und $a_n = \frac{1}{n^p}$ für $n \in \mathbb{N^*}$. Dann gilt für alle
-                $n \in \mathbb{N^*}$ die Ungleichung $n \leq n^p$ und damit \hfill \break
-                \centerline{$0 \leq a_n = \frac{1}{n^p} \leq \frac{1}n{}$.}
-                Da sowohl die Folge, die konstant Null ist, als auch die Folge $\frac{1}{n}$ gegen Null konvergiert,
-                ist damit nach Satz $5.3.7(d)$ auch die Folge $(a_n)$ konvergent und ebenfalls eine Nullfolge. \\
-        \midrule
-        5.3.9 & Wir untersuchen \hfill \break
-                \centerline{$a_n = \frac{n^2 + 2n + 3}{n^2 + 3}$, $n \in \mathbb{N}$.}
-                Dazu kürzen wir durch Bruch durch die \textbf{höchste auftretende Potenz}: \hfill \break
-                \centerline{$a_n = \frac{n^2 + 2n + 3}{n^2 + 3} = \frac{1 + \frac{2}{n} + \frac{3}{n^2}}{1 + \frac{3}{n^2}} \rightarrow 
-                \frac{1+0+0}{1+0} = 1$ $(n \rightarrow \infty)$.} 
-                Dieses Verfahren ist bei allen "Polynom in $n$ geteilt durch Polynom in $n$" gut anwendbar. \\
-        \midrule
-        5.3.12& $a_n := \sqrt{n + 1} - \sqrt{n}$, $n \in \mathbb{N}$ (Differenz von zwei divergenten Folgen) \hfill \break
-                Trick: Erweiterung mit der Summe von Wurzeln bei Differenzen von Wurzeln \hfill \break
-                \centerline{$\sqrt{n + 1} - \sqrt{n} = \frac{\sqrt{n + 1} - \sqrt{n} \sqrt{n + 1} + \sqrt{n}}{\sqrt{n + 1} + \sqrt{n}} 
-                = \frac{(n+1)-n}{\sqrt{n + 1} + \sqrt{n}} = \frac{1}{\sqrt{n + 1} + \sqrt{n}} \leq \frac{1}{2\sqrt{n}} = 
-                \frac{1}{2}\sqrt{\frac{1}{n}}$ }
-                Sandwich: $lim_{n \rightarrow \infty}(\sqrt{n + 1} - \sqrt{n}) = 0$. \\
-        \midrule
-        5.3.12& \textbf{Geometrische Summenformel:} \hfill \break
-                \centerline{$a_n := \sum^n_{k=0} q^k = 1 + q + q^2 + ... + q^n$, $n \in \mathbb{N}$}
-                $lim_{n \rightarrow \infty} a_n = \frac{1}{1-q}$, $|q| < 1$. \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-
-\pagebreak
+    \end{longtable}
 
 \subsubsection{Konvergenzkriterien}
 
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        5.3.14& Eine reelle Folge $(a_n)$ heißt:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] \textbf{monoton wachsend}, wenn $a_{n+1} \geq a_n$ für alle $n \in \mathbb{N}$ gilt.
-                    \item[b)] \textbf{monoton fallend}, wenn $a_{n+1} \leq a_n$ für alle $n \in \mathbb{N}$ gilt.
-                    \item[c)] \textbf{monoton}, wenn sie monoton wachsend oder monoton fallend ist. 
-                \end{itemize} \vspace{-0cm} \\
+        D   & 5.3.14&   Eine reelle Folge $(a_n)$ heißt:
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item[a)] \textbf{monoton wachsend}, wenn $a_{n+1} \geq a_n$ für alle $n \in \mathbb{N}$ gilt.
+                                \item[b)] \textbf{monoton fallend}, wenn $a_{n+1} \leq a_n$ für alle $n \in \mathbb{N}$ gilt.
+                                \item[c)] \textbf{monoton}, wenn sie monoton wachsend oder monoton fallend ist. 
+                            \end{itemize} \vspace{-0cm} \\
         \midrule
-        5.3.18& Folge $(a_n)$ in $\mathbb{K}$ heißt \textbf{Cauchy-Folge}, wenn für jedes $\epsilon > 0$ ein Index
-                $n_0 \in \mathbb{N}$ existiert, so dass\hfill \break
-                \centerline{$|a_n - a_m| < \epsilon$, für alle $n,m \geq n_0$} \\
-
-        \bottomrule
-        
-    \end{tabularx}
-    \end{table}
-
-    \noindent 
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.3.15& \textbf{Monotonie Kriterium} \hfill \break
-                Ist die reelle Folge $(a_n)$ nach oben (nach unten) beschränkt und monoton wachsend (fallend), so ist $(a_n)$ \textbf{konvergent}
-                und es gilt: \hfill \break
-                \centerline{$lim_{n \rightarrow \infty} a_n = sup_{n \in \mathbb{N}}a_n$ (bzw. $lim_{n \rightarrow \infty} a_n = inf_{n \in \mathbb{N}}a_n$) } \\
+        S   & 5.3.15&   \textbf{Monotonie Kriterium} \hfill \break
+                        Ist die reelle Folge $(a_n)$ nach oben (nach unten) beschränkt und monoton wachsend (fallend), so ist $(a_n)$ \textbf{konvergent}
+                        und es gilt: \hfill \break
+                        \centerline{$lim_{n \rightarrow \infty} a_n = sup_{n \in \mathbb{N}}a_n$ (bzw. $lim_{n \rightarrow \infty} a_n = inf_{n \in \mathbb{N}}a_n$) } \\
         \midrule
-        5.3.19& Jede konvergente Folge in $\mathbb{K}$ ist eine \textbf{Cauchy-Folge}. \\
+        BSP & 5.3.16&   Betrachtung einer rekursiv defininierten Folge \hfill \break
+                        \centerline{$a_0 := \sqrt[3]{6}$ und $a_{n+1} = \sqrt[3]{6 + a_n}, n \in \mathbb{N}$} 
+                        Damit folgt: $a_1 = \sqrt[3]{6+\sqrt[3]{6}}$, $a_2 = \sqrt[3]{6+\sqrt[3]{6+\sqrt[3]{6}}}$ \hfill \break
+                        Solche Folgen entstehen oft bei iterativen Näherungsverfahren. \hfill \break
+                        Behauptung: $(a_n)$ nach oben beschränkt und monoton wachsend $\Rightarrow$ Konvergenz \hfill \break
+                        Beweis: Induktion  \\
         \midrule
-        5.3.20& \textbf{Cauchy-Kriterium} \hfill \break
-                Eine Folge in $\mathbb{K}$ konvergiert genau dann, wenn sie eine Cauchy-Folge ist. \\
+        B   &       &   Monotonieverhalten, deswegen hier nur in $\mathbb{R}$ und nicht in $\mathbb{C}$ (keine Ordnung) \\
+        \midrule
+        D   & 5.3.18&   Folge $(a_n)$ in $\mathbb{K}$ heißt \textbf{Cauchy-Folge}, wenn für jedes $\epsilon > 0$ ein Index
+                        $n_0 \in \mathbb{N}$ existiert, so dass\hfill \break
+                        \centerline{$|a_n - a_m| < \epsilon$, für alle $n,m \geq n_0$} \\
+        S   & 5.3.19    & Jede konvergente Folge in $\mathbb{K}$ ist eine \textbf{Cauchy-Folge}. \\
+        \midrule
+        S   & 5.3.20&   \textbf{Cauchy-Kriterium} \hfill \break
+                        Eine Folge in $\mathbb{K}$ konvergiert genau dann, wenn sie eine Cauchy-Folge ist. \\
+        \midrule
+        B   &       &   Beide hier gesehenen Konvergenzkriterien funktionieren ohne vorherige Behauptung über den Grenzwert \\               
         \bottomrule
-    \end{tabularx}
-    \end{table}
 
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-            & Monotonieverhalten, deswegen hier nur in $\mathbb{R}$ und nicht in $\mathbb{C}$ (keine Ordnung) \\
-            \midrule
-            & Beide hier gesehenen Konvergenzkriterien funktionieren ohne vorherige Behauptung über den Grenzwert \\  
-            
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.3.16& Betrachtung einer rekursiv defininierten Folge \hfill \break
-                \centerline{$a_0 := \sqrt[3]{6}$ und $a_{n+1} = \sqrt[3]{6 + a_n}, n \in \mathbb{N}$} 
-                Damit folgt: $a_1 = \sqrt[3]{6+\sqrt[3]{6}}$, $a_2 = \sqrt[3]{6+\sqrt[3]{6+\sqrt[3]{6}}}$ \hfill \break
-                Solche Folgen entstehen oft bei iterativen Näherungsverfahren. \hfill \break
-                Behauptung: $(a_n)$ nach oben beschränkt und monoton wachsend $\Rightarrow$ Konvergenz \hfill \break
-                Beweis: Induktion  \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
 
 \subsubsection{Teilfolgen und Häufungswerte}
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        5.3.22& Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Ein $a \in \mathbb{K}$ heißt Häufungswert der Folge, falls für jedes
-                $\epsilon > 0$ die Menge $\{n \in \mathbb{N}: |a_n -a| < \epsilon\}$ unendlich viele Elemente hat. \\
+        D   & 5.3.22&   Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Ein $a \in \mathbb{K}$ heißt Häufungswert der Folge, falls für jedes
+                        $\epsilon > 0$ die Menge $\{n \in \mathbb{N}: |a_n -a| < \epsilon\}$ unendlich viele Elemente hat. \\
         \midrule
-        5.3.23& Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Ist $\{n_1,n_2,n_3,...\} \subseteq \mathbb{N}$ eine unendliche Menge 
-                von Indizes mit $n_1 < n_2 < n_3 ...$, so heißt die Folge $(a_{n_k}))_{k \in \mathbb{N}}$ eine Teilfolge von $(a_n)$. \\
-
+        B   &       &   Jeder Grenzwert ist auch Häufungswert. \\
+        \midrule
+        B   &       &   Häufungswert von $((-1)^n)_{n \in \mathbb{N}}$: 1, -1 (aber keine Grenzwerte) \\
+        \midrule
+        B   &       &   Häufungswert von $(i^n)$: 1, i, -1, -i \\
+        \midrule
+        D   & 5.3.23&   Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Ist $\{n_1,n_2,n_3,...\} \subseteq \mathbb{N}$ eine unendliche Menge 
+                        von Indizes mit $n_1 < n_2 < n_3 ...$, so heißt die Folge $(a_{n_k}))_{k \in \mathbb{N}}$ eine Teilfolge von $(a_n)$. \\
+        \midrule
+        B   &       &   Keine Teilfolgen: \hfill \break
+                        $(a_0, a_0, a_2, a_2,..)$ (keine doppelten Elemente) \hfill \break
+                        $(a_2, a_3, a_0,..)$ (nicht umsortieren) \\
+        \midrule
+        S   & 5.3.24&   Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Dann gilt
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item[a)] Ein $\alpha \in \mathbb{K}$ ist genau dann ein Häufungswert von $(a_n)$, wenn eine Teilfolge $(a_{n_k})$ von
+                                            $(a_n)$ existiert, die gegen $\alpha$ konvergiert.
+                                \item[b)] Ist $(a_n)$ konvergent mit Grenzwert $\alpha$, so konvergiert auch jede Teilfolge von $(a_n)$ gegen a.
+                                \item[c)] Ist $(a_n)$ konvergent, so hat $(a_n)$ genau einen Häufungswert, nämlich den Grenzwert 
+                                            $lim_{n \rightarrow \infty} a_n$.
+                            \end{itemize} \vspace{-0cm} \\
         \bottomrule
         
-    \end{tabularx}
-    \end{table}
-
-    \noindent 
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.3.24& Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Dann gilt \hfill \break
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Ein $\alpha \in \mathbb{K}$ ist genau dann ein Häufungswert von $(a_n)$, wenn eine Teilfolge $(a_{n_k})$ von
-                                $(a_n)$ existiert, die gegen $\alpha$ konvergiert.
-                    \item[b)] Ist $(a_n)$ konvergent mit Grenzwert $\alpha$, so konvergiert auch jede Teilfolge von $(a_n)$ gegen a.
-                    \item[c)] Ist $(a_n)$ konvergent, so hat $(a_n)$ genau einen Häufungswert, nämlich den Grenzwert 
-                                $lim_{n \rightarrow \infty} a_n$.
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        & Jeder Grenzwert ist auch Häufungswert. \\
-        \midrule
-        & Häufungswert von $((-1)^n)_{n \in \mathbb{N}}$: 1, -1 (aber keine Grenzwerte) \\
-        \midrule
-        & Häfungswert von $(i^n)$: 1, i, -1, -i \\
-        \midrule
-        & Keine Teilfolgen: \hfill \break
-            $(a_0, a_0, a_2, a_2,..)$ (keine doppelten Elemente) \hfill \break
-            $(a_2, a_3, a_0,..)$ (nicht umsortieren) \\
-
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}    
 
 \subsection{Asymptotik}
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        5.4.1 & \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Wir bezeichnen mit $F_+ := \{(a_n)$ Folge in $\mathbb{R}: a_n > 0$ für alle $n \in \mathbb{N} \}$
-                    \item[b)] Es sei $(b_n) \in \mathbb{F_+}$. Dann definieren wir die Landau-Symbole durch
-                        \begin{itemize}[topsep=-0.5cm]
-                            \item $O(b_n) := \{(a_n) \in \mathbb{F_+} : \frac{a_n}{b_n}_{n \in \mathbb{N}}\}$ ($b_n$ größer gleich $a_n$)
-                            \item $o(b_n) := \{(a_n) \in \mathbb{F_+}: lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 0\}$ ($b_n$ echt größer als $a_n$)
-                        \end{itemize}
-                \end{itemize} \vspace{-0cm} \\
-
+        D   & 5.4.1 &   \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Wir bezeichnen mit $F_+ := \{(a_n)$ Folge in $\mathbb{R}: a_n > 0$ für alle $n \in \mathbb{N} \}$
+                            \item[b)] Es sei $(b_n) \in \mathbb{F_+}$. Dann definieren wir die Landau-Symbole durch
+                                \begin{itemize}[topsep=-0.5cm]
+                                    \item $O(b_n) := \{(a_n) \in \mathbb{F_+} : \frac{a_n}{b_n}_{n \in \mathbb{N}}\}$ ($b_n$ größer gleich $a_n$)
+                                    \item $o(b_n) := \{(a_n) \in \mathbb{F_+}: lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 0\}$ ($b_n$ echt größer als $a_n$)
+                                \end{itemize}
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.4.2 &   \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] $=$-Zeichen wird hier nicht bekannten mathematischen Sinne verwendet
+                            \item[] $\Rightarrow$ Kompromiss Notation $a_n \in O(b_n)$ 
+                            \item[b)] Es gilt immer $o(b_n) \subseteq O(b_n)$. 
+                            \item[c)] $(\frac{a_n}{b_n})_{n \in \mathbb{N}}$ konvergent $\Rightarrow$ $a_n \in O(b_n)$
+                            \item[d)] $a_n \in O(b_n)$: Folge $a_n$ wächst höchstens so schnell wie ein Vielfaches von $b_n$  
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 5.4.5 &   Es seien $(a_n), (b_n), (c_n), (d_n) \in \mathbb{F_+}$ und $\alpha, \beta \in \mathbb{R_+}$. Dann gilt:S
+                            \begin{itemize}[topsep=-0.5cm]
+                                \item[a)] Sind $a_n, b_n \in O(c_n)$, so ist auch $\alpha a_n + \beta b_n \in O(c_n)$
+                                \item[b)] Gilt $a_n \in O(b_n)$ und $c_n \in O(d_n)$, so ist $a_n c_n \in O(b_n d_n)$
+                                \item[c)] Aus $a_n \in O(b_n)$ und $b_n \in O(c_n)$ folgt $a_n \in O(c_n)$
+                                \item[d)] $a_n \in O(b_n)$ genau dann, wenn $\frac{1}{b_n} \in O(\frac{1}{a_n})$
+                                \item[e)] Diese Aussagen gelten auch alle mit Klein-O anstatt Gro\ss-O 
+                            \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   &       &   Exponentielle Algorithmen sind viel schlechter als polynomiale. \\
+        \midrule
+        B   &       &   \includegraphics[width=7cm]{landau.PNG} \\
         \bottomrule
         
-    \end{tabularx}
-    \end{table}
-
-    \noindent 
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.4.5 & Es seien $(a_n), (b_n), (c_n), (d_n) \in \mathbb{F_+}$ und $\alpha, \beta \in \mathbb{R_+}$. Dann gilt: \hfill \break
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Sind $a_n, b_n \in O(c_n)$, so ist auch $\alpha a_n + \beta b_n \in O(c_n)$
-                    \item[b)] Gilt $a_n \in O(b_n)$ und $c_n \in O(d_n)$, so ist $a_n c_n \in O(b_n d_n)$
-                    \item[c)] Aus $a_n \in O(b_n)$ und $b_n \in O(c_n)$ folgt $a_n \in O(c_n)$
-                    \item[d)] $a_n \in O(b_n)$ genau dann, wenn $\frac{1}{b_n} \in O(\frac{1}{a_n})$
-                    \item[e)] Diese Aussagen gelten auch alle mit Klein-O anstatt Gro\ss-O 
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.4.2 & \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] $=$-Zeichen wird hier nicht bekannten mathematischen Sinne verwendet
-                    \item[] $\Rightarrow$ Kompromiss Notation $a_n \in O(b_n)$ 
-                    \item[b)] Es gilt immer $o(b_n) \subseteq O(b_n)$. 
-                    \item[c)] $(\frac{a_n}{b_n})_{n \in \mathbb{N}}$ konvergent $\Rightarrow$ $a_n \in O(b_n)$
-                    \item[d)] $a_n \in O(b_n)$: Folge $a_n$ wächst höchstens so schnell wie ein Vielfaches von $b_n$  
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-            & Exponentielle Algorithmen sind viel schlechter als polynomiale. \\
-        \midrule
-            & \includegraphics[width=7cm]{landau.PNG} \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-\pagebreak
+    \end{longtable}
 
 \subsection{Reihen}
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.5.1 & Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Dann heißt \hfill \break
-                \centerline{$\sum^{\infty}_{n=0} a_n = a_o + a_1 + a_2 + ... $}
-                die \textbf{Reihe} über $(a_n)$. \hfill \break
-                Für jedes $k \in \mathbb{N}$ heißt dann $s_k = \sum^{k}_{n=0} a_n$ die $k$-te Teilsumme oder \textbf{Partialsumme} der Reihe. \hfill \break
-                Ist die Folge $(s_k)_{k \in \mathbb{N}}$ konvergent, so nennen wir die Reihe \textbf{konvergent} mit dem Reihenwert: \hfill \break
-                \centerline{$\sum^{\infty}_{n=0} a_n := lim_{k \rightarrow \infty} s_k = lim_{k \rightarrow \infty} \sum^{k}_{n=0} a_n$}.
-                Ist $(s_k)$ divergent, so nennen wir auch die Reihe divergent.  \\
-
+        D & 5.5.1 &     Es sei $(a_n)$ eine Folge in $\mathbb{K}$. Dann heißt \hfill \break
+                        \centerline{$\sum^{\infty}_{n=0} a_n = a_o + a_1 + a_2 + ... $}
+                        die \textbf{Reihe} über $(a_n)$. \hfill \break
+                        Für jedes $k \in \mathbb{N}$ heißt dann $s_k = \sum^{k}_{n=0} a_n$ die $k$-te Teilsumme oder \textbf{Partialsumme} der Reihe. \hfill \break
+                        Ist die Folge $(s_k)_{k \in \mathbb{N}}$ konvergent, so nennen wir die Reihe \textbf{konvergent} mit dem Reihenwert: \hfill \break
+                        \centerline{$\sum^{\infty}_{n=0} a_n := lim_{k \rightarrow \infty} s_k = lim_{k \rightarrow \infty} \sum^{k}_{n=0} a_n$}.
+                        Ist $(s_k)$ divergent, so nennen wir auch die Reihe divergent.  \\
+        \midrule
+        S   & 5.5.3 &   Seien $\sum^{\infty}_{n=0} a_n$ und $\sum^{\infty}_{n=0} b_n$ zwei konvergente Reihen in $\mathbb{K}$ und 
+                        $\alpha, \beta \in \mathbb{K}$. Dann ist auch $\sum^{\infty}_{n=0} (\alpha a_n + \beta b_n)$ konvergent und es gilt \hfill \break
+                        \centerline{$\sum^{\infty}_{n=0} (\alpha a_n + \beta b_n) = \alpha \sum^{\infty}_{n=0} a_n + \beta \sum^{\infty}_{n=0} b_n$}  \\
+        \midrule
+        S   & 5.5.4 &   Es gilt $\sum^{\infty}_{n=0} \frac{1}{n!} = e$. \\
+        \midrule
+        S   & 5.5.5 &   Ist $\sum^{\infty}_{n=0} a_n$ eine konvergente Reihe in $\mathbb{K}$, so ist $(a_n)$ eine \textbf{Nullfolge} in $\mathbb{K}$. \\
+        \midrule
+        B   & 5.5.5 &   Gilt nicht umgekehrt. Nullfolge ist eine Voraussetzung für eine konvergente Reihe, aber keine Garantie. \\
+        \midrule
+        S   & 5.5.6 &   Es sei $(a_n)$ eine Folge in $\mathbb{K}$ und $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$ Dann gilt:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] \textbf{Monotonie Kriterium} \hfill \break
+                                        Ist $a_n \geq 0$ für alle $n \in \mathbb{N}$ und $(s_k)_{k \in \mathbb{N}}$ nach oben beschränkt, so
+                                        ist $\sum^{\infty}_{n=0} a_n$ konvergent.
+                            \item[b)] \textbf{Cauchy-Kriterium} \hfill \break
+                                        Die Reihe $\sum^{\infty}_{n=0} a_n$ ist genau dann konvergent, wenn für jedes $\epsilon > 0$ ein $n_o \in \mathbb{N}$
+                                        existiert mit \hfill \break
+                                        \centerline{$|\sum^{k}_{n=l+1} a_n| < \epsilon$ für alle $k, l \in \mathbb{N}$ mit $k > l \geq n_0$.}
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 5.5.7 &   \textbf{Leibniz-Kriterium} \hfill \break
+                        Es sei $(a_n)$ eine monoton fallende Folge in $\mathbb{R}$ mit $lim_{n \rightarrow \infty} a_n = 0$. Dann ist die 
+                        Reihe $\sum^{\infty}_{n=0} (-1)^n a_n$ konvergent. \\
+        \midrule
+        BSP &      &    \textbf{Reihen:}
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item $\sum^{\infty}_{n=0} q^n = \frac{1}{1-q}, |q| < 1$ \textit{(Geometrische Reihe)}
+                            \item $\sum^{\infty}_{n=1} \frac{1}{n(n+1)} = 1$
+                            \item $\sum^{\infty}_{n=1} \frac{1}{n} = divergent$ \textit{(Harmonische Reihe)}
+                            \item $\sum^{\infty}_{n=0} \frac{1}{n!} = e$
+                            \item $\sum^{\infty}_{n=0} (-1)^n \frac{1}{n+1} = ln(2)$ \textit{(alternierende harmonische Reihe)} (Leibniz-Kriterium)
+                            \item $\sum^{\infty}_{n=1} \frac{1}{n^{\alpha}}:$ konvergent, wenn $\alpha > 1$, sonst divergent
+                        \end{itemize} \vspace{-0cm} \\
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
-
-    \noindent 
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.5.3 & Seien $\sum^{\infty}_{n=0} a_n$ und $\sum^{\infty}_{n=0} b_n$ zwei konvergente Reihen in $\mathbb{K}$ und 
-                $\alpha, \beta \in \mathbb{K}$. Dann ist auch $\sum^{\infty}_{n=0} (\alpha a_n + \beta b_n)$ konvergent und es gilt \hfill \break
-                \centerline{$\sum^{\infty}_{n=0} (\alpha a_n + \beta b_n) = \alpha \sum^{\infty}_{n=0} a_n + \beta \sum^{\infty}_{n=0} b_n$}  \\
-        \midrule
-        5.5.4 & Es gilt $\sum^{\infty}_{n=0} \frac{1}{n!} = e$. \\
-        \midrule
-        5.5.5 & Ist $\sum^{\infty}_{n=0} a_n$ eine konvergente Reihe in $\mathbb{K}$, so ist $(a_n)$ eine \textbf{Nullfolge} in $\mathbb{K}$. \\
-        \midrule
-        5.5.6 & Es sei $(a_n)$ eine Folge in $\mathbb{K}$ und $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$ Dann gilt:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] \textbf{Monotonie Kriterium} \hfill \break
-                                Ist $a_n \geq 0$ für alle $n \in \mathbb{N}$ und $(s_k)_{k \in \mathbb{N}}$ nach oben beschränkt, so
-                                ist $\sum^{\infty}_{n=0} a_n$ konvergent.
-                    \item[b)] \textbf{Cauchy-Kriterium} \hfill \break
-                                Die Reihe $\sum^{\infty}_{n=0} a_n$ ist genau dann konvergent, wenn für jedes $\epsilon > 0$ ein $n_o \in \mathbb{N}$
-                                existiert mit \hfill \break
-                                \centerline{$|\sum^{k}_{n=l+1} a_n| < \epsilon$ für alle $k, l \in \mathbb{N}$ mit $k > l \geq n_0$.}
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.5.7 & \textbf{Leibniz-Kriterium} \hfill \break
-                Es sei $(a_n)$ eine monoton fallende Folge in $\mathbb{R}$ mit $lim_{n \rightarrow \infty} a_n = 0$. Dann ist die 
-                Reihe $\sum^{\infty}_{n=0} (-1)^n a_n$ konvergent. \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.5.5 & Gilt nicht umgekehrt. Nullfolge ist eine Voraussetzung für eine konvergente Reihe, aber keine Garantie. \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-              & \textbf{Reihen:}
-                \begin{itemize}[topsep=-0.5cm]
-                    \item $\sum^{\infty}_{n=0} q^n = \frac{1}{1-q}, |q| < 1$ \textit{(Geometrische Reihe)}
-                    \item $\sum^{\infty}_{n=1} \frac{1}{n(n+1)} = 1$
-                    \item $\sum^{\infty}_{n=1} \frac{1}{n} = divergent$ \textit{(Harmonische Reihe)}
-                    \item $\sum^{\infty}_{n=0} \frac{1}{n!} = e$
-                    \item $\sum^{\infty}_{n=0} (-1)^n \frac{1}{n+1} = ln(2)$ \textit{(alternierende harmonische Reihe)} (Leibniz-Kriterium)
-                    \item $\sum^{\infty}_{n=1} \frac{1}{n^{\alpha}}:$ konvergent, wenn $\alpha > 1$, sonst divergent
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \pagebreak
+    \end{longtable}
 
 \subsubsection{Absolute Konvergenz}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.5.9 & Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $\mathbb{K}$ heißt \textbf{absolut konvergent}, wenn die Reihe
@@ -697,13 +480,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.5.10& Jede absolut konvergente Reihe $\sum^{\infty}_{n=0} a_n$ in $\mathbb{K}$ ist auch konvergent in $\mathbb{K}$ und es
@@ -738,13 +521,13 @@
                 \end{itemize} \vspace{-0cm} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.5.10& Gilt nicht umgekehrt (alternierende harmonische Reihe)  \\
@@ -756,27 +539,27 @@
         5.5.16& Liefert Wurzel-/Quotientenkriterium genau Eins, kann man daraus keine Aussage ableiten \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Das Cauchy-Produkt}
 \noindent
 \textbf{Definitionen}
-\begin{table}[H]  
-\begin{tabularx}{\textwidth}{X m{16cm}}
+  
+\begin{longtable}{p{1cm} p{16cm}}
     \toprule
 
     5.5.21& Für alle $z \in \mathbb{C}$ ist $e^z:= E(z) = \sum\limits^{\infty}_{n=0} \frac{z^n}{n!}$. \\
 
     \bottomrule
 
-\end{tabularx}
-\end{table}
+\end{longtable}
+
 
 \noindent 
 \textbf{Sätze}
-\begin{table}[H]
-\begin{tabularx}{\textwidth}{X m{16cm}}
+
+\begin{longtable}{p{1cm} p{16cm}}
     \toprule
 
     5.5.19& Es seien $\sum^{\infty}_{n=0} a_n$ und $\sum^{\infty}_{n=0} b_n$ zwei \textbf{absolut konvergente Folgen} in $\mathbb{K}$.
@@ -788,287 +571,216 @@
     5.5.20& Für alle $z,w \in \mathbb{C}$ gilt $E(z+w) = E(z)E(w)$. \\
 
     \bottomrule
-\end{tabularx}
-\end{table}
+\end{longtable}
 
-\pagebreak
+
+
 
 \subsection{Konvergenz in normierten Räumen}
 
-\noindent
-\textbf{Definitionen}
-\begin{table}[H]  
-\begin{tabularx}{\textwidth}{X m{16cm}}
-    \toprule
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
+        \toprule
 
-    5.6.1 & \begin{itemize}[topsep=-0.5cm]
-                \item[a)] Eine Folge $(a_n)_{n \in \mathbb{N}}$ in $V$ heißt \textbf{konvergent} gegen ein $a \in V$, wenn
-                            für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ existiert, so dass \hfill \break
-                            \centerline{$||a_n - a||_V < \epsilon$ für alle $n \geq n_0$}
-                            Die Folge heißt \textbf{divergent,} wenn sie nicht konvergent ist.
-                \item[b)] Eine Folge heißt \textbf{Cauchy-Folge}, wenn es für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ gibt
-                            mit \hfill \break
-                            \centerline{$||a_n - a_m||_V < \epsilon$ für alle $n,m \geq n_0$}
-                \item[c)] Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $V$ heißt \textbf{konvergent} mit Reihenwert $s \in V$, wenn die
-                            Folge der Partialsummen $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$, in $V$ gegen $s$ konvergiert. \hfill \break
-                            Konvergiert die Reihe $\sum^{\infty}_{n=0} ||a_n||_V$ in $\mathbb{R}$ so heißt die Reihe
-                            $\sum^{\infty}_{n=0}a_n$ \textbf{absolut konvergent}. \hfill \break
-                            Ist die Reihe nicht konvergent, so nennt man sie \textbf{divergent}.
-            \end{itemize} \vspace{-0cm} \\
-    \midrule
-    5.6.2 & Eine Menge $M \subseteq V$ hei\ss t beschränkt, falls es ein $ \geq 0$ gibt, so dass $||x||_V \leq C$ für alle 
-            $x \in \mathbb{M}$ gilt. \\
-    \midrule
-    5.6.8 & \begin{itemize}[topsep=-0.5cm]
-                \item[a)] Es seien $x_0 \in \mathbb{V}$ und $r \in (0, \infty)$. Dann heißt die Menge \hfill \break
-                            $B_r(x_0) := \{x \in V: ||x-x_o||_V < r\} $ \textbf{(offene) Kugel} um $x_0$ (Mittelpunkt) mit Radius $r$.
-                \item[b)] Eine Menge $M \subseteq V$ heißt \textbf{offen}, falls es für jeden Punkt $x_0 \in M$ einen Radius
-                            $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ gilt.
-                \item[c)] Eine Menge $M \subseteq V$ heißt \textbf{abgeschlossen}, wenn die Menge $M^c = V \ M$ offen ist.
-                \item[d)] Es sei $M \subseteq V$. Ein Punkt $x_0 \in M$ heißt \textbf{innerer Punkt} von $M$, falls es ein
-                            $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ ist. \hfill \break 
-                            Man nennt $M^o := \{x \in M: x$ innerer Punkt von $M$\} das \textbf{Innere von $M$}.    
-                              
-            \end{itemize} \vspace{-0cm} \\
-    \midrule
-    5.6.13& Ist $V$ ein endlichdimensionaler normierter $\mathbb{R}$-Vektorraum, so hei\ss t eine Teilmenge $M \subseteq V$
-            \textbf{kompakt}, wenn sie abgeschlossen und beschränkt ist. \\
-    \midrule
-    5.6.15& Es sei $(a_n)$ eine Folge in $(V, ||\cdot||_V)$.
-            \begin{itemize}[topsep=-0.5cm]
-                \item[a)] Ein $a \in V$ hei\ss t \textbf{Häufungswert} von $(a_n)$m falls für jedes $\epsilon > 0$ die Menge \hfill \break
-                            \centerline{\{$n \in \mathbb{N} : ||a_n - a||_V < \epsilon\} = \{n \in \mathbb{N}: a_n \in B_{\epsilon}(a)\}$}
-                            unendlich viele Elemente hat.
-                \item[b)] Ist $\{n_1,n_2,n_3,\dots\}$ eine unendliche Teilmenge von $\mathbb{N}$ mit $n_1 < n_2 < n_3 < \dots$, so
-                            hei\ss t $(a_{n_k})_{k \in \mathbb{N}}$ eine \textbf{Teilfolge} von $(a_n)$. 
-            \end{itemize} \vspace{-0cm} \\
-    \midrule
-    5.6.19& Ein normierter $\mathbb{R}$-Vektorraum $(V, ||\cdot||_V)$ heißt \textbf{vollständig}, wenn jede Cauchy-Folge in $V$ konvergiert.
-            Ein vollständiger normierter $\mathbb{R}$-Vektorraum wird auch \textbf{Banachraum} genannt. \hfill \break
-            Wird die Norm $||\cdot||_V$ außerdem durch eine Skalarprodukt auf $V$ induziert, so nennt man $V$ \textbf{Hilbertraum}. \\
+        D   & 5.6.1 &   \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Eine Folge $(a_n)_{n \in \mathbb{N}}$ in $V$ heißt \textbf{konvergent} gegen ein $a \in V$, wenn
+                                        für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ existiert, so dass \hfill \break
+                                        \centerline{$||a_n - a||_V < \epsilon$ für alle $n \geq n_0$}
+                                        Die Folge heißt \textbf{divergent,} wenn sie nicht konvergent ist.
+                            \item[b)] Eine Folge heißt \textbf{Cauchy-Folge}, wenn es für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ gibt
+                                        mit \hfill \break
+                                        \centerline{$||a_n - a_m||_V < \epsilon$ für alle $n,m \geq n_0$}
+                            \item[c)] Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $V$ heißt \textbf{konvergent} mit Reihenwert $s \in V$, wenn die
+                                        Folge der Partialsummen $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$, in $V$ gegen $s$ konvergiert. \hfill \break
+                                        Konvergiert die Reihe $\sum^{\infty}_{n=0} ||a_n||_V$ in $\mathbb{R}$ so heißt die Reihe
+                                        $\sum^{\infty}_{n=0}a_n$ \textbf{absolut konvergent}. \hfill \break
+                                        Ist die Reihe nicht konvergent, so nennt man sie \textbf{divergent}.
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.6.1 &   Genau dasselbe wie vorher, wir ersetzen nur den Betrag durch die jeweilige Norm \\
+        \midrule
+        B   & 5.6.1 &   \textbf{Cauchy-Folge}: Abstand von je zwei Folgegliedern \\
+        \midrule
+        B   &       &   \textbf{2-Norm}: $||x||_2 = \sqrt{x_1^2 + x_2^2}$ \\
+        \midrule
+        D   & 5.6.2 &   Eine Menge $M \subseteq V$ hei\ss t beschränkt, falls es ein $ \geq 0$ gibt, so dass $||x||_V \leq C$ für alle 
+                        $x \in \mathbb{M}$ gilt. \\
+        \midrule
+        BSP & 5.6.3 &   $V = \mathbb{R}^3$, 1-Norm: $||x||_1 = \sum^3_{j=1} |x_i|$, $a_n := (1, \frac{1}{n}, \frac{n-1}{n})^T$, $n \in \mathbb{N^*}$ \hfill \break
+                    Hier gilt $lim_{n \rightarrow \infty} a_n = (1,0,1)^T$. Zeige: Abstand von $a_n$ zu Grenzwert beliebig klein: \hfill \break
+                    $||a_n - (1,0,1)^T|| = |0| + |\frac{1}{n}| + |\frac{n-1}{n}-1| = \frac{2}{n}$ (Abstand geht gegen 0) \hfill \break
+                    Sei $\epsilon > 0$. Dann existiert $n_0 \in \mathbb{N}$ mit $n_0 > \frac{2}{\epsilon}$. Für alle $n \geq n_0$ gilt: \hfill \break
+                    $||a_n - (1,0,1)^T||_1 = \frac{2}{n} \leq \frac{2}{n_0} \leq \frac{2\epsilon}{2} = \epsilon$ \\
+        \midrule
+        S   & 5.6.5 &   Es sei $(a_n)_{n \in \mathbb{N}} = ((a_{n,1}, a_{n,2}, \dots, a_{n,d})^T)_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}^d$
+                    mit der 2-Norm. Dann ist $(a_n)$ in $\mathbb{R}^d$ genau dann \textbf{konvergent}, wenn für jedes $j \in \{1,2,\dots,d\}$ die
+                    Koordinatenfolge $(a_{n,j})_{n \in \mathbb{N}}$ in $\mathbb{R}$ \textbf{konvergent} ist. In diesem Fall ist \hfill \break
+                    \centerline{$lim_{n \rightarrow \infty}\begin{pmatrix}a_{n,1}\\a_{n,2}\\\dots \\ a_{n,d}\end{pmatrix} =
+                        \begin{pmatrix} lim_{n \rightarrow \infty} a_{n,1} \\ lim_{n \rightarrow \infty} a_{n,2} \\ \dots \\
+                        lim_{n \rightarrow \infty} a_{n,d} \end{pmatrix}$}.
+                    Falls eine Komponente im Vektor divergiert, divergiert die ganze Folge. \\
+        \midrule
+        B   & 5.6.5 &   Der Satz gilt im endlichen Raum für alle Normen. \hfill \break
+                    Wenn eine Folge bezüglich einer Norm konvergiert, dann auch bzgl jeder anderen. \hfill \break 
+                    Grenzwerte bleiben gleich. \\
+        \midrule
+        D   & 5.6.8 &   \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Es seien $x_0 \in \mathbb{V}$ und $r \in (0, \infty)$. Dann heißt die Menge \hfill \break
+                                        $B_r(x_0) := \{x \in V: ||x-x_o||_V < r\} $ \textbf{(offene) Kugel} um $x_0$ (Mittelpunkt) mit Radius $r$.
+                            \item[b)] Eine Menge $M \subseteq V$ heißt \textbf{offen}, falls es für jeden Punkt $x_0 \in M$ einen Radius
+                                        $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ gilt.
+                            \item[c)] Eine Menge $M \subseteq V$ heißt \textbf{abgeschlossen}, wenn die Menge $M^c = V \ M$ offen ist.
+                            \item[d)] Es sei $M \subseteq V$. Ein Punkt $x_0 \in M$ heißt \textbf{innerer Punkt} von $M$, falls es ein
+                                        $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ ist. \hfill \break 
+                                        Man nennt $M^o := \{x \in M: x$ innerer Punkt von $M$\} das \textbf{Innere von $M$}.    
 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.6.8 &   Menge \textbf{abgeschlossen}: Rand gehört zur Menge \hfill \break
+                    Menge \textbf{offen}: Rand gehört nicht zur Menge \hfill \break
+                    Die meisten Menge sind weder offen noch abgeschlossen, keine Umkehrschlüsse! \\
+        \midrule
+        S   & 5.6.11 &  Eine Teilmenge $M$ von $V$ ist genau dann \textbf{abgeschlossen}, wenn für jede Folge in $M$, die in $V$ konvergiert,
+                    der Grenzwert ein Element aus $M$ ist. \\
+        \midrule
+        D   & 5.6.13&   Ist $V$ ein endlichdimensionaler normierter $\mathbb{R}$-Vektorraum, so hei\ss t eine Teilmenge $M \subseteq V$
+                        \textbf{kompakt}, wenn sie abgeschlossen und beschränkt ist. \\
+        \midrule
+        D   & 5.6.15&   Es sei $(a_n)$ eine Folge in $(V, ||\cdot||_V)$.
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Ein $a \in V$ hei\ss t \textbf{Häufungswert} von $(a_n)$m falls für jedes $\epsilon > 0$ die Menge \hfill \break
+                                        \centerline{\{$n \in \mathbb{N} : ||a_n - a||_V < \epsilon\} = \{n \in \mathbb{N}: a_n \in B_{\epsilon}(a)\}$}
+                                        unendlich viele Elemente hat.
+                            \item[b)] Ist $\{n_1,n_2,n_3,\dots\}$ eine unendliche Teilmenge von $\mathbb{N}$ mit $n_1 < n_2 < n_3 < \dots$, so
+                                        hei\ss t $(a_{n_k})_{k \in \mathbb{N}}$ eine \textbf{Teilfolge} von $(a_n)$. 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        S   & 5.6.17&   \textbf{Satz von Bolzano-Weierstra\ss} \hfill \break
+                    Sei $(V, ||\cdot||_V)$ ein endlichdimensionaler normierter Raum und $M \subseteq V$ kompakt. Dann besitzt jede Folge in $M$
+                    eine \textbf{konvergente Teilfolge mit Grenzwert in $M$}. \\
+        \midrule
+        B   & 5.6.17&   Ist $(V,||\cdot||_V)$ ein endlichdimensionaler normierter Raum,so besitzt jede beschränkte Folge in 
+                    $V$ mindestens einen Häufungswert. (Unendliche viele Punkte in einer beschränkten Menge müssen irgendwo klumpen) \\
+        \midrule
+        D   & 5.6.19&   Ein normierter $\mathbb{R}$-Vektorraum $(V, ||\cdot||_V)$ heißt \textbf{vollständig}, wenn jede Cauchy-Folge in $V$ konvergiert.
+                        Ein vollständiger normierter $\mathbb{R}$-Vektorraum wird auch \textbf{Banachraum} genannt. \hfill \break
+                        Wird die Norm $||\cdot||_V$ außerdem durch eine Skalarprodukt auf $V$ induziert, so nennt man $V$ \textbf{Hilbertraum}. \\
+        \midrule
+        B   & 5.6.19&   Standardvektorraum $\mathbb{R}^d$ ist für jedes $d \in \mathbb{N^*}$ mit jeder Norm ein \textbf{Banachraum}. \hfill \break
+                    Wählt man au\ss erdem die durch das Skalarprodukt induzierte 2-Norm, so ist $(\mathbb{R}^d, ||\cdot||_2)$ ein \textbf{Hilbertraum}. \\
 
-    \bottomrule
+        \bottomrule
+        B   &       &   Normierter Raum: $V$ = normierter Vektorraum mit Norm $||\cdot||_V$ (ermöglicht Abstandsmessung) \hfill \break
+                    Hier als Vorstellung $\mathbb{R}^3$ mit Standard(2)-Norm (normaler Abstand im Raum) \\
+        \midrule
+        S   & 5.6.22&   \textbf{Banach'scher Fixpunktsatz} \hfill \break
+                    Es sei $(V, ||\cdot||_V)$ ein Banachraum $M \subseteq V$ abgeschlossen und $f: M \rightarrow M$ eine Funktion.
+                    Weiter existiere ein $q \in (0,1)$, so dass \hfill \break
+                    \centerline{$||f(x) - f(y)||_V \leq q ||x-y||_V$, für alle $x,y \in M$}
+                    gilt. Dann gelten die folgenden Aussagen:
+                    \begin{itemize}[topsep=-0.5cm]
+                        \item[a)] Es gibt genau ein $v \in M$ mit $f(v) = v$. (d.h. $f$ hat genau einen Fixpunkt in M)
+                        \item[b)] Für jedes $x_0 \in M$ konvergiert die Folge $(x_n)$ mit $x_{n+1} = f(x_n)$, $n \in \mathbb{N}$, gegen $v$
+                                    und es gelten die folgenden Fehlerabschätzungen für hedes $n \in \mathbb{N^*}$:
+                                    \begin{itemize}[topsep=-0.5cm]
+                                        \item[] $||x_n-v||_V \leq \frac{q^n}{1-q}||x_1-x_0||_V$ (A-priori-Abschätzung)
+                                        \item[] $||x_n-v||_V \leq \frac{q}{1-q}||x_n-x_{n-1}||_V$ (A-posterior-Abschätzung)
+                                    \end{itemize}
+                    \end{itemize} \vspace{-0cm} \\
 
-\end{tabularx}
-\end{table}
+        \bottomrule
 
-\pagebreak
-
-\noindent 
-\textbf{Sätze}
-\begin{table}[H]
-\begin{tabularx}{\textwidth}{X m{16cm}}
-    \toprule
-
-    5.6.5 & Es sei $(a_n)_{n \in \mathbb{N}} = ((a_{n,1}, a_{n,2}, \dots, a_{n,d})^T)_{n \in \mathbb{N}}$ eine Folge in $\mathbb{R}^d$
-            mit der 2-Norm. Dann ist $(a_n)$ in $\mathbb{R}^d$ genau dann \textbf{konvergent}, wenn für jedes $j \in \{1,2,\dots,d\}$ die
-            Koordinatenfolge $(a_{n,j})_{n \in \mathbb{N}}$ in $\mathbb{R}$ \textbf{konvergent} ist. In diesem Fall ist \hfill \break
-            \centerline{$lim_{n \rightarrow \infty}\begin{pmatrix}a_{n,1}\\a_{n,2}\\\dots \\ a_{n,d}\end{pmatrix} =
-                \begin{pmatrix} lim_{n \rightarrow \infty} a_{n,1} \\ lim_{n \rightarrow \infty} a_{n,2} \\ \dots \\
-                lim_{n \rightarrow \infty} a_{n,d} \end{pmatrix}$}.
-            Falls eine Komponente im Vektor divergiert, divergiert die ganze Folge. \\
-    \midrule
-    5.6.11& Eine Teilmenge $M$ von $V$ ist genau dann \textbf{abgeschlossen}, wenn für jede Folge in $M$, die in $V$ konvergiert,
-            der Grenzwert ein Element aus $M$ ist. \\
-    \midrule
-    5.6.17& \textbf{Satz von Bolzano-Weierstra\ss} \hfill \break
-            Sei $(V, ||\cdot||_V)$ ein endlichdimensionaler normierter Raum und $M \subseteq V$ kompakt. Dann besitzt jede Folge in $M$
-            eine \textbf{konvergente Teilfolge mit Grenzwert in $M$}. \\
-    \midrule
-    5.6.22& \textbf{Banach'scher Fixpunktsatz} \hfill \break
-            Es sei $(V, ||\cdot||_V)$ ein Banachraum $M \subseteq V$ abgeschlossen und $f: M \rightarrow M$ eine Funktion.
-            Weiter existiere ein $q \in (0,1)$, so dass \hfill \break
-            \centerline{$||f(x) - f(y)||_V \leq q ||x-y||_V$, für alle $x,y \in M$}
-            gilt. Dann gelten die folgenden Aussagen:
-            \begin{itemize}[topsep=-0.5cm]
-                \item[a)] Es gibt genau ein $v \in M$ mit $f(v) = v$. (d.h. $f$ hat genau einen Fixpunkt in M)
-                \item[b)] Für jedes $x_0 \in M$ konvergiert die Folge $(x_n)$ mit $x_{n+1} = f(x_n)$, $n \in \mathbb{N}$, gegen $v$
-                            und es gelten die folgenden Fehlerabschätzungen für hedes $n \in \mathbb{N^*}$:
-                            \begin{itemize}[topsep=-0.5cm]
-                                \item[] $||x_n-v||_V \leq \frac{q^n}{1-q}||x_1-x_0||_V$ (A-priori-Abschätzung)
-                                \item[] $||x_n-v||_V \leq \frac{q}{1-q}||x_n-x_{n-1}||_V$ (A-posterior-Abschätzung)
-                            \end{itemize}
-            \end{itemize} \vspace{-0cm} \\
-
-    \bottomrule
-\end{tabularx}
-\end{table}
-
-\noindent
-\textbf{Bemerkungen}
-\begin{table}[H]
-\begin{tabularx}{\textwidth}{X m{16cm}}
-    \toprule
-
-          & Normierter Raum: $V$ = normierter Vektorraum mit Norm $||\cdot||_V$ (ermöglicht Abstandsmessung) \hfill \break
-            Hier als Vorstellung $\mathbb{R}^3$ mit Standard(2)-Norm (normaler Abstand im Raum) \\
-    \midrule
-    5.6.1 & Genau dasselbe wie vorher, wir ersetzen nur den Betrag durch die jeweilige Norm \\
-    \midrule
-    5.6.1 & \textbf{Cauchy-Folge}: Abstand von je zwei Folgegliedern \\
-    \midrule
-          & \textbf{2-Norm}: $||x||_2 = \sqrt{x_1^2 + x_2^2}$ \\
-    \midrule
-    5.6.5 & Der Satz gilt im endlichen Raum für alle Normen. \hfill \break
-            Wenn eine Folge bezüglich einer Norm konvergiert, dann auch bzgl jeder anderen. \hfill \break 
-            Grenzwerte bleiben gleich. \\
-    \midrule
-    5.6.8 & Menge \textbf{abgeschlossen}: Rand gehört zur Menge \hfill \break
-            Menge \textbf{offen}: Rand gehört nicht zur Menge \hfill \break
-            Die meisten Menge sind weder offen noch abgeschlossen, keine Umkehrschlüsse! \\
-    \midrule
-    5.6.17& Ist $(V,||\cdot||_V)$ ein endlichdimensionaler normierter Raum,so besitzt jede beschränkte Folge in 
-            $V$ mindestens einen Häufungswert. (Unendliche viele Punkte in einer beschränkten Menge müssen irgendwo klumpen) \\
-    \midrule
-    5.6.19& Standardvektorraum $\mathbb{R}^d$ ist für jedes $d \in \mathbb{N^*}$ mit jeder Norm ein \textbf{Banachraum}. \hfill \break
-            Wählt man au\ss erdem die durch das Skalarprodukt induzierte 2-Norm, so ist $(\mathbb{R}^d, ||\cdot||_2)$ ein \textbf{Hilbertraum}. \\
-
-    \bottomrule
-\end{tabularx}
-\end{table}
-
-\pagebreak
-
-\noindent
-\textbf{Beispiele}
-\begin{table}[H]
-\begin{tabularx}{\textwidth}{X m{16cm}}
-    \toprule
-
-    5.6.3 & $V = \mathbb{R}^3$, 1-Norm: $||x||_1 = \sum^3_{j=1} |x_i|$, $a_n := (1, \frac{1}{n}, \frac{n-1}{n})^T$, $n \in \mathbb{N^*}$ \hfill \break
-            Hier gilt $lim_{n \rightarrow \infty} a_n = (1,0,1)^T$. Zeige: Abstand von $a_n$ zu Grenzwert belieblig klein: \hfill \break
-            $||a_n - (1,0,1)^T|| = |0| + |\frac{1}{n}| + |\frac{n-1}{n}-1| = \frac{2}{n}$ (Abstand geht gegen 0) \hfill \break
-            Sei $\epsilon > 0$. Dann existiert $n_0 \in \mathbb{N}$ mit $n_0 > \frac{2}{\epsilon}$. Für alle $n \geq n_0$ gilt: \hfill \break
-            $||a_n - (1,0,1)^T||_1 = \frac{2}{n} \leq \frac{2}{n_0} \leq \frac{2\epsilon}{2} = \epsilon$ \\
-
-    \bottomrule
-\end{tabularx}
-\end{table}
+    \end{longtable}
 
 \subsection{Stetigkeit reeller Funktionen}
 \subsubsection{Der Grenzwertbegriff für Funktionen}
 
-    \noindent
-    \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.7.1 & Es sei $D \subseteq \mathbb{R}$ eine Menge, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0 \in \mathbb{R}$
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Wir nennen $x_0$ einen \textbf{Häufungspunkt} von $D$, falls es eine Folge $(a_n)$ in $D$ mit
-                                $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gibt, die gegen $x_0$ konvergiert.
-                    \item[b)] Ist $x_0$ ein Häufungspunkt von $D$, so sagen wir, dass $f$ für $x$ gegen $x_0$ den Grenzwert 
-                                $y$ hat, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und für die
-                                $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gilt, die Folge $(f(a_n))$ gegen $y$ konvergiert.
-                                \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_0} f(x) = y$.
-                    \item[c)] Ist $x_0$ ein Häufungspunkt von $D_+ := \{ x \in D : x > x_0\}$, so hat $f$ für $x$ gegen $x_0$
-                                den \textbf{rechtsseitigen Grenzwert} $y$, wenn für jede Folge $(a_n)$ in $D_+$, die gegen
-                                $x_0$ konvergiert, die Folge $(f(a_n))$ gegen $y$ konvergiert.
-                                \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_{0+}} f(x) = y$.
-                    \item[d)] Ist $x_0$ ein Häufungspunkt von $D_- := \{ x \in D : x < x_0\}$, so hat $f$ für $x$ gegen $x_0$
-                                den \textbf{linksseitigen Grenzwert} $y$, wenn für jede Folge $(a_n)$ in $D_-$, die gegen
-                                $x_0$ konvergiert, die Folge $(f(a_n))$ gegen $y$ konvergiert.
-                                \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_{0-}} f(x) = y$.
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.7.7 & \textbf{Divergenz}
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Es seien $D \subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0$ ein
-                                Häufungspunkt von $D$. Wir schreiben $lim_{x \rightarrow x_0}f(x) = \infty (-\infty)$, wenn
-                                für jedes Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und für die $a_n \neq x_0$ für 
-                                alle $n \in \mathbb{N}$ gilt, die Folge $(f(a_n))$ bestimmt gegen $\infty (-\infty)$ divergiert.
-                    \item[b)] Es sei $D \subset \mathbb{R}$ \textbf{nicht} nach oben (unten) \textbf{beschränkt}, 
-                                $f : D \rightarrow \mathbb{R}$ eine Funktion und $y \in \mathbb{R} \cup \{\infty,-\infty\}$. 
-                                Wir sagen $lim_{x \rightarrow \infty} f(x) = y$ (bzw. $lim_{x \rightarrow -\infty} f(x) = y$),
-                                wenn für jede Folge $(a_n)$ in $D$, die bestimmt gegen $\infty (-\infty)$ divergiert,
-                                $lim_{n \rightarrow \infty} f(a_n) = y$ gilt.
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-
-    \end{tabularx}
-    \end{table}
-
-    \noindent 
-    \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.7.4 & Es sei $D \subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0 \in \mathbb{R}$. 
-                Existieren $lim_{x \rightarrow x_{0-}}f(x)$ und $lim_{x \rightarrow x_{0+}}f(x)$ und sind die beiden Werte gleich
-                so existiert auch $lim_{x \rightarrow x_0} f(x)$ und es gilt \hfill \break
-                \centerline{$lim_{x \rightarrow x_0} f(x) = lim_{x \rightarrow x_{0-}} = lim_{x \rightarrow x_{0+}}$}.  \\
-        \midrule
-        5.7.6 & Es sei $D \subseteq \mathbb{R}$ und $x_0$ ein Häufungspunkt von $D$. Desweiteren seien drei Funktion $f,g,h:
-                D \rightarrow \mathbb{R}$ gegeben, so dass die Grenzwerte $lim_{x \rightarrow x_0} f(x)$ und
-                $lim_{x \rightarrow x_0} g(x)$ existieren. Dann gilt:
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] Die Grenzwerte für $x$ gegen $x_0$ von $f+g$, $fg$ und $|f|$ exisiteren und es gilt:
+        D   & 5.7.1 &   Es sei $D \subseteq \mathbb{R}$ eine Menge, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0 \in \mathbb{R}$
                         \begin{itemize}[topsep=-0.5cm]
-                            \item $lim_{x \rightarrow x_0} (f(x) + g(x)) = lim_{x \rightarrow x_0} f(x) + lim_{x \rightarrow x_0} g(x)$
-                            \item $lim_{x \rightarrow x_0} (f(x) \cdot g(x)) = lim_{x \rightarrow x_0} f(x) \cdot lim_{x \rightarrow x_0} g(x)$
-                            \item $lim_{x \rightarrow x_0} |f(x)| = |lim_{x \rightarrow x_0} f(x)|$
-                        \end{itemize}
-                    \item[b)] Gilt $f(x) \leq g(x)$ für alle $x \in D \textbackslash \{x_0\}$, so ist $lim_{x \rightarrow x_0} f(x)
-                                \leq lim_{x \rightarrow x_0}g(x)$
-                    \item[c)] Ist $lim_{x \rightarrow x_0} f(x) = lim_{x \rightarrow x_0} g(x)$ und es gilt 
-                                $f(x) \leq h(x) \leq g(x)$ für alle $x \in D \textbackslash \{x_0\}$, so gilt auch
-                                $lim_{x \rightarrow x_0} h(x) = lim_{x \rightarrow x_0}f(x) = lim_{x \rightarrow x_0}g(x)$.
-                                (Sandwich-Theorem)
-                    \item[d)] Ist $y := lim_{x \rightarrow x_0} g(x) \neq 0$, so existiert $\delta > 0$, so dass
-                                $|g(x)| \geq \frac{|y|}{2}$ für alle $x \in (D \cap (x_0 - \delta, x_0 + \delta)) \textbackslash \{x_0\}$
-                                ist. Wir können also die Funktion $\frac{f}{g}: (D \cap (x_0 - \delta, x_0 + \delta)) \textbackslash \{x_0\}
-                                \rightarrow \mathbb{R}$ mit $\frac{f}{g}(x) := \frac{f(x)}{g(x)}$ definieren. Für diese existiert dann
-                                der Limes für $x$ gegen $x_0$ mit $lim_{x \rightarrow x_0} \frac{f(x)}{g(x)} = 
-                                \frac{lim_{x \rightarrow x_0}f(x)}{lim_{x \rightarrow x_0}g(x)}$.
-                \end{itemize} \vspace{-0cm} \\
-            
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.7.1 & $x_0$ HP von $D$ bedeutet, dass $x_0$ aus $D$ $\textbackslash$ \{$x_o$\} annäherbar \hfill \break
-                Bsp.: HP von $(0,1]$: $[0,1]$ \\
+                            \item[a)] Wir nennen $x_0$ einen \textbf{Häufungspunkt} von $D$, falls es eine Folge $(a_n)$ in $D$ mit
+                                        $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gibt, die gegen $x_0$ konvergiert.
+                            \item[b)] Ist $x_0$ ein Häufungspunkt von $D$, so sagen wir, dass $f$ für $x$ gegen $x_0$ den Grenzwert 
+                                        $y$ hat, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und für die
+                                        $a_n \neq x_0$ für alle $n \in \mathbb{N}$ gilt, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                                        \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_0} f(x) = y$.
+                            \item[c)] Ist $x_0$ ein Häufungspunkt von $D_+ := \{ x \in D : x > x_0\}$, so hat $f$ für $x$ gegen $x_0$
+                                        den \textbf{rechtsseitigen Grenzwert} $y$, wenn für jede Folge $(a_n)$ in $D_+$, die gegen
+                                        $x_0$ konvergiert, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                                        \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_{0+}} f(x) = y$.
+                            \item[d)] Ist $x_0$ ein Häufungspunkt von $D_- := \{ x \in D : x < x_0\}$, so hat $f$ für $x$ gegen $x_0$
+                                        den \textbf{linksseitigen Grenzwert} $y$, wenn für jede Folge $(a_n)$ in $D_-$, die gegen
+                                        $x_0$ konvergiert, die Folge $(f(a_n))$ gegen $y$ konvergiert.
+                                        \hfill \break Wir schreiben dafür: $lim_{x \rightarrow x_{0-}} f(x) = y$.
+                        \end{itemize} \vspace{-0cm} \\
         \midrule
-        5.7.4 & Es gilt nicht $lim_{x \rightarrow x_0}f(x) = f(x_0)$. \\
-
-        \bottomrule
-    \end{tabularx}
-    \end{table}
-
-    \noindent
-    \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
-        \toprule
-
-        5.7.8 & $lim_{x \rightarrow \infty} \frac{1}{x} = 0$ \hfill \break
-                $lim_{x \rightarrow 0+} \frac{1}{x} = \infty$ \hfill \break
-                $lim_{x \rightarrow 0-} \frac{1}{x} = -\infty$ \hfill \break
-                $lim_{x \rightarrow \infty} x = \infty$ \\
+        B   & 5.7.1 &   $x_0$ HP von $D$ bedeutet, dass $x_0$ aus $D$ $\textbackslash$ \{$x_o$\} annäherbar \hfill \break
+                        Bsp.: HP von $(0,1]$: $[0,1]$ \\
         \midrule
-        5.7.8 & Exponentialfunktion: $E(x) = e^x = \sum^{\infty}_{n=0} \frac{x^n}{n!}$ \hfill \break
-                Grenzwerte: \hfill \break
-                $lim_{x \rightarrow \infty} e^x = \infty$ \hfill \break
-                $lim_{x \rightarrow -\infty} e^x = 0$ \\
+        S   & 5.7.4 &   Es sei $D \subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0 \in \mathbb{R}$. 
+                        Existieren $lim_{x \rightarrow x_{0-}}f(x)$ und $lim_{x \rightarrow x_{0+}}f(x)$ und sind die beiden Werte gleich
+                        so existiert auch $lim_{x \rightarrow x_0} f(x)$ und es gilt \hfill \break
+                        \centerline{$lim_{x \rightarrow x_0} f(x) = lim_{x \rightarrow x_{0-}} = lim_{x \rightarrow x_{0+}}$}.  \\
+        \midrule
+        B   & 5.7.4 &   Es gilt nicht $lim_{x \rightarrow x_0}f(x) = f(x_0)$. \\
+        \midrule
+        S   & 5.7.6 &   Es sei $D \subseteq \mathbb{R}$ und $x_0$ ein Häufungspunkt von $D$. Desweiteren seien drei Funktion $f,g,h:
+                        D \rightarrow \mathbb{R}$ gegeben, so dass die Grenzwerte $lim_{x \rightarrow x_0} f(x)$ und
+                        $lim_{x \rightarrow x_0} g(x)$ existieren. Dann gilt:
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Die Grenzwerte für $x$ gegen $x_0$ von $f+g$, $fg$ und $|f|$ exisiteren und es gilt:
+                                \begin{itemize}[topsep=-0.5cm]
+                                    \item $lim_{x \rightarrow x_0} (f(x) + g(x)) = lim_{x \rightarrow x_0} f(x) + lim_{x \rightarrow x_0} g(x)$
+                                    \item $lim_{x \rightarrow x_0} (f(x) \cdot g(x)) = lim_{x \rightarrow x_0} f(x) \cdot lim_{x \rightarrow x_0} g(x)$
+                                    \item $lim_{x \rightarrow x_0} |f(x)| = |lim_{x \rightarrow x_0} f(x)|$
+                                \end{itemize}
+                            \item[b)] Gilt $f(x) \leq g(x)$ für alle $x \in D \textbackslash \{x_0\}$, so ist $lim_{x \rightarrow x_0} f(x)
+                                        \leq lim_{x \rightarrow x_0}g(x)$
+                            \item[c)] Ist $lim_{x \rightarrow x_0} f(x) = lim_{x \rightarrow x_0} g(x)$ und es gilt 
+                                        $f(x) \leq h(x) \leq g(x)$ für alle $x \in D \textbackslash \{x_0\}$, so gilt auch
+                                        $lim_{x \rightarrow x_0} h(x) = lim_{x \rightarrow x_0}f(x) = lim_{x \rightarrow x_0}g(x)$.
+                                        (Sandwich-Theorem)
+                            \item[d)] Ist $y := lim_{x \rightarrow x_0} g(x) \neq 0$, so existiert $\delta > 0$, so dass
+                                        $|g(x)| \geq \frac{|y|}{2}$ für alle $x \in (D \cap (x_0 - \delta, x_0 + \delta)) \textbackslash \{x_0\}$
+                                        ist. Wir können also die Funktion $\frac{f}{g}: (D \cap (x_0 - \delta, x_0 + \delta)) \textbackslash \{x_0\}
+                                        \rightarrow \mathbb{R}$ mit $\frac{f}{g}(x) := \frac{f(x)}{g(x)}$ definieren. Für diese existiert dann
+                                        der Limes für $x$ gegen $x_0$ mit $lim_{x \rightarrow x_0} \frac{f(x)}{g(x)} = 
+                                        \frac{lim_{x \rightarrow x_0}f(x)}{lim_{x \rightarrow x_0}g(x)}$.
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        D   & 5.7.7 &   \textbf{Divergenz}
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] Es seien $D \subseteq \mathbb{R}$, $f: D \rightarrow \mathbb{R}$ eine Funktion und $x_0$ ein
+                                        Häufungspunkt von $D$. Wir schreiben $lim_{x \rightarrow x_0}f(x) = \infty (-\infty)$, wenn
+                                        für jedes Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert und für die $a_n \neq x_0$ für 
+                                        alle $n \in \mathbb{N}$ gilt, die Folge $(f(a_n))$ bestimmt gegen $\infty (-\infty)$ divergiert.
+                            \item[b)] Es sei $D \subset \mathbb{R}$ \textbf{nicht} nach oben (unten) \textbf{beschränkt}, 
+                                        $f : D \rightarrow \mathbb{R}$ eine Funktion und $y \in \mathbb{R} \cup \{\infty,-\infty\}$. 
+                                        Wir sagen $lim_{x \rightarrow \infty} f(x) = y$ (bzw. $lim_{x \rightarrow -\infty} f(x) = y$),
+                                        wenn für jede Folge $(a_n)$ in $D$, die bestimmt gegen $\infty (-\infty)$ divergiert,
+                                        $lim_{n \rightarrow \infty} f(a_n) = y$ gilt.
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        BSP & 5.7.8 &   $lim_{x \rightarrow \infty} \frac{1}{x} = 0$ \hfill \break
+                        $lim_{x \rightarrow 0+} \frac{1}{x} = \infty$ \hfill \break
+                        $lim_{x \rightarrow 0-} \frac{1}{x} = -\infty$ \hfill \break
+                        $lim_{x \rightarrow \infty} x = \infty$ \\
+        \midrule
+        BSP & 5.7.8 &   Exponentialfunktion: $E(x) = e^x = \sum^{\infty}_{n=0} \frac{x^n}{n!}$ \hfill \break
+        Grenzwerte: \hfill \break
+        $lim_{x \rightarrow \infty} e^x = \infty$ \hfill \break
+        $lim_{x \rightarrow -\infty} e^x = 0$ \\
+
         \bottomrule
-    \end{tabularx}
-    \end{table}
+
+    \end{longtable}
 
 \subsubsection{Stetigkeit}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.7.9 & Es sei $D \subseteq \mathbb{R}$ und $x_0 \in D$. Eine Funktion $f : D \rightarrow \mathbb{R}$ heißt
@@ -1092,13 +804,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.7.12& Es sei $D \subseteq \mathbb{R}$ und $f : D \rightarrow \mathbb{R}$ eine Funktion. Ist $x_0 \in D$ ein Häufungspunkt
@@ -1118,15 +830,15 @@
         5.7.23& Ist $D \subseteq \mathbb{R}$ und $f:D \rightarrow \mathbb{R}$ \textbf{Lipschitz-stetig} so ist $f$ \textbf{stetig} auf $D$.
                 Die Umkehrung dieser Aussage ist falsch. (Lipschitz-Stetigkeit ist damit ein strengerer Begriff als Stetigkeit) \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.7.9 & Stetigkeit: Kleines Wackeln an Parametern $\rightarrow$ auch nur kleines Wackeln am Funktionswert \\
@@ -1140,15 +852,15 @@
         5.7.23& Lipschitz-Stetigkeit bedeutet anschaulich, dass die Steigung des Graphen beschränkt bleibt. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Eigenschaften stetiger Funktionen}
 
         \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.7.27& Es sei $D \subseteq \mathbb{R}$. Eine Funktion $f: D \rightarrow \mathbb{R}$ hei\ss t beschränkt, falls die Menge
@@ -1156,13 +868,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.7.25& \textbf{Zwischenwertsatz} \hfill \break
@@ -1180,14 +892,14 @@
                 kompakter Menge ist beschränkt)\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsection{Stetigkeit von Funktionen mehrerer Variablen}
         \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.8.1 & Es seien $V$ und $W$ normierte $\mathbb{R}$-Vektorräume, $D \subseteq V$ und $f: D \rightarrow W$ eine Funktion.
@@ -1207,15 +919,15 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.8.4 & Es sei $D \subseteq \mathbb{R}^d$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R}^p$ genau dann in $x_0$
@@ -1240,13 +952,13 @@
                                 jeder anderen Norm und der Grenzwert ist derselbe. 
                 \end{itemize} \vspace{-0cm} \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.8.2 & Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
@@ -1255,16 +967,16 @@
                 Je zwei Normen im $\mathbb{R}^d$ sind äquivalent. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsection{Potenzreihen}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.9.1 & Es sei $(a_n)$ eine Folge $\mathbb{K}$. Eine Reihe der Form $\sum^{\infty}_{n=0} a_n x^n = a_0 + a_1x+a_2x^2+ \dots$ 
@@ -1287,13 +999,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
     5.9.3 & \textbf{Satz von Hadamard} \hfill \break
@@ -1326,13 +1038,13 @@
             $f: \{x \in \mathbb{K}: |x| < r\} \rightarrow \mathbb{K}$ mit $f(x) = \sum^{\infty}_{n=0}a_nx^n$ stetig auf $\{x \in \mathbb{K}: |x| < r\}$. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
               & Offensichtlich konvergieren alle Potenzreihen für $x = 0$. \\
@@ -1347,15 +1059,15 @@
                 Daraus folgt: $E(\mathbb{R}) = \{e^x: x \in \mathbb{R}\} = (0, \infty)$ \\ 
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.9.2 & \textbf{Geometrische Reihe} \hfill \break 
@@ -1413,17 +1125,17 @@
                 \sum^{\infty}_{n=0} \frac{0^n}{(n+1)!} = 1$. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsection{Wichtige Funktionen}
 \subsubsection{Exponentialfunktion und Logarithmus}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.2& Die Umkehrfunktion von $E: \mathbb{R} \rightarrow (0, \infty)$ wird mit $ln := E^{-1}: (0,\infty) \rightarrow \mathbb{R}$
@@ -1433,13 +1145,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.1& Die Exponentialfunktion $E: \mathbb{R} \rightarrow (0,\infty)$ ist \textbf{bijektiv} \\
@@ -1460,15 +1172,15 @@
                 Rechenregeln für Potenzen wie beispielsweise $a^{x+y}=a^xa^y$, $a^{-1}=\frac{1}{a}$, $(a^x)^y=a^{xy}$ \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Trigonometrische Funktionen}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.6& $sin(z) := \sum^{\infty}_{n=0} \frac{(-1)^n}{(2n+1)!} z^(2n+1)$, $z \in \mathbb{C}$ (\textbf{Sinus}) \hfill \break
@@ -1493,15 +1205,15 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.8& \textbf{Trigonometrischer Pythagoras}\hfill \break
@@ -1540,13 +1252,13 @@
                 \end{itemize} \vspace{-0cm} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.6& Alle Winkel in der Mathematik werden im Bogenmaß angegeben. \hfill \break
@@ -1554,15 +1266,15 @@
                 (Sin: $\frac{\sqrt{0}}{2},\frac{\sqrt{1}}{2},\frac{\sqrt{2}}{2},\frac{\sqrt{3}}{2},\frac{\sqrt{4}}{2})$\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Die Polardarstellung komplexer Zahlen}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.17&Es sei $Z = x + yi \in \mathbb{C} \textbackslash \{0\}$ mit $x,y \in \mathbb{R}$. Dann heißt $r:= \sqrt{x^2+y^2}$ der \textbf{Betrag}
@@ -1571,13 +1283,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.19&Es seien $z=re^{i\phi}$, $w=se^{i\psi} \in \mathbb{C} \textbackslash \{0\}$ mit Polarkoordinaten $(r,\phi)$, bzw. $(s,\phi)$
@@ -1585,15 +1297,15 @@
                 $(\frac{r}{s}, \phi - \psi)$. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.17& Argument im Intervall $(-\pi, \pi]$ oder $[0, 2\pi)$ um Eindeutigkeit zu garantieren. \\
@@ -1613,13 +1325,13 @@
                 \end{itemize}\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.20&Wir berechnen $(1+i)^{2001}$. \hfill \break
@@ -1628,15 +1340,15 @@
                 2^{1005} \cdot \sqrt{2} e^{i\frac{3\pi}{4}} = 2^{1005} (-1+i)$ ($e^{i502\pi} =1$)\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Hyperbolische Funktionen}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         5.10.22&\begin{itemize}[topsep=-0.5cm]
@@ -1647,10 +1359,10 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \section{Analysis - Teil II: Differential- und Integralrechnung}
 \subsection{Differenzierbarkeit von Funktionen in einer Variablen}
@@ -1658,8 +1370,8 @@
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.1 & Für ganzes Kapitel gilt: $I \subseteq \mathbb{R}$ als Intervall.
@@ -1676,13 +1388,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.4 & Es sei $f: I \rightarrow \mathbb{R}$ in $x_0 \in I$ differenzierbar. Dann ist $f$ \textbf{stetig} in $x_0$. \hfill \break
@@ -1695,13 +1407,13 @@
                 \centerline{$lim_{x \rightarrow x_0}\frac{|r(x)|}{|x-x_0|} = 0$}. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.1 & Der Grenzwert in 6.1.1 existiert genau dann, wenn der Grenzwert $lim_{h \rightarrow 0} \frac{f(_x0 + h)-f(x_0)}{h}$
@@ -1710,13 +1422,13 @@
         6.1.6 & Die Exponentialfunktion ist auf $\mathbb{R}$ differenzierbar und es gilt $E'(x) = e^x = E(x)$. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.3 & $f(x) = c$ $\rightarrow$ $lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0} = lim_{x \rightarrow x_0}
@@ -1729,17 +1441,17 @@
                 \centerline{$lim_{x \rightarrow x_0} \frac{f(x)-f(x_0)}{x-x_0} = lim_{x \rightarrow x_0}(x+x_0) = 2x_0$}
                 Damit ist $f$ auf $\mathbb{R}$ differenzierbar und es gilt $f'(x) = 2x$, $x \in \mathbb{R}$. \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsubsection{Ableitungsregeln}
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.9 & Es seien $f,g: I \rightarrow \mathbb{R}$ in $x_0 \in I$ differenzierbar und $\alpha,\beta \in \mathbb{R}$. Dann gilt
@@ -1771,26 +1483,26 @@
                 (Potenzreihe im Inneren des Konvergenzgebietes summandenweise ableitbar)\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.12& Wichtig: $f'(x_0) \neq 0$ als Voraussetzung! \\
         \midrule
               & \includegraphics[width=6cm]{ableitungen.png} \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.11& $a > 0$, $\phi(x):= a^x$, $x \in \mathbb{R}$ (allgemein) \hfill \break
@@ -1814,15 +1526,15 @@
                 \centerline{$ \sum^{\infty}_{n=1} nx^n = x( \frac{1}{1-x} - 1)' = x \frac{-1}{(1-x)^2}(-1) = \frac{x}{(1-x)^2} $} \\
         
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Höhere Ableitungen}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.19& Ist $f: I \rightarrow \mathbb{R}$ eine in $I$ differenzierbare Funktion und ist $f'$ auf $I$ stetig, so nennt man
@@ -1845,29 +1557,29 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.1.20& Die Funktion selbst wird als nullte Ableitung definiert $f^{(0)} := f$. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 
-    \pagebreak
+    
 
 \subsection{Eigenschaften differenzierbarer Funktionen}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.2.9 & Es sei $I \subseteq \mathbb{R}$ ein offenes Intervall, $x_0 \in I$ und $f \in C^{\infty}(I)$.
@@ -1882,13 +1594,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.2.1 & \textbf{Mittelwertsatz der Differenzialrechnung} \hfill \break
@@ -1929,13 +1641,13 @@
                 (Vorne Annäherung, hinten Fehlerterm - Abschätzung wie gut die Taylorreihe zu Funktion passt) \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.2.1 & Sekantensteigung der Funktion (erhalten durch $a$ und $b$) entspricht irgendwann zwischen $a$ und $b$ tatsächlich
@@ -1954,29 +1666,29 @@
 
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.2.10& Taylorpolynom $k$-ten Grades ist anschaulich die bestmögliche Approximation an die Funktion $f$ \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsection{Extremwerte}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.3.1 & Es sei $D \subseteq \mathbb{R}$ und $f: D \rightarrow \mathbb{R}$ eine Funktion.
@@ -1991,13 +1703,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.3.3 & Es sei $f: I \rightarrow \mathbb{R}$ differenzierbar in $x_0 \in I$. Ist $x_0$ ein innerer Punkt von $I$ und hat $f$ in $x_0$
@@ -2009,13 +1721,13 @@
                 $f^{(n)}(x_0) < 0$ ein \textbf{Maximum}. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.3.3 & Innerer Punkt von D: Kein Randpunkt, möglich Kugel um den Punkt zu legen \hfill \break
@@ -2023,17 +1735,17 @@
                 Warnung: Umkehrung des Satzes gilt nicht (Kann auch Sattelpunkt sein, nicht unbedingt Extremum) \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsection{Differenzieren von Funktionen mehrerer Variablen - Partielle Ableitung}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.4.1 & Es sei $G \subseteq \mathbb{R}^d$ offen, $f: G \rightarrow \mathbb{R}^p$ eine Funktion, $x_0 \in G$ und $v \in \mathbb{R}^d 
@@ -2076,13 +1788,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.4.8 & Ist $G \subseteq \mathbb{R}^d$ offen, $f: G \rightarrow \mathbb{R}^p$ eine Funktion und $x_0 \in G$, so ist $f$ in $x_0$
@@ -2096,15 +1808,15 @@
                 (Sind die partiellen Ableitungen nicht stetig, gilt der Satz nicht.)\\ 
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.4.1 & \includegraphics[width=8cm]{partAbl.png} \\
@@ -2122,13 +1834,13 @@
                 $x_0$ am stärksten ansteigt und seine Länge entspricht dieser maximalen Steigung. (Basis für Optimierungsverfahren) \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.4.7 & $f: \mathbb{R}^3 \rightarrow \mathbb{R}$ mit $f(x,y,z) = xe^{xz+y^2}$: 
@@ -2147,17 +1859,17 @@
                 Man beobachtet, dass das Ergebnis nicht von der Reihenfolge der Ableitungen abhängig sind. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsection{Differenzieren von Funktionen mehrerer Variablen - Totale Differenzierbarkeit}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.5.1 & Es sei $G \subseteq \mathbb{R}^d$ offen und $x_0 \in G$. Eine Funktion $f: G \rightarrow \mathbb{R}^p$ heißt
@@ -2184,15 +1896,15 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.5.6 & Ist $G \subseteq \mathbb{R}^d$ offen und $f: G\rightarrow \mathbb{R}^p$ in $x_0 \in G$ total differenzierbar, so ist $f$ auch
@@ -2238,13 +1950,13 @@
                 \centerline{$ f(x) = f(x_0) + \nabla f(x_0)(x-x_0) + \frac{1}{2} (x-x_0)^T H_f(\xi)(x-x_0)$.} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.5.4 & Ableitung einer linearen Abbildung $\Phi: \mathbb{R}^d \rightarrow \mathbb{R}^p$ ist in jedem Punkt die Abbildung $\Phi$ selbst \\
@@ -2260,17 +1972,17 @@
                 Es gilt $H_f(x_0) = J_{(\nabla f)^T}(x_0)$  \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-\pagebreak
+
 
 \subsection{Extremwertprobleme in mehreren Variablen}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.6.1 & Es sei $G \subseteq \mathbb{R}^d$ und $f: G \rightarrow \mathbb{R}$.
@@ -2285,13 +1997,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.6.2 & Es sei $G \subseteq \mathbb{R}^d$ und $x_0$ ein innerer Punkt von $G$, sowie $f: G \rightarrow \mathbb{R}$ total
@@ -2307,15 +2019,15 @@
 
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsection{Integration in $\mathbb{R}$}
 \subsubsection{Definition des bestimmten Integrals}
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.1 & Es seien $a,b \in \mathbb{R}$ mit $a < b$. Eine endliche Menge $Z:= \{ x_0, x_1, \dots, x_n \} \subseteq [a,b]$ heißt
@@ -2347,15 +2059,15 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.7 & Es seien $a, b \in \mathbb{R}$ mit $a < b$ und integrierbare Funktionen $f,g: [a,b] \rightarrow \mathbb{R}$ gegeben.
@@ -2381,13 +2093,13 @@
                 ist integrierbar. \\  
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.2 & Es gilt $\underline{s}_f(Z) \leq \bar{s}_f(Z)$\\
@@ -2395,15 +2107,15 @@
         6.7.4 & Flächeninhalte unter der $x-Achse$ zählen negativ. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Stammfunktionen und der Hauptsatz}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.13& Es seien $a,b \in \mathbb{R}$ mit $a<b$ und $f, F: [a,b] \rightarrow \mathbb{R}$ Funktionen. Man sagt $F$ ist eine
@@ -2417,13 +2129,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.15& \textbf{Hauptsatz der Differnzial- und Integralrechnung} \hfill \break
@@ -2442,42 +2154,42 @@
                 \frac{a_n}{n+1}x^{n+1}+c $} innerhalb des Konvergenzbereichs. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.15& Ist $F$ eine Stammfunktion von $f$, so erhält man sofort \hfill \break
                 \centerline{$ \int_a^bf(x) dx = F(b)-F(a) =: F(x) \vert^{x=b}_{x=a} $} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.7.18& $\int sin(x) dx = -cos(x) + c$, $c \in \mathbb{R}$ \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsection{Integrationstechniken}
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.8.1 & \textbf{Partielle Integration} \hfill \break
@@ -2498,13 +2210,13 @@
                  $x \in [\alpha, \beta]$} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.8.1 & Gilt auch für unbestimmte Integrale \hfill \break
@@ -2515,13 +2227,13 @@
                 $\vert_{x=g(t)}$: Zuerst gesamtes Intervall ausrechnen, dann am Ende überall für $x$ den Wert $g(t)$ einsetzen. \\   
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         6.8.3 & $\int_0^1 x e^x dx$ \hfill \break
@@ -2536,18 +2248,18 @@
                 Wahl hier: $g(x) = ln(x)$ und $f'(x) = 1$ \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \section{Gewöhnliche Differentialgleichungen}
 \subsection{Problemstellung und Motivation}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.1.2 & Es sei $n \in \mathbb{N}$, $I \subseteq \mathbb{R}$ ein Intervall und $F: I~x~\mathbb{R}^n \rightarrow \mathbb{R}$ stetig.
@@ -2578,14 +2290,14 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
               & Differentialgleichung: Zusammenhang zwischen Funktion und Ableitung bekannt \\
@@ -2601,13 +2313,13 @@
         7.1.6 & DGLs im Allgemeinen mehrere Lösungen \hfill \break
                 Anzahl der frei wählbaren Konstanten entspricht meist der Ordnung der Gleichung \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.1.1 & Wachstumsmodell: Zuwachs proportional dazu, wie groß die Population schon ist \hfill \break
@@ -2621,18 +2333,18 @@
                 \end{itemize} \vspace{-0cm} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
     
-\pagebreak
+    
+
 
 \subsection{Elementare Lösungstechniken}
 \subsubsection{Getrennte Veränderliche}
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.2.2 & \textbf{Trennung der Variablen} \hfill \break
@@ -2647,28 +2359,28 @@
                 \centerline{$ y = H^{-1} \circ G$ mit $G(t) := \int^t_{t_0} g(\tau) d\tau$ und $H(y) := \int^y_{y_0} \frac{h}{h(\eta)}d\eta  $} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.2.2 & Verwendung dieser Methode, falls eine DGL der Form $y'(t) = f(t,y(t))$ zu lösen ist, bei der die rechte Seite $f$ von der
                 Form $f(t,y) = g(t)h(y)$ ist. (Abhängigkeit zwischen $t$ und $y$ multiplikativ getrennt) \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsubsection{Homogene Differentialgleichungen}
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
               & Homogene DGL: Rechte Seite hängt nur vom Quotienten $\frac{y}{t}$ ab, es existiert also eine Funktion $g: \mathbb{R} \rightarrow \mathbb{R}$
@@ -2680,13 +2392,13 @@
                 Dieses $u$ erfüllt Gleichung die nach Methode der getrennten Veränderlichen gelöst werden kann.\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Beispiele}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.2.4 & Anfangswertproblem: \hfill \break
@@ -2709,17 +2421,17 @@
                 die man leicht in einer Probe verifiziert. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
     
-\pagebreak
+    
+
 
 \subsubsection{Lineare Differentialgleichungen erster Ordnung}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.2.5 & Eine lineare DGL erster Ordnung hat die allgemeine Form \hfill \break
@@ -2729,13 +2441,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.2.6 & \textbf{Superpositionsprinzip} \hfill \break
@@ -2755,16 +2467,16 @@
                 gegeben ist. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \subsection{Systeme von Differentialgleichungen}
 \subsubsection{Lineare Systeme}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.3.1 & E seien $I \subseteq  \mathbb{R}$ ein Intervall, $N \in \mathbb{N*}$ und für jede Wahl von $j,k \in \{1,2,\dots,N\}$ 
@@ -2789,15 +2501,15 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.3.3 & Die Menge $L$ aller Lösungen der Gleichung (7.2) ist ein $N$-dimensionaler Untervektorraum von $C^1(I; \mathbb{R}^N)$. \\
@@ -2816,29 +2528,29 @@
                 gegeben durch $y = y_p + y_h$, wobei $y_h$ eine Lösung des zugehörigen Systems (7.2) ist.\\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.3.1 & Das Ganze lässt sich in Matrixschreibweise um Einiges übersichtlicher schreiben. \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsubsection{Lineare Systeme mit konstanten Koeffizienten}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.3.8 & Es sei $A\in \mathbb{R}^{NxN}$. Dann heißt \hfill \break
@@ -2848,13 +2560,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.3.10& Es seien $A,B \in \mathbb{R}^{NxN}$. Dann gelten die folgenden Aussagen über die Matrix-Exponentialfunktion:
@@ -2894,13 +2606,13 @@
                 die eindeutige globale Lösung \hfill \break
                 \centerline{$ y(t) = e^{(t-t_0)A}y_0 + e^{tA} \int^t_{t_0} e^{-sA}b(s) ds = e^{(t-t_0)A}y_0 + \int^t_{t_0} e^{(t-s)A}b(s) ds $}\\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent
     \textbf{Bemerkungen}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
               & Konstante Koeffizienten: $y'(t) = Ay(t) + b(t)$, $t \in I$ \hfill \break
@@ -2910,17 +2622,17 @@
                 \hfill \break \centerline{$ \frac{d}{dt}e^{tA} = A e^{tA} $} \\
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsection{Differentialgleichungen höherer Ordnung}
 
     \noindent
     \textbf{Definitionen}
-    \begin{table}[H]  
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+      
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.4.3 & \begin{itemize}[topsep=-0.5cm]
@@ -2937,13 +2649,13 @@
 
         \bottomrule
 
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.4.1 & Es seien $n \in \mathbb{N}$ mit $n \geq 2$, $I \subseteq \mathbb{R}$ ein Intervall und $F: Ix \mathbb{R}^n \rightarrow \mathbb{R}$
@@ -2981,17 +2693,17 @@
 
 
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
-    \pagebreak
+    
 
 \subsection{Existenz- und Eindeutigkeitsresultate}
 
     \noindent 
     \textbf{Sätze}
-    \begin{table}[H]
-    \begin{tabularx}{\textwidth}{X m{16cm}}
+    
+    \begin{longtable}{p{1cm} p{16cm}}
         \toprule
 
         7.5.1 & \textbf{Satz von Peano} \hfill \break
@@ -3015,7 +2727,7 @@
                                 \end{cases} $}
                 eindeutig lösbar ist. \\
         \bottomrule
-    \end{tabularx}
-    \end{table}
+    \end{longtable}
+    
 
 \end{document}
