@@ -136,6 +136,8 @@
         
     \end{longtable}
 
+\pagebreak
+
 \subsection{Wurzeln, Fakultäten und Binomialkoeffizienten}
       
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
@@ -195,6 +197,8 @@
         \bottomrule
         
     \end{longtable}
+
+\pagebreak
 
 \subsection{Konvergenz von Folgen}
 \subsubsection{Der Konvergenzbegriff und wichtige Beispiele}
@@ -346,6 +350,8 @@
 
     \end{longtable}
 
+\pagebreak
+
 \subsubsection{Teilfolgen und Häufungswerte}
       
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
@@ -417,6 +423,8 @@
         
     \end{longtable}
 
+\pagebreak
+
 \subsection{Reihen}
 
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
@@ -468,113 +476,77 @@
 
     \end{longtable}
 
+\pagebreak
+
 \subsubsection{Absolute Konvergenz}
-    \noindent
-    \textbf{Definitionen}
-      
-    \begin{longtable}{p{1cm} p{16cm}}
+
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        5.5.9 & Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $\mathbb{K}$ heißt \textbf{absolut konvergent}, wenn die Reihe
-                $\sum^{\infty}_{n=0} |a_n|$ in $\mathbb{K}$ konvergiert. (Summanden werden schnell genug klein, vorzeichenunabhängig)\\
-
+        D   & 5.5.9 &   Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $\mathbb{K}$ heißt \textbf{absolut konvergent}, wenn die Reihe
+                        $\sum^{\infty}_{n=0} |a_n|$ in $\mathbb{K}$ konvergiert. (Summanden werden schnell genug klein, vorzeichenunabhängig)\\
+        \midrule
+        S   & 5.5.10&   Jede absolut konvergente Reihe $\sum^{\infty}_{n=0} a_n$ in $\mathbb{K}$ ist auch konvergent in $\mathbb{K}$ und es
+                        gilt die verallgemeinerte Dreiecksungleichung \hfill \break
+                        \centerline{$|\sum^{\infty}_{n=0}a_n| \leq \sum^{\infty}_{n=0} |a_n|$} \\
+        \midrule
+        B   & 5.5.10&   Gilt nicht umgekehrt (alternierende harmonische Reihe)  \\
+        \midrule
+        B   & 5.5.10&   Absolute Konvergenz: Reihenwert ist unabhängig von der Summationsreihenfolge \\
+        \midrule
+        S   & 5.5.12&   Es seien $(a_n)$ und $(b_n)$ reelle Folgen und $n_o \in \mathbb{N}$.
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item \textbf{Majorantenkriterium} \hfill \break 
+                                    Ist $|a_n| \leq b_n$ für alle $n \geq n_o$ und konvergiert die Reihe $\sum^{\infty}_{n=0}b_n$, so ist
+                                    $\sum^{\infty}_{n=0} a_n$ absolut konvergent.
+                            \item \textbf{Minorantenkriterium} \hfill \break
+                                    Ist $a_n \geq b_n \geq 0$ für alle $n \geq n_0$ und divergiert die Reihe $\sum^{\infty}_{n=0}b_n$, so 
+                                    divergiert auch die Reihe $\sum^{\infty}_{n=0}a_n$. 
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.5.12&   Die Vergleichsfolge heißt jeweils konverente Majorante bzw. divergente Minorante. \\
+        \midrule
+        S   & 5.5.16&   Es sei $\sum^{\infty}_{n=0}a_n$ eine Reihe in $\mathbb{K}$.
+                        \begin{itemize}[topsep=-0.5cm]
+                            \item[a)] \textbf{Wurzelkriterium} \hfill \break
+                                    Existiert der Grenzwert $lim_{n \rightarrow \infty} \sqrt[n]{|a_n|}$, so ist die Reihe
+                                    \begin{itemize}[topsep=-0.5cm]
+                                        \item absolut konvergent, wenn $lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} < 1$ ist
+                                        \item divergent, wenn $lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} > 1$ ist
+                                    \end{itemize}
+                            \item[b)] \textbf{Quotientenkriterium} \hfill \break
+                                    Ist $a_n \neq 0$ für alle $n \in \mathbb{N}$ und existiert der Grenzwert 
+                                    $lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}|$, so ist die Reihe
+                                    \begin{itemize}[topsep=-0.5cm]
+                                        \item absolut konvergent, wenn $lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| < 1$ ist
+                                        \item divergent, wenn $lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| > 1$ ist
+                                    \end{itemize}
+                        \end{itemize} \vspace{-0cm} \\
+        \midrule
+        B   & 5.5.16&   Liefert Wurzel-/Quotientenkriterium genau Eins, kann man daraus keine Aussage ableiten \\
         \bottomrule
 
     \end{longtable}
-    
-
-    \noindent 
-    \textbf{Sätze}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.5.10& Jede absolut konvergente Reihe $\sum^{\infty}_{n=0} a_n$ in $\mathbb{K}$ ist auch konvergent in $\mathbb{K}$ und es
-                gilt die verallgemeinerte Dreiecksungleichung \hfill \break
-                \centerline{$|\sum^{\infty}_{n=0}a_n| \leq \sum^{\infty}_{n=0} |a_n|$} \\
-        \midrule
-        5.5.12& Es seien $(a_n)$ und $(b_n)$ reelle Folgen und $n_o \in \mathbb{N}$.
-                \begin{itemize}[topsep=-0.5cm]
-                    \item \textbf{Majorantenkriterium} \hfill \break 
-                            Ist $|a_n| \leq b_n$ für alle $n \geq n_o$ und konvergiert die Reihe $\sum^{\infty}_{n=0}b_n$, so ist
-                            $\sum^{\infty}_{n=0} a_n$ absolut konvergent.
-                    \item \textbf{Minorantenkriterium} \hfill \break
-                            Ist $a_n \geq b_n \geq 0$ für alle $n \geq n_0$ und divergiert die Reihe $\sum^{\infty}_{n=0}b_n$, so 
-                            divergiert auch die Reihe $\sum^{\infty}_{n=0}a_n$. 
-                \end{itemize} \vspace{-0cm} \\
-        \midrule
-        5.5.16& Es sei $\sum^{\infty}_{n=0}a_n$ eine Reihe in $\mathbb{K}$.
-                \begin{itemize}[topsep=-0.5cm]
-                    \item[a)] \textbf{Wurzelkriterium} \hfill \break
-                            Existiert der Grenzwert $lim_{n \rightarrow \infty} \sqrt[n]{|a_n|}$, so ist die Reihe
-                            \begin{itemize}[topsep=-0.5cm]
-                                \item absolut konvergent, wenn $lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} < 1$ ist
-                                \item divergent, wenn $lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} > 1$ ist
-                            \end{itemize}
-                    \item[b)] \textbf{Quotientenkriterium} \hfill \break
-                            Ist $a_n \neq 0$ für alle $n \in \mathbb{N}$ und existiert der Grenzwert 
-                            $lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}|$, so ist die Reihe
-                            \begin{itemize}[topsep=-0.5cm]
-                                \item absolut konvergent, wenn $lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| < 1$ ist
-                                \item divergent, wenn $lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| > 1$ ist
-                            \end{itemize}
-                \end{itemize} \vspace{-0cm} \\
-
-        \bottomrule
-    \end{longtable}
-    
-
-    \noindent
-    \textbf{Bemerkungen}
-    
-    \begin{longtable}{p{1cm} p{16cm}}
-        \toprule
-
-        5.5.10& Gilt nicht umgekehrt (alternierende harmonische Reihe)  \\
-        \midrule
-        5.5.10& Absolute Konvergenz: Reihenwert ist unabhängig von der Summationsreihenfolge \\
-        \midrule
-        5.5.12& Die Vergleichsfolge heißt jeweils konverente Majorante bzw. divergente Minorante. \\
-        \midrule
-        5.5.16& Liefert Wurzel-/Quotientenkriterium genau Eins, kann man daraus keine Aussage ableiten \\
-
-        \bottomrule
-    \end{longtable}
-    
 
 \subsubsection{Das Cauchy-Produkt}
-\noindent
-\textbf{Definitionen}
-  
-\begin{longtable}{p{1cm} p{16cm}}
-    \toprule
 
-    5.5.21& Für alle $z \in \mathbb{C}$ ist $e^z:= E(z) = \sum\limits^{\infty}_{n=0} \frac{z^n}{n!}$. \\
+    \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
+        \toprule
+         S   & 5.5.19&   Es seien $\sum^{\infty}_{n=0} a_n$ und $\sum^{\infty}_{n=0} b_n$ zwei \textbf{absolut konvergente Folgen} in $\mathbb{K}$.
+                Dann konvergiert auch die Reihe $\sum^{\infty}_{n=0} \sum^{n}_{k=0} a_k b_{n-k}$ \textbf{absolut} und es gilt für
+                die Reihenwerte: \hfill \break
+                \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} = (\sum\limits^{\infty}_{n=0} a_n) (\sum\limits^{\infty}_{n=0} b_n)$} 
+                Die Reihe $\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k}$ heißt \textbf{Cauchy-Produkt} der beiden Reihen. \\
+        \midrule
+        S   & 5.5.20&   Für alle $z,w \in \mathbb{C}$ gilt $E(z+w) = E(z)E(w)$. \\
+        \midrule
+        D   & 5.5.21&   Für alle $z \in \mathbb{C}$ ist $e^z:= E(z) = \sum\limits^{\infty}_{n=0} \frac{z^n}{n!}$. \\
 
-    \bottomrule
+        \bottomrule
 
-\end{longtable}
+    \end{longtable}
 
-
-\noindent 
-\textbf{Sätze}
-
-\begin{longtable}{p{1cm} p{16cm}}
-    \toprule
-
-    5.5.19& Es seien $\sum^{\infty}_{n=0} a_n$ und $\sum^{\infty}_{n=0} b_n$ zwei \textbf{absolut konvergente Folgen} in $\mathbb{K}$.
-            Dann konvergiert auch die Reihe $\sum^{\infty}_{n=0} \sum^{n}_{k=0} a_k b_{n-k}$ \textbf{absolut} und es gilt für
-            die Reihenwerte: \hfill \break
-            \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} = (\sum\limits^{\infty}_{n=0} a_n) (\sum\limits^{\infty}_{n=0} b_n)$} 
-            Die Reihe $\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k}$ heißt \textbf{Cauchy-Produkt} der beiden Reihen. \\
-    \midrule
-    5.5.20& Für alle $z,w \in \mathbb{C}$ gilt $E(z+w) = E(z)E(w)$. \\
-
-    \bottomrule
-\end{longtable}
-
-
-
+\pagebreak
 
 \subsection{Konvergenz in normierten Räumen}
 
@@ -690,6 +662,8 @@
         \bottomrule
 
     \end{longtable}
+
+\pagebreak
 
 \subsection{Stetigkeit reeller Funktionen}
 \subsubsection{Der Grenzwertbegriff für Funktionen}
@@ -830,6 +804,8 @@
 
     \end{longtable}
 
+\pagebreak
+
 \subsubsection{Eigenschaften stetiger Funktionen}
 
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
@@ -837,7 +813,7 @@
         S   & 5.7.25&   \textbf{Zwischenwertsatz} \hfill \break
                         Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$. Ist $y_0$ eine reelle Zahl zwischen $f(a)$ und $f(b)$,
                         so gibt es ein $x_0 \in [a,b]$ mit $f(x_0) = y_0$. \hfill \break
-                        \includegraphics[width=5cm]{zws.png} \\
+                        \includegraphics[width=3.5cm]{zws.png} \\
         \midrule
         S   & 5.7.26&   \textbf{Nullstellensatz von Bolzano} \hfill \break
                         Es seien $a,b \in \mathbb{R}$ mit $a < b$ gegeben und $f \in C([a,b])$ erfülle $f(a)f(b) < 0$ (Existenz einer Nullstelle /
@@ -1025,6 +1001,8 @@
         
 
     \end{longtable}
+
+\pagebreak
 
 \subsection{Wichtige Funktionen}
 \subsubsection{Exponentialfunktion und Logarithmus}
@@ -1310,6 +1288,8 @@
 
     \end{longtable}
 
+\pagebreak
+
 \subsection{Eigenschaften differenzierbarer Funktionen}
 
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
@@ -1496,6 +1476,8 @@
 
     \end{longtable}
 
+\pagebreak
+
 \subsection{Differenzieren von Funktionen mehrerer Variablen - Totale Differenzierbarkeit}
 
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
@@ -1610,6 +1592,8 @@
 
     \end{longtable}
 
+\pagebreak
+
 \subsection{Integration in $\mathbb{R}$}
 \subsubsection{Definition des bestimmten Integrals}
 
@@ -1671,6 +1655,8 @@
         \bottomrule
 
     \end{longtable}
+
+\pagebreak
 
 \subsubsection{Stammfunktionen und der Hauptsatz}
 
@@ -1751,6 +1737,8 @@
 
         \bottomrule
     \end{longtable}
+
+\pagebreak
 
 \section{Gewöhnliche Differentialgleichungen}
 \subsection{Problemstellung und Motivation}
@@ -1894,6 +1882,8 @@
         \bottomrule
 
     \end{longtable}
+
+\pagebreak
 
 \subsection{Systeme von Differentialgleichungen}
 \subsubsection{Lineare Systeme}
