@@ -207,7 +207,7 @@
         \toprule
         
         D   & 5.3.1 &   Es sei $(a_n)$ eine Folge in $\mathbb{K}$ und $a \in \mathbb{K}$. Die Folge $(a_n)$ heißt \textbf{konvergent} gegen $a$,
-                        falls für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ exisitert mit \hfill \break
+                        falls für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ existiert mit \hfill \break
                         \centerline{$|a_n-a| < \epsilon$ für alle $n \geq n_0$.}
                         In diesem Fall heißt $a$ der \textbf{Grenzwert} oder Limes von $(a_n)$ und wir schreiben: \hfill \break
                         \centerline{$lim_{a \rightarrow \infty} = a$ oder $a_n \rightarrow a (n \rightarrow \infty)$.} 
@@ -703,7 +703,7 @@
                         D \rightarrow \mathbb{R}$ gegeben, so dass die Grenzwerte $lim_{x \rightarrow x_0} f(x)$ und
                         $lim_{x \rightarrow x_0} g(x)$ existieren. Dann gilt:
                         \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] Die Grenzwerte für $x$ gegen $x_0$ von $f+g$, $fg$ und $|f|$ exisiteren und es gilt:
+                            \item[a)] Die Grenzwerte für $x$ gegen $x_0$ von $f+g$, $fg$ und $|f|$ existieren und es gilt:
                                 \begin{itemize}[topsep=-0.5cm]
                                     \item $lim_{x \rightarrow x_0} (f(x) + g(x)) = lim_{x \rightarrow x_0} f(x) + lim_{x \rightarrow x_0} g(x)$
                                     \item $lim_{x \rightarrow x_0} (f(x) \cdot g(x)) = lim_{x \rightarrow x_0} f(x) \cdot lim_{x \rightarrow x_0} g(x)$
@@ -771,7 +771,7 @@
         \midrule
         S   & 5.7.15&   Es sei $D \subseteq \mathbb{R}$ und $f,g : D \rightarrow \mathbb{R}$ seien stetig in $x_0 \in D$. Dann sind die
                         Funktionen $f+g$, $fg$ und $|f|$ stetig in $x_0$. \hfill \break
-                        Ist $x_0 \in D^* := \{ x \in D: g(x) \neq 0\}$, so ist die Funktion $\frac{f}{q}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$.\\
+                        Ist $x_0 \in D^* := \{ x \in D: g(x) \neq 0\}$, so ist die Funktion $\frac{f}{g}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$.\\
         \midrule
         B   & 5.7.15&   Jede Polynomfunktion ist auf ganz $\mathbb{R}$ stetig. \\
         \midrule
@@ -847,6 +847,12 @@
         \midrule
         B   & 5.8.2 &   Hier keine links- und rechtsseitiger Grenzwerte, da es Unmengen an Richtungen gibt \\
         \midrule
+        D   & 5.3.3 &   Es seien $V,W$ zwei normierte $\mathbb{R}$-Vektorräumen, $D \subseteq V$ und $x_0 \in D$. Eine Funktion $f: D\rightarrow W$
+                        heißt \textbf{stetig} in $x_0$, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge
+                        $(f(a_n))$ konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break
+                        Weiter heißt \textbf{f stetig auf D}, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
+                        Au\ss erdem setzen wir wieder $C(D;W) := \{f: D\rightarrow W: f$ stetig auf $D$\}. \\
+        \midrule
         S   & 5.8.4 &   Es sei $D \subseteq \mathbb{R}^d$ und $x_0 \in D$. Dann ist $f: D \rightarrow \mathbb{R}^p$ genau dann in $x_0$
                         \textbf{stetig}, wenn alle Koordinatenfunktionen $f_1, f_2, \dots, f_p : D \rightarrow \mathbb{R}$ in $x_0$ stetig sind. \\
         \midrule
@@ -855,18 +861,12 @@
                         von $D$ nach $\mathbb{R}$ stetig in $x_0$. \hfill \break
                         Ist au\ss erdem $x_0 \in D^* := \{x \in D: g(x) \neq 0\}$, so ist auch $\frac{f}{g}:D^* \rightarrow \mathbb{R}$ stetig in $x_0$. \\
         \midrule
-        D   & 5.3.8 &   Es seien $V,W$ zwei normierte $\mathbb{R}$-Vektorräumen, $D \subseteq V$ und $x_0 \in D$. Eine Funktion $f: D\rightarrow W$
-                heißt \textbf{stetig} in $x_0$, wenn für jede Folge $(a_n)$ in $D$, die gegen $x_0$ konvergiert, auch die Folge
-                $(f(a_n))$ konvergiert und $lim_{n \rightarrow \infty} f(a_n) = f(x_0)$ gilt. \hfill \break
-                Weiter heißt \textbf{f stetig auf D}, wenn $f$ in jedem Punkt $x_0 \in D$ stetig ist. \hfill \break
-                Au\ss erdem setzen wir wieder $C(D;W) := \{f: D\rightarrow W: f$ stetig auf $D$\}. \\
-        \midrule
         S   & 5.8.8 &   Es sei $K \subseteq \mathbb{R}^d$ \textbf{kompakt} und nicht-leer, sowie $f \in C(K)$. Dann gibt es $x_*, x^* \in K$, so dass \hfill \break
                         \centerline{$f(x_*) \leq f(x) \leq f(x^*)$ für alle $x \in K$}
                         gilt. Insbesondere ist $f$ \textbf{beschränkt}. \\
         \midrule
         S   & 5.8.10&   Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R}^d$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R}^d$. Dann gibt es zwei Konstanten
-                        $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_x$ für alle $x \in \mathbb{R}^d$ gilt. \\
+                        $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_2$ für alle $x \in \mathbb{R}^d$ gilt. \\
         \midrule
         S   & 5.8.11&   \begin{itemize}[topsep=-0.5cm]
                             \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R}^d$, so gibt es Konstanten $0 < c \leq C$, so dass
@@ -2056,7 +2056,7 @@
         \midrule
         S   & 7.5.3 &   \textbf{Satz von Picard-Lindelöff} \hfill \break
                         Es sei $I \subseteq \mathbb{R}$ ein Intervall, $f: I x \mathbb{R}^n \rightarrow \mathbb{R}^n$ stetig, $t_0 \in I$ und 
-                        $y_0 \in \mathbb{R}^n$. Genügt dann $f$ einer Lipschitzbedingung, d.h. exisitiert ein $L > 0$ mit \hfill \break
+                        $y_0 \in \mathbb{R}^n$. Genügt dann $f$ einer Lipschitzbedingung, d.h. existiert ein $L > 0$ mit \hfill \break
                         \centerline{$ ||f(t,y_1) -f(t,y_2)|| \leq L||y_1 - y_2||$ für alle $t\in I$ und $y_1,y_2 \in \mathbb{R}^n $}
                         dann existiert ein kompaktes Intervall $J$ mit $t_0 \in J \subseteq I$, sodass das Anfangswertproblem \hfill \break
                         \centerline{$   \begin{cases}
