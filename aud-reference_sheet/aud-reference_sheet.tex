@@ -721,6 +721,9 @@
             \end{itemize}
     \end{itemize}
 
+
+
+    
 \subsection{Quicksort}
     \begin{itemize}
         \item \textbf{Idee}
@@ -1358,7 +1361,7 @@
                                         \texttt{left=child[0]} und \texttt{right=child[1]}
                                 \item Ausgangsgrad jedes Knoten ist $\leq 2$
                                 \item Höhe leerer Baum per Konvention $-1$
-                                \item Hohe (nicht-leerer) Baum: \\
+                                \item Höhe (nicht-leerer) Baum: \\
                                         max\{Höhe aller Teilbäume der Wurzel\} + 1
                                 \item Halbblatt: Knoten mit nur einem Kind
                             \end{itemize}
@@ -1761,7 +1764,7 @@
                                 IF z.parent == z.parent.parent.left THEN    // Linkes Kind (if-Fall)
                                     y = z.parent.parent.right;
                                     IF y != nil AND y.color == red THEN     // Fall 1
-                                        z.parent.color = block;
+                                        z.parent.color = black;
                                         y.color = black;
                                         z.parent.parent.color = red;
                                         z = z.parent.parent;                // rekursiv nach oben weiterführen
@@ -1896,7 +1899,7 @@
         \item \textbf{Definition}
             \begin{itemize}
                 \item selbst-organisierende Listen
-                \item Ansatz: Einmal angefragte Werte werdeb wahrs. noch öfter angefragt
+                \item Ansatz: Einmal angefragte Werte werden wahrs. noch öfter angefragt
                 \item Angefragte Werte nach oben schieben
                 \item Splay-Bäume sind Untermenge von BST
             \end{itemize}
