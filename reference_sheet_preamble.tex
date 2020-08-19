@@ -17,7 +17,6 @@
 \usepackage{pdfpages} % Used to import PDF pages
 \usepackage{multirow} % Allows us to have a single cell in a table span multiple rows
 \usepackage{makecell} % Allows us to format multiple lines in a single cell
-\usepackage[outputdir=build]{minted} % Used to syntax highlight code
 \usepackage{xcolor}  % Gives access to coloring text
 \usepackage{longtable} % Allows us to create a table over multiple pages
 \usepackage{float} % Improved placement of floating items
@@ -26,9 +25,8 @@
 \usepackage{siunitx} % Used to type the %-sign in text without it fucking my bracket color \SI{70}{\percent}
 \usepackage{tabularx} % Tables with better adjustable widths
 %\usepackage[none]{hyphenat} % Used to globally disable hyphenation
-
-
-
+\usepackage[outputdir=build]{minted} % Used to syntax highlight code
+\usepackage{tcolorbox} % Useful for making boxes, compatible with mined
 % Settings
 
 \graphicspath{{./files/}} % Sets path for files to the files folder in the same directory
@@ -46,3 +44,4 @@
 \renewcommand\labelitemii{$\sbullet[.80]$}
 \renewcommand\labelitemiii{$\sbullet[.65]$}
 \renewcommand\labelitemiv{$\sbullet$}
+
