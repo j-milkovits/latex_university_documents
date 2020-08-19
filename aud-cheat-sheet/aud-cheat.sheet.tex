@@ -1,0 +1,291 @@
+\input{../reference_sheet_preamble}
+
+\tcbuselibrary{minted,skins}
+
+\definecolor{vlcodebg}{rgb}{0.85,0.85,0.85}
+
+% Kudos an Rubos
+% code environment with boxes
+\newtcblisting{ccode}[2][]{
+    listing engine=minted,
+    colback=vlcodebg!30, 
+    colframe=black!70,
+    listing only,
+    %minted style=colorful,
+    minted language=c,
+    minted options={ 
+      linenos=true,
+      numbersep=3mm,
+      texcl=true,
+      #1 
+      },
+      left=5mm,
+      enhanced,
+      overlay={
+                \begin{tcbclipinterior}
+                  \fill[black!25] (frame.south west) rectangle ([xshift=5mm]frame.north west); % Zeilennummernbereich färben
+                \end{tcbclipinterior}
+              },
+      #2
+}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{AUD Klausurblatt SoSe 2020 | Janson/Fischlin}}
+\end{center}
+
+\section*{Definitionen/Wissen}
+\subsection*{Sortier-Algorithmen in einem Satz}
+\begin{itemize}
+    \item \textit{InsertionSort}: Sortierthalten der linken Teilfolge, neuen Wert an richtige Position einfügen
+    \item \textit{BubbleSort}: Vergleiche Paare von benachbarten Schlüsselwerten
+    \item \textit{SelectionSort}: Wähle kleinstes Element und tausche es nach vorne
+    \item \textit{MergeSort}: Teilen, sortiertes Zurückschreiben in Array
+    \item \textit{QuickSort}: Vergleich der Werte mithilfe PivotElement, rekursiver Aufruf auf Teilarray
+\end{itemize}
+
+\subsection*{Asymptotik}
+\begin{itemize}
+    \item $\frac{f(n)}{g(n)} = 0$ $\Rightarrow$ $f(n) = o(g(n))$
+    \item $\frac{f(n)}{g(n)}: konvergent$ $\Rightarrow$ $f(n) = O(g(n))$
+    \item $o(n) \in O(n)$ $\Rightarrow$ schließt alle anderen aus
+    \item $f(n) = g(n)$ $\Rightarrow$ $f(n) = \Theta(g(n))$
+\end{itemize}
+
+\subsection*{Master-Theorem}
+\begin{itemize}
+    \item \textit{Anwendbar?}
+        \begin{itemize}
+            \item $a \geq 1$ und konstant?
+            \item $b > 1$ und konstant?
+            \item $f(n)$ positiv?
+        \end{itemize}
+    \item \textit{Vorgehen}
+        \begin{itemize}
+            \item Berechnung von $log_b(a)$
+            \item Vergleich mit $f(n)$
+                \begin{itemize}
+                    \item {\makebox[8cm][l]{$f(n)$ \textbf{polynomial kleiner} als $n^{log_b(a)}$}}  $\Rightarrow$ $T(n) = \Theta(n^{log_b(a)})$
+                    \item[] $(f(n) = O(n^{log_b(a-\epsilon)})$, $\epsilon > 0$)
+                    \item {\makebox[8cm][l]{$f(n)$ und $n^{log_b(a)}$ \textbf{gleiche Größe}}}  $\Rightarrow$ $T(n) = \Theta(n^{log_b(a)} lg(n))$
+                    \item[] $(f(n) = \Theta(n^{log_b(a)})$
+                    \item {\makebox[8cm][l]{$f(n)$ \textbf{polynomial größer} als $n^{log_b(a)}$ und}} 
+                    \item[] {\makebox[8cm][l]{$af(\frac{n}{b}) \leq c~f(n)$, ($\epsilon < 1)$}}  $\Rightarrow$ $T(n) = \Theta(f(n))$
+                    \item[] ($f(n) = \Omega (n^{log_b(a + \epsilon)})$, $\epsilon > 0$) 
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\subsection*{String-Matching}
+\subsubsection*{Allgemein}
+    \begin{itemize}
+        \item {\makebox[4cm][l]{durchsuchender Text:}}  Array \texttt{T} der Länge \texttt{lenTxt}
+        \item {\makebox[4cm][l]{Textmuster:}}  Array \texttt{P} der Länge \texttt{lenPat $\leq$ lenTxt}
+        \item {\makebox[4cm][l]{Gesucht:}}  alle gültigen Verschiebungen mit denen \texttt{P} in \texttt{T} auftaucht
+        \item {\makebox[4cm][l]{Rückgabe:}} alle \texttt{sft $\in \mathbb{N}$}, sodass \texttt{T[sft,$\dots$,sft+lenPat-1] = P} gilt
+    \end{itemize}
+
+\subsubsection*{NaiveStringMatching}
+\begin{minipage}{0.45\textwidth}
+    \textit{Pseudocode:}
+    \begin{ccode}[autogobble,escapeinside=||]{title={NaiveStringMatching(T,P)}}
+    lenTxt = length(T)
+    lenPat = length(P)
+    L = empty
+    FOR sft = 0 TO lenTxt - lenPat DO
+        isValid = TRUE
+        FOR j = 0 TO lenPat - 1 DO
+            IF P[j] |$\neq$| T[sft+j] THEN
+                isValid = FALSE
+        IF isValid THEN
+            L = append(L, sft)
+    RETURN L
+    \end{ccode}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \textit{Beispiel:} \texttt{T=[h,e,h,e,h,h,h,e,y,h]}, \texttt{P=[h,e,h]} \\
+    \includegraphics[height=6.5cm]{naiveStringMatchingBsp.png}
+\end{minipage}
+
+\subsection*{Queue mithilfe von zwei Stacks}
+
+$enqueue$ pusht auf den ersten Stack. \\
+$dequeue$ wird als $pop(S_2)$ definiert. \\
+Falls der zweite Stack leer ist werden alle Elemente aus $S_1$ geholt und in $S_2$ überführt. \\
+Dann wird das erste Element von $S_2$ ausgegeben. \\
+\centerline{\includegraphics[width=12cm]{stackQueue.png}}
+
+\subsection*{Stack mithilfe von zwei Queues}
+
+Eine der beiden Queues bleibt immer leer (anfangs $Q_2$) \\
+$push$ fügt Wert immer der leeren Queue hinzu. \\
+$pop$ holt alle Elemente bis auf das letzte aus der Queue zurück und fügt sie in die leere ein. \\
+Das letzte Element wird dann ausgegeben. \\
+\centerline{\includegraphics[width=12cm]{queueStack.png}}
+
+\pagebreak
+
+\section*{Baumoperationen}
+
+\subsection*{BST}
+\subsubsection*{Löschen}
+\centerline{\includegraphics[width=10cm]{BSTDelete.png}}
+
+\subsection*{RBT}
+\subsubsection*{Insert}
+\centerline{Wie im BST, neuen Knoten rot färben, danach FixUp:}
+\centerline{\includegraphics[width=15cm]{RBTInsert.png}}
+
+\subsection*{AVL-Bäume}
+\subsubsection*{Einfügen/Löschen}
+\centerline{Einfügen und Löschen wie beim BST, danach jeweils Rebalancieren:}
+\centerline{\includegraphics[width=15cm]{AVLRebalance.png}}
+Beachte beim Löschen: 
+    \begin{itemize}
+        \item Wahl von C: größter Teilbaum von N (eindeutig, da N unbalanciert)
+        \item Wahl von G: größter Teilbaum von C (nicht eindeutig, Wahl Rechts-Rechts/Links-Links)
+        \item \textbf{Potenziell} müssen mehrere Knoten bearbeitet werden $\Rightarrow$ alle Knoten bis Wurzel prüfen
+    \end{itemize}
+
+\subsection*{Splay-Bäume}
+\begin{itemize}
+    \item Suchen: Spüle gesuchten Knoten an die Wurzel (alternativ zuletzt besuchten Knoten)
+    \item Einfügen: Einfügen nach BST-Regeln und danach Hochspülen des Knotens
+    \item Löschen:
+        \begin{itemize}
+            \item[1.] zu löschenden Knoten hochspülen
+            \item[2.] Knoten löschen
+            \item Falls nur ein Kind: Dieses Kind neue Wurzel und fertig
+            \item {\makebox[3cm][l]{Falls zwei Kinder:}}  Spüle größten Knoten im linken Teilbaum hoch
+            \item[] {\makebox[3cm][l]{}} Hänge danach beide Teilbäume an diesen Knoten
+        \end{itemize}
+\end{itemize}
+
+\subsubsection*{Spülen}
+\centerline{\includegraphics[width=15cm]{SplaySplay.png}}
+
+\subsection*{Heaps}
+\subsubsection*{Heap-Sort}
+    \begin{enumerate}
+        \item Array wird als Heap aufgefasst
+        \item Heapeigenschaft wird wiederhergestellt (Heapify)
+        \item Extrahieren der Wurzel (Maximum) und Ersetzen durch \string"letztes\string" Blatt
+        \item Wieder Heapify um Wert an die richtige Stelle zu rücken
+        \item Falls der Baum noch nicht leer ist, gehe zu Schritt 3
+    \end{enumerate}
+
+\noindent
+Heapify: beginnend bei \texttt{ceil((H.length-1)/2) - 1} bis 0: vertausche nach unten, falls Parent kleiner als Child
+\centerline{\includegraphics[width=15cm]{heapSortBsp.png}}
+
+\subsection*{B-Bäume}
+
+\pagebreak
+
+\section*{Anwendungsbeispiel}
+
+\subsection*{Sorting}
+
+\subsubsection*{Insertion Sort}
+\centerline{\includegraphics[width=12cm]{insertionSortBsp.png}}
+
+\subsubsection*{Merge Sort}
+\centerline{\includegraphics[width=12cm]{mergeSortBsp.png}}
+
+\subsubsection*{Quick Sort}
+\centerline{\includegraphics[width=12cm]{quickSortBsp.png}}
+
+\subsection*{Basic Data Structures}
+
+\subsubsection*{Stacks}
+\centerline{\includegraphics[width=5cm]{stackBsp.png}}
+
+\subsubsection*{Queues}
+\centerline{\includegraphics[width=12cm]{queueBsp.png}}
+
+\section*{Pseudocode}
+\subsection*{Sorting}
+    \begin{ccode}[autogobble]{title=Insertion Sort(A)}  
+        FOR j = 1 TO A.length - 1
+          key = A[j]
+          // Füge A[j] in die sortierte Sequenz A[0...j-1] ein
+          i = j - 1
+          WHILE i >= 0 and A[i] > key
+              A[i + 1] = A[i]
+              i = i - 1
+          A[i + 1] = key
+    \end{ccode}
+
+    \begin{ccode}[autogobble]{title=BubbleSort(A)}  
+        FOR i = 0 TO A.length - 2
+            FOR j = A.length - 1 DOWNTO i + 1
+                IF A[j] < A[j-1]
+                    SWAP(A[j], A[j-1])
+        \end{ccode}
+    
+        \begin{ccode}[autogobble]{title=SelectionSort(A)}
+        FOR i = 0 TO A.length - 2
+            k = i 
+            FOR j = i + 1 TO A.length - 1
+                IF A[j] < A[k]
+                    k = j 
+            SWAP(A[i], A[k])
+        \end{ccode}
+    
+    \subsubsection*{Merge Sort}
+        \begin{ccode}[autogobble,escapeinside=||]{title={MergeSort(A, p, r)}}
+        IF p < r
+            q = |$\left \lfloor \texttt{(p+r)/2} \right \rfloor$| // Teilen in 2 Teilfolgen 
+            MERGE-SORT(A,p,q) // Sortieren der beiden Teilfolgen
+            MERGE-SORT(A,q+1,r)
+            MERGE(A,p,q,r) // Vereinigung der beiden sortierten Teilfolgen
+        \end{ccode}
+    
+        \begin{ccode}[autogobble,escapeinside=||]{title={MERGE(A,p,q,r)}}
+        // Geteiltes Array an Stelle q
+        |$n_1$| = q - p + 1
+        |$n_2$| = r - q 
+        Let L[0...|$n_1$|] and R[0...|$n_2$|] be new arrays 
+        FOR i = 0 TO |$n_1$| - 1 // Auffüllen der neu erstellten Arrays
+            L[i] = A[p + i]
+        FOR j = 0 TO |$n_2$| - 1
+            R[j] = A[q + j + 1]
+        L[|$n_1$|] = |$\infty$| // Einfügen des Sentinel-Wertes
+        R[|$n_2$|] = |$\infty$|
+        i = 0
+        j = 0
+        FOR k = p TO r  // Eintragweiser Vergleich der Elemente          
+            IF L[i] |$\leq$| R[j]
+                A[k] = L[i] // Sortiertes Zurückschreiben in Original-Array
+                i = i + 1
+            ELSE 
+                A[k] = R[j]
+                j = j + 1
+        \end{ccode}
+    
+    \subsubsection*{Quicksort}
+        \begin{ccode}[autogobble,escapeinside=||]{title={QUICKSORT(A,p,r)}}
+        IF p < r    // Überprüfung, ob Teilarray leer ist
+            q = PARTITION(A,p,r)
+            QUICKSORT(A,p,q-1)
+            QUICKSORT(A,q+1,r)
+        \end{ccode}
+    
+        \begin{ccode}[autogobble,escapeinside=||]{title={PARTITION(A,p,r)}}
+        x = A[r]    // Wahl des Pivotelements
+        i = p - 1   // Index i setzen
+        FOR j = p TO r - 1 // Auffüllen des Teilarrays mit Elementen
+            IF A[j] |$\leq$| x
+                i = i + 1
+                SWAP(A[i], A[j]) /
+        SWAP(A[i+1], A[r]) // Tausch des Pivotelements
+        RETURN i + 1 // Neuer Index des Pivotelements
+        \end{ccode}
+    
+\section*{MasterTheorem - Beispiele}
+
+\centerline{\includegraphics[width=15cm]{masterTheoremBsp1.png}}
+\centerline{\includegraphics[width=15cm]{masterTheoremBsp2.png}}
+    
+\end{document}
