@@ -390,22 +390,26 @@
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
         
-        D   & 5.4.1 &   \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] Wir bezeichnen mit $F_+ := \{(a_n)$ Folge in $\mathbb{R}: a_n > 0$ für alle $n \in \mathbb{N} \}$
-                            \item[b)] Es sei $(b_n) \in \mathbb{F_+}$. Dann definieren wir die Landau-Symbole durch
-                                \begin{itemize}[topsep=-0.5cm]
-                                    \item $O(b_n) := \{(a_n) \in \mathbb{F_+} : \frac{a_n}{b_n}_{n \in \mathbb{N}}\}$ ($b_n$ größer gleich $a_n$)
-                                    \item $o(b_n) := \{(a_n) \in \mathbb{F_+}: lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 0\}$ ($b_n$ echt größer als $a_n$)
-                                \end{itemize}
-                        \end{itemize} \vspace{-0cm} \\
+        D   & 5.4.1 &   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] Wir bezeichnen mit $F_+ := \{(a_n)$ Folge in $\mathbb{R}: a_n > 0$ für alle $n \in \mathbb{N} \}$
+                                \item[b)] Es sei $(b_n) \in \mathbb{F_+}$. Dann definieren wir die Landau-Symbole durch
+                                    \begin{itemize}[topsep=-0.5cm]
+                                        \item $O(b_n) := \{(a_n) \in \mathbb{F_+} : \frac{a_n}{b_n}_{n \in \mathbb{N}}\}$ ($b_n$ größer gleich $a_n$)
+                                        \item $o(b_n) := \{(a_n) \in \mathbb{F_+}: lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 0\}$ ($b_n$ echt größer als $a_n$)
+                                    \end{itemize}
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
-        B   & 5.4.2 &   \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] $=$-Zeichen wird hier nicht bekannten mathematischen Sinne verwendet
-                            \item[] $\Rightarrow$ Kompromiss Notation $a_n \in O(b_n)$ 
-                            \item[b)] Es gilt immer $o(b_n) \subseteq O(b_n)$. 
-                            \item[c)] $(\frac{a_n}{b_n})_{n \in \mathbb{N}}$ konvergent $\Rightarrow$ $a_n \in O(b_n)$
-                            \item[d)] $a_n \in O(b_n)$: Folge $a_n$ wächst höchstens so schnell wie ein Vielfaches von $b_n$  
-                        \end{itemize} \vspace{-0cm} \\
+        B   & 5.4.2 &   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] $=$-Zeichen wird hier nicht bekannten mathematischen Sinne verwendet
+                                \item[] $\Rightarrow$ Kompromiss Notation $a_n \in O(b_n)$ 
+                                \item[b)] Es gilt immer $o(b_n) \subseteq O(b_n)$. 
+                                \item[c)] $(\frac{a_n}{b_n})_{n \in \mathbb{N}}$ konvergent $\Rightarrow$ $a_n \in O(b_n)$
+                                \item[d)] $a_n \in O(b_n)$: Folge $a_n$ wächst höchstens so schnell wie ein Vielfaches von $b_n$  
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         S   & 5.4.5 &   Es seien $(a_n), (b_n), (c_n), (d_n) \in \mathbb{F_+}$ und $\alpha, \beta \in \mathbb{R_+}$. Dann gilt:S
                             \begin{itemize}[topsep=-0.5cm]
@@ -553,20 +557,22 @@
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        D   & 5.6.1 &   \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] Eine Folge $(a_n)_{n \in \mathbb{N}}$ in $V$ heißt \textbf{konvergent} gegen ein $a \in V$, wenn
-                                        für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ existiert, so dass \hfill \break
-                                        \centerline{$||a_n - a||_V < \epsilon$ für alle $n \geq n_0$}
-                                        Die Folge heißt \textbf{divergent,} wenn sie nicht konvergent ist.
-                            \item[b)] Eine Folge heißt \textbf{Cauchy-Folge}, wenn es für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ gibt
-                                        mit \hfill \break
-                                        \centerline{$||a_n - a_m||_V < \epsilon$ für alle $n,m \geq n_0$}
-                            \item[c)] Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $V$ heißt \textbf{konvergent} mit Reihenwert $s \in V$, wenn die
-                                        Folge der Partialsummen $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$, in $V$ gegen $s$ konvergiert. \hfill \break
-                                        Konvergiert die Reihe $\sum^{\infty}_{n=0} ||a_n||_V$ in $\mathbb{R}$ so heißt die Reihe
-                                        $\sum^{\infty}_{n=0}a_n$ \textbf{absolut konvergent}. \hfill \break
-                                        Ist die Reihe nicht konvergent, so nennt man sie \textbf{divergent}.
-                        \end{itemize} \vspace{-0cm} \\
+        D   & 5.6.1 &   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] Eine Folge $(a_n)_{n \in \mathbb{N}}$ in $V$ heißt \textbf{konvergent} gegen ein $a \in V$, wenn
+                                            für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ existiert, so dass \hfill \break
+                                            \centerline{$||a_n - a||_V < \epsilon$ für alle $n \geq n_0$}
+                                            Die Folge heißt \textbf{divergent,} wenn sie nicht konvergent ist.
+                                \item[b)] Eine Folge heißt \textbf{Cauchy-Folge}, wenn es für jedes $\epsilon > 0$ ein $n_0 \in \mathbb{N}$ gibt
+                                            mit \hfill \break
+                                            \centerline{$||a_n - a_m||_V < \epsilon$ für alle $n,m \geq n_0$}
+                                \item[c)] Eine Reihe $\sum^{\infty}_{n=0} a_n$ in $V$ heißt \textbf{konvergent} mit Reihenwert $s \in V$, wenn die
+                                            Folge der Partialsummen $s_k := \sum^{k}_{n=0} a_n$, $k \in \mathbb{N}$, in $V$ gegen $s$ konvergiert. \hfill \break
+                                            Konvergiert die Reihe $\sum^{\infty}_{n=0} ||a_n||_V$ in $\mathbb{R}$ so heißt die Reihe
+                                            $\sum^{\infty}_{n=0}a_n$ \textbf{absolut konvergent}. \hfill \break
+                                            Ist die Reihe nicht konvergent, so nennt man sie \textbf{divergent}.
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         B   & 5.6.1 &   Genau dasselbe wie vorher, wir ersetzen nur den Betrag durch die jeweilige Norm \\
         \midrule
@@ -595,17 +601,19 @@
                     Wenn eine Folge bezüglich einer Norm konvergiert, dann auch bzgl jeder anderen. \hfill \break 
                     Grenzwerte bleiben gleich. \\
         \midrule
-        D   & 5.6.8 &   \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] Es seien $x_0 \in \mathbb{V}$ und $r \in (0, \infty)$. Dann heißt die Menge \hfill \break
-                                        $B_r(x_0) := \{x \in V: ||x-x_o||_V < r\} $ \textbf{(offene) Kugel} um $x_0$ (Mittelpunkt) mit Radius $r$.
-                            \item[b)] Eine Menge $M \subseteq V$ heißt \textbf{offen}, falls es für jeden Punkt $x_0 \in M$ einen Radius
-                                        $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ gilt.
-                            \item[c)] Eine Menge $M \subseteq V$ heißt \textbf{abgeschlossen}, wenn die Menge $M^c = V \ M$ offen ist.
-                            \item[d)] Es sei $M \subseteq V$. Ein Punkt $x_0 \in M$ heißt \textbf{innerer Punkt} von $M$, falls es ein
-                                        $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ ist. \hfill \break 
-                                        Man nennt $M^o := \{x \in M: x$ innerer Punkt von $M$\} das \textbf{Innere von $M$}.    
-
-                        \end{itemize} \vspace{-0cm} \\
+        D   & 5.6.8 &   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] Es seien $x_0 \in \mathbb{V}$ und $r \in (0, \infty)$. Dann heißt die Menge \hfill \break
+                                            $B_r(x_0) := \{x \in V: ||x-x_o||_V < r\} $ \textbf{(offene) Kugel} um $x_0$ (Mittelpunkt) mit Radius $r$.
+                                \item[b)] Eine Menge $M \subseteq V$ heißt \textbf{offen}, falls es für jeden Punkt $x_0 \in M$ einen Radius
+                                            $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ gilt.
+                                \item[c)] Eine Menge $M \subseteq V$ heißt \textbf{abgeschlossen}, wenn die Menge $M^c = V \ M$ offen ist.
+                                \item[d)] Es sei $M \subseteq V$. Ein Punkt $x_0 \in M$ heißt \textbf{innerer Punkt} von $M$, falls es ein
+                                            $r > 0$ gibt, so dass $B_r(x_0) \subseteq M$ ist. \hfill \break 
+                                            Man nennt $M^o := \{x \in M: x$ innerer Punkt von $M$\} das \textbf{Innere von $M$}.    
+                            
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         B   & 5.6.8 &   Menge \textbf{abgeschlossen}: Rand gehört zur Menge \hfill \break
                     Menge \textbf{offen}: Rand gehört nicht zur Menge \hfill \break
@@ -868,18 +876,22 @@
         S   & 5.8.10&   Es sei $||\cdot||$ irgendeine Norm auf $\mathbb{R}^d$ und $||\cdot||_2$ die 2-Norm auf $\mathbb{R}^d$. Dann gibt es zwei Konstanten
                         $c$ und $C$ mit $0 < c \leq C$, so dass $c||x||_2  \leq ||x|| \leq C ||x||_2$ für alle $x \in \mathbb{R}^d$ gilt. \\
         \midrule
-        S   & 5.8.11&   \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R}^d$, so gibt es Konstanten $0 < c \leq C$, so dass
-                                        $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R}^d$ gilt.
-                            \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R}^d$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
-                                        jeder anderen Norm und der Grenzwert ist derselbe. 
-                        \end{itemize} \vspace{-0cm} \\
+        S   & 5.8.11&   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] Sind $||\cdot||$ und $|||\cdot|||$ zwei Normen auf $\mathbb{R}^d$, so gibt es Konstanten $0 < c \leq C$, so dass
+                                            $c||x|| \leq |||x||| \leq C||x||$ für alle $x \in \mathbb{R}^d$ gilt.
+                                \item[b)] Ist eine Folge $(a_n)$ in $\mathbb{R}^d$ bezüglich einer Norm konvergent, so konvergiert sie auch bezüglich  
+                                            jeder anderen Norm und der Grenzwert ist derselbe. 
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         B   & 5.8.11&   Gilt $c||x|| \leq |||x||| \leq C||x||$ so hei\ss en die Normen $||\cdot||,|||\cdot|||$ äquivalent. \hfill \break
                         Je zwei Normen im $\mathbb{R}^d$ sind äquivalent. \\
         \bottomrule
 
     \end{longtable}
+
+\pagebreak
 
 \subsection{Potenzreihen}
 
@@ -921,18 +933,20 @@
                                             \end{cases}$ }
                         der \textbf{Konvergenzradius} der Reihe. \\
         \midrule
-        BSP & 5.9.5 &   \begin{itemize}[topsep=-0.5cm]
-            \item[a)] $a_n = 1$, $\sum^{\infty}_{n=0} x^n$ \hfill \break
-                        Dann gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} 1 = 1$, also $r = \frac{1}{\rho} = 1$. \hfill \break
-                        Am Rand: Für $x=1$: $\sum^{\infty}_{n=0} 1^n$ divergent. (-1 auch divergent) \hfill \break
-                        Konvergenzbereich: $(-1,1)$
-            \item[b)] $a_n = \frac{1}{n}$, $\sum^{\infty}_{n=1} \frac{x^n}{n}$ \hfill \break
-                        Konvergenzradius 1, da: $lim_{n \rightarrow \infty} \sqrt[n]{\frac{1}{n}} = lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}}
-                        = \frac{1}{lim_{n \rightarrow \infty} \sqrt[n]{n}} = 1$. \hfill \break
-                        Am Rand: Für $x=1$: $\sum^{\infty}_{n=1} \frac{1}{n}$: divergent (harmonische Reihe) \hfill \break
-                        Für $x=-1$: $\sum^{\infty}_{n=1} \frac{(-1)^n}{n}$: konvergent (alternierende harmonische Reihe) \hfill \break
-                        Konvergenzbereich: $[-1,1)$
-        \end{itemize} \vspace{-0cm} \\
+        BSP & 5.9.5 &   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] $a_n = 1$, $\sum^{\infty}_{n=0} x^n$ \hfill \break
+                                            Dann gilt: $\rho = lim_{n \rightarrow \infty} \sqrt[n]{|a_n|} = lim_{n \rightarrow \infty} 1 = 1$, also $r = \frac{1}{\rho} = 1$. \hfill \break
+                                            Am Rand: Für $x=1$: $\sum^{\infty}_{n=0} 1^n$ divergent. (-1 auch divergent) \hfill \break
+                                            Konvergenzbereich: $(-1,1)$
+                                \item[b)] $a_n = \frac{1}{n}$, $\sum^{\infty}_{n=1} \frac{x^n}{n}$ \hfill \break
+                                            Konvergenzradius 1, da: $lim_{n \rightarrow \infty} \sqrt[n]{\frac{1}{n}} = lim_{n \rightarrow \infty} \frac{1}{\sqrt[n]{n}}
+                                            = \frac{1}{lim_{n \rightarrow \infty} \sqrt[n]{n}} = 1$. \hfill \break
+                                            Am Rand: Für $x=1$: $\sum^{\infty}_{n=1} \frac{1}{n}$: divergent (harmonische Reihe) \hfill \break
+                                            Für $x=-1$: $\sum^{\infty}_{n=1} \frac{(-1)^n}{n}$: konvergent (alternierende harmonische Reihe) \hfill \break
+                                            Konvergenzbereich: $[-1,1)$
+                            \end{itemize}
+                        \end{minipage}\\
         \midrule
         D   & 5.9.6 &   Es sei $(a_n)$ eine Folge in $\mathbb{K}$, $n_0 \in \mathbb{N}$ und $x_o \in \mathbb{K}$. Dann nennt man eine Reihe der Form \hfill \break
                         \centerline{$\sum^{\infty}_{n=n_0}a_n(x-x_0)^n$}
@@ -962,27 +976,29 @@
                                         \infty, & \text{falls } \sigma = 0.
                                         \end{cases}$} \\
         \midrule
-        BSP & 5.9.11&   \begin{itemize}[topsep=-0.5cm]
-            \item[a)] $a_n = \frac{n^n}{n!}$, $\sum^{\infty}_{n=0} \frac{n^n}{n!}x^n$ \hfill \break
-                        Quotientenkriterium:  \hfill \break
-                        $\sigma := lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| = lim_{n \rightarrow \infty} 
-                        |\frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n}| = lim_{n \rightarrow \infty} | \frac{(n+1) \cdot (n+1)^n}{(n+1) n}| =
-                        lim_{n \rightarrow \infty}(\frac{n+1}{n})^n = lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n = e$  \hfill \break
-                        Konvergenzradius: $r = \frac{1}{\sigma} = \frac{1}{e}$ \hfill \break
-            \item[b)] $\sum^{\infty}_{n=0} \frac{1}{2^n} x^{3n}$ Achtung Falle! Wegen $3^n$ kein Hadamard und 5.9.10 anwendbar. \hfill \break
-                        Substitution $y = x^3$. $\rightarrow \sum^{\infty}_{n=0} \frac{1}{2^n} y^{n}$ \hfill \break
-                        Konvergenzradius: 2, da $lim_{n \rightarrow \infty} \sqrt[n]{|\frac{1}{2^n}|} = \frac{1}{2}$. \hfill \break
-                        Also Konvergenz für $y = x^3 \in (-2,2)$, Divergenz außerhalb $[-2,2]$ \hfill \break
-                        $\rightarrow$ Konvergenz für $x \in (-\sqrt[3]{2},\sqrt[3]{2})$, Divergenz außerhalb $[-\sqrt[3]{2},\sqrt[3]{2}]$ \hfill \break
-                        Konvergenzradius der ursprünglichen Reihe ist $\sqrt[3]{2}$. 
-        \end{itemize} \vspace{-0cm} \\
+        BSP & 5.9.11&   \begin{minipage}\linewidth
+                            \begin{itemize}
+                                \item[a)] $a_n = \frac{n^n}{n!}$, $\sum^{\infty}_{n=0} \frac{n^n}{n!}x^n$ \hfill \break
+                                            Quotientenkriterium:  \hfill \break
+                                            $\sigma := lim_{n \rightarrow \infty} |\frac{a_{n+1}}{a_n}| = lim_{n \rightarrow \infty} 
+                                            |\frac{(n+1)^{n+1}}{(n+1)!} \cdot \frac{n!}{n^n}| = lim_{n \rightarrow \infty} | \frac{(n+1) \cdot (n+1)^n}{(n+1) n}| =
+                                            lim_{n \rightarrow \infty}(\frac{n+1}{n})^n = lim_{n \rightarrow \infty} (1 + \frac{1}{n})^n = e$  \hfill \break
+                                            Konvergenzradius: $r = \frac{1}{\sigma} = \frac{1}{e}$ \hfill \break
+                                \item[b)] $\sum^{\infty}_{n=0} \frac{1}{2^n} x^{3n}$ Achtung Falle! Wegen $3^n$ kein Hadamard und 5.9.10 anwendbar. \hfill \break
+                                            Substitution $y = x^3$. $\rightarrow \sum^{\infty}_{n=0} \frac{1}{2^n} y^{n}$ \hfill \break
+                                            Konvergenzradius: 2, da $lim_{n \rightarrow \infty} \sqrt[n]{|\frac{1}{2^n}|} = \frac{1}{2}$. \hfill \break
+                                            Also Konvergenz für $y = x^3 \in (-2,2)$, Divergenz außerhalb $[-2,2]$ \hfill \break
+                                            $\rightarrow$ Konvergenz für $x \in (-\sqrt[3]{2},\sqrt[3]{2})$, Divergenz außerhalb $[-\sqrt[3]{2},\sqrt[3]{2}]$ \hfill \break
+                                            Konvergenzradius der ursprünglichen Reihe ist $\sqrt[3]{2}$. 
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         S   & 5.9.13&   \textbf{Cauchy-Produkt von Potenzreihen} \hfill \break
-        Es seien $\sum^{\infty}_{n=0}a_n x^n$ und $\sum^{\infty}_{n=0} b_n x^n$ Potenzreihen in $\mathbb{K}$ mit Konvergenzradien $r_1, r_2 >0$.
-        Dann hat die Potenzreihe \hfill \break
-        \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n$} 
-        mindestens den Konvergenzradius $R := min\{r_1,r_2\}$ und es gilt für alle $x \in \mathbb{K}$ mit $|x| < r$ \hfill \break
-        \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n = (\sum^{\infty}_{n=0}a_n x^n) (\sum^{\infty}_{n=0}b_n x^n)$.} \\
+                        Es seien $\sum^{\infty}_{n=0}a_n x^n$ und $\sum^{\infty}_{n=0} b_n x^n$ Potenzreihen in $\mathbb{K}$ mit Konvergenzradien $r_1, r_2 >0$.
+                        Dann hat die Potenzreihe \hfill \break
+                        \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n$} 
+                        mindestens den Konvergenzradius $R := min\{r_1,r_2\}$ und es gilt für alle $x \in \mathbb{K}$ mit $|x| < r$ \hfill \break
+                        \centerline{$\sum\limits^{\infty}_{n=0} \sum\limits^{n}_{k=0} a_k b_{n-k} x^n = (\sum^{\infty}_{n=0}a_n x^n) (\sum^{\infty}_{n=0}b_n x^n)$.} \\
         \midrule
         S   & 5.9.14&   Es sei $\sum^{\infty}_{n=0}a_nx^n$ eine Potenzreihe in $\mathbb{K}$ mit Konvergenzradius $r > 0$. Dann ist die dadurch gegebene Funktion
                     $f: \{x \in \mathbb{K}: |x| < r\} \rightarrow \mathbb{K}$ mit $f(x) = \sum^{\infty}_{n=0}a_nx^n$ stetig auf $\{x \in \mathbb{K}: |x| < r\}$. \\
@@ -1002,8 +1018,6 @@
 
     \end{longtable}
 
-\pagebreak
-
 \subsection{Wichtige Funktionen}
 \subsubsection{Exponentialfunktion und Logarithmus}
 
@@ -1014,17 +1028,19 @@
         D   & 5.10.2 &  Die Umkehrfunktion von $E: \mathbb{R} \rightarrow (0, \infty)$ wird mit $ln := E^{-1}: (0,\infty) \rightarrow \mathbb{R}$
                 bezeichnet und heißt \textbf{natürlicher Logarithmus}. \\
         \midrule
-        S   & 5.10.3 &  \begin{itemize}[topsep=-0.5cm]
-            \item[a)] Die Funktion $ln$ ist auf $(0, \infty)$ stetig und wächst streng monoton.
-            \item[b)] Es gilt $ln(1) = 0$ und $ln(e) = 1$.
-            \item[c)] $lim_{x \rightarrow \infty} ln(x) = \infty$ und $lim_{x \rightarrow 0+} ln(x) = -\infty$.
-            \item[d)] Für alle $x, y \in (0, \infty)$ und $q \in \mathbb{Q}$ gilt:
-                        \begin{itemize}[topsep=-0.5cm]
-                            \item $ln(xy) = ln(x) + ln(y)$
-                            \item $ln(\frac{x}{y}) = ln(x) - ln(y)$
-                            \item $ln(x^q) = q ln(x)$
-                        \end{itemize} \vspace{-0cm} 
-        \end{itemize} \\
+        S   & 5.10.3 &  \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] Die Funktion $ln$ ist auf $(0, \infty)$ stetig und wächst streng monoton.
+                                \item[b)] Es gilt $ln(1) = 0$ und $ln(e) = 1$.
+                                \item[c)] $lim_{x \rightarrow \infty} ln(x) = \infty$ und $lim_{x \rightarrow 0+} ln(x) = -\infty$.
+                                \item[d)] Für alle $x, y \in (0, \infty)$ und $q \in \mathbb{Q}$ gilt:
+                                            \begin{itemize}
+                                                \item $ln(xy) = ln(x) + ln(y)$
+                                                \item $ln(\frac{x}{y}) = ln(x) - ln(y)$
+                                                \item $ln(x^q) = q ln(x)$
+                                            \end{itemize}
+                            \end{itemize} 
+                        \end{minipage} \\
         \midrule
         D   & 5.10.4 &  Für alle $a \in (0, \infty)$ und alle $x \in \mathbb{R}$ definieren wir die \textbf{allgemeine Potenz} durch $a^x := e^{x\cdot ln(a)}$ \\   
         \midrule
@@ -1092,15 +1108,19 @@
                         \centerline{$tan(z) \frac{sin(z)}{cos(z)}$}
                         heißt \textbf{Tangens}. \\
         \midrule
-        D   & 5.10.15&  \begin{itemize}[topsep=-0.5cm]
-                            \item[] arcsin: $[-1,1] \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcussinus})
-                            \item[] arcsin: $[-1,1] \rightarrow [0, \infty]$ (\textbf{Arcuscosinus})
-                            \item[] arcsin: $\mathbb{R} \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcustangens})
-                        \end{itemize} \vspace{-0cm} \\
+        D   & 5.10.15&  \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[] arcsin: $[-1,1] \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcussinus})
+                                \item[] arcsin: $[-1,1] \rightarrow [0, \infty]$ (\textbf{Arcuscosinus})
+                                \item[] arcsin: $\mathbb{R} \rightarrow [\frac{-\pi}{2},\frac{\pi}{2}]$ (\textbf{Arcustangens})
+                            \end{itemize}
+                        \end{minipage}\\
 
         \bottomrule
 
     \end{longtable}
+
+\pagebreak
 
 \subsubsection{Die Polardarstellung komplexer Zahlen}
 
@@ -1139,22 +1159,24 @@
 
     \end{longtable}
 
-\pagebreak
-
 \subsubsection{Hyperbolische Funktionen}
       
     \begin{longtable}{p{0.75cm} p{1cm} p{16cm}}
         \toprule
 
-        D   & 5.10.22&  \begin{itemize}[topsep=-0.5cm]
-                            \item[] $sinh(z) := \frac{e^z-e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Sinus hyperbolicus})
-                            \item[] $cosh(z) := \frac{e^z+e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Cosinus hyperbolicus})
-                            \item[] $tanh(z) := \frac{sinh(z)}{cosh(z)}$, $z \in \mathbb{C} \textbackslash \{(k\pi + \frac{\pi}{2}i: k \in \mathbb{Z})\}$ (\textbf{Tangens hyperbolicus})
-                        \end{itemize} \vspace{-0cm} \\
+        D   & 5.10.22&  \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[] $sinh(z) := \frac{e^z-e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Sinus hyperbolicus})
+                                \item[] $cosh(z) := \frac{e^z+e^{-z}}{2}$, $z \in \mathbb{C}$ (\textbf{Cosinus hyperbolicus})
+                                \item[] $tanh(z) := \frac{sinh(z)}{cosh(z)}$, $z \in \mathbb{C} \textbackslash \{(k\pi + \frac{\pi}{2}i: k \in \mathbb{Z})\}$ (\textbf{Tangens hyperbolicus})
+                            \end{itemize}
+                        \end{minipage} \\
 
         \bottomrule
 
     \end{longtable}
+
+\pagebreak
 
 \section{Analysis - Teil II: Differential- und Integralrechnung}
 \subsection{Differenzierbarkeit von Funktionen in einer Variablen}
@@ -1270,20 +1292,22 @@
         D   & 6.1.19&   Ist $f: I \rightarrow \mathbb{R}$ eine in $I$ differenzierbare Funktion und ist $f'$ auf $I$ stetig, so nennt man
                         $f$ \textbf{stetig differenzierbar}. Man schreibt $C^1(I) := \{ f:I \rightarrow \mathbb{R}: f$ stetig differenzierbar\} \\
         \midrule
-        D   & 6.1.20&   \begin{itemize}[topsep=-0.5cm]
-                            \item[a] Es sei $f: I \rightarrow \mathbb{R}$ differenzierbar auf $I$, $x_0 \in I$ und $n \in \mathbb{N}$ mit
-                                        $n \geq 2$. Dann heißt die Funktion $f$ in $x_0$ (bzw. auf $I$) \textbf{$n$-mal differenzierbar}
-                                        falls sie auf $I$ schon $(n-1)$ differenzierbar ist und die Funktion $f^{(n-1)}$ in $x_0$
-                                        (bzw. auf $I$) wieder differenzierbar ist. \hfill \break
-                                        In diesem Fall heißt $f^{(n)}(x_0) = (f^{(n-1)})'(x_0)$ die \textbf{$n$-te Ableitung} von $f$ in
-                                        $x_0$ bzw. $x \rightarrow f^{(n)}(x)$ die $n$-te Ableitungsfunktion von $f$ auf $I$. 
-                            \item[b)] Ist die $n$-te Ableitung von $f$ auf $I$ selbst sogar wieder stetig auf $I$, so sagt man $f$ sei
-                                        sei $n$-mal \textbf{stetig differenzierbar} auf $I$. Man schreibt \hfill \break
-                                        \centerline{$ C^n(I) := \{ f: I \mathbb{R}: f~n$-mal stetig differenzierbar\}.}
-                            \item[c)] Ist $f\in C^n(I)$ für alle $n \in \mathbb{N}$, so nennt man $f$ \textbf{beliebig oft differenzierbar}.
-                                        Man verwendet dafür die Bezeichnung \hfill \break
-                                        \centerline{$f \in C^{\infty}(I) := \prod_{n \in \mathbb{N}} C^n(I)$.}
-                        \end{itemize} \vspace{-0cm} \\
+        D   & 6.1.20&   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] Es sei $f: I \rightarrow \mathbb{R}$ differenzierbar auf $I$, $x_0 \in I$ und $n \in \mathbb{N}$ mit
+                                            $n \geq 2$. Dann heißt die Funktion $f$ in $x_0$ (bzw. auf $I$) \textbf{$n$-mal differenzierbar}
+                                            falls sie auf $I$ schon $(n-1)$ differenzierbar ist und die Funktion $f^{(n-1)}$ in $x_0$
+                                            (bzw. auf $I$) wieder differenzierbar ist. \hfill \break
+                                            In diesem Fall heißt $f^{(n)}(x_0) = (f^{(n-1)})'(x_0)$ die \textbf{$n$-te Ableitung} von $f$ in
+                                            $x_0$ bzw. $x \rightarrow f^{(n)}(x)$ die $n$-te Ableitungsfunktion von $f$ auf $I$. 
+                                \item[b)] Ist die $n$-te Ableitung von $f$ auf $I$ selbst sogar wieder stetig auf $I$, so sagt man $f$ sei
+                                            sei $n$-mal \textbf{stetig differenzierbar} auf $I$. Man schreibt \hfill \break
+                                            \centerline{$ C^n(I) := \{ f: I \mathbb{R}: f~n$-mal stetig differenzierbar\}.}
+                                \item[c)] Ist $f\in C^n(I)$ für alle $n \in \mathbb{N}$, so nennt man $f$ \textbf{beliebig oft differenzierbar}.
+                                            Man verwendet dafür die Bezeichnung \hfill \break
+                                            \centerline{$f \in C^{\infty}(I) := \prod_{n \in \mathbb{N}} C^n(I)$.}
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         B   & 6.1.20&   Die Funktion selbst wird als nullte Ableitung definiert $f^{(0)} := f$. \\
         \bottomrule
@@ -1304,21 +1328,23 @@
                         der Tangentensteigung. \hfill \break
                         \includegraphics[width=7cm]{mws.png} \\
         \midrule
-        S   & 6.2.2 &   \begin{itemize}[topsep=-0.5cm]
-                            \item[a)] \textbf{Satz von Rolle} \hfill \break
-                                        Es seien $a, b \in \mathbb{R}$ mit $a < b$ und $f \in C([a,b])$. Ist $f$ auf $(a,b)$ differenzierbar
-                                        und gilt $f(a) = f(b)$, so gibt es ein $\xi \in (a,b)$ mit $f'(\xi) = 0$.
-                            \item[b)] Es sei $f: I \rightarrow \mathbb{R}$ auf dem \textbf{Intervall} $I$ differenzierbar. Dann gilt
-                                        \begin{itemize}[topsep=-0.5cm]
-                                            \item[] Ist $f' = 0$ auf $I$, so ist $f$ auf $I$ konstant.
-                                            \item[] Ist $f' > 0$ auf $I$, so ist $f$ auf $I$ streng monoton wachsend.
-                                            \item[] Ist $f' < 0$ auf $I$, so ist $f$ auf $I$ streng monoton fallend.
-                                            \item[] Ist $f' \geq 0$ auf $I$, so ist $f$ auf $I$ monoton wachsend.
-                                            \item[] Ist $f' \leq 0$ auf $I$, so ist $f$ auf $I$ monoton fallend.
-                                        \end{itemize}
-                            \item[c)] Sind $f,g : I \rightarrow \mathbb{R}$ auf $I$ differenzierbare Funktionen und gilt $f' = g'$ auf $I$,
-                                        so gibt es eine Konstante $c \in \mathbb{R}$, so dass $f(x) = g(x) + c$ für alle $x \in I$ gilt.
-                        \end{itemize} \vspace{-0cm} \\
+        S   & 6.2.2 &   \begin{minipage}{\linewidth}
+                            \begin{itemize}
+                                \item[a)] \textbf{Satz von Rolle} \hfill \break
+                                            Es seien $a, b \in \mathbb{R}$ mit $a < b$ und $f \in C([a,b])$. Ist $f$ auf $(a,b)$ differenzierbar
+                                            und gilt $f(a) = f(b)$, so gibt es ein $\xi \in (a,b)$ mit $f'(\xi) = 0$.
+                                \item[b)] Es sei $f: I \rightarrow \mathbb{R}$ auf dem \textbf{Intervall} $I$ differenzierbar. Dann gilt
+                                            \begin{itemize}[topsep=-0.5cm]
+                                                \item[] Ist $f' = 0$ auf $I$, so ist $f$ auf $I$ konstant.
+                                                \item[] Ist $f' > 0$ auf $I$, so ist $f$ auf $I$ streng monoton wachsend.
+                                                \item[] Ist $f' < 0$ auf $I$, so ist $f$ auf $I$ streng monoton fallend.
+                                                \item[] Ist $f' \geq 0$ auf $I$, so ist $f$ auf $I$ monoton wachsend.
+                                                \item[] Ist $f' \leq 0$ auf $I$, so ist $f$ auf $I$ monoton fallend.
+                                            \end{itemize}
+                                \item[c)] Sind $f,g : I \rightarrow \mathbb{R}$ auf $I$ differenzierbare Funktionen und gilt $f' = g'$ auf $I$,
+                                            so gibt es eine Konstante $c \in \mathbb{R}$, so dass $f(x) = g(x) + c$ für alle $x \in I$ gilt.
+                            \end{itemize}
+                        \end{minipage} \\
         \midrule
         S   & 6.2.6 &   \textbf{Satz von de 'Hospital} \hfill \break
                         Es sei $(a,b)$ ein offenes Intervall $\mathbb{R}$ ($a= - \infty$ und $b = \infty$ hier zugelassen)  und $f,g:
