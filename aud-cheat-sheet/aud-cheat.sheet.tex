@@ -179,7 +179,59 @@ Beachte beim Löschen:
 Heapify: beginnend bei \texttt{ceil((H.length-1)/2) - 1} bis 0: vertausche nach unten, falls Parent kleiner als Child
 \centerline{\includegraphics[width=15cm]{heapSortBsp.png}}
 
-\subsection*{B-Bäume}
+\subsection*{B-Bäume vom Grad \texttt{t}}
+\centerline{Knoten zwischen \texttt{[t-1, $\dots$,2t-1]} Werte (Wurzel: \texttt{[1, $\dots$,2t-1])}} 
+\subsubsection*{Einfügen}
+\texttt{Split:}
+    \begin{itemize}
+        \item Aufbrechen der vollen (\texttt{2t-1}) Node
+        \item Hinzufügen der mittleren Node zur Elternnode
+        \item Aus den anderen Nodes entstehen nun jeweils einzelne Kinder
+        \item Splitten an der Wurzel erzeugt neue Wurzel und erhöht Baumhöhe um 1
+    \end{itemize}
+
+\centerline{\includegraphics[width=15cm]{BInsert.png}}
+
+\subsubsection*{Löschen}
+\begin{enumerate}
+    \item Start bei Wurzel
+    \item[] Wurzel: \texttt{1} Wert | Kinder der Wurzel: \texttt{t-1} Werte $\rightarrow$ Verschmelze Kinder und Wurzel
+    \item Durchlaufe Graph von Node bis zum löschenden Knoten
+    \item Überprüfe bei jeder Node:
+    \item[]
+        \begin{minipage}{0.45\textwidth}
+            \textit{Verschmelzen} \\
+            Kind + Geschwister \texttt{t-1} Werte \\
+            \includegraphics[width=5cm]{bbaumMelt.png}
+        \end{minipage} 
+        \begin{minipage}{0.45\textwidth}
+        \textit{Rotation} \\
+        Kind nur \texttt{t-1} Werte \\
+        Geschwister jedoch mehr als \texttt{t-1} Werte \\
+        \includegraphics[width=5cm]{bbaumRot.png}
+        \end{minipage}
+    \item Knoten gefunden:
+        \begin{itemize}
+            \item \textbf{Löschen im Blatt:} Einfach entfernen, fertig
+            \item \textbf{Löschen im inneren Knoten:}
+            \item[]
+                \begin{minipage}{0.4\textwidth}
+                    \textit{Verschmelzen} \\
+                    Beide Kinder \texttt{t-1} Werte \\
+                    $\rightarrow$ Kindknoten verschmelzen \\
+                    \includegraphics[width=5cm]{bbaumInnerMelt.png}
+                \end{minipage} 
+                \begin{minipage}{0.5\textwidth}
+                \textit{Verschieben} \\
+                Eines der Kinder mehr als \texttt{t-1} Werte \\
+                Größten Wert vom linken Kind nach oben kopieren oder \\
+                Kleinsten Wert vom rechten Kind nach oben kopieren\\
+                \includegraphics[width=5cm]{bbaumInnerRot.png}
+                \end{minipage}
+                \end{itemize}
+\end{enumerate}
+
+
 
 \pagebreak
 
