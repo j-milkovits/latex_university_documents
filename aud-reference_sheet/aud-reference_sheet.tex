@@ -2480,14 +2480,14 @@
                     newQueue(Q);
                     enqueue(Q,s);
                     WHILE !isEmpty(Q) DO
-                    u = dequeue(Q); 
-                    FOREACH v in adj(G,u) DO
-                        IF v.color == WHITE THEN
-                            v.color == GRAY;
-                            v.dist = u.dist+1;
-                            v.pred = u;
-                            enqueue(Q,v);
-                    u.color = BLACK;            // Knoten abgearbeitet
+                        u = dequeue(Q); 
+                        FOREACH v in adj(G,u) DO
+                            IF v.color == WHITE THEN
+                                v.color == GRAY;
+                                v.dist = u.dist+1;
+                                v.pred = u;
+                                enqueue(Q,v);
+                        u.color = BLACK;            // Knoten abgearbeitet
                     \end{minted}
                 \item Laufzeit: $O(|V| + |E|)$
                 \item Nach Algorithmus steht in $v$ die kürzeste Distanz von $s$ nach $v$
