@@ -87,7 +87,7 @@
     \end{itemize}
 
 \subsubsection*{NaiveStringMatching}
-\begin{minipage}{0.45\textwidth}
+\begin{minipage}{0.4\textwidth}
     \textit{Pseudocode:}
     \begin{ccode}[autogobble,escapeinside=||]{title={NaiveStringMatching(T,P)}}
     lenTxt = length(T)
@@ -108,6 +108,53 @@
     \includegraphics[height=6.5cm]{naiveStringMatchingBsp.png}
 \end{minipage}
 
+\subsubsection*{Rabin-Karp-Algorithmus}
+
+\textit{Pseudocode:}
+\begin{ccode}[autogobble,escapeinside=||]{title={RobinKarpMatch(T,P,q)}}
+n = T.length
+m = P.length
+h = |$10^{m-1}$| (mod q)
+p = 0, |$t_0$| = 0, L = empty
+FOR i = 0 TO m-1 DO
+    p = (10p + P[i]) (mod q)
+    |$t_0$| = (10|$t_0$| + T[i]) (mod q)
+FOR s = 0 TO n - m DO
+    IF p == |$t_s$| THEN
+        b = TRUE
+        FOR j = 0 TO m - 1 DO
+            IF P[j] |$\neq$| T[s+j] THEN
+                b = FALSE
+                BREAK
+        IF b THEN
+            L.add(s)
+    IF s < n - m THEN
+    |$t_{s+1}$| = (10(|$t_s$| - T[s]h) + T[s+m]) (mod q)
+RETURN L
+\end{ccode}
+
+\noindent
+\textit{Beispiel}: \texttt{P = [7,3,4]}, \texttt{T = [6,9,1,7,3,4,5,0,9,4,6,2,4,8,7,3,4]}, \texttt{q = 13}, Ergebnis \texttt{L = [3,14]} \\
+\includegraphics[width=12cm]{rabinKarpBsp.png}
+
+\subsubsection*{FiniteAutomationMatching}
+\textit{Pseudocode:}
+\begin{ccode}[autogobble,escapeinside=||]{title={FiniteAutomationMatching(T, $\delta$, lenPat)}}
+lenTxt = length(T)
+L = empty
+st = 0
+FOR sft = 0 TO lenTxt - 1 DO
+    st = |$\delta$|(st, T[sft])
+    IF st = lenPat THEN
+        L = append(L, sft - lenPat + 1)
+RETURN L
+\end{ccode}
+
+\noindent
+\textit{Beispiel:} \texttt{$\Sigma$ = \{a,b\}}, \texttt{P = [a,b,a,a]}, \texttt{T = [a,a,b,a,b,a,a,b,a,a]} \\
+\centerline{\includegraphics[width=15cm]{finiteAutomationMatching.png}}
+
+
 \subsection*{Queue mithilfe von zwei Stacks}
 
 $enqueue$ pusht auf den ersten Stack. \\
@@ -124,7 +171,98 @@ $pop$ holt alle Elemente bis auf das letzte aus der Queue zurück und fügt sie 
 Das letzte Element wird dann ausgegeben. \\
 \centerline{\includegraphics[width=12cm]{queueStack.png}}
 
+\subsection*{Graphen - Adjazenzmatrix/-liste}
+\begin{minipage}{0.45\textwidth}
+    \textit{Umformung Liste $\rightarrow$ Matrix}
+    \begin{ccode}[autogobble, escapeinside = ||]{title={listToMatrix(L)}}
+        nNodes = length(L)
+        M = newMatrix(nNodes, nNodes, 0)
+        FOR i = 0 to nNodes - 1 DO
+            node = L[i]
+            WHILE node |$\neq$| nil DO
+                j = node.key
+                M[i,j] = 1
+                node = node.next
+        RETURN M
+    \end{ccode}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+    \textit{Umformung Matrix $\rightarrow$ Liste}
+    \begin{ccode}[autogobble, escapeinside = ||]{title={matrixToList(M)}}
+        nNodes = rows(M)
+        L = newArray(nNodes)
+        FOR i = 0 to nNodes - 1 DO
+            L[i] = newList()
+            FOR j = 0 TO nNodes - 1 DO
+                IF M[i,j] = 1 THEN
+                    insert(L[i],j)
+        RETURN L
+    \end{ccode}
+\end{minipage}
+
 \pagebreak
+
+\subsection{Graphenalgorithmen}
+\subsubsection{Breadth-First-Search}
+\begin{itemize}
+    \item Besuche zuerst alle unmittelbaren Nachbarn, dann deren Nachbarn, usw.
+    \item Funktionsweise:
+        \begin{itemize}
+            \item setzt alle Knoten auf Weiß und Distanz auf $+\infty$
+            \item Startknoten grau, Distanz grau, Vorgänger nil
+            \item Fügt alle Nachbarn einer Queue hinzu die weiß sind und passt deren Distanz an (dist+1)
+            \item Setzt Knoten auf Schwarz, wenn alle Nachbarn hinzugefügt und holt sich neuen Knoten aus Queue
+            \item
+        \end{itemize}
+\centerline{\includegraphics[width=10cm]{bfsBsp.png}}
+
+\subsubsection{Depth-First-Search}
+\begin{itemize}
+    \item Besuche zuerst alle noch nicht besuchten Nachfolgeknoten
+    \item \string"Laufe so weit wie möglich weg vom aktuellen Knoten\string"
+    \item Funktionsweise DFS (Initialaufruf):
+        \begin{itemize}
+            \item Setzt alle Knoten auf Weiß, Vorgänger auf nil, time auf 0
+            \item Ruft innerhalb einer for-Schleife auf jedem Knoten DFS-VISIT auf
+        \end{itemize}
+    \item Funktionsweise DFS-Visit:
+        \begin{itemize}
+            \item Wird min. einmal auf jedem Knoten aufgerufen
+            \item Erhöht zuallererst time um 1
+            \item setzt discovery time der Node auf time und Farbe auf grau
+            \item Ruft innerhalb For-Schleife für jeden weißen Nachbarn DFS-Visit auf
+            \item Falls die rekursive For-Schleife abgeschlossen ist -> Node Schwarz / time + 1
+            \item Abspeichern der finish-Zeit (u.finish = time)
+        \end{itemize}
+    \item[]
+        \begin{minipage}{0.3\textwidth}
+            \includegraphics[height=3cm]{dfsBsp2.png}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            \includegraphics[height=3cm]{dfsBsp1.png}
+        \end{minipage}
+    \item Anwendungen DFS: \texttt{Topo-Sort}
+        \begin{itemize}
+            \item nur für directed acyclic graphs
+            \item Kanten zeigen immer nur nach rechts
+            \item[]
+                \begin{ccode}[autogobble]{title={TOPOLOGICAL-SORT(G)}}
+                    newLinkedList(L)
+                    run DFS(G) but, each time a node is finished, insert in front of L
+                    RETURN L.head
+                \end{ccode}
+            \item[] \centerline{\includegraphics[width=9cm]{topo.png}}
+        \end{itemize}
+    \item Starke Zusammenhangskomponenten
+        \begin{itemize}
+            \item SCCs sind nur in eine Richtung verbunden und verschiedene sind disjunkt
+            \item Algorithmus lässt einmal DFS laufen und dann nochmal auf dem transponierten Graphen
+            \item DFS auf transponierten Graphen aber in abnehmender finish-time des ersten Graphen
+            \item[] (Transponierter Graph: Umdrehen der Kantenrichtungen)
+            \item Ausgabe jedes DFS-Baumes als ein SCC (Verwendung des Outputs transponierten Graphens)
+        \end{itemize}
+\end{itemize}
+\end{itemize}
 
 \section*{Baumoperationen}
 
@@ -226,11 +364,27 @@ Heapify: beginnend bei \texttt{ceil((H.length-1)/2) - 1} bis 0: vertausche nach 
                 Eines der Kinder mehr als \texttt{t-1} Werte \\
                 Größten Wert vom linken Kind nach oben kopieren oder \\
                 Kleinsten Wert vom rechten Kind nach oben kopieren\\
+                Potentiell rekursiv nach unten suchen \\
                 \includegraphics[width=5cm]{bbaumInnerRot.png}
                 \end{minipage}
                 \end{itemize}
 \end{enumerate}
 
+\section*{Randomized Data Structures}
+\subsection*{Skip-Lists}
+\subsubsection*{Einfügen}
+\begin{itemize}
+    \item Suche richtige Position in unterster Liste
+    \item Füge Wert ein
+    \item Füge ihn auch in drüberliegende Skip-Lists ein, falls die zufällige Zahl $< p$ ist
+\end{itemize}
+\centerline{$p= \frac{1}{2}$, Zufallswerte: $0.33,0.82$ $\rightarrow$ 15 wird in eine höhere Skip-List eingefügt ($0.33 < \frac{1}{2}$, $0.82 > \frac{1}{2})$}
+\centerline{\includegraphics[width=15cm]{skipListsBsp.png}}
+
+\subsubsection*{Löschen}
+\begin{itemize}
+    \item Wert und alle Vorkommen in Expresslisten entfernen
+\end{itemize}
 
 
 \pagebreak
@@ -335,6 +489,52 @@ Heapify: beginnend bei \texttt{ceil((H.length-1)/2) - 1} bis 0: vertausche nach 
         RETURN i + 1 // Neuer Index des Pivotelements
         \end{ccode}
     
+\subsection{Graphenalgorithmen}
+\subsubsection{Breadth-First Search}
+        \begin{ccode}[autogobble, escapeinside=||]{title={BFS(G,s)}}
+        FOREACH u in V-{s} DO
+            u.color = WHITE;        // Weiß = noch nicht besucht
+            u.dist = |$+\infty$|            // Setzen der Distanzen auf Unendlich
+            u.pred = nil;           // Setzen der Vorgänger auf nil
+        s.color = GRAY;             // Anfang bei Startnode
+        s.dist = 0;
+        s.pred = nil;
+        newQueue(Q);
+        enqueue(Q,s);
+        WHILE !isEmpty(Q) DO
+            u = dequeue(Q); 
+            FOREACH v in adj(G,u) DO
+                IF v.color == WHITE THEN
+                    v.color == GRAY;
+                    v.dist = u.dist+1;
+                    v.pred = u;
+                    enqueue(Q,v);
+            u.color = BLACK;            // Knoten abgearbeitet
+        \end{ccode}
+
+\subsubsection{}
+        \begin{ccode}[autogobble, escapeinside=||]{title={DFS(G)}}
+        FOREACH u in V DO
+            u.color = WHITE;
+            u.pred = nil;
+        time = 0;               // time hier als globale Variable
+        FOREACH u in v DO
+            IF u.color == WHITE THEN
+                DFS-VISIT(G,u)  // Start eines rekursiven Aufrufs
+        \end{ccode}
+
+        \begin{ccode}[autogobble, escapeinside=||]{title={DFS-VISIT(G,u)}}
+        time = time + 1;
+        u.disc = time;          // discovery time
+        u.color = GRAY;
+        FOREACH v in adj(G,u) DO
+            IF v.color == WHITE THEN
+                v.pred = u;
+                DFS-VISIT(G,v);
+        u.color = BLACK;
+        time = time + 1;
+        u.finish = time;        // finish time
+        \end{ccode}
 \section*{MasterTheorem - Beispiele}
 
 \centerline{\includegraphics[width=15cm]{masterTheoremBsp1.png}}
