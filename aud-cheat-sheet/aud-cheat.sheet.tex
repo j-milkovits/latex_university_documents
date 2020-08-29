@@ -868,17 +868,17 @@
     \midrule
     LinkedList & $\Theta(n)$ & $\Theta(n)$ & $\Theta(1)$ & $\Theta(1)$ & $O(n)$ & $O(n)$ & $O(1)$ & $O(1)$ & $O(n)$ \\
     \midrule
-    BST & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ \\
+    BST & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ \\
     \midrule
-    RBT & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$  & $O(n)$ \\
+    RBT & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $O(\log n)$ & $O(\log n)$ & $O(\log n)$ & $O(\log n)$  & $O(n)$ \\
     \midrule
-    Splay & / & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & / & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$  & $O(n)$ \\
+    Splay & / & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & / & $O(\log n)$ & $O(\log n)$ & $O(\log n)$  & $O(n)$ \\
     \midrule
-    AVL & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$  & $O(n)$ \\
+    AVL & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $O(\log n)$ & $O(\log n)$ & $O(\log n)$ & $O(\log n)$  & $O(n)$ \\
     \midrule
-    B-Tree & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$ & $O(n \log n)$  & $O(n)$ \\
+    B-Tree & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $O(\log n)$ & $O(\log n)$ & $O(\log n)$ & $O(\log n)$  & $O(n)$ \\
     \midrule
-    Skip-List & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $\Theta(n \log n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n \log n)$ \\
+    Skip-List & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $\Theta(\log n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ & $O(n \log n)$ \\
     \midrule
     Hash-Table & / & $\Theta(1)$ & $\Theta(1)$ & $\Theta(1)$ & / & $O(n)$ & $O(n)$ & $O(n)$ & $O(n)$ \\
     \bottomrule
@@ -902,7 +902,7 @@
         \midrule
         Merge Sort & $\Omega(n \log n)$ & $\Theta(n \log n)$ & $O(n \log n)$ & $O(n)$ \\
         \midrule
-        Quick Sort & $\Omega(n \log n)$ & $\Theta(n \log n)$ & $O(n^2)$ & $O(n \log n)$ \\
+        Quick Sort & $\Omega(n \log n)$ & $\Theta(n \log n)$ & $O(n^2)$ & $O(\log n)$ \\
         \midrule
         Heap Sort & $\Omega(n \log n)$ & $\Theta(n \log n)$ & $O(n \log n)$ & $O(1)$ \\
         \midrule
