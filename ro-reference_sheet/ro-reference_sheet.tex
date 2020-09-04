@@ -90,7 +90,7 @@
             \begin{itemize}
                 \item Explizite Nutzung des Speichersystem
                     \begin{itemize}
-                        \item Internet Prozessorspeicher/Register
+                        \item Interne Prozessorspeicher/Register
                             \begin{itemize}
                                 \item schnelle Register zur temporären Speicherung von Daten/Befehlen
                                 \item direkter Zugriff durch Maschinenbefehle
@@ -327,7 +327,7 @@
             \item Ablauf:
                 \begin{itemize}
                     \item Shell liegt Zeichen des Kommandos ins Register
-                    \item Speichert den Inhalt dann im Hauptspeicher aber
+                    \item Speichert den Inhalt dann im Hauptspeicher ab
                     \item[] \includegraphics[width=9cm]{ausführung1.PNG}
                     \item Schrittweises Kopieren der Befehle/Daten von Festplatte in Hauptspeicher
                     \item[] \includegraphics[width=9cm]{ausführung2.PNG}
@@ -454,7 +454,7 @@
                 \item Adressarithmethik: 
                 \begin{itemize}
                     \item Adressen werden relativ zu Register angegeben
-                    \item Basisadresse (startet bei Wort 9) plus Distanz (offset)
+                    \item Basisadresse (startet bei Wort 0) plus Distanz (offset)
                     \item Adresse = \texttt{(r5 (Basis) + 8 (offset))}
                 \end{itemize}
                 \item Beispiel 1:
