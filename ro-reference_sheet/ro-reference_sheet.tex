@@ -375,7 +375,7 @@
                 \item 2-Adressmaschine (Intel Architektur)
                 \item 3-Adressmaschine (ARM Architektur)
             \end{itemize}
-        \item \textbf{Konstanten in Befehlen (intermediates)}
+        \item \textbf{Konstanten in Befehlen (immediates)}
             \begin{itemize}
                 \item Direkt im Befehl untergebebracht $\rightarrow$ Direktwerte
                 \item Benötigen kein eigenes Register oder Speicherzugriff
@@ -1016,7 +1016,7 @@
         \item \textbf{Optimierungseinstellungen}
             \begin{itemize}
                 \item Generieren des Assemblercodes mithilfe von \texttt{gcc -S code.c} führt zu viel \string"unnötigem"\string Code
-                \item z.B. das Speichern von Intermediate Values auf dem Stack etc
+                \item z.B. das Speichern von immediate Values auf dem Stack etc
                 \item Optimierungsstufen (\texttt{gcc -S -O1 code.c}) erzeugen meist \string"weniger"\string Code
                 \item Die Übersetzung eines Programmes kann also viele verschiedene Ergebnisse haben
                 \item Außerdem werden nicht unbedingt alle Elemente einer Hochsprache in Assembler sichtbar
@@ -1293,7 +1293,7 @@
         \item \textbf{Vorgehensweise und Bitfelder eines Befehls}
             \begin{itemize}
                 \item Hier: Befehl \texttt{ldr}
-                \item Allgemein: \texttt{ldr Rd, [Rn, imm12]} (imm12: intermediate value - 12 Bit)
+                \item Allgemein: \texttt{ldr Rd, [Rn, imm12]} (imm12: immediate value - 12 Bit)
                 \item[] \includegraphics[width=10cm]{befehlsBitfeld.PNG}
                 \item 32 Bit Länge -> z.B.: E13A0110 (In Hexa)
                 \item \textbf{Rd}: Adresse register destination
