@@ -1,0 +1,47 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1.25cm]{geometry} % Puts the same margin on all borders of the document
+
+% Packages
+
+\usepackage{hyperref} % Generate hyperlinks to referenced items
+\usepackage{adjustbox} % Used to change parameters in \includegraphics[scale=•]{•}
+\usepackage{enumitem} % Provides several options for lists
+\usepackage{verbatim} % Package to use \begin{comment}
+\usepackage{pdfpages} % Used to import PDF pages
+\usepackage{multirow} % Allows us to have a single cell in a table span multiple rows
+\usepackage{makecell} % Allows us to format multiple lines in a single cell
+\usepackage{xcolor}  % Gives access to coloring text
+\usepackage{longtable} % Allows us to create a table over multiple pages
+\usepackage{float} % Improved placement of floating items
+\usepackage{pdfpages} % Used to import pdf pages
+\usepackage{booktabs} % Used for horizontal lines instead of \hline
+\usepackage{siunitx} % Used to type the %-sign in text without it fucking my bracket color \SI{70}{\percent}
+\usepackage{tabularx} % Tables with better adjustable widths
+%\usepackage[none]{hyphenat} % Used to globally disable hyphenation
+\usepackage[outputdir=build]{minted} % Used to syntax highlight code
+\usepackage{tcolorbox} % Useful for making boxes, compatible with mined
+% Settings
+
+\graphicspath{{./files/}} % Sets path for files to the files folder in the same directory
+
+\hypersetup{
+    colorlinks=false, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+% Some settings for itemize
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}} % creates a scalable bullet
+
+\renewcommand\labelitemi{$\bullet$}             % Used to standardize symbols for itemize
+\renewcommand\labelitemii{$\sbullet[.80]$}
+\renewcommand\labelitemiii{$\sbullet[.65]$}
+\renewcommand\labelitemiv{$\sbullet$}
+

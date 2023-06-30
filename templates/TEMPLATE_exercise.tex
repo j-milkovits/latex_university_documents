@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry} % Puts the same margin on all borders of the document
+
+% Packages
+
+\usepackage{hyperref} % Generate hyperlinks to referenced items
+\usepackage{adjustbox} % Used to change parameters in \includegraphics[scale=•]{•}
+\usepackage{enumitem} % Provides several options for lists
+\usepackage{verbatim} % Package to use \begin{comment}
+\usepackage{pdfpages} % Used to import PDF pages
+\usepackage{multirow} % Allows us to have a single cell in a table span multiple rows
+\usepackage{makecell} % Allows us to format multiple lines in a single cell
+\usepackage[outputdir=build]{minted} % Used to syntax highlight code
+\usepackage{xcolor, colortbl}  % Gives access to coloring text
+\usepackage{longtable} % Allows us to create a table over multiple pages
+\usepackage{float} % Improved placement of floating items
+\usepackage{pdfpages} % Used to import pdf pages
+\usepackage{booktabs} % Used for horizontal lines instead of \hline
+
+\usepackage{array}
+
+
+% Some settings for itemize
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}} % creates a scalable bullet
+
+\renewcommand\labelitemi{$\bullet$}             % Used to standardize symbols for itemize
+\renewcommand\labelitemii{$\sbullet[.75]$}
+\renewcommand\labelitemiii{$\sbullet$}
+
+\setlength{\parindent}{0pt} % removes indent
+  
+
+\begin{document}
+
+\begin{tabular}{p{0.2\textwidth}>{\centering\arraybackslash\hspace{0pt}}p{0.55\textwidth}r}
+
+Jonas Milkovits & {\large Insert title here}  & Übung X \\
+Frederick Wichert & Insert tutor name here &  \\
+Laurenz Kammeyer & & \\
+\hline
+
+\end{tabular}
+
+\section*{Aufgabe 1}
+
+\subsection*{1.a)}
+  
+  
+  
+\end{document}
